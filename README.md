@@ -1,5 +1,10 @@
 # e2e-tester
 
+[![Dependency Status][deps-image]][deps-link]
+[![Build Status][build-image]][build-link]
+[![Coverage Status][cov-image]][cov-link]
+[![Code Climate][gpa-image]][gpa-link]
+
 End-to-end test across the browsers.
 
 ## Requirement
@@ -75,4 +80,14 @@ OMNIAUTH_GOOGLE_APP_SECRET=bar
 ## Copyright
 
 Copyright (c) 2014 Daisuke Taniwaki. See [LICENSE](LICENSE) for details.
+
+
+[build-image]: https://secure.travis-ci.org/dtaniwaki/e2e-tester.png
+[build-link]:  http://travis-ci.org/dtaniwaki/e2e-tester
+[deps-image]:  https://gemnasium.com/dtaniwaki/e2e-tester.svg
+[deps-link]:   https://gemnasium.com/dtaniwaki/e2e-tester
+[cov-image]:   https://coveralls.io/repos/dtaniwaki/e2e-tester/badge.png
+[cov-link]:    https://coveralls.io/r/dtaniwaki/e2e-tester
+[gpa-image]:   https://codeclimate.com/github/dtaniwaki/e2e-tester.png
+[gpa-link]:    https://codeclimate.com/github/dtaniwaki/e2e-tester
 
