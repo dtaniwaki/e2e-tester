@@ -3,7 +3,6 @@ sudo: required
 rvm:
   - 2.3.0
 cache: bundler
-before_install: gem install bundler
 env:
   - DATABASE_URL=mysql2://root:@127.0.0.1/e2e_tester_test
 before_script:
