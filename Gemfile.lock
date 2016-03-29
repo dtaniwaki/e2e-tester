@@ -541,19 +541,19 @@ DEPENDENCIES
   fog-local (~> 0.3.0)
   formtastic!
   jbuilder (~> 2.0)
-  jquery-rails
+  jquery-rails (~> 4.1.0)
   kaminari!
   letter_opener_web (~> 1.3.0)
   listen (~> 3.0.5)
   mini_magick (~> 4.4.0)
-  mysql2
+  mysql2 (~> 0.4.3)
   omniauth (~> 1.3.1)
   omniauth-google-oauth2 (~> 0.3.1)
   paperclip (~> 4.3.5)
   paranoia!
   pry-byebug (~> 3.3.0)
   pry-rails (~> 0.3.4)
-  puma
+  puma (~> 3.2.0)
   pundit (~> 1.1.0)
   rails (>= 5.0.0.beta3, < 5.1)
   ransack!
