@@ -1,0 +1,22 @@
+= link_to 'Back to Test', test_path(@test)
+h1 All Executions
+
+h2 = @test.project.title
+
+- if @test_executions.present?
+  div.panel.panel-default
+    div.panel-heading Executions
+    table.table
+      tr
+        th ID
+        th State
+        th Executed At
+        th Executed By
+      - @test_executions.each do |te|
+        tr
+          td = link_to te.id, test_execution_path(te)
+          td = link_to te.state, test_execution_path(te)
+          td = link_to te.created_at.to_s, test_execution_path(te)
+          td = te.user.email
+  div.panel
+    = paginate(@test_executions)

@@ -1,0 +1,14 @@
+= link_to "Back to the test", test_path(@test)
+h1 Assigned Users
+
+- if @user_tests.present?
+  div.panel.panel-default
+    table.table
+      tr
+        th ID
+        th Email
+      - @user_tests.each do |ut|
+        tr
+          td = ut.user.id
+          td = ut.user.email
+    = paginate @user_tests

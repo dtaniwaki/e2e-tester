@@ -1,0 +1,14 @@
+= link_to "Back to the project", project_path(@project)
+h1 Assigned Users
+
+- if @user_projects.present?
+  div.panel.panel-default
+    table.table
+      tr
+        th ID
+        th Email
+      - @user_projects.each do |up|
+        tr
+          td = up.user.id
+          td = up.user.email
+    = paginate @user_projects

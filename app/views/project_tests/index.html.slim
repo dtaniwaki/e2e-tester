@@ -1,0 +1,14 @@
+= link_to 'Back to project', project_path(@project)
+h1 Tests
+
+- if @tests.present?
+  div.panel.panel-default
+    table.table
+      tr
+        th ID
+        th Created At
+      - @tests.each do |t|
+        tr
+          td = link_to t.id, test_path(t)
+          td = link_to t.created_at, test_path(t)
+    = paginate @tests

@@ -1,0 +1,71 @@
+version: '2'
+services:
+  init:
+    build: '.'
+    command: 'bash -c ''bundle exec rails db:create db:migrate db:seed browser:update:local'''
+    volumes:
+      - ./log/:/app/log/:rw
+    env_file:
+      - .docker_env
+    environment:
+      RAILS_ENV: production
+      DATABASE_URL: 'mysql2://root:@db:3306/production'
+      REDIS_SIDEKIQ_URL: 'redis://redis:6379/1'
+      REDIS_SESSION_STORE_URL: 'redis://redis:6379/2'
+    links:
+      - db
+    depends_on:
+      - db
+  web:
+    build: '.'
+    command: 'bash -c ''bundle exec rake assets:precompile; SERVICE_HOST=(docker-machine ip default):3000 bundle exec puma -C config/puma.rb'''
+    ports:
+      - 3000:3000
+    volumes_from:
+      - init
+    env_file:
+      - .docker_env
+    environment:
+      PORT: 3000
+      RAILS_ENV: production
+      RAILS_SERVE_STATIC_FILES: 'true'
+      DATABASE_URL: 'mysql2://root:@db:3306/production'
+      REDIS_SIDEKIQ_URL: 'redis://redis:6379/1'
+      REDIS_SESSION_STORE_URL: 'redis://redis:6379/2'
+    links:
+      - db
+      - redis
+    depends_on:
+      - init
+      - db
+      - redis
+  worker:
+    build: '.'
+    command: 'bash -c ''SERVICE_HOST=(docker-machine ip default):3000 bundle exec sidekiq -C config/sidekiq.yml'''
+    volumes_from:
+      - web
+    env_file:
+      - .docker_env
+    environment:
+      RAILS_ENV: production
+      DATABASE_URL: 'mysql2://root:@db:3306/production'
+      REDIS_SIDEKIQ_URL: 'redis://redis:6379/1'
+      REDIS_SESSION_STORE_URL: 'redis://redis:6379/2'
+    links:
+      - db
+      - redis
+    depends_on:
+      - init
+      - db
+      - redis
+  db:
+    image: mysql/mysql-server:5.7
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
+    ports:
+      - 3306:3306
+  redis:
+    image: redis:3.0.7
+    command: 'bash -c ''redis-server'''
+    ports:
+      - 6379:6379

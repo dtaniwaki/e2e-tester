@@ -1,0 +1,9 @@
+language: ruby
+sudo: required
+rvm:
+  - 2.3.0
+cache: bundler
+before_install: gem install bundler
+script: bundle exec rspec
+services:
+  - docker

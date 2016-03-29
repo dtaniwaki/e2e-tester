@@ -1,0 +1,11 @@
+tr.e2e-variable
+  td
+    - if f.object.persisted?
+      = f.hidden_field :id
+    = f.text_field :name
+  td
+    = f.text_field :value
+  td
+    label
+      = f.check_box :_destroy
+      | Delete

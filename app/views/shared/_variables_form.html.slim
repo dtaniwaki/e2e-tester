@@ -1,0 +1,17 @@
+div#e2e_variables.panel.panel-default style='width: 500px;'
+  div.panel-heading Variables
+  = form_for target do |f|
+    table.table style='table-layout: fixed;'
+      tr
+        th style='width: 200px;' Name
+        th style='width: 200px;' Value
+        th style='width: 80px;'
+      = f.fields_for variable_name do |ff|
+        = render '/shared/variable', f: ff
+      tr
+        td colspan='3'
+          = f.fields_for variable_name, target.__send__(variable_name).build, child_index: 'PLACEHOLDER' do |ff|
+            = link_to 'Add new variable', '#', id: 'e2e_add_new_variable', data: { html: escape_once(render('/shared/variable', f: ff)) }
+      tr
+        td colspan='3'
+          = f.submit class: 'btn btn-primary'

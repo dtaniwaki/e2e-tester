@@ -1,0 +1,28 @@
+service:
+  host: 'TBA'
+  protocol: 'TBA'
+admin:
+  email_domain: 'TBA'
+bugsnag:
+  api_key: 'TBA'
+browserstack:
+  username: 'TBA'
+  password: 'TBA'
+storage:
+  fog_credentials:
+    provider: "AWS"
+    region: 'TBA'
+    aws_access_key_id: 'TBA'
+    aws_secret_access_key: 'TBA'
+  fog_directory: 'TBA'
+  root: 'TBA'
+redis:
+  session_store:
+    url: 'TBA'
+  sidekiq:
+    url: 'TBA'
+mandrill:
+  enabled: true
+  username: 'TBA'
+  api_key: 'TBA'
+secret_key_base: 'TBA'

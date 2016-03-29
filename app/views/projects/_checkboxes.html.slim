@@ -1,0 +1,31 @@
+- disabled ||= nil
+
+- unless disabled
+  div
+    select#browser_sets_select.selectpicker
+      option value="" Custom
+      - browser_sets.each do |bs|
+        option value=bs.id data-browser-ids=bs.browsers.map(&:id).map(&:to_s).to_json = bs.name
+
+div
+  div style="margin-bottom: 10px;"
+    a#toggle_browsers href="#" Show all browsers
+  div#all_browsers style='display: none;'
+    - local_browsers = browsers.select { |b| b.is_a?(Browser::Local) }
+    - if local_browsers.present?
+      div.checkbox
+        h3 Local
+        - local_browsers.each do |browser|
+          label
+            = check_box_tag "#{f.object_name}[browser_ids][]", browser.id, false, disabled: disabled, checked: selected_browsers.include?(browser), data: { 'browser-checkbox': true }
+            = browser.name
+    - browserstack_browsers = browsers.select { |b| b.is_a?(Browser::Browserstack) }.group_by { |b| [b.os, b.os_version] }
+    - if browserstack_browsers.present?
+      div.checkbox
+        h3 Browserstack
+        - browserstack_browsers.each do |(os, os_version), browsers|
+          h4 = "#{os} #{os_version}"
+          - browsers.each do |browser|
+            label
+              = check_box_tag "#{f.object_name}[browser_ids][]", browser.id, false, disabled: disabled, checked: selected_browsers.include?(browser), data: { 'browser-checkbox': true }
+              = browser.name

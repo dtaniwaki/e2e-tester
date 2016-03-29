@@ -1,0 +1,4837 @@
+---
+Windows_10_ie_11.0:
+  :browser: ie
+  :os: Windows
+  :os_version: '10'
+  :browser_version: '11.0'
+  :device: 
+Windows_10_edge_13.0:
+  :browser: edge
+  :os: Windows
+  :os_version: '10'
+  :browser_version: '13.0'
+  :device: 
+Windows_10_chrome_37.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '10'
+  :browser_version: '37.0'
+  :device: 
+Windows_10_chrome_38.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '10'
+  :browser_version: '38.0'
+  :device: 
+Windows_10_chrome_39.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '10'
+  :browser_version: '39.0'
+  :device: 
+Windows_10_chrome_40.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '10'
+  :browser_version: '40.0'
+  :device: 
+Windows_10_chrome_41.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '10'
+  :browser_version: '41.0'
+  :device: 
+Windows_10_chrome_42.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '10'
+  :browser_version: '42.0'
+  :device: 
+Windows_10_chrome_43.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '10'
+  :browser_version: '43.0'
+  :device: 
+Windows_10_chrome_44.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '10'
+  :browser_version: '44.0'
+  :device: 
+Windows_10_chrome_45.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '10'
+  :browser_version: '45.0'
+  :device: 
+Windows_10_chrome_46.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '10'
+  :browser_version: '46.0'
+  :device: 
+Windows_10_chrome_47.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '10'
+  :browser_version: '47.0'
+  :device: 
+Windows_10_chrome_48.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '10'
+  :browser_version: '48.0'
+  :device: 
+Windows_10_firefox_32.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '10'
+  :browser_version: '32.0'
+  :device: 
+Windows_10_firefox_33.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '10'
+  :browser_version: '33.0'
+  :device: 
+Windows_10_firefox_34.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '10'
+  :browser_version: '34.0'
+  :device: 
+Windows_10_firefox_35.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '10'
+  :browser_version: '35.0'
+  :device: 
+Windows_10_firefox_36.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '10'
+  :browser_version: '36.0'
+  :device: 
+Windows_10_firefox_37.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '10'
+  :browser_version: '37.0'
+  :device: 
+Windows_10_firefox_38.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '10'
+  :browser_version: '38.0'
+  :device: 
+Windows_10_firefox_39.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '10'
+  :browser_version: '39.0'
+  :device: 
+Windows_10_firefox_40.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '10'
+  :browser_version: '40.0'
+  :device: 
+Windows_10_firefox_41.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '10'
+  :browser_version: '41.0'
+  :device: 
+Windows_10_firefox_42.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '10'
+  :browser_version: '42.0'
+  :device: 
+Windows_10_firefox_43.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '10'
+  :browser_version: '43.0'
+  :device: 
+Windows_10_firefox_44.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '10'
+  :browser_version: '44.0'
+  :device: 
+Windows_XP_opera_12.15:
+  :browser: opera
+  :os: Windows
+  :os_version: XP
+  :browser_version: '12.15'
+  :device: 
+Windows_XP_opera_12.16:
+  :browser: opera
+  :os: Windows
+  :os_version: XP
+  :browser_version: '12.16'
+  :device: 
+Windows_XP_ie_6.0:
+  :browser: ie
+  :os: Windows
+  :os_version: XP
+  :browser_version: '6.0'
+  :device: 
+Windows_XP_ie_7.0:
+  :browser: ie
+  :os: Windows
+  :os_version: XP
+  :browser_version: '7.0'
+  :device: 
+Windows_XP_chrome_14.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: XP
+  :browser_version: '14.0'
+  :device: 
+Windows_XP_chrome_15.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: XP
+  :browser_version: '15.0'
+  :device: 
+Windows_XP_chrome_16.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: XP
+  :browser_version: '16.0'
+  :device: 
+Windows_XP_chrome_17.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: XP
+  :browser_version: '17.0'
+  :device: 
+Windows_XP_chrome_18.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: XP
+  :browser_version: '18.0'
+  :device: 
+Windows_XP_chrome_19.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: XP
+  :browser_version: '19.0'
+  :device: 
+Windows_XP_chrome_20.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: XP
+  :browser_version: '20.0'
+  :device: 
+Windows_XP_chrome_21.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: XP
+  :browser_version: '21.0'
+  :device: 
+Windows_XP_chrome_22.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: XP
+  :browser_version: '22.0'
+  :device: 
+Windows_XP_chrome_23.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: XP
+  :browser_version: '23.0'
+  :device: 
+Windows_XP_chrome_24.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: XP
+  :browser_version: '24.0'
+  :device: 
+Windows_XP_chrome_25.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: XP
+  :browser_version: '25.0'
+  :device: 
+Windows_XP_chrome_26.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: XP
+  :browser_version: '26.0'
+  :device: 
+Windows_XP_chrome_27.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: XP
+  :browser_version: '27.0'
+  :device: 
+Windows_XP_chrome_28.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: XP
+  :browser_version: '28.0'
+  :device: 
+Windows_XP_chrome_29.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: XP
+  :browser_version: '29.0'
+  :device: 
+Windows_XP_chrome_30.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: XP
+  :browser_version: '30.0'
+  :device: 
+Windows_XP_chrome_31.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: XP
+  :browser_version: '31.0'
+  :device: 
+Windows_XP_chrome_32.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: XP
+  :browser_version: '32.0'
+  :device: 
+Windows_XP_chrome_33.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: XP
+  :browser_version: '33.0'
+  :device: 
+Windows_XP_chrome_34.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: XP
+  :browser_version: '34.0'
+  :device: 
+Windows_XP_chrome_35.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: XP
+  :browser_version: '35.0'
+  :device: 
+Windows_XP_chrome_36.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: XP
+  :browser_version: '36.0'
+  :device: 
+Windows_XP_chrome_37.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: XP
+  :browser_version: '37.0'
+  :device: 
+Windows_XP_chrome_38.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: XP
+  :browser_version: '38.0'
+  :device: 
+Windows_XP_chrome_39.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: XP
+  :browser_version: '39.0'
+  :device: 
+Windows_XP_chrome_40.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: XP
+  :browser_version: '40.0'
+  :device: 
+Windows_XP_chrome_41.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: XP
+  :browser_version: '41.0'
+  :device: 
+Windows_XP_chrome_42.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: XP
+  :browser_version: '42.0'
+  :device: 
+Windows_XP_chrome_43.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: XP
+  :browser_version: '43.0'
+  :device: 
+Windows_XP_chrome_44.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: XP
+  :browser_version: '44.0'
+  :device: 
+Windows_XP_chrome_45.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: XP
+  :browser_version: '45.0'
+  :device: 
+Windows_XP_chrome_46.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: XP
+  :browser_version: '46.0'
+  :device: 
+Windows_XP_chrome_47.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: XP
+  :browser_version: '47.0'
+  :device: 
+Windows_XP_chrome_48.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: XP
+  :browser_version: '48.0'
+  :device: 
+Windows_XP_firefox_3.6:
+  :browser: firefox
+  :os: Windows
+  :os_version: XP
+  :browser_version: '3.6'
+  :device: 
+Windows_XP_firefox_4.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: XP
+  :browser_version: '4.0'
+  :device: 
+Windows_XP_firefox_5.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: XP
+  :browser_version: '5.0'
+  :device: 
+Windows_XP_firefox_6.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: XP
+  :browser_version: '6.0'
+  :device: 
+Windows_XP_firefox_7.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: XP
+  :browser_version: '7.0'
+  :device: 
+Windows_XP_firefox_8.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: XP
+  :browser_version: '8.0'
+  :device: 
+Windows_XP_firefox_9.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: XP
+  :browser_version: '9.0'
+  :device: 
+Windows_XP_firefox_10.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: XP
+  :browser_version: '10.0'
+  :device: 
+Windows_XP_firefox_11.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: XP
+  :browser_version: '11.0'
+  :device: 
+Windows_XP_firefox_12.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: XP
+  :browser_version: '12.0'
+  :device: 
+Windows_XP_firefox_13.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: XP
+  :browser_version: '13.0'
+  :device: 
+Windows_XP_firefox_14.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: XP
+  :browser_version: '14.0'
+  :device: 
+Windows_XP_firefox_15.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: XP
+  :browser_version: '15.0'
+  :device: 
+Windows_XP_firefox_16.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: XP
+  :browser_version: '16.0'
+  :device: 
+Windows_XP_firefox_17.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: XP
+  :browser_version: '17.0'
+  :device: 
+Windows_XP_firefox_18.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: XP
+  :browser_version: '18.0'
+  :device: 
+Windows_XP_firefox_19.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: XP
+  :browser_version: '19.0'
+  :device: 
+Windows_XP_firefox_20.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: XP
+  :browser_version: '20.0'
+  :device: 
+Windows_XP_firefox_21.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: XP
+  :browser_version: '21.0'
+  :device: 
+Windows_XP_firefox_22.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: XP
+  :browser_version: '22.0'
+  :device: 
+Windows_XP_firefox_23.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: XP
+  :browser_version: '23.0'
+  :device: 
+Windows_XP_firefox_24.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: XP
+  :browser_version: '24.0'
+  :device: 
+Windows_XP_firefox_25.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: XP
+  :browser_version: '25.0'
+  :device: 
+Windows_XP_firefox_26.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: XP
+  :browser_version: '26.0'
+  :device: 
+Windows_XP_firefox_27.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: XP
+  :browser_version: '27.0'
+  :device: 
+Windows_XP_firefox_28.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: XP
+  :browser_version: '28.0'
+  :device: 
+Windows_XP_firefox_29.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: XP
+  :browser_version: '29.0'
+  :device: 
+Windows_XP_firefox_30.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: XP
+  :browser_version: '30.0'
+  :device: 
+Windows_XP_firefox_31.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: XP
+  :browser_version: '31.0'
+  :device: 
+Windows_XP_firefox_32.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: XP
+  :browser_version: '32.0'
+  :device: 
+Windows_XP_firefox_33.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: XP
+  :browser_version: '33.0'
+  :device: 
+Windows_XP_firefox_34.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: XP
+  :browser_version: '34.0'
+  :device: 
+Windows_XP_firefox_35.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: XP
+  :browser_version: '35.0'
+  :device: 
+Windows_XP_firefox_36.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: XP
+  :browser_version: '36.0'
+  :device: 
+Windows_XP_firefox_37.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: XP
+  :browser_version: '37.0'
+  :device: 
+Windows_XP_firefox_38.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: XP
+  :browser_version: '38.0'
+  :device: 
+Windows_XP_firefox_40.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: XP
+  :browser_version: '40.0'
+  :device: 
+Windows_XP_firefox_41.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: XP
+  :browser_version: '41.0'
+  :device: 
+Windows_XP_firefox_42.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: XP
+  :browser_version: '42.0'
+  :device: 
+Windows_XP_firefox_43.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: XP
+  :browser_version: '43.0'
+  :device: 
+Windows_XP_firefox_44.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: XP
+  :browser_version: '44.0'
+  :device: 
+Windows_8.1_opera_12.15:
+  :browser: opera
+  :os: Windows
+  :os_version: '8.1'
+  :browser_version: '12.15'
+  :device: 
+Windows_8.1_opera_12.16:
+  :browser: opera
+  :os: Windows
+  :os_version: '8.1'
+  :browser_version: '12.16'
+  :device: 
+Windows_8.1_ie_11.0:
+  :browser: ie
+  :os: Windows
+  :os_version: '8.1'
+  :browser_version: '11.0'
+  :device: 
+Windows_8.1_chrome_22.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '8.1'
+  :browser_version: '22.0'
+  :device: 
+Windows_8.1_chrome_23.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '8.1'
+  :browser_version: '23.0'
+  :device: 
+Windows_8.1_chrome_24.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '8.1'
+  :browser_version: '24.0'
+  :device: 
+Windows_8.1_chrome_25.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '8.1'
+  :browser_version: '25.0'
+  :device: 
+Windows_8.1_chrome_26.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '8.1'
+  :browser_version: '26.0'
+  :device: 
+Windows_8.1_chrome_27.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '8.1'
+  :browser_version: '27.0'
+  :device: 
+Windows_8.1_chrome_28.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '8.1'
+  :browser_version: '28.0'
+  :device: 
+Windows_8.1_chrome_29.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '8.1'
+  :browser_version: '29.0'
+  :device: 
+Windows_8.1_chrome_30.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '8.1'
+  :browser_version: '30.0'
+  :device: 
+Windows_8.1_chrome_31.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '8.1'
+  :browser_version: '31.0'
+  :device: 
+Windows_8.1_chrome_32.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '8.1'
+  :browser_version: '32.0'
+  :device: 
+Windows_8.1_chrome_33.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '8.1'
+  :browser_version: '33.0'
+  :device: 
+Windows_8.1_chrome_34.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '8.1'
+  :browser_version: '34.0'
+  :device: 
+Windows_8.1_chrome_35.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '8.1'
+  :browser_version: '35.0'
+  :device: 
+Windows_8.1_chrome_36.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '8.1'
+  :browser_version: '36.0'
+  :device: 
+Windows_8.1_chrome_37.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '8.1'
+  :browser_version: '37.0'
+  :device: 
+Windows_8.1_chrome_38.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '8.1'
+  :browser_version: '38.0'
+  :device: 
+Windows_8.1_chrome_39.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '8.1'
+  :browser_version: '39.0'
+  :device: 
+Windows_8.1_chrome_40.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '8.1'
+  :browser_version: '40.0'
+  :device: 
+Windows_8.1_chrome_41.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '8.1'
+  :browser_version: '41.0'
+  :device: 
+Windows_8.1_chrome_42.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '8.1'
+  :browser_version: '42.0'
+  :device: 
+Windows_8.1_chrome_43.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '8.1'
+  :browser_version: '43.0'
+  :device: 
+Windows_8.1_chrome_44.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '8.1'
+  :browser_version: '44.0'
+  :device: 
+Windows_8.1_chrome_45.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '8.1'
+  :browser_version: '45.0'
+  :device: 
+Windows_8.1_chrome_46.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '8.1'
+  :browser_version: '46.0'
+  :device: 
+Windows_8.1_chrome_47.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '8.1'
+  :browser_version: '47.0'
+  :device: 
+Windows_8.1_chrome_48.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '8.1'
+  :browser_version: '48.0'
+  :device: 
+Windows_8.1_firefox_16.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '8.1'
+  :browser_version: '16.0'
+  :device: 
+Windows_8.1_firefox_17.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '8.1'
+  :browser_version: '17.0'
+  :device: 
+Windows_8.1_firefox_18.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '8.1'
+  :browser_version: '18.0'
+  :device: 
+Windows_8.1_firefox_19.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '8.1'
+  :browser_version: '19.0'
+  :device: 
+Windows_8.1_firefox_20.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '8.1'
+  :browser_version: '20.0'
+  :device: 
+Windows_8.1_firefox_21.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '8.1'
+  :browser_version: '21.0'
+  :device: 
+Windows_8.1_firefox_22.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '8.1'
+  :browser_version: '22.0'
+  :device: 
+Windows_8.1_firefox_23.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '8.1'
+  :browser_version: '23.0'
+  :device: 
+Windows_8.1_firefox_24.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '8.1'
+  :browser_version: '24.0'
+  :device: 
+Windows_8.1_firefox_25.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '8.1'
+  :browser_version: '25.0'
+  :device: 
+Windows_8.1_firefox_26.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '8.1'
+  :browser_version: '26.0'
+  :device: 
+Windows_8.1_firefox_27.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '8.1'
+  :browser_version: '27.0'
+  :device: 
+Windows_8.1_firefox_28.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '8.1'
+  :browser_version: '28.0'
+  :device: 
+Windows_8.1_firefox_29.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '8.1'
+  :browser_version: '29.0'
+  :device: 
+Windows_8.1_firefox_30.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '8.1'
+  :browser_version: '30.0'
+  :device: 
+Windows_8.1_firefox_31.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '8.1'
+  :browser_version: '31.0'
+  :device: 
+Windows_8.1_firefox_32.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '8.1'
+  :browser_version: '32.0'
+  :device: 
+Windows_8.1_firefox_33.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '8.1'
+  :browser_version: '33.0'
+  :device: 
+Windows_8.1_firefox_34.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '8.1'
+  :browser_version: '34.0'
+  :device: 
+Windows_8.1_firefox_35.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '8.1'
+  :browser_version: '35.0'
+  :device: 
+Windows_8.1_firefox_36.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '8.1'
+  :browser_version: '36.0'
+  :device: 
+Windows_8.1_firefox_37.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '8.1'
+  :browser_version: '37.0'
+  :device: 
+Windows_8.1_firefox_38.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '8.1'
+  :browser_version: '38.0'
+  :device: 
+Windows_8.1_firefox_39.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '8.1'
+  :browser_version: '39.0'
+  :device: 
+Windows_8.1_firefox_40.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '8.1'
+  :browser_version: '40.0'
+  :device: 
+Windows_8.1_firefox_41.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '8.1'
+  :browser_version: '41.0'
+  :device: 
+Windows_8.1_firefox_42.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '8.1'
+  :browser_version: '42.0'
+  :device: 
+Windows_8.1_firefox_43.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '8.1'
+  :browser_version: '43.0'
+  :device: 
+Windows_8.1_firefox_44.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '8.1'
+  :browser_version: '44.0'
+  :device: 
+Windows_8_opera_12.15:
+  :browser: opera
+  :os: Windows
+  :os_version: '8'
+  :browser_version: '12.15'
+  :device: 
+Windows_8_opera_12.16:
+  :browser: opera
+  :os: Windows
+  :os_version: '8'
+  :browser_version: '12.16'
+  :device: 
+Windows_8_ie_10.0:
+  :browser: ie
+  :os: Windows
+  :os_version: '8'
+  :browser_version: '10.0'
+  :device: 
+Windows_8_chrome_22.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '8'
+  :browser_version: '22.0'
+  :device: 
+Windows_8_chrome_23.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '8'
+  :browser_version: '23.0'
+  :device: 
+Windows_8_chrome_24.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '8'
+  :browser_version: '24.0'
+  :device: 
+Windows_8_chrome_25.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '8'
+  :browser_version: '25.0'
+  :device: 
+Windows_8_chrome_26.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '8'
+  :browser_version: '26.0'
+  :device: 
+Windows_8_chrome_27.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '8'
+  :browser_version: '27.0'
+  :device: 
+Windows_8_chrome_28.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '8'
+  :browser_version: '28.0'
+  :device: 
+Windows_8_chrome_29.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '8'
+  :browser_version: '29.0'
+  :device: 
+Windows_8_chrome_30.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '8'
+  :browser_version: '30.0'
+  :device: 
+Windows_8_chrome_31.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '8'
+  :browser_version: '31.0'
+  :device: 
+Windows_8_chrome_32.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '8'
+  :browser_version: '32.0'
+  :device: 
+Windows_8_chrome_33.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '8'
+  :browser_version: '33.0'
+  :device: 
+Windows_8_chrome_34.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '8'
+  :browser_version: '34.0'
+  :device: 
+Windows_8_chrome_35.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '8'
+  :browser_version: '35.0'
+  :device: 
+Windows_8_chrome_36.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '8'
+  :browser_version: '36.0'
+  :device: 
+Windows_8_chrome_37.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '8'
+  :browser_version: '37.0'
+  :device: 
+Windows_8_chrome_38.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '8'
+  :browser_version: '38.0'
+  :device: 
+Windows_8_chrome_39.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '8'
+  :browser_version: '39.0'
+  :device: 
+Windows_8_chrome_40.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '8'
+  :browser_version: '40.0'
+  :device: 
+Windows_8_chrome_41.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '8'
+  :browser_version: '41.0'
+  :device: 
+Windows_8_chrome_42.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '8'
+  :browser_version: '42.0'
+  :device: 
+Windows_8_chrome_43.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '8'
+  :browser_version: '43.0'
+  :device: 
+Windows_8_chrome_44.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '8'
+  :browser_version: '44.0'
+  :device: 
+Windows_8_chrome_45.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '8'
+  :browser_version: '45.0'
+  :device: 
+Windows_8_chrome_46.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '8'
+  :browser_version: '46.0'
+  :device: 
+Windows_8_chrome_47.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '8'
+  :browser_version: '47.0'
+  :device: 
+Windows_8_chrome_48.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '8'
+  :browser_version: '48.0'
+  :device: 
+Windows_8_firefox_16.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '8'
+  :browser_version: '16.0'
+  :device: 
+Windows_8_firefox_17.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '8'
+  :browser_version: '17.0'
+  :device: 
+Windows_8_firefox_18.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '8'
+  :browser_version: '18.0'
+  :device: 
+Windows_8_firefox_19.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '8'
+  :browser_version: '19.0'
+  :device: 
+Windows_8_firefox_20.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '8'
+  :browser_version: '20.0'
+  :device: 
+Windows_8_firefox_21.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '8'
+  :browser_version: '21.0'
+  :device: 
+Windows_8_firefox_22.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '8'
+  :browser_version: '22.0'
+  :device: 
+Windows_8_firefox_23.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '8'
+  :browser_version: '23.0'
+  :device: 
+Windows_8_firefox_24.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '8'
+  :browser_version: '24.0'
+  :device: 
+Windows_8_firefox_25.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '8'
+  :browser_version: '25.0'
+  :device: 
+Windows_8_firefox_26.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '8'
+  :browser_version: '26.0'
+  :device: 
+Windows_8_firefox_27.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '8'
+  :browser_version: '27.0'
+  :device: 
+Windows_8_firefox_28.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '8'
+  :browser_version: '28.0'
+  :device: 
+Windows_8_firefox_29.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '8'
+  :browser_version: '29.0'
+  :device: 
+Windows_8_firefox_30.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '8'
+  :browser_version: '30.0'
+  :device: 
+Windows_8_firefox_31.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '8'
+  :browser_version: '31.0'
+  :device: 
+Windows_8_firefox_32.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '8'
+  :browser_version: '32.0'
+  :device: 
+Windows_8_firefox_33.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '8'
+  :browser_version: '33.0'
+  :device: 
+Windows_8_firefox_34.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '8'
+  :browser_version: '34.0'
+  :device: 
+Windows_8_firefox_35.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '8'
+  :browser_version: '35.0'
+  :device: 
+Windows_8_firefox_36.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '8'
+  :browser_version: '36.0'
+  :device: 
+Windows_8_firefox_37.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '8'
+  :browser_version: '37.0'
+  :device: 
+Windows_8_firefox_38.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '8'
+  :browser_version: '38.0'
+  :device: 
+Windows_8_firefox_39.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '8'
+  :browser_version: '39.0'
+  :device: 
+Windows_8_firefox_40.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '8'
+  :browser_version: '40.0'
+  :device: 
+Windows_8_firefox_41.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '8'
+  :browser_version: '41.0'
+  :device: 
+Windows_8_firefox_42.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '8'
+  :browser_version: '42.0'
+  :device: 
+Windows_8_firefox_43.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '8'
+  :browser_version: '43.0'
+  :device: 
+Windows_8_firefox_44.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '8'
+  :browser_version: '44.0'
+  :device: 
+Windows_7_opera_12.15:
+  :browser: opera
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '12.15'
+  :device: 
+Windows_7_opera_12.16:
+  :browser: opera
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '12.16'
+  :device: 
+Windows_7_ie_8.0:
+  :browser: ie
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '8.0'
+  :device: 
+Windows_7_ie_9.0:
+  :browser: ie
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '9.0'
+  :device: 
+Windows_7_ie_10.0:
+  :browser: ie
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '10.0'
+  :device: 
+Windows_7_ie_11.0:
+  :browser: ie
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '11.0'
+  :device: 
+Windows_7_chrome_14.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '14.0'
+  :device: 
+Windows_7_chrome_15.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '15.0'
+  :device: 
+Windows_7_chrome_16.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '16.0'
+  :device: 
+Windows_7_chrome_17.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '17.0'
+  :device: 
+Windows_7_chrome_18.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '18.0'
+  :device: 
+Windows_7_chrome_19.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '19.0'
+  :device: 
+Windows_7_chrome_20.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '20.0'
+  :device: 
+Windows_7_chrome_21.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '21.0'
+  :device: 
+Windows_7_chrome_22.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '22.0'
+  :device: 
+Windows_7_chrome_23.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '23.0'
+  :device: 
+Windows_7_chrome_24.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '24.0'
+  :device: 
+Windows_7_chrome_25.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '25.0'
+  :device: 
+Windows_7_chrome_26.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '26.0'
+  :device: 
+Windows_7_chrome_27.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '27.0'
+  :device: 
+Windows_7_chrome_28.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '28.0'
+  :device: 
+Windows_7_chrome_29.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '29.0'
+  :device: 
+Windows_7_chrome_30.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '30.0'
+  :device: 
+Windows_7_chrome_31.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '31.0'
+  :device: 
+Windows_7_chrome_32.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '32.0'
+  :device: 
+Windows_7_chrome_33.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '33.0'
+  :device: 
+Windows_7_chrome_34.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '34.0'
+  :device: 
+Windows_7_chrome_35.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '35.0'
+  :device: 
+Windows_7_chrome_36.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '36.0'
+  :device: 
+Windows_7_chrome_37.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '37.0'
+  :device: 
+Windows_7_chrome_38.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '38.0'
+  :device: 
+Windows_7_chrome_39.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '39.0'
+  :device: 
+Windows_7_chrome_40.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '40.0'
+  :device: 
+Windows_7_chrome_41.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '41.0'
+  :device: 
+Windows_7_chrome_42.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '42.0'
+  :device: 
+Windows_7_chrome_43.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '43.0'
+  :device: 
+Windows_7_chrome_44.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '44.0'
+  :device: 
+Windows_7_chrome_45.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '45.0'
+  :device: 
+Windows_7_chrome_46.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '46.0'
+  :device: 
+Windows_7_chrome_47.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '47.0'
+  :device: 
+Windows_7_chrome_48.0:
+  :browser: chrome
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '48.0'
+  :device: 
+Windows_7_firefox_3.6:
+  :browser: firefox
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '3.6'
+  :device: 
+Windows_7_firefox_4.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '4.0'
+  :device: 
+Windows_7_firefox_5.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '5.0'
+  :device: 
+Windows_7_firefox_6.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '6.0'
+  :device: 
+Windows_7_firefox_7.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '7.0'
+  :device: 
+Windows_7_firefox_8.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '8.0'
+  :device: 
+Windows_7_firefox_9.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '9.0'
+  :device: 
+Windows_7_firefox_10.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '10.0'
+  :device: 
+Windows_7_firefox_11.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '11.0'
+  :device: 
+Windows_7_firefox_12.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '12.0'
+  :device: 
+Windows_7_firefox_13.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '13.0'
+  :device: 
+Windows_7_firefox_14.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '14.0'
+  :device: 
+Windows_7_firefox_15.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '15.0'
+  :device: 
+Windows_7_firefox_16.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '16.0'
+  :device: 
+Windows_7_firefox_17.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '17.0'
+  :device: 
+Windows_7_firefox_18.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '18.0'
+  :device: 
+Windows_7_firefox_19.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '19.0'
+  :device: 
+Windows_7_firefox_20.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '20.0'
+  :device: 
+Windows_7_firefox_21.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '21.0'
+  :device: 
+Windows_7_firefox_22.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '22.0'
+  :device: 
+Windows_7_firefox_23.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '23.0'
+  :device: 
+Windows_7_firefox_24.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '24.0'
+  :device: 
+Windows_7_firefox_25.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '25.0'
+  :device: 
+Windows_7_firefox_26.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '26.0'
+  :device: 
+Windows_7_firefox_27.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '27.0'
+  :device: 
+Windows_7_firefox_28.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '28.0'
+  :device: 
+Windows_7_firefox_29.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '29.0'
+  :device: 
+Windows_7_firefox_30.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '30.0'
+  :device: 
+Windows_7_firefox_31.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '31.0'
+  :device: 
+Windows_7_firefox_32.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '32.0'
+  :device: 
+Windows_7_firefox_33.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '33.0'
+  :device: 
+Windows_7_firefox_34.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '34.0'
+  :device: 
+Windows_7_firefox_35.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '35.0'
+  :device: 
+Windows_7_firefox_36.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '36.0'
+  :device: 
+Windows_7_firefox_37.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '37.0'
+  :device: 
+Windows_7_firefox_38.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '38.0'
+  :device: 
+Windows_7_firefox_39.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '39.0'
+  :device: 
+Windows_7_firefox_40.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '40.0'
+  :device: 
+Windows_7_firefox_41.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '41.0'
+  :device: 
+Windows_7_firefox_42.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '42.0'
+  :device: 
+Windows_7_firefox_43.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '43.0'
+  :device: 
+Windows_7_firefox_44.0:
+  :browser: firefox
+  :os: Windows
+  :os_version: '7'
+  :browser_version: '44.0'
+  :device: 
+OS-X_Yosemite_opera_12.15:
+  :browser: opera
+  :os: OS X
+  :os_version: Yosemite
+  :browser_version: '12.15'
+  :device: 
+OS-X_Yosemite_safari_8.0:
+  :browser: safari
+  :os: OS X
+  :os_version: Yosemite
+  :browser_version: '8.0'
+  :device: 
+OS-X_Yosemite_chrome_14.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Yosemite
+  :browser_version: '14.0'
+  :device: 
+OS-X_Yosemite_chrome_16.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Yosemite
+  :browser_version: '16.0'
+  :device: 
+OS-X_Yosemite_chrome_17.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Yosemite
+  :browser_version: '17.0'
+  :device: 
+OS-X_Yosemite_chrome_18.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Yosemite
+  :browser_version: '18.0'
+  :device: 
+OS-X_Yosemite_chrome_19.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Yosemite
+  :browser_version: '19.0'
+  :device: 
+OS-X_Yosemite_chrome_20.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Yosemite
+  :browser_version: '20.0'
+  :device: 
+OS-X_Yosemite_chrome_21.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Yosemite
+  :browser_version: '21.0'
+  :device: 
+OS-X_Yosemite_chrome_22.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Yosemite
+  :browser_version: '22.0'
+  :device: 
+OS-X_Yosemite_chrome_23.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Yosemite
+  :browser_version: '23.0'
+  :device: 
+OS-X_Yosemite_chrome_24.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Yosemite
+  :browser_version: '24.0'
+  :device: 
+OS-X_Yosemite_chrome_25.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Yosemite
+  :browser_version: '25.0'
+  :device: 
+OS-X_Yosemite_chrome_26.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Yosemite
+  :browser_version: '26.0'
+  :device: 
+OS-X_Yosemite_chrome_27.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Yosemite
+  :browser_version: '27.0'
+  :device: 
+OS-X_Yosemite_chrome_28.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Yosemite
+  :browser_version: '28.0'
+  :device: 
+OS-X_Yosemite_chrome_29.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Yosemite
+  :browser_version: '29.0'
+  :device: 
+OS-X_Yosemite_chrome_30.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Yosemite
+  :browser_version: '30.0'
+  :device: 
+OS-X_Yosemite_chrome_31.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Yosemite
+  :browser_version: '31.0'
+  :device: 
+OS-X_Yosemite_chrome_32.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Yosemite
+  :browser_version: '32.0'
+  :device: 
+OS-X_Yosemite_chrome_33.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Yosemite
+  :browser_version: '33.0'
+  :device: 
+OS-X_Yosemite_chrome_34.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Yosemite
+  :browser_version: '34.0'
+  :device: 
+OS-X_Yosemite_chrome_35.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Yosemite
+  :browser_version: '35.0'
+  :device: 
+OS-X_Yosemite_chrome_36.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Yosemite
+  :browser_version: '36.0'
+  :device: 
+OS-X_Yosemite_chrome_37.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Yosemite
+  :browser_version: '37.0'
+  :device: 
+OS-X_Yosemite_chrome_38.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Yosemite
+  :browser_version: '38.0'
+  :device: 
+OS-X_Yosemite_chrome_39.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Yosemite
+  :browser_version: '39.0'
+  :device: 
+OS-X_Yosemite_chrome_40.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Yosemite
+  :browser_version: '40.0'
+  :device: 
+OS-X_Yosemite_chrome_41.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Yosemite
+  :browser_version: '41.0'
+  :device: 
+OS-X_Yosemite_chrome_42.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Yosemite
+  :browser_version: '42.0'
+  :device: 
+OS-X_Yosemite_chrome_43.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Yosemite
+  :browser_version: '43.0'
+  :device: 
+OS-X_Yosemite_chrome_44.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Yosemite
+  :browser_version: '44.0'
+  :device: 
+OS-X_Yosemite_chrome_45.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Yosemite
+  :browser_version: '45.0'
+  :device: 
+OS-X_Yosemite_chrome_46.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Yosemite
+  :browser_version: '46.0'
+  :device: 
+OS-X_Yosemite_chrome_47.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Yosemite
+  :browser_version: '47.0'
+  :device: 
+OS-X_Yosemite_chrome_48.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Yosemite
+  :browser_version: '48.0'
+  :device: 
+OS-X_Yosemite_firefox_3.6:
+  :browser: firefox
+  :os: OS X
+  :os_version: Yosemite
+  :browser_version: '3.6'
+  :device: 
+OS-X_Yosemite_firefox_4.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Yosemite
+  :browser_version: '4.0'
+  :device: 
+OS-X_Yosemite_firefox_5.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Yosemite
+  :browser_version: '5.0'
+  :device: 
+OS-X_Yosemite_firefox_6.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Yosemite
+  :browser_version: '6.0'
+  :device: 
+OS-X_Yosemite_firefox_7.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Yosemite
+  :browser_version: '7.0'
+  :device: 
+OS-X_Yosemite_firefox_8.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Yosemite
+  :browser_version: '8.0'
+  :device: 
+OS-X_Yosemite_firefox_9.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Yosemite
+  :browser_version: '9.0'
+  :device: 
+OS-X_Yosemite_firefox_10.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Yosemite
+  :browser_version: '10.0'
+  :device: 
+OS-X_Yosemite_firefox_11.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Yosemite
+  :browser_version: '11.0'
+  :device: 
+OS-X_Yosemite_firefox_12.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Yosemite
+  :browser_version: '12.0'
+  :device: 
+OS-X_Yosemite_firefox_13.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Yosemite
+  :browser_version: '13.0'
+  :device: 
+OS-X_Yosemite_firefox_14.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Yosemite
+  :browser_version: '14.0'
+  :device: 
+OS-X_Yosemite_firefox_15.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Yosemite
+  :browser_version: '15.0'
+  :device: 
+OS-X_Yosemite_firefox_16.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Yosemite
+  :browser_version: '16.0'
+  :device: 
+OS-X_Yosemite_firefox_17.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Yosemite
+  :browser_version: '17.0'
+  :device: 
+OS-X_Yosemite_firefox_18.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Yosemite
+  :browser_version: '18.0'
+  :device: 
+OS-X_Yosemite_firefox_19.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Yosemite
+  :browser_version: '19.0'
+  :device: 
+OS-X_Yosemite_firefox_20.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Yosemite
+  :browser_version: '20.0'
+  :device: 
+OS-X_Yosemite_firefox_21.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Yosemite
+  :browser_version: '21.0'
+  :device: 
+OS-X_Yosemite_firefox_22.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Yosemite
+  :browser_version: '22.0'
+  :device: 
+OS-X_Yosemite_firefox_23.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Yosemite
+  :browser_version: '23.0'
+  :device: 
+OS-X_Yosemite_firefox_24.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Yosemite
+  :browser_version: '24.0'
+  :device: 
+OS-X_Yosemite_firefox_25.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Yosemite
+  :browser_version: '25.0'
+  :device: 
+OS-X_Yosemite_firefox_26.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Yosemite
+  :browser_version: '26.0'
+  :device: 
+OS-X_Yosemite_firefox_27.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Yosemite
+  :browser_version: '27.0'
+  :device: 
+OS-X_Yosemite_firefox_28.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Yosemite
+  :browser_version: '28.0'
+  :device: 
+OS-X_Yosemite_firefox_29.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Yosemite
+  :browser_version: '29.0'
+  :device: 
+OS-X_Yosemite_firefox_30.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Yosemite
+  :browser_version: '30.0'
+  :device: 
+OS-X_Yosemite_firefox_31.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Yosemite
+  :browser_version: '31.0'
+  :device: 
+OS-X_Yosemite_firefox_32.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Yosemite
+  :browser_version: '32.0'
+  :device: 
+OS-X_Yosemite_firefox_33.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Yosemite
+  :browser_version: '33.0'
+  :device: 
+OS-X_Yosemite_firefox_34.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Yosemite
+  :browser_version: '34.0'
+  :device: 
+OS-X_Yosemite_firefox_35.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Yosemite
+  :browser_version: '35.0'
+  :device: 
+OS-X_Yosemite_firefox_36.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Yosemite
+  :browser_version: '36.0'
+  :device: 
+OS-X_Yosemite_firefox_37.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Yosemite
+  :browser_version: '37.0'
+  :device: 
+OS-X_Yosemite_firefox_38.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Yosemite
+  :browser_version: '38.0'
+  :device: 
+OS-X_Yosemite_firefox_39.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Yosemite
+  :browser_version: '39.0'
+  :device: 
+OS-X_Yosemite_firefox_40.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Yosemite
+  :browser_version: '40.0'
+  :device: 
+OS-X_Yosemite_firefox_41.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Yosemite
+  :browser_version: '41.0'
+  :device: 
+OS-X_Yosemite_firefox_42.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Yosemite
+  :browser_version: '42.0'
+  :device: 
+OS-X_Yosemite_firefox_43.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Yosemite
+  :browser_version: '43.0'
+  :device: 
+OS-X_Yosemite_firefox_44.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Yosemite
+  :browser_version: '44.0'
+  :device: 
+OS-X_Snow-Leopard_opera_12.15:
+  :browser: opera
+  :os: OS X
+  :os_version: Snow Leopard
+  :browser_version: '12.15'
+  :device: 
+OS-X_Snow-Leopard_safari_5.1:
+  :browser: safari
+  :os: OS X
+  :os_version: Snow Leopard
+  :browser_version: '5.1'
+  :device: 
+OS-X_Snow-Leopard_chrome_14.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Snow Leopard
+  :browser_version: '14.0'
+  :device: 
+OS-X_Snow-Leopard_chrome_16.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Snow Leopard
+  :browser_version: '16.0'
+  :device: 
+OS-X_Snow-Leopard_chrome_17.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Snow Leopard
+  :browser_version: '17.0'
+  :device: 
+OS-X_Snow-Leopard_chrome_18.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Snow Leopard
+  :browser_version: '18.0'
+  :device: 
+OS-X_Snow-Leopard_chrome_19.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Snow Leopard
+  :browser_version: '19.0'
+  :device: 
+OS-X_Snow-Leopard_chrome_20.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Snow Leopard
+  :browser_version: '20.0'
+  :device: 
+OS-X_Snow-Leopard_chrome_21.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Snow Leopard
+  :browser_version: '21.0'
+  :device: 
+OS-X_Snow-Leopard_chrome_22.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Snow Leopard
+  :browser_version: '22.0'
+  :device: 
+OS-X_Snow-Leopard_chrome_23.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Snow Leopard
+  :browser_version: '23.0'
+  :device: 
+OS-X_Snow-Leopard_chrome_24.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Snow Leopard
+  :browser_version: '24.0'
+  :device: 
+OS-X_Snow-Leopard_chrome_25.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Snow Leopard
+  :browser_version: '25.0'
+  :device: 
+OS-X_Snow-Leopard_chrome_26.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Snow Leopard
+  :browser_version: '26.0'
+  :device: 
+OS-X_Snow-Leopard_chrome_27.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Snow Leopard
+  :browser_version: '27.0'
+  :device: 
+OS-X_Snow-Leopard_chrome_28.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Snow Leopard
+  :browser_version: '28.0'
+  :device: 
+OS-X_Snow-Leopard_chrome_29.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Snow Leopard
+  :browser_version: '29.0'
+  :device: 
+OS-X_Snow-Leopard_chrome_30.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Snow Leopard
+  :browser_version: '30.0'
+  :device: 
+OS-X_Snow-Leopard_chrome_31.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Snow Leopard
+  :browser_version: '31.0'
+  :device: 
+OS-X_Snow-Leopard_chrome_32.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Snow Leopard
+  :browser_version: '32.0'
+  :device: 
+OS-X_Snow-Leopard_chrome_33.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Snow Leopard
+  :browser_version: '33.0'
+  :device: 
+OS-X_Snow-Leopard_chrome_34.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Snow Leopard
+  :browser_version: '34.0'
+  :device: 
+OS-X_Snow-Leopard_chrome_35.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Snow Leopard
+  :browser_version: '35.0'
+  :device: 
+OS-X_Snow-Leopard_chrome_36.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Snow Leopard
+  :browser_version: '36.0'
+  :device: 
+OS-X_Snow-Leopard_chrome_37.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Snow Leopard
+  :browser_version: '37.0'
+  :device: 
+OS-X_Snow-Leopard_chrome_38.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Snow Leopard
+  :browser_version: '38.0'
+  :device: 
+OS-X_Snow-Leopard_chrome_39.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Snow Leopard
+  :browser_version: '39.0'
+  :device: 
+OS-X_Snow-Leopard_chrome_40.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Snow Leopard
+  :browser_version: '40.0'
+  :device: 
+OS-X_Snow-Leopard_chrome_41.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Snow Leopard
+  :browser_version: '41.0'
+  :device: 
+OS-X_Snow-Leopard_chrome_42.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Snow Leopard
+  :browser_version: '42.0'
+  :device: 
+OS-X_Snow-Leopard_chrome_43.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Snow Leopard
+  :browser_version: '43.0'
+  :device: 
+OS-X_Snow-Leopard_chrome_44.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Snow Leopard
+  :browser_version: '44.0'
+  :device: 
+OS-X_Snow-Leopard_chrome_45.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Snow Leopard
+  :browser_version: '45.0'
+  :device: 
+OS-X_Snow-Leopard_chrome_46.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Snow Leopard
+  :browser_version: '46.0'
+  :device: 
+OS-X_Snow-Leopard_chrome_47.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Snow Leopard
+  :browser_version: '47.0'
+  :device: 
+OS-X_Snow-Leopard_chrome_48.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Snow Leopard
+  :browser_version: '48.0'
+  :device: 
+OS-X_Snow-Leopard_firefox_4.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Snow Leopard
+  :browser_version: '4.0'
+  :device: 
+OS-X_Snow-Leopard_firefox_5.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Snow Leopard
+  :browser_version: '5.0'
+  :device: 
+OS-X_Snow-Leopard_firefox_6.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Snow Leopard
+  :browser_version: '6.0'
+  :device: 
+OS-X_Snow-Leopard_firefox_7.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Snow Leopard
+  :browser_version: '7.0'
+  :device: 
+OS-X_Snow-Leopard_firefox_8.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Snow Leopard
+  :browser_version: '8.0'
+  :device: 
+OS-X_Snow-Leopard_firefox_9.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Snow Leopard
+  :browser_version: '9.0'
+  :device: 
+OS-X_Snow-Leopard_firefox_10.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Snow Leopard
+  :browser_version: '10.0'
+  :device: 
+OS-X_Snow-Leopard_firefox_11.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Snow Leopard
+  :browser_version: '11.0'
+  :device: 
+OS-X_Snow-Leopard_firefox_12.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Snow Leopard
+  :browser_version: '12.0'
+  :device: 
+OS-X_Snow-Leopard_firefox_13.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Snow Leopard
+  :browser_version: '13.0'
+  :device: 
+OS-X_Snow-Leopard_firefox_14.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Snow Leopard
+  :browser_version: '14.0'
+  :device: 
+OS-X_Snow-Leopard_firefox_15.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Snow Leopard
+  :browser_version: '15.0'
+  :device: 
+OS-X_Snow-Leopard_firefox_16.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Snow Leopard
+  :browser_version: '16.0'
+  :device: 
+OS-X_Snow-Leopard_firefox_17.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Snow Leopard
+  :browser_version: '17.0'
+  :device: 
+OS-X_Snow-Leopard_firefox_18.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Snow Leopard
+  :browser_version: '18.0'
+  :device: 
+OS-X_Snow-Leopard_firefox_19.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Snow Leopard
+  :browser_version: '19.0'
+  :device: 
+OS-X_Snow-Leopard_firefox_20.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Snow Leopard
+  :browser_version: '20.0'
+  :device: 
+OS-X_Snow-Leopard_firefox_21.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Snow Leopard
+  :browser_version: '21.0'
+  :device: 
+OS-X_Snow-Leopard_firefox_22.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Snow Leopard
+  :browser_version: '22.0'
+  :device: 
+OS-X_Snow-Leopard_firefox_23.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Snow Leopard
+  :browser_version: '23.0'
+  :device: 
+OS-X_Snow-Leopard_firefox_24.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Snow Leopard
+  :browser_version: '24.0'
+  :device: 
+OS-X_Snow-Leopard_firefox_25.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Snow Leopard
+  :browser_version: '25.0'
+  :device: 
+OS-X_Snow-Leopard_firefox_26.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Snow Leopard
+  :browser_version: '26.0'
+  :device: 
+OS-X_Snow-Leopard_firefox_27.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Snow Leopard
+  :browser_version: '27.0'
+  :device: 
+OS-X_Snow-Leopard_firefox_28.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Snow Leopard
+  :browser_version: '28.0'
+  :device: 
+OS-X_Snow-Leopard_firefox_29.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Snow Leopard
+  :browser_version: '29.0'
+  :device: 
+OS-X_Snow-Leopard_firefox_30.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Snow Leopard
+  :browser_version: '30.0'
+  :device: 
+OS-X_Snow-Leopard_firefox_31.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Snow Leopard
+  :browser_version: '31.0'
+  :device: 
+OS-X_Snow-Leopard_firefox_32.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Snow Leopard
+  :browser_version: '32.0'
+  :device: 
+OS-X_Snow-Leopard_firefox_33.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Snow Leopard
+  :browser_version: '33.0'
+  :device: 
+OS-X_Snow-Leopard_firefox_34.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Snow Leopard
+  :browser_version: '34.0'
+  :device: 
+OS-X_Snow-Leopard_firefox_35.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Snow Leopard
+  :browser_version: '35.0'
+  :device: 
+OS-X_Snow-Leopard_firefox_36.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Snow Leopard
+  :browser_version: '36.0'
+  :device: 
+OS-X_Snow-Leopard_firefox_37.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Snow Leopard
+  :browser_version: '37.0'
+  :device: 
+OS-X_Snow-Leopard_firefox_38.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Snow Leopard
+  :browser_version: '38.0'
+  :device: 
+OS-X_Snow-Leopard_firefox_39.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Snow Leopard
+  :browser_version: '39.0'
+  :device: 
+OS-X_Snow-Leopard_firefox_40.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Snow Leopard
+  :browser_version: '40.0'
+  :device: 
+OS-X_Snow-Leopard_firefox_41.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Snow Leopard
+  :browser_version: '41.0'
+  :device: 
+OS-X_Snow-Leopard_firefox_42.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Snow Leopard
+  :browser_version: '42.0'
+  :device: 
+OS-X_El-Capitan_opera_12.15:
+  :browser: opera
+  :os: OS X
+  :os_version: El Capitan
+  :browser_version: '12.15'
+  :device: 
+OS-X_El-Capitan_safari_9.0:
+  :browser: safari
+  :os: OS X
+  :os_version: El Capitan
+  :browser_version: '9.0'
+  :device: 
+OS-X_El-Capitan_chrome_14.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: El Capitan
+  :browser_version: '14.0'
+  :device: 
+OS-X_El-Capitan_chrome_16.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: El Capitan
+  :browser_version: '16.0'
+  :device: 
+OS-X_El-Capitan_chrome_17.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: El Capitan
+  :browser_version: '17.0'
+  :device: 
+OS-X_El-Capitan_chrome_18.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: El Capitan
+  :browser_version: '18.0'
+  :device: 
+OS-X_El-Capitan_chrome_19.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: El Capitan
+  :browser_version: '19.0'
+  :device: 
+OS-X_El-Capitan_chrome_20.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: El Capitan
+  :browser_version: '20.0'
+  :device: 
+OS-X_El-Capitan_chrome_21.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: El Capitan
+  :browser_version: '21.0'
+  :device: 
+OS-X_El-Capitan_chrome_22.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: El Capitan
+  :browser_version: '22.0'
+  :device: 
+OS-X_El-Capitan_chrome_23.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: El Capitan
+  :browser_version: '23.0'
+  :device: 
+OS-X_El-Capitan_chrome_24.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: El Capitan
+  :browser_version: '24.0'
+  :device: 
+OS-X_El-Capitan_chrome_25.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: El Capitan
+  :browser_version: '25.0'
+  :device: 
+OS-X_El-Capitan_chrome_26.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: El Capitan
+  :browser_version: '26.0'
+  :device: 
+OS-X_El-Capitan_chrome_27.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: El Capitan
+  :browser_version: '27.0'
+  :device: 
+OS-X_El-Capitan_chrome_28.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: El Capitan
+  :browser_version: '28.0'
+  :device: 
+OS-X_El-Capitan_chrome_29.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: El Capitan
+  :browser_version: '29.0'
+  :device: 
+OS-X_El-Capitan_chrome_30.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: El Capitan
+  :browser_version: '30.0'
+  :device: 
+OS-X_El-Capitan_chrome_31.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: El Capitan
+  :browser_version: '31.0'
+  :device: 
+OS-X_El-Capitan_chrome_32.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: El Capitan
+  :browser_version: '32.0'
+  :device: 
+OS-X_El-Capitan_chrome_33.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: El Capitan
+  :browser_version: '33.0'
+  :device: 
+OS-X_El-Capitan_chrome_34.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: El Capitan
+  :browser_version: '34.0'
+  :device: 
+OS-X_El-Capitan_chrome_35.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: El Capitan
+  :browser_version: '35.0'
+  :device: 
+OS-X_El-Capitan_chrome_36.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: El Capitan
+  :browser_version: '36.0'
+  :device: 
+OS-X_El-Capitan_chrome_37.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: El Capitan
+  :browser_version: '37.0'
+  :device: 
+OS-X_El-Capitan_chrome_38.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: El Capitan
+  :browser_version: '38.0'
+  :device: 
+OS-X_El-Capitan_chrome_39.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: El Capitan
+  :browser_version: '39.0'
+  :device: 
+OS-X_El-Capitan_chrome_40.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: El Capitan
+  :browser_version: '40.0'
+  :device: 
+OS-X_El-Capitan_chrome_41.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: El Capitan
+  :browser_version: '41.0'
+  :device: 
+OS-X_El-Capitan_chrome_42.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: El Capitan
+  :browser_version: '42.0'
+  :device: 
+OS-X_El-Capitan_chrome_43.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: El Capitan
+  :browser_version: '43.0'
+  :device: 
+OS-X_El-Capitan_chrome_44.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: El Capitan
+  :browser_version: '44.0'
+  :device: 
+OS-X_El-Capitan_chrome_45.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: El Capitan
+  :browser_version: '45.0'
+  :device: 
+OS-X_El-Capitan_chrome_46.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: El Capitan
+  :browser_version: '46.0'
+  :device: 
+OS-X_El-Capitan_chrome_47.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: El Capitan
+  :browser_version: '47.0'
+  :device: 
+OS-X_El-Capitan_chrome_48.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: El Capitan
+  :browser_version: '48.0'
+  :device: 
+OS-X_El-Capitan_firefox_4.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: El Capitan
+  :browser_version: '4.0'
+  :device: 
+OS-X_El-Capitan_firefox_5.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: El Capitan
+  :browser_version: '5.0'
+  :device: 
+OS-X_El-Capitan_firefox_6.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: El Capitan
+  :browser_version: '6.0'
+  :device: 
+OS-X_El-Capitan_firefox_7.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: El Capitan
+  :browser_version: '7.0'
+  :device: 
+OS-X_El-Capitan_firefox_8.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: El Capitan
+  :browser_version: '8.0'
+  :device: 
+OS-X_El-Capitan_firefox_9.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: El Capitan
+  :browser_version: '9.0'
+  :device: 
+OS-X_El-Capitan_firefox_10.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: El Capitan
+  :browser_version: '10.0'
+  :device: 
+OS-X_El-Capitan_firefox_11.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: El Capitan
+  :browser_version: '11.0'
+  :device: 
+OS-X_El-Capitan_firefox_12.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: El Capitan
+  :browser_version: '12.0'
+  :device: 
+OS-X_El-Capitan_firefox_13.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: El Capitan
+  :browser_version: '13.0'
+  :device: 
+OS-X_El-Capitan_firefox_14.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: El Capitan
+  :browser_version: '14.0'
+  :device: 
+OS-X_El-Capitan_firefox_15.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: El Capitan
+  :browser_version: '15.0'
+  :device: 
+OS-X_El-Capitan_firefox_16.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: El Capitan
+  :browser_version: '16.0'
+  :device: 
+OS-X_El-Capitan_firefox_17.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: El Capitan
+  :browser_version: '17.0'
+  :device: 
+OS-X_El-Capitan_firefox_18.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: El Capitan
+  :browser_version: '18.0'
+  :device: 
+OS-X_El-Capitan_firefox_19.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: El Capitan
+  :browser_version: '19.0'
+  :device: 
+OS-X_El-Capitan_firefox_20.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: El Capitan
+  :browser_version: '20.0'
+  :device: 
+OS-X_El-Capitan_firefox_21.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: El Capitan
+  :browser_version: '21.0'
+  :device: 
+OS-X_El-Capitan_firefox_22.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: El Capitan
+  :browser_version: '22.0'
+  :device: 
+OS-X_El-Capitan_firefox_23.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: El Capitan
+  :browser_version: '23.0'
+  :device: 
+OS-X_El-Capitan_firefox_24.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: El Capitan
+  :browser_version: '24.0'
+  :device: 
+OS-X_El-Capitan_firefox_25.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: El Capitan
+  :browser_version: '25.0'
+  :device: 
+OS-X_El-Capitan_firefox_26.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: El Capitan
+  :browser_version: '26.0'
+  :device: 
+OS-X_El-Capitan_firefox_27.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: El Capitan
+  :browser_version: '27.0'
+  :device: 
+OS-X_El-Capitan_firefox_28.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: El Capitan
+  :browser_version: '28.0'
+  :device: 
+OS-X_El-Capitan_firefox_29.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: El Capitan
+  :browser_version: '29.0'
+  :device: 
+OS-X_El-Capitan_firefox_30.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: El Capitan
+  :browser_version: '30.0'
+  :device: 
+OS-X_El-Capitan_firefox_31.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: El Capitan
+  :browser_version: '31.0'
+  :device: 
+OS-X_El-Capitan_firefox_32.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: El Capitan
+  :browser_version: '32.0'
+  :device: 
+OS-X_El-Capitan_firefox_33.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: El Capitan
+  :browser_version: '33.0'
+  :device: 
+OS-X_El-Capitan_firefox_34.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: El Capitan
+  :browser_version: '34.0'
+  :device: 
+OS-X_El-Capitan_firefox_35.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: El Capitan
+  :browser_version: '35.0'
+  :device: 
+OS-X_El-Capitan_firefox_36.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: El Capitan
+  :browser_version: '36.0'
+  :device: 
+OS-X_El-Capitan_firefox_37.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: El Capitan
+  :browser_version: '37.0'
+  :device: 
+OS-X_El-Capitan_firefox_38.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: El Capitan
+  :browser_version: '38.0'
+  :device: 
+OS-X_El-Capitan_firefox_39.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: El Capitan
+  :browser_version: '39.0'
+  :device: 
+OS-X_El-Capitan_firefox_40.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: El Capitan
+  :browser_version: '40.0'
+  :device: 
+OS-X_El-Capitan_firefox_41.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: El Capitan
+  :browser_version: '41.0'
+  :device: 
+OS-X_El-Capitan_firefox_42.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: El Capitan
+  :browser_version: '42.0'
+  :device: 
+OS-X_El-Capitan_firefox_43.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: El Capitan
+  :browser_version: '43.0'
+  :device: 
+OS-X_El-Capitan_firefox_44.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: El Capitan
+  :browser_version: '44.0'
+  :device: 
+OS-X_Lion_opera_12.15:
+  :browser: opera
+  :os: OS X
+  :os_version: Lion
+  :browser_version: '12.15'
+  :device: 
+OS-X_Lion_safari_6.0:
+  :browser: safari
+  :os: OS X
+  :os_version: Lion
+  :browser_version: '6.0'
+  :device: 
+OS-X_Lion_chrome_14.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Lion
+  :browser_version: '14.0'
+  :device: 
+OS-X_Lion_chrome_16.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Lion
+  :browser_version: '16.0'
+  :device: 
+OS-X_Lion_chrome_17.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Lion
+  :browser_version: '17.0'
+  :device: 
+OS-X_Lion_chrome_18.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Lion
+  :browser_version: '18.0'
+  :device: 
+OS-X_Lion_chrome_19.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Lion
+  :browser_version: '19.0'
+  :device: 
+OS-X_Lion_chrome_20.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Lion
+  :browser_version: '20.0'
+  :device: 
+OS-X_Lion_chrome_21.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Lion
+  :browser_version: '21.0'
+  :device: 
+OS-X_Lion_chrome_22.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Lion
+  :browser_version: '22.0'
+  :device: 
+OS-X_Lion_chrome_23.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Lion
+  :browser_version: '23.0'
+  :device: 
+OS-X_Lion_chrome_24.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Lion
+  :browser_version: '24.0'
+  :device: 
+OS-X_Lion_chrome_25.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Lion
+  :browser_version: '25.0'
+  :device: 
+OS-X_Lion_chrome_26.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Lion
+  :browser_version: '26.0'
+  :device: 
+OS-X_Lion_chrome_27.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Lion
+  :browser_version: '27.0'
+  :device: 
+OS-X_Lion_chrome_28.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Lion
+  :browser_version: '28.0'
+  :device: 
+OS-X_Lion_chrome_29.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Lion
+  :browser_version: '29.0'
+  :device: 
+OS-X_Lion_chrome_30.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Lion
+  :browser_version: '30.0'
+  :device: 
+OS-X_Lion_chrome_31.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Lion
+  :browser_version: '31.0'
+  :device: 
+OS-X_Lion_chrome_32.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Lion
+  :browser_version: '32.0'
+  :device: 
+OS-X_Lion_chrome_33.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Lion
+  :browser_version: '33.0'
+  :device: 
+OS-X_Lion_chrome_34.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Lion
+  :browser_version: '34.0'
+  :device: 
+OS-X_Lion_chrome_35.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Lion
+  :browser_version: '35.0'
+  :device: 
+OS-X_Lion_chrome_36.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Lion
+  :browser_version: '36.0'
+  :device: 
+OS-X_Lion_chrome_37.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Lion
+  :browser_version: '37.0'
+  :device: 
+OS-X_Lion_chrome_39.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Lion
+  :browser_version: '39.0'
+  :device: 
+OS-X_Lion_chrome_40.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Lion
+  :browser_version: '40.0'
+  :device: 
+OS-X_Lion_chrome_41.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Lion
+  :browser_version: '41.0'
+  :device: 
+OS-X_Lion_chrome_42.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Lion
+  :browser_version: '42.0'
+  :device: 
+OS-X_Lion_chrome_43.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Lion
+  :browser_version: '43.0'
+  :device: 
+OS-X_Lion_chrome_44.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Lion
+  :browser_version: '44.0'
+  :device: 
+OS-X_Lion_chrome_45.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Lion
+  :browser_version: '45.0'
+  :device: 
+OS-X_Lion_chrome_46.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Lion
+  :browser_version: '46.0'
+  :device: 
+OS-X_Lion_chrome_47.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Lion
+  :browser_version: '47.0'
+  :device: 
+OS-X_Lion_chrome_48.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Lion
+  :browser_version: '48.0'
+  :device: 
+OS-X_Lion_firefox_3.6:
+  :browser: firefox
+  :os: OS X
+  :os_version: Lion
+  :browser_version: '3.6'
+  :device: 
+OS-X_Lion_firefox_4.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Lion
+  :browser_version: '4.0'
+  :device: 
+OS-X_Lion_firefox_5.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Lion
+  :browser_version: '5.0'
+  :device: 
+OS-X_Lion_firefox_6.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Lion
+  :browser_version: '6.0'
+  :device: 
+OS-X_Lion_firefox_7.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Lion
+  :browser_version: '7.0'
+  :device: 
+OS-X_Lion_firefox_8.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Lion
+  :browser_version: '8.0'
+  :device: 
+OS-X_Lion_firefox_9.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Lion
+  :browser_version: '9.0'
+  :device: 
+OS-X_Lion_firefox_10.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Lion
+  :browser_version: '10.0'
+  :device: 
+OS-X_Lion_firefox_11.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Lion
+  :browser_version: '11.0'
+  :device: 
+OS-X_Lion_firefox_12.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Lion
+  :browser_version: '12.0'
+  :device: 
+OS-X_Lion_firefox_13.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Lion
+  :browser_version: '13.0'
+  :device: 
+OS-X_Lion_firefox_14.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Lion
+  :browser_version: '14.0'
+  :device: 
+OS-X_Lion_firefox_15.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Lion
+  :browser_version: '15.0'
+  :device: 
+OS-X_Lion_firefox_16.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Lion
+  :browser_version: '16.0'
+  :device: 
+OS-X_Lion_firefox_17.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Lion
+  :browser_version: '17.0'
+  :device: 
+OS-X_Lion_firefox_18.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Lion
+  :browser_version: '18.0'
+  :device: 
+OS-X_Lion_firefox_19.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Lion
+  :browser_version: '19.0'
+  :device: 
+OS-X_Lion_firefox_20.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Lion
+  :browser_version: '20.0'
+  :device: 
+OS-X_Lion_firefox_21.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Lion
+  :browser_version: '21.0'
+  :device: 
+OS-X_Lion_firefox_22.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Lion
+  :browser_version: '22.0'
+  :device: 
+OS-X_Lion_firefox_23.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Lion
+  :browser_version: '23.0'
+  :device: 
+OS-X_Lion_firefox_24.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Lion
+  :browser_version: '24.0'
+  :device: 
+OS-X_Lion_firefox_25.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Lion
+  :browser_version: '25.0'
+  :device: 
+OS-X_Lion_firefox_26.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Lion
+  :browser_version: '26.0'
+  :device: 
+OS-X_Lion_firefox_27.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Lion
+  :browser_version: '27.0'
+  :device: 
+OS-X_Lion_firefox_28.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Lion
+  :browser_version: '28.0'
+  :device: 
+OS-X_Lion_firefox_29.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Lion
+  :browser_version: '29.0'
+  :device: 
+OS-X_Lion_firefox_30.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Lion
+  :browser_version: '30.0'
+  :device: 
+OS-X_Lion_firefox_31.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Lion
+  :browser_version: '31.0'
+  :device: 
+OS-X_Lion_firefox_32.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Lion
+  :browser_version: '32.0'
+  :device: 
+OS-X_Lion_firefox_33.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Lion
+  :browser_version: '33.0'
+  :device: 
+OS-X_Lion_firefox_34.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Lion
+  :browser_version: '34.0'
+  :device: 
+OS-X_Lion_firefox_35.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Lion
+  :browser_version: '35.0'
+  :device: 
+OS-X_Lion_firefox_36.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Lion
+  :browser_version: '36.0'
+  :device: 
+OS-X_Lion_firefox_37.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Lion
+  :browser_version: '37.0'
+  :device: 
+OS-X_Lion_firefox_38.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Lion
+  :browser_version: '38.0'
+  :device: 
+OS-X_Lion_firefox_40.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Lion
+  :browser_version: '40.0'
+  :device: 
+OS-X_Lion_firefox_41.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Lion
+  :browser_version: '41.0'
+  :device: 
+OS-X_Lion_firefox_42.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Lion
+  :browser_version: '42.0'
+  :device: 
+OS-X_Lion_firefox_43.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Lion
+  :browser_version: '43.0'
+  :device: 
+OS-X_Mavericks_opera_12.15:
+  :browser: opera
+  :os: OS X
+  :os_version: Mavericks
+  :browser_version: '12.15'
+  :device: 
+OS-X_Mavericks_safari_7.1:
+  :browser: safari
+  :os: OS X
+  :os_version: Mavericks
+  :browser_version: '7.1'
+  :device: 
+OS-X_Mavericks_chrome_14.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Mavericks
+  :browser_version: '14.0'
+  :device: 
+OS-X_Mavericks_chrome_16.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Mavericks
+  :browser_version: '16.0'
+  :device: 
+OS-X_Mavericks_chrome_17.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Mavericks
+  :browser_version: '17.0'
+  :device: 
+OS-X_Mavericks_chrome_18.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Mavericks
+  :browser_version: '18.0'
+  :device: 
+OS-X_Mavericks_chrome_19.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Mavericks
+  :browser_version: '19.0'
+  :device: 
+OS-X_Mavericks_chrome_20.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Mavericks
+  :browser_version: '20.0'
+  :device: 
+OS-X_Mavericks_chrome_21.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Mavericks
+  :browser_version: '21.0'
+  :device: 
+OS-X_Mavericks_chrome_22.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Mavericks
+  :browser_version: '22.0'
+  :device: 
+OS-X_Mavericks_chrome_23.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Mavericks
+  :browser_version: '23.0'
+  :device: 
+OS-X_Mavericks_chrome_24.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Mavericks
+  :browser_version: '24.0'
+  :device: 
+OS-X_Mavericks_chrome_25.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Mavericks
+  :browser_version: '25.0'
+  :device: 
+OS-X_Mavericks_chrome_26.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Mavericks
+  :browser_version: '26.0'
+  :device: 
+OS-X_Mavericks_chrome_27.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Mavericks
+  :browser_version: '27.0'
+  :device: 
+OS-X_Mavericks_chrome_28.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Mavericks
+  :browser_version: '28.0'
+  :device: 
+OS-X_Mavericks_chrome_29.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Mavericks
+  :browser_version: '29.0'
+  :device: 
+OS-X_Mavericks_chrome_30.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Mavericks
+  :browser_version: '30.0'
+  :device: 
+OS-X_Mavericks_chrome_31.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Mavericks
+  :browser_version: '31.0'
+  :device: 
+OS-X_Mavericks_chrome_32.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Mavericks
+  :browser_version: '32.0'
+  :device: 
+OS-X_Mavericks_chrome_33.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Mavericks
+  :browser_version: '33.0'
+  :device: 
+OS-X_Mavericks_chrome_34.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Mavericks
+  :browser_version: '34.0'
+  :device: 
+OS-X_Mavericks_chrome_35.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Mavericks
+  :browser_version: '35.0'
+  :device: 
+OS-X_Mavericks_chrome_36.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Mavericks
+  :browser_version: '36.0'
+  :device: 
+OS-X_Mavericks_chrome_37.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Mavericks
+  :browser_version: '37.0'
+  :device: 
+OS-X_Mavericks_chrome_38.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Mavericks
+  :browser_version: '38.0'
+  :device: 
+OS-X_Mavericks_chrome_39.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Mavericks
+  :browser_version: '39.0'
+  :device: 
+OS-X_Mavericks_chrome_40.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Mavericks
+  :browser_version: '40.0'
+  :device: 
+OS-X_Mavericks_chrome_41.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Mavericks
+  :browser_version: '41.0'
+  :device: 
+OS-X_Mavericks_chrome_42.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Mavericks
+  :browser_version: '42.0'
+  :device: 
+OS-X_Mavericks_chrome_43.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Mavericks
+  :browser_version: '43.0'
+  :device: 
+OS-X_Mavericks_chrome_44.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Mavericks
+  :browser_version: '44.0'
+  :device: 
+OS-X_Mavericks_chrome_45.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Mavericks
+  :browser_version: '45.0'
+  :device: 
+OS-X_Mavericks_chrome_46.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Mavericks
+  :browser_version: '46.0'
+  :device: 
+OS-X_Mavericks_chrome_47.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Mavericks
+  :browser_version: '47.0'
+  :device: 
+OS-X_Mavericks_chrome_48.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Mavericks
+  :browser_version: '48.0'
+  :device: 
+OS-X_Mavericks_firefox_3.6:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mavericks
+  :browser_version: '3.6'
+  :device: 
+OS-X_Mavericks_firefox_4.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mavericks
+  :browser_version: '4.0'
+  :device: 
+OS-X_Mavericks_firefox_5.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mavericks
+  :browser_version: '5.0'
+  :device: 
+OS-X_Mavericks_firefox_6.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mavericks
+  :browser_version: '6.0'
+  :device: 
+OS-X_Mavericks_firefox_7.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mavericks
+  :browser_version: '7.0'
+  :device: 
+OS-X_Mavericks_firefox_8.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mavericks
+  :browser_version: '8.0'
+  :device: 
+OS-X_Mavericks_firefox_9.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mavericks
+  :browser_version: '9.0'
+  :device: 
+OS-X_Mavericks_firefox_10.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mavericks
+  :browser_version: '10.0'
+  :device: 
+OS-X_Mavericks_firefox_11.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mavericks
+  :browser_version: '11.0'
+  :device: 
+OS-X_Mavericks_firefox_12.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mavericks
+  :browser_version: '12.0'
+  :device: 
+OS-X_Mavericks_firefox_13.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mavericks
+  :browser_version: '13.0'
+  :device: 
+OS-X_Mavericks_firefox_14.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mavericks
+  :browser_version: '14.0'
+  :device: 
+OS-X_Mavericks_firefox_15.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mavericks
+  :browser_version: '15.0'
+  :device: 
+OS-X_Mavericks_firefox_16.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mavericks
+  :browser_version: '16.0'
+  :device: 
+OS-X_Mavericks_firefox_17.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mavericks
+  :browser_version: '17.0'
+  :device: 
+OS-X_Mavericks_firefox_18.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mavericks
+  :browser_version: '18.0'
+  :device: 
+OS-X_Mavericks_firefox_19.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mavericks
+  :browser_version: '19.0'
+  :device: 
+OS-X_Mavericks_firefox_20.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mavericks
+  :browser_version: '20.0'
+  :device: 
+OS-X_Mavericks_firefox_21.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mavericks
+  :browser_version: '21.0'
+  :device: 
+OS-X_Mavericks_firefox_22.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mavericks
+  :browser_version: '22.0'
+  :device: 
+OS-X_Mavericks_firefox_23.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mavericks
+  :browser_version: '23.0'
+  :device: 
+OS-X_Mavericks_firefox_24.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mavericks
+  :browser_version: '24.0'
+  :device: 
+OS-X_Mavericks_firefox_25.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mavericks
+  :browser_version: '25.0'
+  :device: 
+OS-X_Mavericks_firefox_26.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mavericks
+  :browser_version: '26.0'
+  :device: 
+OS-X_Mavericks_firefox_27.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mavericks
+  :browser_version: '27.0'
+  :device: 
+OS-X_Mavericks_firefox_28.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mavericks
+  :browser_version: '28.0'
+  :device: 
+OS-X_Mavericks_firefox_29.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mavericks
+  :browser_version: '29.0'
+  :device: 
+OS-X_Mavericks_firefox_30.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mavericks
+  :browser_version: '30.0'
+  :device: 
+OS-X_Mavericks_firefox_31.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mavericks
+  :browser_version: '31.0'
+  :device: 
+OS-X_Mavericks_firefox_32.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mavericks
+  :browser_version: '32.0'
+  :device: 
+OS-X_Mavericks_firefox_33.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mavericks
+  :browser_version: '33.0'
+  :device: 
+OS-X_Mavericks_firefox_34.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mavericks
+  :browser_version: '34.0'
+  :device: 
+OS-X_Mavericks_firefox_35.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mavericks
+  :browser_version: '35.0'
+  :device: 
+OS-X_Mavericks_firefox_36.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mavericks
+  :browser_version: '36.0'
+  :device: 
+OS-X_Mavericks_firefox_37.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mavericks
+  :browser_version: '37.0'
+  :device: 
+OS-X_Mavericks_firefox_38.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mavericks
+  :browser_version: '38.0'
+  :device: 
+OS-X_Mavericks_firefox_39.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mavericks
+  :browser_version: '39.0'
+  :device: 
+OS-X_Mavericks_firefox_40.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mavericks
+  :browser_version: '40.0'
+  :device: 
+OS-X_Mavericks_firefox_41.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mavericks
+  :browser_version: '41.0'
+  :device: 
+OS-X_Mavericks_firefox_42.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mavericks
+  :browser_version: '42.0'
+  :device: 
+OS-X_Mavericks_firefox_43.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mavericks
+  :browser_version: '43.0'
+  :device: 
+OS-X_Mavericks_firefox_44.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mavericks
+  :browser_version: '44.0'
+  :device: 
+OS-X_Mountain-Lion_opera_12.15:
+  :browser: opera
+  :os: OS X
+  :os_version: Mountain Lion
+  :browser_version: '12.15'
+  :device: 
+OS-X_Mountain-Lion_safari_6.2:
+  :browser: safari
+  :os: OS X
+  :os_version: Mountain Lion
+  :browser_version: '6.2'
+  :device: 
+OS-X_Mountain-Lion_chrome_14.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Mountain Lion
+  :browser_version: '14.0'
+  :device: 
+OS-X_Mountain-Lion_chrome_16.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Mountain Lion
+  :browser_version: '16.0'
+  :device: 
+OS-X_Mountain-Lion_chrome_17.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Mountain Lion
+  :browser_version: '17.0'
+  :device: 
+OS-X_Mountain-Lion_chrome_18.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Mountain Lion
+  :browser_version: '18.0'
+  :device: 
+OS-X_Mountain-Lion_chrome_19.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Mountain Lion
+  :browser_version: '19.0'
+  :device: 
+OS-X_Mountain-Lion_chrome_20.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Mountain Lion
+  :browser_version: '20.0'
+  :device: 
+OS-X_Mountain-Lion_chrome_21.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Mountain Lion
+  :browser_version: '21.0'
+  :device: 
+OS-X_Mountain-Lion_chrome_22.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Mountain Lion
+  :browser_version: '22.0'
+  :device: 
+OS-X_Mountain-Lion_chrome_23.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Mountain Lion
+  :browser_version: '23.0'
+  :device: 
+OS-X_Mountain-Lion_chrome_24.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Mountain Lion
+  :browser_version: '24.0'
+  :device: 
+OS-X_Mountain-Lion_chrome_25.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Mountain Lion
+  :browser_version: '25.0'
+  :device: 
+OS-X_Mountain-Lion_chrome_26.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Mountain Lion
+  :browser_version: '26.0'
+  :device: 
+OS-X_Mountain-Lion_chrome_27.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Mountain Lion
+  :browser_version: '27.0'
+  :device: 
+OS-X_Mountain-Lion_chrome_28.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Mountain Lion
+  :browser_version: '28.0'
+  :device: 
+OS-X_Mountain-Lion_chrome_29.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Mountain Lion
+  :browser_version: '29.0'
+  :device: 
+OS-X_Mountain-Lion_chrome_30.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Mountain Lion
+  :browser_version: '30.0'
+  :device: 
+OS-X_Mountain-Lion_chrome_31.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Mountain Lion
+  :browser_version: '31.0'
+  :device: 
+OS-X_Mountain-Lion_chrome_32.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Mountain Lion
+  :browser_version: '32.0'
+  :device: 
+OS-X_Mountain-Lion_chrome_33.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Mountain Lion
+  :browser_version: '33.0'
+  :device: 
+OS-X_Mountain-Lion_chrome_34.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Mountain Lion
+  :browser_version: '34.0'
+  :device: 
+OS-X_Mountain-Lion_chrome_35.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Mountain Lion
+  :browser_version: '35.0'
+  :device: 
+OS-X_Mountain-Lion_chrome_36.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Mountain Lion
+  :browser_version: '36.0'
+  :device: 
+OS-X_Mountain-Lion_chrome_37.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Mountain Lion
+  :browser_version: '37.0'
+  :device: 
+OS-X_Mountain-Lion_chrome_38.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Mountain Lion
+  :browser_version: '38.0'
+  :device: 
+OS-X_Mountain-Lion_chrome_39.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Mountain Lion
+  :browser_version: '39.0'
+  :device: 
+OS-X_Mountain-Lion_chrome_40.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Mountain Lion
+  :browser_version: '40.0'
+  :device: 
+OS-X_Mountain-Lion_chrome_41.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Mountain Lion
+  :browser_version: '41.0'
+  :device: 
+OS-X_Mountain-Lion_chrome_42.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Mountain Lion
+  :browser_version: '42.0'
+  :device: 
+OS-X_Mountain-Lion_chrome_43.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Mountain Lion
+  :browser_version: '43.0'
+  :device: 
+OS-X_Mountain-Lion_chrome_44.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Mountain Lion
+  :browser_version: '44.0'
+  :device: 
+OS-X_Mountain-Lion_chrome_45.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Mountain Lion
+  :browser_version: '45.0'
+  :device: 
+OS-X_Mountain-Lion_chrome_47.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Mountain Lion
+  :browser_version: '47.0'
+  :device: 
+OS-X_Mountain-Lion_chrome_48.0:
+  :browser: chrome
+  :os: OS X
+  :os_version: Mountain Lion
+  :browser_version: '48.0'
+  :device: 
+OS-X_Mountain-Lion_firefox_3.6:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mountain Lion
+  :browser_version: '3.6'
+  :device: 
+OS-X_Mountain-Lion_firefox_4.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mountain Lion
+  :browser_version: '4.0'
+  :device: 
+OS-X_Mountain-Lion_firefox_5.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mountain Lion
+  :browser_version: '5.0'
+  :device: 
+OS-X_Mountain-Lion_firefox_6.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mountain Lion
+  :browser_version: '6.0'
+  :device: 
+OS-X_Mountain-Lion_firefox_7.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mountain Lion
+  :browser_version: '7.0'
+  :device: 
+OS-X_Mountain-Lion_firefox_8.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mountain Lion
+  :browser_version: '8.0'
+  :device: 
+OS-X_Mountain-Lion_firefox_9.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mountain Lion
+  :browser_version: '9.0'
+  :device: 
+OS-X_Mountain-Lion_firefox_10.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mountain Lion
+  :browser_version: '10.0'
+  :device: 
+OS-X_Mountain-Lion_firefox_11.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mountain Lion
+  :browser_version: '11.0'
+  :device: 
+OS-X_Mountain-Lion_firefox_12.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mountain Lion
+  :browser_version: '12.0'
+  :device: 
+OS-X_Mountain-Lion_firefox_13.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mountain Lion
+  :browser_version: '13.0'
+  :device: 
+OS-X_Mountain-Lion_firefox_14.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mountain Lion
+  :browser_version: '14.0'
+  :device: 
+OS-X_Mountain-Lion_firefox_15.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mountain Lion
+  :browser_version: '15.0'
+  :device: 
+OS-X_Mountain-Lion_firefox_16.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mountain Lion
+  :browser_version: '16.0'
+  :device: 
+OS-X_Mountain-Lion_firefox_17.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mountain Lion
+  :browser_version: '17.0'
+  :device: 
+OS-X_Mountain-Lion_firefox_18.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mountain Lion
+  :browser_version: '18.0'
+  :device: 
+OS-X_Mountain-Lion_firefox_19.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mountain Lion
+  :browser_version: '19.0'
+  :device: 
+OS-X_Mountain-Lion_firefox_20.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mountain Lion
+  :browser_version: '20.0'
+  :device: 
+OS-X_Mountain-Lion_firefox_21.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mountain Lion
+  :browser_version: '21.0'
+  :device: 
+OS-X_Mountain-Lion_firefox_22.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mountain Lion
+  :browser_version: '22.0'
+  :device: 
+OS-X_Mountain-Lion_firefox_23.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mountain Lion
+  :browser_version: '23.0'
+  :device: 
+OS-X_Mountain-Lion_firefox_24.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mountain Lion
+  :browser_version: '24.0'
+  :device: 
+OS-X_Mountain-Lion_firefox_25.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mountain Lion
+  :browser_version: '25.0'
+  :device: 
+OS-X_Mountain-Lion_firefox_26.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mountain Lion
+  :browser_version: '26.0'
+  :device: 
+OS-X_Mountain-Lion_firefox_27.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mountain Lion
+  :browser_version: '27.0'
+  :device: 
+OS-X_Mountain-Lion_firefox_28.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mountain Lion
+  :browser_version: '28.0'
+  :device: 
+OS-X_Mountain-Lion_firefox_29.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mountain Lion
+  :browser_version: '29.0'
+  :device: 
+OS-X_Mountain-Lion_firefox_30.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mountain Lion
+  :browser_version: '30.0'
+  :device: 
+OS-X_Mountain-Lion_firefox_31.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mountain Lion
+  :browser_version: '31.0'
+  :device: 
+OS-X_Mountain-Lion_firefox_32.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mountain Lion
+  :browser_version: '32.0'
+  :device: 
+OS-X_Mountain-Lion_firefox_33.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mountain Lion
+  :browser_version: '33.0'
+  :device: 
+OS-X_Mountain-Lion_firefox_34.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mountain Lion
+  :browser_version: '34.0'
+  :device: 
+OS-X_Mountain-Lion_firefox_35.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mountain Lion
+  :browser_version: '35.0'
+  :device: 
+OS-X_Mountain-Lion_firefox_36.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mountain Lion
+  :browser_version: '36.0'
+  :device: 
+OS-X_Mountain-Lion_firefox_37.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mountain Lion
+  :browser_version: '37.0'
+  :device: 
+OS-X_Mountain-Lion_firefox_38.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mountain Lion
+  :browser_version: '38.0'
+  :device: 
+OS-X_Mountain-Lion_firefox_39.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mountain Lion
+  :browser_version: '39.0'
+  :device: 
+OS-X_Mountain-Lion_firefox_40.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mountain Lion
+  :browser_version: '40.0'
+  :device: 
+OS-X_Mountain-Lion_firefox_41.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mountain Lion
+  :browser_version: '41.0'
+  :device: 
+OS-X_Mountain-Lion_firefox_42.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mountain Lion
+  :browser_version: '42.0'
+  :device: 
+OS-X_Mountain-Lion_firefox_43.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mountain Lion
+  :browser_version: '43.0'
+  :device: 
+OS-X_Mountain-Lion_firefox_44.0:
+  :browser: firefox
+  :os: OS X
+  :os_version: Mountain Lion
+  :browser_version: '44.0'
+  :device: 
+Google-Nexus-4_android_4.2_android:
+  :browser: android
+  :os: android
+  :os_version: '4.2'
+  :browser_version: 
+  :device: Google Nexus 4
+HTC-One-X_android_4.0_android:
+  :browser: android
+  :os: android
+  :os_version: '4.0'
+  :browser_version: 
+  :device: HTC One X
+Motorola-Razr_android_4.0_android:
+  :browser: android
+  :os: android
+  :os_version: '4.0'
+  :browser_version: 
+  :device: Motorola Razr
+Sony-Xperia-Tipo_android_4.0_android:
+  :browser: android
+  :os: android
+  :os_version: '4.0'
+  :browser_version: 
+  :device: Sony Xperia Tipo
+Google-Nexus_android_4.0_android:
+  :browser: android
+  :os: android
+  :os_version: '4.0'
+  :browser_version: 
+  :device: Google Nexus
+Amazon-Kindle-Fire-2_android_4.0_android:
+  :browser: android
+  :os: android
+  :os_version: '4.0'
+  :browser_version: 
+  :device: Amazon Kindle Fire 2
+Amazon-Kindle-Fire-HD-8.9_android_4.0_android:
+  :browser: android
+  :os: android
+  :os_version: '4.0'
+  :browser_version: 
+  :device: Amazon Kindle Fire HD 8.9
+Samsung-Galaxy-Note-10.1_android_4.0_android:
+  :browser: android
+  :os: android
+  :os_version: '4.0'
+  :browser_version: 
+  :device: Samsung Galaxy Note 10.1
+Samsung-Galaxy-S3_android_4.1_android:
+  :browser: android
+  :os: android
+  :os_version: '4.1'
+  :browser_version: 
+  :device: Samsung Galaxy S3
+Samsung-Galaxy-Note-2_android_4.1_android:
+  :browser: android
+  :os: android
+  :os_version: '4.1'
+  :browser_version: 
+  :device: Samsung Galaxy Note 2
+Motorola-Razr-Maxx-HD_android_4.1_android:
+  :browser: android
+  :os: android
+  :os_version: '4.1'
+  :browser_version: 
+  :device: Motorola Razr Maxx HD
+Google-Nexus-7_android_4.1_android:
+  :browser: android
+  :os: android
+  :os_version: '4.1'
+  :browser_version: 
+  :device: Google Nexus 7
+Samsung-Galaxy-S4_android_4.3_android:
+  :browser: android
+  :os: android
+  :os_version: '4.3'
+  :browser_version: 
+  :device: Samsung Galaxy S4
+Samsung-Galaxy-Note-3_android_4.3_android:
+  :browser: android
+  :os: android
+  :os_version: '4.3'
+  :browser_version: 
+  :device: Samsung Galaxy Note 3
+Amazon-Kindle-Fire-HDX-7_android_4.3_android:
+  :browser: android
+  :os: android
+  :os_version: '4.3'
+  :browser_version: 
+  :device: Amazon Kindle Fire HDX 7
+Samsung-Galaxy-S5_android_4.4_android:
+  :browser: android
+  :os: android
+  :os_version: '4.4'
+  :browser_version: 
+  :device: Samsung Galaxy S5
+Samsung-Galaxy-S5-Mini_android_4.4_android:
+  :browser: android
+  :os: android
+  :os_version: '4.4'
+  :browser_version: 
+  :device: Samsung Galaxy S5 Mini
+HTC-One-M8_android_4.4_android:
+  :browser: android
+  :os: android
+  :os_version: '4.4'
+  :browser_version: 
+  :device: HTC One M8
+Samsung-Galaxy-Tab-4-10.1_android_4.4_android:
+  :browser: android
+  :os: android
+  :os_version: '4.4'
+  :browser_version: 
+  :device: Samsung Galaxy Tab 4 10.1
+Google-Nexus-5_android_5.0_android:
+  :browser: android
+  :os: android
+  :os_version: '5.0'
+  :browser_version: 
+  :device: Google Nexus 5
+iPad-2-5.0_ios_5.0_ipad:
+  :browser: ipad
+  :os: ios
+  :os_version: '5.0'
+  :browser_version: 
+  :device: iPad 2 (5.0)
+iPhone-6_ios_8.3_iphone:
+  :browser: iphone
+  :os: ios
+  :os_version: '8.3'
+  :browser_version: 
+  :device: iPhone 6
+iPhone-6-Plus_ios_8.3_iphone:
+  :browser: iphone
+  :os: ios
+  :os_version: '8.3'
+  :browser_version: 
+  :device: iPhone 6 Plus
+iPad-Mini-2_ios_8.3_ipad:
+  :browser: ipad
+  :os: ios
+  :os_version: '8.3'
+  :browser_version: 
+  :device: iPad Mini 2
+iPad-Air_ios_8.3_ipad:
+  :browser: ipad
+  :os: ios
+  :os_version: '8.3'
+  :browser_version: 
+  :device: iPad Air
+iPhone-5S_ios_7.0_iphone:
+  :browser: iphone
+  :os: ios
+  :os_version: '7.0'
+  :browser_version: 
+  :device: iPhone 5S
+iPad-Mini_ios_7.0_ipad:
+  :browser: ipad
+  :os: ios
+  :os_version: '7.0'
+  :browser_version: 
+  :device: iPad Mini
+iPad-4th_ios_7.0_ipad:
+  :browser: ipad
+  :os: ios
+  :os_version: '7.0'
+  :browser_version: 
+  :device: iPad 4th
+iPhone-4S-6.0_ios_6.0_iphone:
+  :browser: iphone
+  :os: ios
+  :os_version: '6.0'
+  :browser_version: 
+  :device: iPhone 4S (6.0)
+iPhone-5_ios_6.0_iphone:
+  :browser: iphone
+  :os: ios
+  :os_version: '6.0'
+  :browser_version: 
+  :device: iPhone 5
+iPad-3rd-6.0_ios_6.0_ipad:
+  :browser: ipad
+  :os: ios
+  :os_version: '6.0'
+  :browser_version: 
+  :device: iPad 3rd (6.0)
+iPhone-4S_ios_5.1_iphone:
+  :browser: iphone
+  :os: ios
+  :os_version: '5.1'
+  :browser_version: 
+  :device: iPhone 4S
+iPad-3rd_ios_5.1_ipad:
+  :browser: ipad
+  :os: ios
+  :os_version: '5.1'
+  :browser_version: 
+  :device: iPad 3rd
+iPhone-6S_ios_9.1_iphone:
+  :browser: iphone
+  :os: ios
+  :os_version: '9.1'
+  :browser_version: 
+  :device: iPhone 6S
+iPhone-6S-Plus_ios_9.1_iphone:
+  :browser: iphone
+  :os: ios
+  :os_version: '9.1'
+  :browser_version: 
+  :device: iPhone 6S Plus
+iPad-Air-2_ios_9.1_ipad:
+  :browser: ipad
+  :os: ios
+  :os_version: '9.1'
+  :browser_version: 
+  :device: iPad Air 2
+iPad-Mini-4_ios_9.1_ipad:
+  :browser: ipad
+  :os: ios
+  :os_version: '9.1'
+  :browser_version: 
+  :device: iPad Mini 4
+iPad-Pro_ios_9.1_ipad:
+  :browser: ipad
+  :os: ios
+  :os_version: '9.1'
+  :browser_version: 
+  :device: iPad Pro

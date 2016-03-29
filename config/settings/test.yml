@@ -1,0 +1,6 @@
+service:
+  host: 'example.com'
+  protocol: 'http'
+admin:
+  email_domain: 'example.com'
+secret_key_base: '70100f06ac292510739ffef99ebc333fa52b3ec4ea7c969f3997a9fdd84d66fd64b92da4c52c569d22dc7cbc0a446cddf77c8e4c28940e7894676077cbba3d8c'

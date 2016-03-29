@@ -1,0 +1,21 @@
+DOCTYPE
+html
+  head
+    title Cross Browser Tester
+    = csrf_meta_tags
+    = action_cable_meta_tag
+
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => 'reload'
+    = stylesheet_link_tag    'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css'
+    = javascript_include_tag 'application', 'data-turbolinks-track' => 'reload'
+    = javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js'
+
+  body id="#{controller_name}_#{action_name}"
+    = render 'layouts/header'
+    div.e2d-content
+      div.container
+        - if notice
+          p.alert.alert-info = notice
+        - if alert
+          p.alert.alert-error = alert
+        = yield

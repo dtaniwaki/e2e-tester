@@ -1,0 +1,15 @@
+nav.navbar.navbar-default
+  div.container
+    div.navbar-header
+      button.navbar-toggle.collapsed type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      a.navbar-brand href=root_path Cross Browser Tester
+    ul.nav.navbar-nav.navbar-right
+      - if user_signed_in?
+        li = link_to "Hi #{current_user.email}", edit_user_registration_path
+        li = link_to 'Sign Out', destroy_user_session_path, method: :delete
+      - else
+        li = link_to 'Sign In', new_user_session_path

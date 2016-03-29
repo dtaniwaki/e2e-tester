@@ -1,0 +1,24 @@
+service:
+  host: 'e2e-tester.dev'
+  protocol: 'http'
+admin:
+  email_domain: '.*'
+logger:
+  color: true
+  format: 'simple'
+  default:
+    level: <%= Logger::DEBUG %>
+  active_record:
+    level: <%= Logger::DEBUG %>
+  action_controller:
+    level: <%= Logger::DEBUG %>
+  action_mailer:
+    level: <%= Logger::DEBUG %>
+storage:
+  fog_credentials:
+    ## Local storage
+    provider: "Local"
+    local_root: "./public/system"
+    endpoint: "//e2e-tester.dev/system"
+  fog_directory: 'dev'
+secret_key_base: 'a35b5385a72ea7d21a82cdf74f81e9c2f1be5606b8cbcd3dcb29cd46e346905b8ee29062b3913fecc91f28bb0c0f4f0271cf5114d383bf560a0ffe5a31db669a'

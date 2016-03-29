@@ -1,0 +1,19 @@
+default: &default
+  adapter: mysql2
+  pool: 15
+  username: root
+  password:
+  host: <%= ENV['DATABASE_HOST'] || '127.0.0.1' %>
+  port: <%= ENV['DATABASE_PORT'] || '3306' %>
+
+development:
+  <<: *default
+  database: e2e_tester_development
+
+test:
+  <<: *default
+  database: e2e_tester_test
+
+production:
+  <<: *default
+  database: e2e_tester

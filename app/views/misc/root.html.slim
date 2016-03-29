@@ -1,0 +1,7 @@
+ul
+  - if user_signed_in?
+    li = link_to "Projects", projects_path
+    li = link_to "Tests", tests_path
+    li = link_to "Invite User", new_user_invitation_path
+  - else
+    li = link_to "Sign In", new_user_session_path

@@ -1,0 +1,64 @@
+- if @is_owner
+  = link_to 'Back to Project', project_path(@test.project)
+- else
+  = link_to 'Back to Tests', tests_path
+h1 Test
+
+h2 = @test.project.title
+
+div.panel
+  div
+    ul.list-group
+      - @test.test_steps.each do |ts|
+        li.list-group-item = ts.to_line
+  div
+    - @test.browsers.each do |b|
+      span.label.label-default = b.name
+  div
+    = link_to 'Execute the test', test_test_executions_path(@test), class: 'btn btn-primary', method: :post
+
+- if @test_executions.present?
+  div.panel.panel-default
+    div.panel-heading Executions
+    table.table
+      tr
+        th ID
+        th State
+        th Executed
+        th Executed By
+      - @test_executions.each do |te|
+        tr
+          td = link_to te.id, test_execution_path(te)
+          td = link_to te.state, test_execution_path(te)
+          td = link_to te.created_at.to_s, test_execution_path(te)
+          td = te.user.email
+  div.panel
+    = link_to 'More test executions', test_test_executions_path(@test)
+
+- if @user_test.present?
+  = render '/shared/variables_form', target: @user_test, variable_name: 'user_test_variables'
+
+- if @is_owner
+  h3 Invite User
+  = form_for [@test, UserTest.new], method: :post, html: {autocomplete: 'off'} do |f|
+    div.form-group
+      = label_tag :email
+      = text_field_tag :email, nil, class: 'form-control', autocomplete: 'off'
+
+    div.form-group
+      = f.submit t("devise.invitations.new.submit_button"), class: 'btn btn-default'
+
+  - if @user_tests.present?
+    div.panel.panel-default
+      div.panel-heading Assigned Users
+      table.table
+        tr
+          th ID
+          th Email
+        - @user_tests.each do |ut|
+          tr
+            td = ut.user.id
+            td = ut.user.email
+    div.panel
+      = link_to 'More assigned users', test_user_tests_path(@test)
+

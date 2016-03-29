@@ -1,0 +1,35 @@
+= link_to 'Back to Test Execution', test_execution_path(@test_step_execution.test_execution)
+
+div style="margin: 20px 0 20px 0;"
+  ul.nav.nav-pills
+    - @other_browser_test_step_executions.each do |tse|
+      li class="#{@test_step_execution == tse ? 'active' : nil}"
+        = link_to tse.browser.name, test_step_execution_path(tse)
+div
+  div.col-md-3
+    ul.nav.nav-pills.nav-stacked
+      - @same_browser_test_step_executions.each do |tse|
+        li class="#{@test_step_execution == tse ? 'active' : nil}"
+          = link_to tse.test_step.to_line, test_step_execution_path(tse)
+
+  div.col-md-9
+    div
+      ul.list-group
+        li.list-group-item
+          = @test_step_execution.test_step.to_line
+    div
+      | State: 
+      - if @test_step_execution.state == :done
+        span.label.label-success = @test_step_execution.state
+      - else
+        span.label.label-info = @test_step_execution.state
+
+    - if @test_step_execution.state_failed?
+      div.alert.alert-warning
+        = @test_step_execution.message
+    - if @test_step_execution.test_step.screenshot? &&  && @test_step_execution.screenshot.try(:image).present?
+      div
+        = image_tag @test_step_execution.screenshot.image.url, width: '100%'
+    - elsif @test_step_execution.test_step.page_source? && @test_step_execution.page_source.try(:source).present?
+      div
+        = link_to 'Page Source', @test_step_execution.page_source.source.url, target: '_blank'

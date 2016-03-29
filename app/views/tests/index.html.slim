@@ -1,0 +1,13 @@
+h1 Tests
+
+- if @tests.present?
+  div.panel.panel-default
+    table.table
+      tr
+        th ID
+        th Title
+      - @tests.each do |t|
+        tr
+          td = link_to t.id, test_path(t)
+          td = link_to t.project.title, test_path(t)
+    = paginate @tests
