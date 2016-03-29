@@ -108,6 +108,8 @@ group :test do
   gem 'webmock', '~> 1.24.2', require: false
   # gem 'guard-rspec', require: false
   gem 'vcr', '~> 3.0.1'
+  # Mock Redis
+  gem 'fakeredis', '~> 0.5.0'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
