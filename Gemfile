@@ -98,7 +98,10 @@ end
 
 group :test do
   gem 'rspec-rails', '~> 3.5.0.beta2'
+  # Test Coverage
   gem 'simplecov', '~> 0.11.2', require: false
+  gem 'coveralls', '~> 0.8.13', require: false
+  gem 'codeclimate-test-reporter', '~> 0.5.0', require: false
   gem 'database_rewinder', '~> 0.5.3'
   # gem 'fuubar'
   gem 'timecop', '~> 0.8.0'

@@ -6,7 +6,15 @@ require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
 require 'pundit/rspec'
 
+# Test Coverage
+require 'codeclimate-test-reporter'
+require 'coveralls'
 require 'simplecov'
+SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
+  Coveralls::SimpleCov::Formatter,
+  SimpleCov::Formatter::HTMLFormatter,
+  CodeClimate::TestReporter::Formatter
+]
 SimpleCov.start 'rails'
 
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
