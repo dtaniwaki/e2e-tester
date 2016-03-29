@@ -23,8 +23,9 @@ End-to-end test across the browsers.
 
 ```bash
 bundle install
-bundle exec puma -C config/puma.rb
-bundle exec sidekiq -C config/sidekiq.yml.sample
+bundle exec puma -C config/puma.rb -d
+bundle exec sidekiq -C config/sidekiq.yml -d
+open http://localhost:3000/
 ```
 
 ## Test
