@@ -27,7 +27,7 @@ div
     - if @test_step_execution.state_failed?
       div.alert.alert-warning
         = @test_step_execution.message
-    - if @test_step_execution.test_step.screenshot? &&  && @test_step_execution.screenshot.try(:image).present?
+    - if @test_step_execution.test_step.screenshot? && @test_step_execution.screenshot.try(:image).present?
       div
         = image_tag @test_step_execution.screenshot.image.url, width: '100%'
     - elsif @test_step_execution.test_step.page_source? && @test_step_execution.page_source.try(:source).present?

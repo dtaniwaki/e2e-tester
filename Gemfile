@@ -92,6 +92,8 @@ group :development do
   # Code regulation
   gem 'rubocop', '~> 0.36.0', require: false
   gem 'rubocop-rspec', '~> 1.4.0', require: false
+  # Vulnerability scan
+  gem 'brakeman', '~> 3.2.1', require: false
   # Debug Email
   gem 'letter_opener_web', '~> 1.3.0'
 end
