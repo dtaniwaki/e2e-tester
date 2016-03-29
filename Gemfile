@@ -26,7 +26,7 @@ gem 'jbuilder', '~> 2.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-gem 'paperclip', '~> 4.3.5'
+gem 'paperclip', '~> 4.3.6'
 gem 'fog-aws', '~> 0.9.0'
 gem 'fog-local', '~> 0.3.0'
 # gem 'poltergeist'
