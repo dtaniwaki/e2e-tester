@@ -8,7 +8,10 @@ env:
   - DATABASE_URL=mysql2://root:@127.0.0.1/e2e_tester_test
 before_script:
   - mysql -u root -h 127.0.0.1 -e 'CREATE DATABASE IF NOT EXISTS e2e_tester_test;'
-script: bundle exec rspec
+script:
+  - bundle exec rspec
+  - bundle exec rubocop
+  - bundle exec brakeman
 services:
   - docker
 addons:
