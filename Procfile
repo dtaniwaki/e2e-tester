@@ -1,3 +1,3 @@
-init: DATABASE_URL=$CLEARDB_DATABASE_URL bundle exec rails db:create db:migrate db:seed
-web: DATABASE_URL=$CLEARDB_DATABASE_URL bundle exec puma -C config/puma.rb
-worker: DATABASE_URL=$CLEARDB_DATABASE_URL bundle exec sidekiq -C config/sidekiq.yml
+init: DATABASE_URL=$(echo -n $CLEARDB_DATABASE_URL | sed 's/mysql:/mysql2:/') bundle exec rails db:create db:migrate db:seed
+web: DATABASE_URL=$(echo -n $CLEARDB_DATABASE_URL | sed 's/mysql:/mysql2:/') bundle exec puma -C config/puma.rb
+worker: DATABASE_URL=$(echo -n $CLEARDB_DATABASE_URL | sed 's/mysql:/mysql2:/') bundle exec sidekiq -C config/sidekiq.yml
