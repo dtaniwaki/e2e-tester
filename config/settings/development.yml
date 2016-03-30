@@ -7,12 +7,16 @@ logger:
   color: true
   format: 'simple'
   default:
+    io_type: 'file'
     level: <%= Logger::DEBUG %>
   active_record:
+    io_type: 'file'
     level: <%= Logger::DEBUG %>
   action_controller:
+    io_type: 'file'
     level: <%= Logger::DEBUG %>
   action_mailer:
+    io_type: 'file'
     level: <%= Logger::DEBUG %>
 storage:
   fog_credentials:

@@ -1,13 +1,17 @@
 service:
-  host: 'TBA'
-  protocol: 'TBA'
+  host: <%= ENV['SERVICE_HOST'] || 'TBA' %>
+  protocol: <%= ENV['SERVICE_PROTOCOL'] || 'http' %>
 admin:
-  email_domain: 'TBA'
+  email_domain: <%= ENV['ADMIN_EMAIL_DOMAIN'] || 'TBA' %>
+omniauth:
+  google:
+    app_id: <%= ENV['OMNIAUTH_GOOGLE_APP_ID'] || 'TBA' %>
+    app_secret: <%= ENV['OMNIAUTH_GOOGLE_APP_SECRET'] || 'TBA' %>
 bugsnag:
-  api_key: 'TBA'
+  api_key: <%= ENV['BUGSNAG_API_KEY'] || 'TBA' %>
 browserstack:
-  username: 'TBA'
-  password: 'TBA'
+  username: <%= ENV['BROWSERSTACK_USERNAME'] || 'TBA' %>
+  password: <%= ENV['BROWSERSTACK_PASSWORD'] || 'TBA' %>
 storage:
   fog_credentials:
     provider: "AWS"
@@ -17,12 +21,28 @@ storage:
   fog_directory: 'TBA'
   root: 'TBA'
 redis:
+  sidekiq_client:
+    url: <%= ENV['REDIS_SIDEKIQ_URL'] || ENV['REDIS_URL'] || 'TBA' %>
+    size: <%= ENV['REDIS_SIDEKIQ_SIZE'] %>
+  sidekiq_server:
+    url: <%= ENV['REDIS_SIDEKIQ_URL'] || ENV['REDIS_URL'] || 'TBA' %>
+    size: <%= ENV['REDIS_SIDEKIQ_SIZE'] %>
   session_store:
-    url: 'TBA'
-  sidekiq:
-    url: 'TBA'
+    url: <%= ENV['REDIS_SESSION_STORE_URL'] || ENV['REDIS_URL'] || 'TBA' %>
+    maxclients: <%= ENV['REDIS_SESSION_STORE_SIZE'] %>
 mandrill:
   enabled: true
   username: 'TBA'
   api_key: 'TBA'
+logger:
+  color: true
+  format: 'simple'
+  default:
+    io_type: <%= ENV['LOGGER_IO_TYPE'] || 'file' %>
+  active_record:
+    io_type: <%= ENV['LOGGER_IO_TYPE'] || 'file' %>
+  action_controller:
+    io_type: <%= ENV['LOGGER_IO_TYPE'] || 'file' %>
+  action_mailer:
+    io_type: <%= ENV['LOGGER_IO_TYPE'] || 'file' %>
 secret_key_base: 'TBA'
