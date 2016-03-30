@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   authenticate :admin_user do
     if Settings.service.sidekiq
       require 'sidekiq/web'
-      mount Sidekiq::Web => '/admin/sidekiq'
+      mount Sidekiq::Web => '/admin/sidekiq_web'
     end
   end
 

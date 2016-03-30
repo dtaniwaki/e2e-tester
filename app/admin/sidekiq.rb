@@ -1,3 +1,6 @@
 ActiveAdmin.register_page "Sidekiq" do
-  menu url: '/admin/sidekiq'
+  content do
+    #redirect_to "/admin/sidekiq_web"
+    render "/shared/iframe", src: "/admin/sidekiq_web"
+  end
 end
