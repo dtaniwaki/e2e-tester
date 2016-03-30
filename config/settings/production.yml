@@ -21,10 +21,15 @@ storage:
   fog_directory: 'TBA'
   root: 'TBA'
 redis:
-  sidekiq:
+  sidekiq_client:
     url: <%= ENV['REDIS_SIDEKIQ_URL'] || ENV['REDIS_URL'] || 'TBA' %>
+    size: <%= ENV['REDIS_SIDEKIQ_SIZE'] %>
+  sidekiq_server:
+    url: <%= ENV['REDIS_SIDEKIQ_URL'] || ENV['REDIS_URL'] || 'TBA' %>
+    size: <%= ENV['REDIS_SIDEKIQ_SIZE'] %>
   session_store:
     url: <%= ENV['REDIS_SESSION_STORE_URL'] || ENV['REDIS_URL'] || 'TBA' %>
+    maxclients: <%= ENV['REDIS_SESSION_STORE_SIZE'] %>
 mandrill:
   enabled: true
   username: 'TBA'
