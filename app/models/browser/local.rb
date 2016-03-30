@@ -13,9 +13,21 @@ module Browser
           device: 'mobile'
         }
       ]
-      browsers << { browser: 'firefox' } if Selenium::WebDriver::Firefox::Binary.path && File.exist?(Selenium::WebDriver::Firefox::Binary.path)
-      browsers << { browser: 'chrome' } if Selenium::WebDriver::Chrome.path && File.exist?(Selenium::WebDriver::Chrome.path)
-      browsers << { browser: 'safari' } if Selenium::WebDriver::Safari.path && File.exist?(Selenium::WebDriver::Safari.path)
+      begin
+        browsers << { browser: 'firefox' } if Selenium::WebDriver::Firefox::Binary.path && File.exist?(Selenium::WebDriver::Firefox::Binary.path)
+      rescue
+        nil
+      end
+      begin
+        browsers << { browser: 'chrome' } if Selenium::WebDriver::Chrome.path && File.exist?(Selenium::WebDriver::Chrome.path)
+      rescue
+        nil
+      end
+      begin
+        browsers << { browser: 'safari' } if Selenium::WebDriver::Safari.path && File.exist?(Selenium::WebDriver::Safari.path)
+      rescue
+        nil
+      end
       browsers
     end
 
