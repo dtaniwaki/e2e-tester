@@ -2,6 +2,7 @@ service:
   host: <%= ENV['SERVICE_HOST'] || 'TBA' %>
   protocol: 'http'
 mailer:
+  type: 'letter_opener'
   sender:
     default: <%= ENV['MAILER_SENDER_DEFAULT'] || 'foo@example.com' %>
 secret_key_base: 'TBA'
@@ -73,3 +74,9 @@ logger:
   action_mailer:
     io_type: 'file'
     level: <%= Logger::INFO %>
+mandrill:
+  username: <%= ENV['MANDRILL_USERNAME'] || 'TBA' %>
+  api_key: <%= ENV['MANDRILL_API_KEY'] || 'TBA' %>
+mailgun:
+  username: <%= ENV['MAILGUN_USERNAME'] || 'TBA' %>
+  password: <%= ENV['MAILGUN_PASSWORD'] || 'TBA' %>

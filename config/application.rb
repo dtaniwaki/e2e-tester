@@ -52,7 +52,8 @@ module E2eTester
     end
     Rails.application.config.colorize_logging = Settings.logger.color
 
-    if Settings.mandrill.try(:enabled)
+    case Settings.mailer.type
+    when 'mandrill'
       config.action_mailer.delivery_method = :smtp
       config.action_mailer.smtp_settings = {
         user_name: Settings.mandrill.username,
@@ -62,8 +63,20 @@ module E2eTester
         authentication: 'login',
         port: 587
       }
-    else
+    when 'mailgun'
+      config.action_mailer.delivery_method = :smtp
+      config.action_mailer.smtp_settings = {
+        user_name: Settings.mailgun.username,
+        password: Settings.mailgun.password,
+        address: 'smtp.mailgun.org',
+        enable_starttls_auto: true,
+        authentication: 'login',
+        port: 587
+      }
+    when 'letter_opener'
       config.action_mailer.delivery_method = :letter_opener
+    else
+      config.action_mailer.delivery_method = :file
     end
   end
 end

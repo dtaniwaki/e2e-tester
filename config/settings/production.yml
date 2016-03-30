@@ -30,10 +30,16 @@ redis:
   session_store:
     url: <%= ENV['REDIS_SESSION_STORE_URL'] || ENV['REDIS_URL'] || 'TBA' %>
     maxclients: <%= ENV['REDIS_SESSION_STORE_SIZE'] %>
+mailer:
+  type: <%= ENV['MAILER_TYPE'] || 'TBA' %>
+  sender:
+    default: <%= ENV['MAILER_SENDER_DEFAULT'] || 'foo@example.com' %>
 mandrill:
-  enabled: true
-  username: 'TBA'
-  api_key: 'TBA'
+  username: <%= ENV['MANDRILL_USERNAME'] || 'TBA' %>
+  api_key: <%= ENV['MANDRILL_API_KEY'] || 'TBA' %>
+mailgun:
+  username: <%= ENV['MAILGUN_USERNAME'] || 'TBA' %>
+  password: <%= ENV['MAILGUN_PASSWORD'] || 'TBA' %>
 logger:
   color: true
   format: 'simple'
