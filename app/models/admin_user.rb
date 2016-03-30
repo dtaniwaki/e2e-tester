@@ -13,7 +13,9 @@ class AdminUser < ApplicationRecord
     data = auth.info
 
     user = find_by(email: data['email'])
-    if user.nil?
+    if user.present?
+      user.save! # To validate the record with latest validations
+    else
       user = create!(
         name: data['name'],
         email: data['email'],
