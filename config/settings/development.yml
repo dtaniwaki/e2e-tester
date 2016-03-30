@@ -1,8 +1,6 @@
 service:
   host: 'localhost:3000'
   protocol: 'http'
-admin:
-  email_domain: '.*'
 logger:
   color: true
   format: 'simple'

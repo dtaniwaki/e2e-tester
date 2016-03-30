@@ -3,7 +3,7 @@ class AdminUser < ApplicationRecord
 
   has_many :comments, as: :commenter, inverse_of: :commenter, dependent: :destroy
 
-  validates :email, format: { with: /@#{Settings.admin.email_domain}\Z/, message: "should be a #{Settings.admin.email_domain} email" }
+  validates :email, format: { with: /\A#{Settings.admin.email_format}\Z/ }
   validates :name, :email, :provider, :uid, :encrypted_password, presence: true
   validates :email, :provider, :uid, :name, :token, length: { maximum: 255 }
 

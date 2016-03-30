@@ -43,7 +43,7 @@ omniauth:
     app_id: <%= ENV['OMNIAUTH_GOOGLE_APP_ID'] || 'TBA' %>
     app_secret: <%= ENV['OMNIAUTH_GOOGLE_APP_SECRET'] || 'TBA' %>
 admin:
-  email_domain: '.*'
+  email_format: '.*'
 redis:
   sidekiq_client:
     url: <%= ENV['REDIS_SIDEKIQ_URL'] || ENV['REDIS_URL'] || 'TBA' %>
