@@ -48,12 +48,10 @@ redis:
   sidekiq_client:
     url: <%= ENV['REDIS_SIDEKIQ_URL'] || ENV['REDIS_URL'] || 'TBA' %>
     namespace: 'e2e-tester-sidekiq'
-    concurrency: <%= ENV['REDIS_SIDEKIQ_CONCURRENCY'] %>
     size: <%= ENV['REDIS_SIDEKIQ_SIZE'] %>
   sidekiq_server:
     url: <%= ENV['REDIS_SIDEKIQ_URL'] || ENV['REDIS_URL'] || 'TBA' %>
     namespace: 'e2e-tester-sidekiq'
-    concurrency: <%= ENV['REDIS_SIDEKIQ_CONCURRENCY'] %>
     size: <%= ENV['REDIS_SIDEKIQ_SIZE'] %>
   session_store:
     url: <%= ENV['REDIS_SESSION_STORE_URL'] || ENV['REDIS_URL'] || 'TBA' %>
