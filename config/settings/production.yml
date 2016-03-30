@@ -8,7 +8,7 @@ omniauth:
     app_id: <%= ENV['OMNIAUTH_GOOGLE_APP_ID'] || 'TBA' %>
     app_secret: <%= ENV['OMNIAUTH_GOOGLE_APP_SECRET'] || 'TBA' %>
 bugsnag:
-  api_key: 'TBA'
+  api_key: <%= ENV['BUGSNAG_API_KEY'] || 'TBA' %>
 browserstack:
   username: <%= ENV['BROWSERSTACK_USERNAME'] || 'TBA' %>
   password: <%= ENV['BROWSERSTACK_PASSWORD'] || 'TBA' %>

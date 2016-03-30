@@ -13,7 +13,7 @@ browserstack:
   username: <%= ENV['BROWSERSTACK_USERNAME'] || 'TBA' %>
   password: <%= ENV['BROWSERSTACK_PASSWORD'] || 'TBA' %>
 bugsnag:
-  api_key: 'TBA'
+  api_key: <%= ENV['BUGSNAG_API_KEY'] || 'TBA' %>
   release_stages:
     - 'production'
 storage:
