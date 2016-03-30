@@ -1,17 +1,17 @@
 service:
-  host: 'TBA'
+  host: <%= ENV['SERVICE_HOST'] || 'TBA' %>
   protocol: 'http'
 mailer:
   sender:
-    default: 'foo@example.com'
+    default: <%= ENV['MAILER_SENDER_DEFAULT'] || 'foo@example.com' %>
 secret_key_base: 'TBA'
 session:
   key: '_e2etstr'
   secure: false
   expire_after: <%= 90.minutes %>
 browserstack:
-  username: 'TBA'
-  password: 'TBA'
+  username: <%= ENV['BROWSERSTACK_USERNAME'] || 'TBA' %>
+  password: <%= ENV['BROWSERSTACK_PASSWORD'] || 'TBA' %>
 bugsnag:
   api_key: 'TBA'
   release_stages:
@@ -25,10 +25,10 @@ storage:
     # host: "aws.s3.amazonaws.com"
     # path_style: true
     ## Local storage
-    # provider: "Local"
-    # local_root: "./public/system"
-    # endpoint: "//e2e-tester.dev/system"
-  fog_directory: 'TBA' # Directory/Bucket to put files
+    provider: "Local"
+    local_root: "./public/system"
+    endpoint: "//<%= ENV['SERVICE_HOST'] || 'TBA' %>/system"
+  fog_directory: 'storage' # Directory/Bucket to put files
   fog_attributes:
     'Cache-Control': 'max-age=<%= 10.years.to_i %>'
   root: # If you want to change the root in the directory
@@ -40,26 +40,30 @@ service:
   sidekiq: true
 omniauth:
   google:
-    app_id: 'TBA'
-    app_secret: 'TBA'
+    app_id: <%= ENV['OMNIAUTH_GOOGLE_APP_ID'] || 'TBA' %>
+    app_secret: <%= ENV['OMNIAUTH_GOOGLE_APP_SECRET'] || 'TBA' %>
 admin:
-  email_domain: 'TBA'
+  email_domain: '.*'
 redis:
   sidekiq:
-    url: 'TBA'
+    url: <%= ENV['REDIS_SIDEKIQ_URL'] || ENV['REDIS_URL'] || 'TBA' %>
     namespace: 'e2e-tester-sidekiq'
   session_store:
-    url: 'TBA'
+    url: <%= ENV['REDIS_SESSION_STORE_URL'] || ENV['REDIS_URL'] || 'TBA' %>
     namespace: 'e2e-tester-session'
     expire_after: <%= 60.minutes.to_i %>
 logger:
   color: false
   format: 'detail'
   default:
+    io_type: 'file'
     level: <%= Logger::INFO %>
   active_record:
+    io_type: 'file'
     level: <%= Logger::INFO %>
   action_controller:
+    io_type: 'file'
     level: <%= Logger::INFO %>
   action_mailer:
+    io_type: 'file'
     level: <%= Logger::INFO %>

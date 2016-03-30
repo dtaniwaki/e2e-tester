@@ -32,7 +32,13 @@ module E2eTester
     }.each do |name, target|
       settings = Settings.logger[name]
       prefix = name == :default ? '' : "#{name}."
-      file = Rails.root.join('log', "#{prefix}#{Rails.env}.log")
+      if settings && settings.io_type.downcase == 'stdout'
+        STDOUT
+      elsif settings && settings.io_type.downcase == 'stderr'
+        STDERR
+      else
+        file = Rails.root.join('log', "#{prefix}#{Rails.env}.log")
+      end
       logger = ActiveSupport::Logger.new(file)
       logger.level = settings.level if settings && settings.level
       case Settings.logger.format.to_sym
