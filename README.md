@@ -7,6 +7,8 @@
 
 End-to-end test across the browsers.
 
+Here's [the working example](http://e2e-tester.dtaniwaki.com/).
+
 ## Requirement
 
 - [PhantomJS v2.x](http://phantomjs.org/)
