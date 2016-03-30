@@ -2,7 +2,7 @@ service:
   host: 'example.com'
   protocol: 'http'
 admin:
-  email_format: 'example.com'
+  email_format: '.*@example.com'
 redis:
   sidekiq_client:
     url: redis://localhost:6379/2
