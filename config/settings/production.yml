@@ -15,7 +15,8 @@ browserstack:
 storage:
   fog_credentials:
     provider: "AWS"
-    region: 'us-west-1'
+    region: <%= ENV['STORAGE_S3_REGION'] || 'us-east-1' %>
+    scheme: 'https'
     aws_access_key_id: <%= ENV['STORAGE_AWS_ACCESS_KEY_ID'] || 'TBA' %>
     aws_secret_access_key: <%= ENV['STORAGE_AWS_SECRET_ACCESS_KEY'] || 'TBA' %>
   fog_directory: <%= ENV['STORAGE_FOG_DIRECTORY'] || 'TBA' %>

@@ -22,6 +22,7 @@ storage:
     ## S3
     # provider: 'AWS'
     # region: 'us-west-1'
+    # scheme: 'https'
     # aws_access_key_id: 'ABCDEFG123456'
     # aws_secret_access_key: 'ABCDEFG123456'
     ## Local storage
@@ -29,8 +30,8 @@ storage:
     # local_root: "./public/system"
     # endpoint: "//<%= ENV['SERVICE_HOST'] || 'TBA' %>/system"
   fog_directory: 'storage' # Directory/Bucket to put files
-  fog_attributes:
-    'Cache-Control': 'max-age=<%= 10.years.to_i %>'
+  fog_options:
+    cache_control: 'max-age=<%= 10.years.to_i %>'
   root: # If you want to change the root in the directory
 paperclip:
   cache_max_age:
