@@ -2,5 +2,8 @@
   "name": "E2E Tester",
   "description": "An example app of e2e-tester",
   "image": "heroku/ruby",
-  "addons": [ "cleardb:ignite", "heroku-redis:hobby-dev" ]
+  "addons": [ "cleardb:ignite", "heroku-redis:hobby-dev" ],
+  "buildpacks": {
+    "url": "https://github.com/stomita/heroku-buildpack-phantomjs"
+  }
 }
