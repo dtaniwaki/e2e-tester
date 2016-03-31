@@ -45,8 +45,14 @@ $.extend(true, $, {
             clearInterval(timerId)
           }
         }, 1800000)
-      }
 
+        let clearTimer
+        clearTimer = function() {
+          clearInterval(timerId)
+          $(document).off('turbolinks:before-render', clearTimer);
+        }
+        $(document).on('turbolinks:before-render', clearTimer);
+      }
     }
   }
 })
