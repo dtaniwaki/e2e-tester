@@ -32,5 +32,9 @@ Style/SignalException:
 Style/BlockDelimiters:
   Exclude:
     - 'config/routes.rb'
+Style/IndentHash:
+  EnforcedStyle: consistent
+Style/IndentArray:
+  EnforcedStyle: consistent
 Lint/EndAlignment:
   AlignWith: variable

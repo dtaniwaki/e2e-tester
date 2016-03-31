@@ -7,10 +7,10 @@ require 'codeclimate-test-reporter'
 require 'coveralls'
 require 'simplecov'
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-                                                                 Coveralls::SimpleCov::Formatter,
-                                                                 SimpleCov::Formatter::HTMLFormatter,
-                                                                 CodeClimate::TestReporter::Formatter
-                                                               ])
+  Coveralls::SimpleCov::Formatter,
+  SimpleCov::Formatter::HTMLFormatter,
+  CodeClimate::TestReporter::Formatter
+])
 SimpleCov.start 'rails'
 
 require File.expand_path('../../config/environment', __FILE__)
