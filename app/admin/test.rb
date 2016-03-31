@@ -14,7 +14,7 @@ ActiveAdmin.register Test do
       test.attribute_names.each do |name|
         if name == 'test_id'
           row name do |p|
-            link_to p.test_id, admin_test_path(p.test_id)
+            link_to p.test_id, admin_test_path(p.test_id) if p.test_id.present?
           end
         else
           row name

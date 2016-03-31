@@ -584,7 +584,7 @@ DEPENDENCIES
   puma (~> 3.2.0)
   pundit (~> 1.1.0)
   rails (>= 5.0.0.beta3, < 5.1)
-  rails-controller-testing
+  rails-controller-testing (~> 0.1.1)
   ransack!
   redis-actionpack!
   redis-activesupport!
