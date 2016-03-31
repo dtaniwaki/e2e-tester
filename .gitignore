@@ -24,7 +24,6 @@
 *.local.*
 
 config/database.yml
-config/sidekiq.yml
 public/system
 public/assets
 

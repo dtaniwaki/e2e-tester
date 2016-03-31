@@ -1,0 +1,4 @@
+:queues:
+  - [test_execution, 2]
+  - [default, 1]
+  - [low, 1]
