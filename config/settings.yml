@@ -20,11 +20,10 @@ bugsnag:
 storage:
   fog_credentials:
     ## S3
-    # provider: "AWS"
-    # aws_access_key_id: "ABCDEFG123456"
-    # aws_secret_access_key: "ABCDEFG123456"
-    # host: "aws.s3.amazonaws.com"
-    # path_style: true
+    # provider: 'AWS'
+    # region: 'us-west-1'
+    # aws_access_key_id: 'ABCDEFG123456'
+    # aws_secret_access_key: 'ABCDEFG123456'
     ## Local storage
     provider: "Local"
     local_root: "./public/system"

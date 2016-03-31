@@ -15,11 +15,11 @@ browserstack:
 storage:
   fog_credentials:
     provider: "AWS"
-    region: 'TBA'
-    aws_access_key_id: 'TBA'
-    aws_secret_access_key: 'TBA'
-  fog_directory: 'TBA'
-  root: 'TBA'
+    region: 'us-west-1'
+    aws_access_key_id: <%= ENV['STORAGE_AWS_ACCESS_KEY_ID'] || 'TBA' %>
+    aws_secret_access_key: <%= ENV['STORAGE_AWS_ACCESS_KEY'] || 'TBA' %>
+  fog_directory: <%= ENV['STORAGE_FOG_DIRECTORY'] || 'TBA' %>
+  root: <%= ENV['STORAGE_ROOT'] || 'TBA' %>
 redis:
   sidekiq_client:
     url: <%= ENV['REDIS_SIDEKIQ_URL'] || ENV['REDIS_URL'] || 'TBA' %>
