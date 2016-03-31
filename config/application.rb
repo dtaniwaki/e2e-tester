@@ -32,13 +32,15 @@ module E2eTester
     }.each do |name, target|
       settings = Settings.logger[name]
       prefix = name == :default ? '' : "#{name}."
-      if settings && settings.io_type.casecmp('stdout')
-        STDOUT
-      elsif settings && settings.io_type.casecmp('stderr')
-        STDERR
+      # rubocop:disable Style/ConditionalAssignment
+      if settings && settings.io_type.casecmp('stdout') == 0
+        file = STDOUT
+      elsif settings && settings.io_type.casecmp('stderr') == 0
+        file = STDERR
       else
         file = Rails.root.join('log', "#{prefix}#{Rails.env}.log")
       end
+      # rubocop:enable Style/ConditionalAssignment
       logger = ActiveSupport::Logger.new(file)
       logger.level = settings.level if settings && settings.level
       case Settings.logger.format.to_sym
