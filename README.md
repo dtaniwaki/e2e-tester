@@ -11,7 +11,8 @@ Here's [the working example](http://e2e-tester.dtaniwaki.com/).
 
 ## Requirement
 
-- [PhantomJS v2.x](http://phantomjs.org/)
+- [PhantomJS](http://phantomjs.org/) >= v2.0
+- [Mogrify](http://www.imagemagick.org/script/mogrify.php) >= v6.9
 - Redis >= v2.8
 - MySQL >= v5.5
 
