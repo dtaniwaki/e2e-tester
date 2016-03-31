@@ -2,7 +2,8 @@
 div class="form-group"
   = f.label :title
   = f.text_field :title, maxlength: 255, class: 'form-control'
-= f.fields_for :current_test do |ff|
+= f.fields_for :current_test, @base_test do |ff|
+  = ff.hidden_field :test_id, value: ff.object.id
   div.form-group
     = ff.label :test_steps_attributes
     = ff.text_area :test_steps_attributes, value: ff.object.test_steps_attributes, class: 'form-control', rows: 10

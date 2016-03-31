@@ -22,7 +22,7 @@ class Project < ApplicationRecord
   def current_test_attributes=(attributes)
     new_test = Test.new(attributes)
     return if current_test.persisted? && current_test.same_test?(new_test)
-    self.current_test = tests.build(attributes.merge(parent: current_test))
+    self.current_test = tests.build(attributes)
   end
 
   private

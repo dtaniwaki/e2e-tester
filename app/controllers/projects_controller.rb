@@ -6,7 +6,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @project = current_user.projects.eager_load(:current_test).find(params[:id])
+    @project = Project.eager_load(current_test: :test_steps).find(params[:id])
     authorize @project
 
     @tests = @project.tests.preload(test_browsers: :browser).latest.limit(10)
@@ -37,7 +37,13 @@ class ProjectsController < ApplicationController
   end
 
   def edit
-    @project = Project.includes(:current_test, tests: { test_browsers: :browser }).find(params[:id])
+    if params[:base_test_id]
+      @project = Project.includes(tests: { test_browsers: :browser }).find(params[:id])
+      @base_test = @project.tests.eager_load(:test_steps).find(params[:base_test_id])
+    else
+      @project = Project.includes(:current_test, tests: { test_browsers: :browser }).find(params[:id])
+      @base_test = @project.current_test
+    end
     authorize @project
 
     @selected_browsers = @project.current_test.browsers
@@ -78,6 +84,6 @@ class ProjectsController < ApplicationController
   end
 
   def permitted_params
-    params.require(:project).permit(:title, current_test_attributes: [:test_steps_attributes, browser_ids: []])
+    params.require(:project).permit(:title, current_test_attributes: [:test_id, :test_steps_attributes, browser_ids: []])
   end
 end

@@ -52,6 +52,7 @@ class Test < ApplicationRecord
 
   def same_test?(other)
     test_steps_attributes == other.test_steps_attributes &&
-      browser_ids == other.browser_ids
+      browser_ids == other.browser_ids &&
+      (test_id == other.id || id == other.test_id)
   end
 end
