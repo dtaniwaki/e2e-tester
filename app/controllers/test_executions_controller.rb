@@ -5,13 +5,11 @@ class TestExecutionsController < ApplicationController
     @test = Test.find(params[:test_id])
     authorize @test, :show?
 
-    # rubocop:disable Style/ConditionalAssignment
-    if current_user.user_projects.with_project(@test.project).exists?
-      @test_executions = policy_scope(@test.test_executions).eager_load(:user).latest.page(params[:page]).per(20)
+    @test_executions = if current_user.user_projects.with_project(@test.project).exists?
+      policy_scope(@test.test_executions).eager_load(:user).latest.page(params[:page]).per(20)
     else
-      @test_executions = policy_scope(@test.test_executions.with_user(current_user)).eager_load(:user).latest.page(params[:page]).per(20)
+      policy_scope(@test.test_executions.with_user(current_user)).eager_load(:user).latest.page(params[:page]).per(20)
     end
-    # rubocop:enble Style/ConditionalAssignment
   end
 
   def show

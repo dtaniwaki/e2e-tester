@@ -32,3 +32,5 @@ Style/SignalException:
 Style/BlockDelimiters:
   Exclude:
     - 'config/routes.rb'
+Lint/EndAlignment:
+  AlignWith: variable
