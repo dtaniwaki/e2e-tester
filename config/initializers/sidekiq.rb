@@ -1,3 +1,5 @@
+require 'bugsnag/sidekiq'
+
 Sidekiq.configure_server do |config|
   config.redis = Settings.redis.sidekiq_server.to_hash
   ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'])
