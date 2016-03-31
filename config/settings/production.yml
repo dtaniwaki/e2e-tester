@@ -17,7 +17,7 @@ storage:
     provider: "AWS"
     region: 'us-west-1'
     aws_access_key_id: <%= ENV['STORAGE_AWS_ACCESS_KEY_ID'] || 'TBA' %>
-    aws_secret_access_key: <%= ENV['STORAGE_AWS_ACCESS_KEY'] || 'TBA' %>
+    aws_secret_access_key: <%= ENV['STORAGE_AWS_SECRET_ACCESS_KEY'] || 'TBA' %>
   fog_directory: <%= ENV['STORAGE_FOG_DIRECTORY'] || 'TBA' %>
   root: <%= ENV['STORAGE_ROOT'] || 'TBA' %>
 redis:
