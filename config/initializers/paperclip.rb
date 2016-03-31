@@ -2,7 +2,7 @@ Paperclip.options[:log] = true
 
 Paperclip.interpolates :root do |_attachment, _style|
   s = Settings.storage.root.to_s
-  s += '/' if s[-1] != '/'
+  s = s[0..-2] if s[-1] == '/'
   s
 end
 
