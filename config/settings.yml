@@ -25,9 +25,9 @@ storage:
     # aws_access_key_id: 'ABCDEFG123456'
     # aws_secret_access_key: 'ABCDEFG123456'
     ## Local storage
-    provider: "Local"
-    local_root: "./public/system"
-    endpoint: "//<%= ENV['SERVICE_HOST'] || 'TBA' %>/system"
+    # provider: "Local"
+    # local_root: "./public/system"
+    # endpoint: "//<%= ENV['SERVICE_HOST'] || 'TBA' %>/system"
   fog_directory: 'storage' # Directory/Bucket to put files
   fog_attributes:
     'Cache-Control': 'max-age=<%= 10.years.to_i %>'
