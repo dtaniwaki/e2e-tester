@@ -11,19 +11,19 @@ Here's [the working example](http://e2e-tester.dtaniwaki.com/).
 
 ## Requirement
 
-- NodeJS >= v5.0
+- [NodeJS](https://nodejs.org/en/) >= v5.0
 - [PhantomJS](http://phantomjs.org/) >= v2.1
 - [Mogrify](http://www.imagemagick.org/script/mogrify.php) >= v6.9
-- Redis >= v2.8
-- MySQL >= v5.5
+- [Redis](http://redis.io/) >= v2.8
+- [MySQL](https://www.mysql.com/) >= v5.5
 
 ### Optional
 
-- FireFox
+- [FireFox](https://www.mozilla.org/)
 - [Safari Selenium Driver](https://github.com/SeleniumHQ/selenium/wiki/SafariDriver)
 - [Browserstack](https://www.browserstack.com)
 
-## Run
+## Usage
 
 ```bash
 bundle install
@@ -32,17 +32,51 @@ bundle exec sidekiq -C config/sidekiq.yml -d
 open http://localhost:3000/
 ```
 
-## Test
+The followings are optional, but make you happier with this application.
+
+### Browserstack
+
+You can use the browsers of [Browserstack](https://www.browserstack.com/) through WebDriver.
+
+As environment variables,
 
 ```bash
-bundle exec rspec
+BROWSERSTACK_USERNAME=foo
+BROWSERSTACK_PASSWORD=bar
 ```
 
-Run rubocop for the code regulation
+Or in `config/settings.local.yml`,
+
+```
+browserstack:
+  username: foo
+  password: bar
+```
+
+Then, run the rake task to update the browsers.
 
 ```bash
-bundle exec rubocop
-bundle exec rubocop --auto-correct # To correct them automatically as much as possible
+bundle exec rake browser:update:browserstack
+```
+
+### ActiveAdmin
+
+To use [ActiveAdmin](https://github.com/activeadmin/activeadmin) for this application, you need to set up Google Oauth2 settings.
+
+As environment variables,
+
+```bash
+OMNIAUTH_GOOGLE_APP_ID=foo
+OMNIAUTH_GOOGLE_APP_SECRET=bar
+```
+
+Or in `config/settings.local.yml`,
+
+```
+omniauth:
+  google:
+    app_id: foo
+    app_secret: bar
 ```
 
 ## Run in Docker
@@ -54,24 +88,30 @@ docker-compose up
 open http://$(docker-machine ip $machine):3000
 ```
 
-If you have browserstack account, you can set them in `.docker_env` with the environment variables below.
+You can use `.docker_env` to set environment variables which you don't want to expose.
+
+## Test
 
 ```bash
-BROWSERSTACK_USERNAME=foo
-BROWSERSTACK_PASSWORD=bar
+bundle exec rspec
 ```
 
-Then, run the rake task.
+### rubocop
+
+Run rubocop for the code regulation
 
 ```bash
-docker-compose run init bundle exec rake browser:update:browserstack
+bundle exec rubocop
+bundle exec rubocop --auto-correct # To correct them automatically as much as possible
 ```
 
-You need to set up Google Oauth2 settings in `.docker_env` to use the admin.
+### Coverage
+
+The test coverage will be collected automatically by rspec.
 
 ```bash
-OMNIAUTH_GOOGLE_APP_ID=foo
-OMNIAUTH_GOOGLE_APP_SECRET=bar
+bundle exec rspec
+open coverage/index.html
 ```
 
 ## Contributing
