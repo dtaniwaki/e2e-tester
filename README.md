@@ -92,8 +92,17 @@ You can use `.docker_env` to set environment variables which you don't want to e
 
 ## Test
 
+To run `rspec`, `rubocop` and `brakeman` in order,
+
+```bash
+bundle exec rake
+```
+
+### rspec
+
 ```bash
 bundle exec rspec
+open coverage/index.html # The test coverage will be collected automatically.
 ```
 
 ### rubocop
@@ -101,17 +110,16 @@ bundle exec rspec
 Run rubocop for the code regulation
 
 ```bash
-bundle exec rubocop
-bundle exec rubocop --auto-correct # To correct them automatically as much as possible
+bundle exec rubocop -D
+bundle exec rubocop -D --auto-correct # To correct them automatically as much as possible
 ```
 
-### Coverage
+### brakeman
 
-The test coverage will be collected automatically by rspec.
+Run brakeman for static vulnerability scan.
 
 ```bash
-bundle exec rspec
-open coverage/index.html
+bundle exec brakeman
 ```
 
 ## Contributing

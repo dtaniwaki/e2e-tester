@@ -8,9 +8,7 @@ env:
 before_script:
   - mysql -u root -h 127.0.0.1 -e 'CREATE DATABASE IF NOT EXISTS e2e_tester_test;'
 script:
-  - bundle exec rspec
-  - bundle exec rubocop
-  - bundle exec brakeman
+  - bundle exec rake
 services:
   - docker
 addons:
