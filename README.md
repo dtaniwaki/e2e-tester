@@ -79,6 +79,12 @@ omniauth:
     app_secret: bar
 ```
 
+Then, open the admin console in your browser.
+
+```bash
+open http://localhost:3000/admin/
+```
+
 ## Run in Docker
 
 You can try the e2e tester without any settings with docker-compose.
