@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     scope :admin do
       devise_for :admin_users, controllers: { omniauth_callbacks: 'admin_users/omniauth_callbacks' }
       as :admin_user do
-        get 'sign_in', to: redirect { |_params, req|
+        get 'sign_in', to: redirect(status: 302) { |_params, req|
           Rails.application.routes.url_helpers.admin_user_omniauth_authorize_path(:google_oauth2, origin: req.referer || Rails.application.routes.url_helpers.admin_root_path)
         }, as: :new_admin_user_session
         delete 'sign_out', to: 'devise/sessions#destroy', as: :destroy_admin_user_session
