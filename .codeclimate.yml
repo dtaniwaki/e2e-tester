@@ -17,18 +17,20 @@ engines:
     enabled: true
 ratings:
   paths:
-  - "**.erb"
-  - "**.haml"
-  - "**.rb"
-  - "**.rhtml"
-  - "**.slim"
-  - "**.coffee"
-  - "**.inc"
-  - "**.js"
-  - "**.jsx"
-  - "**.module"
-  - "**.php"
-  - "**.py"
+    # - Gemfile.lock
+    - "**.erb"
+    - "**.haml"
+    - "**.rb"
+    - "**.rhtml"
+    - "**.slim"
+    - "**.coffee"
+    - "**.inc"
+    - "**.js"
+    - "**.jsx"
+    - "**.es6"
+    - "**.module"
+    - "**.php"
+    - "**.py"
 exclude_paths:
   - config/
   - db/
