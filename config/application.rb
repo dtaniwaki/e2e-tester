@@ -16,6 +16,7 @@ module E2eTester
     config.autoload_paths << Rails.root.join('lib', 'validators')
     config.generators do |g|
       g.test_framework :rspec
+      g.javascript_engine :js
     end
     config.active_job.queue_adapter = :sidekiq
 

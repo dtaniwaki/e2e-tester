@@ -554,7 +554,6 @@ DEPENDENCIES
   bugsnag (~> 3.0.0)
   byebug (~> 8.2.2)
   codeclimate-test-reporter (~> 0.5.0)
-  coffee-rails (~> 4.1.0)
   config (~> 1.0.0)
   coveralls (~> 0.8.13)
   database_rewinder (~> 0.5.3)
