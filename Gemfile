@@ -50,7 +50,7 @@ gem 'acts_as_list', '~> 0.7.2'
 gem 'paranoia', github: 'rubysherpas/paranoia', branch: 'core'
 gem 'slim-rails', '~> 3.0.1'
 gem 'pundit', '~> 1.1.0'
-gem 'bugsnag', '~> 3.0.0'
+gem 'bugsnag', '~> 4.0.0'
 
 ################################
 # redis-rails Rails 5 support
