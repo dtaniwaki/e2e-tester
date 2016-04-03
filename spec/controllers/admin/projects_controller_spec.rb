@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Admin::ProjectsController, type: :controller do
-  render_views
   include_context 'with signed in admin user'
   describe 'GET index' do
     let!(:projects) { create_list :project, 2 }

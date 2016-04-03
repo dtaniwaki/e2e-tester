@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Admin::TestsController, type: :controller do
-  render_views
   include_context 'with signed in admin user'
   describe 'GET index' do
     let!(:tests) { create_list :test, 2 }

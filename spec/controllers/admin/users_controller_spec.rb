@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Admin::UsersController, type: :controller do
-  render_views
   include_context 'with signed in admin user'
   describe 'GET index' do
     let!(:users) { create_list :user, 2 }
