@@ -5,7 +5,7 @@ div data-path-done-test-execution-path=done_test_execution_path(@test_execution)
   h2 = "Execution ##{@test_execution.id}"
   h3 class="state #{@test_execution.state}"
     | State: 
-    - if @test_execution.state == :done
+    - if @test_execution.done?
       span.label.label-success = @test_execution.state
     - else
       span.label.label-info = @test_execution.state

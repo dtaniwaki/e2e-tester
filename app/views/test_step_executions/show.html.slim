@@ -19,12 +19,12 @@ div
           = @test_step_execution.test_step.to_line
     div
       | State: 
-      - if @test_step_execution.state == :done
+      - if @test_step_execution.done?
         span.label.label-success = @test_step_execution.state
       - else
         span.label.label-info = @test_step_execution.state
 
-    - if @test_step_execution.state == :failed
+    - if @test_step_execution.failed?
       div.alert.alert-warning
         = @test_step_execution.message
     - if @test_step_execution.test_step.screenshot? && @test_step_execution.screenshot.try(:image).present?

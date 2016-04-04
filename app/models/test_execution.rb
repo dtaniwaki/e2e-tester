@@ -44,8 +44,8 @@ class TestExecution < ApplicationRecord
   end
 
   def send_notification!
-    return if state_was == :done
-    return if state != :done
+    return if state_was == 'done'
+    return if state != 'done'
     project.user_projects.includes(:user).find_each do |up|
       UserMailer.task_execution_result(up) if up.user != user
     end
