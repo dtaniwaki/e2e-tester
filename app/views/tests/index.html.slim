@@ -15,5 +15,5 @@ h1 Tests
           td = link_to t.project.title, test_path(t)
           td = link_to t.title, test_path(t) if t.title.present?
           td = link_to t.created_at.to_s, test_path(t)
-          td = t.user.email
+          td = t.user.name_or_email
     = paginate @tests

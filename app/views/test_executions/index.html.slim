@@ -17,6 +17,6 @@ h2 = @test.project.title
           td = link_to te.id, test_execution_path(te)
           td = link_to te.state, test_execution_path(te)
           td = link_to te.created_at.to_s, test_execution_path(te)
-          td = te.user.email
+          td = te.user.name_or_email
   div.panel
     = paginate(@test_executions)
