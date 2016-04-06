@@ -26,7 +26,7 @@ class ProjectsController < ApplicationController
     @project = current_user.own_projects.build
     authorize @project
 
-    if @project.update_attributes(permitted_params)
+    if @project.update_test(permitted_params, current_user)
       flash[:notice] = 'Succesfully created new project'
       redirect_to project_path(@project)
     else
@@ -54,7 +54,7 @@ class ProjectsController < ApplicationController
     @project = Project.includes(:current_test, tests: { test_browsers: :browser }).find(params[:id])
     authorize @project
 
-    if @project.update_attributes(permitted_params)
+    if @project.update_test(permitted_params, current_user)
       flash[:notice] = 'Succesfully created the project'
       redirect_to project_path(@project)
     else

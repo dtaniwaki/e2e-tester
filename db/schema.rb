@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160314151510) do
+ActiveRecord::Schema.define(version: 20160406010233) do
 
   create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "namespace"
@@ -190,10 +190,12 @@ ActiveRecord::Schema.define(version: 20160314151510) do
     t.integer  "test_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id",    null: false
   end
 
   add_index "tests", ["project_id"], name: "index_tests_on_project_id", using: :btree
   add_index "tests", ["test_id"], name: "index_tests_on_test_id", using: :btree
+  add_index "tests", ["user_id"], name: "index_tests_on_user_id", using: :btree
 
   create_table "user_project_variables", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_project_id",             null: false
@@ -304,6 +306,7 @@ ActiveRecord::Schema.define(version: 20160314151510) do
   add_foreign_key "test_steps", "tests"
   add_foreign_key "tests", "projects"
   add_foreign_key "tests", "tests"
+  add_foreign_key "tests", "users"
   add_foreign_key "user_project_variables", "user_projects"
   add_foreign_key "user_projects", "projects"
   add_foreign_key "user_projects", "users"

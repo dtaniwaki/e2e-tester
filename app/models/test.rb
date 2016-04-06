@@ -1,4 +1,5 @@
 class Test < ApplicationRecord
+  belongs_to :user, inverse_of: :tests
   belongs_to :project, inverse_of: :tests
   belongs_to :parent, class_name: 'Test', foreign_key: 'test_id', inverse_of: :children
   has_many :active_projects, class_name: 'Project', foreign_key: 'test_id', inverse_of: :current_test, dependent: :nullify

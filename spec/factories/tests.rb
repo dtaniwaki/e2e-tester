@@ -1,5 +1,6 @@
 FactoryGirl.define do
   factory :test do
+    user
     project
     transient do
       browsers nil
