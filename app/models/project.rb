@@ -7,26 +7,11 @@ class Project < ApplicationRecord
   acts_as_paranoid
 
   validates :title, length: { maximum: 255 }, presence: true
-  validates :current_test, presence: true
-
-  accepts_nested_attributes_for :current_test, allow_destroy: false, update_only: false
 
   after_create :assign_owner!
 
   scope :latest, -> { order(created_at: :desc) }
   scope :with_user, ->(user) { joins(:user_projects).merge(UserProject.where(user_id: user.is_a?(ActiveRecord::Base) ? user.id : user)) }
-
-  def update_test(params, user)
-    (params[:current_test_attributes] || {}).merge!(user_id: user.id)
-    update_attributes(params)
-  end
-
-  private :update_attributes
-
-  def current_test=(test)
-    return current_test if current_test.present? && test.present? && current_test.same_test?(test)
-    super test
-  end
 
   private
 

@@ -4,13 +4,13 @@ RSpec.describe Test, type: :model do
   subject { create :test }
   describe '#same_test?' do
     let(:browsers) { create_list(:browser, 1) }
-    let(:parent) { create :test }
-    subject { create :test, parent: parent, browsers: browsers }
+    let(:base_test) { create :test }
+    subject { create :test, base_test: base_test, browsers: browsers }
     it 'returns true for a cloned instance' do
       expect(subject.same_test?(subject.clone)).to be true
     end
     context 'for other instance' do
-      let(:target) { create :test, parent: parent, browsers: browsers }
+      let(:target) { create :test, base_test: base_test, browsers: browsers }
       before do
         expect(subject).not_to eq target
       end

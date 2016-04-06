@@ -1,5 +1,5 @@
 class UserProject < ApplicationRecord
-  belongs_to :user, inverse_of: :user_projects
+  belongs_to :user, inverse_of: :accessible_projects
   belongs_to :assigned_by, class_name: 'User', foreign_key: 'assigned_by_id', inverse_of: :assigned_project_users
   belongs_to :project, inverse_of: :user_projects
   has_many :user_project_variables, inverse_of: :user_project, dependent: :destroy

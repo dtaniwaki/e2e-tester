@@ -2,7 +2,7 @@ class TestsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @tests = policy_scope(current_user.tests).latest.page(params[:page]).per(20)
+    @tests = policy_scope(current_user.accessible_tests).latest.page(params[:page]).per(20)
   end
 
   def show

@@ -31,7 +31,7 @@ Rails.application.routes.draw do
   }
 
   resources :projects, shallow: true do
-    resources :tests, controller: :project_tests, only: [:index]
+    resources :tests, controller: :project_tests, only: [:index, :new, :create]
     resources :user_projects, only: [:create, :update, :index]
   end
   resources :tests, shallow: true, only: [:index, :show] do
