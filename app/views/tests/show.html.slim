@@ -5,6 +5,7 @@
 h1 Test
 
 h2 = @test.project.title
+h3 = @test.title
 
 div.panel
   div
@@ -16,7 +17,8 @@ div.panel
       span.label.label-default = b.name
   div
     = link_to 'Execute the test', test_test_executions_path(@test), class: 'btn btn-primary', method: :post
-    = link_to 'Edit the test', edit_project_path(@test.project, base_test_id: @test.to_param), class: 'btn btn-default'
+    - if @is_owner
+      = link_to 'Edit the test', new_project_test_path(@test.project, base_test_id: @test), class: 'btn btn-default'
 
 - if @test_executions.present?
   div.panel.panel-default
@@ -32,7 +34,7 @@ div.panel
           td = link_to te.id, test_execution_path(te)
           td = link_to te.state, test_execution_path(te)
           td = link_to te.created_at.to_s, test_execution_path(te)
-          td = te.user.email
+          td = te.user.name_or_email
   div.panel
     = link_to 'More test executions', test_test_executions_path(@test)
 
@@ -59,7 +61,7 @@ div.panel
         - @user_tests.each do |ut|
           tr
             td = ut.user.id
-            td = ut.user.email
+            td = ut.user.name_or_email
     div.panel
       = link_to 'More assigned users', test_user_tests_path(@test)
 

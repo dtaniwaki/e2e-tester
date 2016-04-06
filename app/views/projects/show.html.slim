@@ -3,16 +3,22 @@ h1 = @project.title
 
 div.panel
   div
-    ul.list-group
-      - @project.current_test.test_steps.each do |ts|
-        li.list-group-item = ts.to_line
-  div
-    - @project.current_test.browsers.each do |b|
-      span.label.label-default = b.name
-  div
-    = link_to 'Execute the test', test_test_executions_path(@project.current_test), class: 'btn btn-primary', method: :post
     = link_to 'Edit the project', edit_project_path(@project), class: 'btn btn-default'
     = link_to 'Delete the project', project_path(@project), class: 'btn btn-default', method: :delete, data: {confirm: 'Are you sure?'}
+    = link_to 'Create new test', new_project_test_path(@project), class: 'btn btn-success', method: :get
+
+- if @latest_test
+  div.panel
+    div
+      ul.list-group
+        - @latest_test.test_steps.each do |ts|
+          li.list-group-item = ts.to_line
+    div
+      - @latest_test.browsers.each do |b|
+        span.label.label-default = b.name
+    div
+      - if @latest_test.present?
+        = link_to 'Execute the test', test_test_executions_path(@latest_test), class: 'btn btn-primary', method: :post
 
 - if @tests.present?
   div.panel.panel-default
@@ -21,12 +27,16 @@ div.panel
       tr
         th ID
         th Parent
+        th Title
         th Created
+        th Created By
       - @tests.each do |t|
         tr
           td = link_to t.id, test_path(t)
-          td = t.test_id
+          td = link_to t.test_id, test_path(t.test_id) if t.test_id.present?
+          td = link_to t.title, test_path(t) if t.title.present?
           td = link_to t.created_at.to_s, test_path(t)
+          td = t.user.name_or_email
   div.panel
     = link_to 'More tests', project_tests_path(@project)
 
@@ -52,7 +62,7 @@ h3 Invite User
       - @user_projects.each do |up|
         tr
           td = up.user.id
-          td = up.user.email
+          td = up.user.name_or_email
   div.panel
     = link_to 'More assigned users', project_user_projects_path(@project)
 

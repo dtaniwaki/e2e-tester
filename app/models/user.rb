@@ -3,9 +3,10 @@ class User < ApplicationRecord
 
   has_many :own_projects, class_name: 'Project', inverse_of: :user, dependent: :destroy
   has_many :user_projects, inverse_of: :user, dependent: :destroy
+  has_many :accessible_projects, through: :user_projects, source: :project
   has_many :user_tests, inverse_of: :user, dependent: :destroy
-  has_many :projects, through: :user_projects
-  has_many :tests, through: :user_tests
+  has_many :accessible_tests, through: :user_tests, source: :test
+  has_many :tests, inverse_of: :user, dependent: :destroy
   has_many :test_executions, inverse_of: :user, dependent: :destroy
   has_many :test_execution_browsers, through: :test_executions
   has_many :test_step_executions, through: :test_execution_browsers

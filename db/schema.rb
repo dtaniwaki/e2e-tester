@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160314151510) do
+ActiveRecord::Schema.define(version: 20160407025152) do
 
   create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "namespace"
@@ -96,7 +96,6 @@ ActiveRecord::Schema.define(version: 20160314151510) do
 
   create_table "projects", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
-    t.integer  "test_id"
     t.string   "title",      null: false
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
@@ -104,7 +103,6 @@ ActiveRecord::Schema.define(version: 20160314151510) do
   end
 
   add_index "projects", ["deleted_at"], name: "index_projects_on_deleted_at", using: :btree
-  add_index "projects", ["test_id"], name: "index_projects_on_test_id", using: :btree
   add_index "projects", ["title"], name: "index_projects_on_title", using: :btree
   add_index "projects", ["user_id"], name: "index_projects_on_user_id", using: :btree
 
@@ -190,10 +188,13 @@ ActiveRecord::Schema.define(version: 20160314151510) do
     t.integer  "test_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id",    null: false
+    t.string   "title"
   end
 
   add_index "tests", ["project_id"], name: "index_tests_on_project_id", using: :btree
   add_index "tests", ["test_id"], name: "index_tests_on_test_id", using: :btree
+  add_index "tests", ["user_id"], name: "index_tests_on_user_id", using: :btree
 
   create_table "user_project_variables", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_project_id",             null: false
@@ -289,7 +290,6 @@ ActiveRecord::Schema.define(version: 20160314151510) do
 
   add_foreign_key "page_sources", "test_step_executions"
   add_foreign_key "page_sources", "test_steps"
-  add_foreign_key "projects", "tests"
   add_foreign_key "projects", "users"
   add_foreign_key "screenshots", "test_step_executions"
   add_foreign_key "screenshots", "test_steps"
@@ -304,6 +304,7 @@ ActiveRecord::Schema.define(version: 20160314151510) do
   add_foreign_key "test_steps", "tests"
   add_foreign_key "tests", "projects"
   add_foreign_key "tests", "tests"
+  add_foreign_key "tests", "users"
   add_foreign_key "user_project_variables", "user_projects"
   add_foreign_key "user_projects", "projects"
   add_foreign_key "user_projects", "users"

@@ -2,14 +2,15 @@ class ProjectsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @projects = policy_scope(current_user.projects).latest.page(params[:page]).per(20)
+    @projects = policy_scope(current_user.accessible_projects).latest.page(params[:page]).per(20)
   end
 
   def show
-    @project = Project.eager_load(current_test: :test_steps).find(params[:id])
+    @project = Project.find(params[:id])
     authorize @project
 
     @tests = @project.tests.preload(test_browsers: :browser).latest.limit(10)
+    @latest_test = @project.tests.preload(:test_steps, test_browsers: :browser).latest.first
     @user_project = @project.user_projects.with_user(current_user).includes(:user_project_variables).first
     @user_projects = @project.user_projects.eager_load(:user).limit(10)
   end
@@ -17,9 +18,6 @@ class ProjectsController < ApplicationController
   def new
     @project = current_user.own_projects.build
     authorize @project
-
-    @selected_browsers = []
-    assign_browsers
   end
 
   def create
@@ -30,36 +28,25 @@ class ProjectsController < ApplicationController
       flash[:notice] = 'Succesfully created new project'
       redirect_to project_path(@project)
     else
-      @selected_browsers = @project.current_test.browsers
-      assign_browsers
+      flash[:alert] = 'Failed to create new project'
       render :new
     end
   end
 
   def edit
-    if params[:base_test_id]
-      @project = Project.includes(tests: { test_browsers: :browser }).find(params[:id])
-      @base_test = @project.tests.eager_load(:test_steps).find(params[:base_test_id])
-    else
-      @project = Project.includes(:current_test, tests: { test_browsers: :browser }).find(params[:id])
-      @base_test = @project.current_test
-    end
+    @project = Project.find(params[:id])
     authorize @project
-
-    @selected_browsers = @project.current_test.browsers
-    assign_browsers
   end
 
   def update
-    @project = Project.includes(:current_test, tests: { test_browsers: :browser }).find(params[:id])
+    @project = Project.find(params[:id])
     authorize @project
 
     if @project.update_attributes(permitted_params)
       flash[:notice] = 'Succesfully created the project'
       redirect_to project_path(@project)
     else
-      @selected_browsers = @project.current_test.browsers
-      assign_browsers
+      flash[:alert] = 'Failed to update the project'
       render :edit
     end
   end
@@ -78,12 +65,7 @@ class ProjectsController < ApplicationController
 
   private
 
-  def assign_browsers
-    @browser_sets = BrowserSet.includes(:browsers).all
-    @browsers = Browser::Base.active.all
-  end
-
   def permitted_params
-    params.require(:project).permit(:title, current_test_attributes: [:test_id, :test_steps_attributes, browser_ids: []])
+    params.require(:project).permit(:title)
   end
 end
