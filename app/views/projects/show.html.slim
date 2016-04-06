@@ -7,18 +7,18 @@ div.panel
     = link_to 'Delete the project', project_path(@project), class: 'btn btn-default', method: :delete, data: {confirm: 'Are you sure?'}
     = link_to 'Create new test', new_project_test_path(@project), class: 'btn btn-success', method: :get
 
-- if @project.current_test.present?
+- if @latest_test
   div.panel
     div
       ul.list-group
-        - @project.current_test.test_steps.each do |ts|
+        - @latest_test.test_steps.each do |ts|
           li.list-group-item = ts.to_line
     div
-      - @project.current_test.browsers.each do |b|
+      - @latest_test.browsers.each do |b|
         span.label.label-default = b.name
     div
-      - if @project.current_test.present?
-        = link_to 'Execute the test', test_test_executions_path(@project.current_test), class: 'btn btn-primary', method: :post
+      - if @latest_test.present?
+        = link_to 'Execute the test', test_test_executions_path(@latest_test), class: 'btn btn-primary', method: :post
 
 - if @tests.present?
   div.panel.panel-default

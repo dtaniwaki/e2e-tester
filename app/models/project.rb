@@ -1,6 +1,5 @@
 class Project < ApplicationRecord
   belongs_to :user, inverse_of: :own_projects
-  belongs_to :current_test, class_name: 'Test', foreign_key: 'test_id', inverse_of: :active_projects
   has_many :user_projects, inverse_of: :project, dependent: :destroy
   has_many :tests, inverse_of: :project, dependent: :destroy
 

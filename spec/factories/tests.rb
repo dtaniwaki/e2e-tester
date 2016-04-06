@@ -8,7 +8,6 @@ FactoryGirl.define do
     end
     after :build do |test, evaluator|
       test.project ||= create :project
-      test.project.current_test ||= test
       test.browsers = if evaluator.browsers.present?
         evaluator.browsers
       else

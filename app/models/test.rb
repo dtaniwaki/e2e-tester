@@ -2,7 +2,6 @@ class Test < ApplicationRecord
   belongs_to :user, inverse_of: :tests
   belongs_to :project, inverse_of: :tests
   belongs_to :base_test, class_name: 'Test', foreign_key: 'test_id', inverse_of: :inherited_tests
-  has_many :active_projects, class_name: 'Project', foreign_key: 'test_id', inverse_of: :current_test, dependent: :nullify
   has_many :user_tests, inverse_of: :test, dependent: :destroy
   has_many :test_executions, inverse_of: :test, dependent: :destroy
   has_many :test_steps, -> { order(position: :asc) }, class_name: 'TestStep::Base', inverse_of: :test, dependent: :destroy
@@ -15,8 +14,6 @@ class Test < ApplicationRecord
 
   scope :latest, -> { order(created_at: :desc) }
   scope :with_user, ->(user) { joins(:user_tests).merge(UserTest.where(user_id: user.is_a?(ActiveRecord::Base) ? user.id : user)) }
-
-  after_create :update_current_test!
 
   # FIXME: Remove the reader method and use nested attributes
   accepts_nested_attributes_for :test_steps, allow_destroy: true
@@ -62,8 +59,4 @@ class Test < ApplicationRecord
 
   private
 
-  def update_current_test!
-    project.current_test = self
-    project.save!
-  end
 end
