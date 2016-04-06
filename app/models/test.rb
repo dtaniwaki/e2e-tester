@@ -11,6 +11,7 @@ class Test < ApplicationRecord
 
   validates :test_browsers, length: { minimum: 1, maximum: 10 }
   validates :test_steps, length: { minimum: 1, maximum: 50 }
+  validate :validate_same_test
 
   scope :latest, -> { order(created_at: :desc) }
   scope :with_user, ->(user) { joins(:user_tests).merge(UserTest.where(user_id: user.is_a?(ActiveRecord::Base) ? user.id : user)) }
@@ -59,4 +60,7 @@ class Test < ApplicationRecord
 
   private
 
+  def validate_same_test
+    errors.add :base, 'The test is the same as the base test' if base_test && same_test?(base_test)
+  end
 end

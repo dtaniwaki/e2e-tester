@@ -37,4 +37,24 @@ RSpec.describe Test, type: :model do
       end
     end
   end
+  describe 'validate :validate_same_test' do
+    let(:step) { create :test_step, message: 'same' }
+    let(:base_test) { create :test, test_steps: [step], browser_count: 2 }
+    context 'against the base test with the same content' do
+      subject { build :test, test_steps: [step], browsers: base_test.browsers, base_test: base_test }
+      it 'fails and adds the error' do
+        subject.save
+        expect(subject).to be_invalid
+        expect(subject.errors[:base]).to eq ['The test is the same as the base test']
+      end
+    end
+    context 'against the base test with the different content' do
+      let(:different_step) { create :test_step, message: 'different' }
+      subject { build :test, test_steps: [different_step], browsers: base_test.browsers, base_test: base_test }
+      it 'fails and adds the error' do
+        subject.save
+        expect(subject).to be_valid
+      end
+    end
+  end
 end
