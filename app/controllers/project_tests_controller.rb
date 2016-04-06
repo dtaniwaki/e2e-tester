@@ -45,6 +45,6 @@ class ProjectTestsController < ApplicationController
   end
 
   def permitted_params
-    params.require(:test).permit(:test_steps_attributes, browser_ids: [])
+    params.require(:test).permit(:title, :test_steps_attributes, browser_ids: [])
   end
 end

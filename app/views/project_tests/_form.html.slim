@@ -1,5 +1,10 @@
 = form_errors_for f.object
 div.form-group
+  = f.label :title
+  small
+    |  (Optional)
+  = f.text_field :title, class: 'form-control', maxlength: 100
+div.form-group
   = f.label :test_steps_attributes
   = f.text_area :test_steps_attributes, value: f.object.test_steps_attributes, class: 'form-control', rows: 10
 div.form-group

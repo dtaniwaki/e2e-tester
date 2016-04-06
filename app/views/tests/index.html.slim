@@ -5,6 +5,7 @@ h1 Tests
     table.table
       tr
         th ID
+        th Project Title
         th Title
         th Created
         th Created By
@@ -12,6 +13,7 @@ h1 Tests
         tr
           td = link_to t.id, test_path(t)
           td = link_to t.project.title, test_path(t)
+          td = link_to t.title, test_path(t) if t.title.present?
           td = link_to t.created_at.to_s, test_path(t)
           td = t.user.email
     = paginate @tests

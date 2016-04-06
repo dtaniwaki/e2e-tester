@@ -9,6 +9,7 @@ class Test < ApplicationRecord
   has_many :browsers, through: :test_browsers
   has_many :inherited_tests, class_name: 'Test', foreign_key: 'test_id', inverse_of: :base_test, dependent: :destroy
 
+  validates :title, length: { maximum: 100 }, allow_blank: true
   validates :test_browsers, length: { minimum: 1, maximum: 10 }
   validates :test_steps, length: { minimum: 1, maximum: 50 }
   validate :validate_same_test

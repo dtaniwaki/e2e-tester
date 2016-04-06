@@ -27,12 +27,14 @@ div.panel
       tr
         th ID
         th Parent
+        th Title
         th Created
         th Created By
       - @tests.each do |t|
         tr
           td = link_to t.id, test_path(t)
-          td = t.test_id
+          td = link_to t.test_id, test_path(t.test_id) if t.test_id.present?
+          td = link_to t.title, test_path(t) if t.title.present?
           td = link_to t.created_at.to_s, test_path(t)
           td = t.user.email
   div.panel

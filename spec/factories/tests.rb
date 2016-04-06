@@ -1,6 +1,7 @@
 FactoryGirl.define do
   factory :test do
     user
+    title 'foo'
     transient do
       browsers nil
       browser_count 3
