@@ -17,6 +17,8 @@ module E2eTester
     config.generators do |g|
       g.test_framework :rspec
       g.javascript_engine :js
+      g.helper false
+      g.decorator false
     end
     config.active_job.queue_adapter = :sidekiq
 
