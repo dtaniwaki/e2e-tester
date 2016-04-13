@@ -9,5 +9,7 @@ unless BrowserSet.where(name: 'Local browsers').exists?
 end
 
 if user = User.first
-  user.projects.create!(title: 'Sample Project')
+  project = user.projects.find_or_create_by!(title: 'Sample Project')
+  test = project.tests.find_or_initialize_by(title: 'Sample Test')
+  test.update_attributes!(user: user, browsers: Browser::Local.all, test_steps_attributes: 'None')
 end
