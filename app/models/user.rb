@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :confirmable, :recoverable, :rememberable, :validatable, :invitable
 
-  has_many :own_projects, class_name: 'Project', inverse_of: :user, dependent: :destroy
+  has_many :projects, inverse_of: :user, dependent: :destroy
   has_many :user_projects, inverse_of: :user, dependent: :destroy
   has_many :accessible_projects, through: :user_projects, source: :project
   has_many :user_tests, inverse_of: :user, dependent: :destroy

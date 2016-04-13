@@ -7,3 +7,7 @@ Browser::Local.update_all!
 unless BrowserSet.where(name: 'Local browsers').exists?
   BrowserSet.create!(name: 'Local browsers', browsers: Browser::Local.all)
 end
+
+if user = User.first
+  user.projects.create!(title: 'Sample Project')
+end

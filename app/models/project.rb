@@ -1,5 +1,5 @@
 class Project < ApplicationRecord
-  belongs_to :user, inverse_of: :own_projects
+  belongs_to :user, inverse_of: :projects
   has_many :user_projects, inverse_of: :project, dependent: :destroy
   has_many :tests, inverse_of: :project, dependent: :destroy
 

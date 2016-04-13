@@ -16,12 +16,12 @@ class ProjectsController < ApplicationController
   end
 
   def new
-    @project = current_user.own_projects.build
+    @project = current_user.projects.build
     authorize @project
   end
 
   def create
-    @project = current_user.own_projects.build
+    @project = current_user.projects.build
     authorize @project
 
     if @project.update_attributes(permitted_params)
@@ -52,7 +52,7 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
-    @project = current_user.own_projects.find(params[:id])
+    @project = current_user.projects.find(params[:id])
     authorize @project
 
     if @project.destroy
