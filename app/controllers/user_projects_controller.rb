@@ -1,6 +1,4 @@
-class UserProjectsController < ApplicationController
-  before_action :authenticate_user!
-
+class UserProjectsController < BaseController
   def create
     @project = Project.find(params[:project_id])
     authorize @project, :show?

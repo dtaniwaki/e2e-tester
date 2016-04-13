@@ -1,5 +1,4 @@
-class ProjectTestsController < ApplicationController
-  before_action :authenticate_user!
+class ProjectTestsController < BaseController
   before_action :assign_project
 
   def index

@@ -1,6 +1,4 @@
-class UserTestsController < ApplicationController
-  before_action :authenticate_user!
-
+class UserTestsController < BaseController
   def create
     @test = Test.find(params[:test_id])
     authorize @test, :show?

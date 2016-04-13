@@ -1,6 +1,4 @@
-class TestStepExecutionsController < ApplicationController
-  before_action :authenticate_user!
-
+class TestStepExecutionsController < BaseController
   def show
     @test_step_execution = TestStepExecution.preload(:browser, :test_step, :screenshot, :test_execution).find(params[:id])
     authorize @test_step_execution

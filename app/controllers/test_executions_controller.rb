@@ -1,6 +1,4 @@
-class TestExecutionsController < ApplicationController
-  before_action :authenticate_user!
-
+class TestExecutionsController < BaseController
   def index
     @test = Test.find(params[:test_id])
     authorize @test, :show?

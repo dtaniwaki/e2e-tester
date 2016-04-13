@@ -1,6 +1,4 @@
-class ProjectsController < ApplicationController
-  before_action :authenticate_user!
-
+class ProjectsController < BaseController
   def index
     @projects = policy_scope(current_user.accessible_projects).latest.page(params[:page]).per(20)
   end
