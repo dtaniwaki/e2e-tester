@@ -1,8 +1,6 @@
 module AdminUsers
   class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     skip_before_action :verify_authenticity_token
-    skip_after_action :verify_authorized
-    skip_after_action :verify_policy_scoped
 
     def google_oauth2
       @admin_user = AdminUser.find_for_google_oauth2(request.env['omniauth.auth'], current_admin_user)
