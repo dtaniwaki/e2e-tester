@@ -30,8 +30,8 @@ class User < ApplicationRecord
 
   def variables(test)
     variables = Hash[*user_variables.map { |v| [v.name, v.value] }.flatten]
-    variables.merge! Hash[*user_project_variables.with_project(test.project).map { |v| [v.name, v.value] }]
-    variables.merge! Hash[*user_test_variables.with_test(test).map { |v| [v.name, v.value] }]
+    variables.merge! Hash[*user_project_variables.with_project(test.project).map { |v| [v.name, v.value] }.flatten]
+    variables.merge! Hash[*user_test_variables.with_test(test).map { |v| [v.name, v.value] }.flatten]
     variables
   end
 
