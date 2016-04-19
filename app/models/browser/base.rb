@@ -2,8 +2,8 @@ module Browser
   class Base < ApplicationRecord
     self.table_name = 'browsers'
 
-    has_many :test_browsers, inverse_of: :browser, dependent: :destroy
-    has_many :browser_browser_sets, inverse_of: :browser, foreign_key: 'browser_id', dependent: :destroy
+    has_many :test_browsers, inverse_of: :browser
+    has_many :browser_browser_sets, inverse_of: :browser, foreign_key: 'browser_id'
     has_many :browser_sets, through: :browser_browser_sets
 
     scope :active, -> { where(disabled: false, deprecated: false) }

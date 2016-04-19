@@ -1,8 +1,8 @@
 class TestStepSet < ApplicationRecord
   belongs_to :user, inverse_of: :test_step_sets
   belongs_to :base_test_step_set, class_name: 'TestStepSet', foreign_key: 'test_step_set_id', inverse_of: :inherited_test_step_sets
-  has_many :inherited_test_step_sets, class_name: 'TestStepSet', foreign_key: 'test_step_set_id', inverse_of: :base_test_step_set, dependent: :destroy
-  has_many :test_steps, -> { order(position: :asc) }, class_name: 'TestStep::Base', inverse_of: :test_step_set, dependent: :destroy
+  has_many :inherited_test_step_sets, class_name: 'TestStepSet', foreign_key: 'test_step_set_id', inverse_of: :base_test_step_set
+  has_many :test_steps, -> { order(position: :asc) }, class_name: 'TestStep::Base', inverse_of: :test_step_set
 
   validates :title, length: { maximum: 100 }, allow_blank: true
   validates :test_steps, length: { minimum: 1, maximum: 50 }

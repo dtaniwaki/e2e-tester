@@ -1,8 +1,8 @@
 class Test < TestStepSet
   belongs_to :project, inverse_of: :tests
-  has_many :user_tests, inverse_of: :test, dependent: :destroy
-  has_many :test_executions, inverse_of: :test, dependent: :destroy
-  has_many :test_browsers, inverse_of: :test, dependent: :destroy
+  has_many :user_tests, inverse_of: :test
+  has_many :test_executions, inverse_of: :test
+  has_many :test_browsers, inverse_of: :test
   has_many :browsers, through: :test_browsers
 
   scope :with_user, ->(user) { joins(:user_tests).merge(UserTest.where(user_id: user.is_a?(ActiveRecord::Base) ? user.id : user)) }

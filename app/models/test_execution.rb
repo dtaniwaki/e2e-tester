@@ -3,7 +3,7 @@ class TestExecution < ApplicationRecord
 
   belongs_to :user, inverse_of: :test_executions
   belongs_to :test, inverse_of: :test_executions
-  has_many :test_execution_browsers, inverse_of: :test_execution, dependent: :destroy
+  has_many :test_execution_browsers, inverse_of: :test_execution
   has_one :project, through: :test
 
   scope :latest, -> { order(created_at: :desc) }
