@@ -18,7 +18,7 @@ div.panel
   div
     = link_to 'Execute the test', test_test_executions_path(@test), class: 'btn btn-primary', method: :post
     - if @is_owner
-      = link_to 'Edit the test', new_project_test_path(@test.project, base_test_id: @test), class: 'btn btn-default'
+      = link_to 'Edit the test', new_project_test_path(@test.project, base_test_step_set_id: @test), class: 'btn btn-default'
 
 - if @test_executions.present?
   div.panel.panel-default

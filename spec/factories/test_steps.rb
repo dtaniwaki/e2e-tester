@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :test_step, class: TestStep::None do
-    test
+    association :test_step_set, factory: :test
     factory :navigation_step, class: TestStep::Navigation do
       url 'http://www.example.com/'
     end

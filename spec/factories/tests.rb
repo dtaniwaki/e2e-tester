@@ -18,11 +18,11 @@ FactoryGirl.define do
       test.test_steps = if evaluator.test_steps.present?
         evaluator.test_steps
       else
-        build_list(:test_step, evaluator.test_step_count, test: test)
+        build_list(:test_step, evaluator.test_step_count, test_step_set: test)
       end
     end
-    trait :with_base_test do
-      base_test { create :test }
+    trait :with_base_test_step_set do
+      base_test_step_set { create :test }
     end
   end
 end
