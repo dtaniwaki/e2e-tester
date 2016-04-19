@@ -9,6 +9,8 @@ class TestStepSet < ApplicationRecord
 
   scope :latest, -> { order(created_at: :desc) }
 
+  acts_as_paranoid
+
   # FIXME: Remove the reader method and use nested attributes
   accepts_nested_attributes_for :test_steps, allow_destroy: true
   def test_steps_attributes

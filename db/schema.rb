@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160414002114) do
+ActiveRecord::Schema.define(version: 20160414022427) do
 
   create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "namespace"
@@ -178,6 +178,7 @@ ActiveRecord::Schema.define(version: 20160414002114) do
     t.integer  "user_id",          null: false
     t.string   "title"
     t.string   "type",             null: false
+    t.datetime "deleted_at"
   end
 
   add_index "test_step_sets", ["project_id"], name: "index_test_step_sets_on_project_id", using: :btree
