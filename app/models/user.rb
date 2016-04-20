@@ -16,6 +16,8 @@ class User < ApplicationRecord
   has_many :user_project_variables, through: :user_projects
   has_many :assigned_project_users, class_name: 'UserProject', foreign_key: 'assigned_user_id', inverse_of: :assigned_by
   has_many :assigned_test_users, class_name: 'UserTest', foreign_key: 'assigned_user_id', inverse_of: :assigned_by
+  has_many :user_shared_test_step_sets, inverse_of: :user
+  has_many :accessible_shared_test_step_sets, through: :user_shared_test_step_sets, source: :shared_test_step_set
 
   acts_as_paranoid
 
