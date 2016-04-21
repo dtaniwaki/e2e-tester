@@ -76,8 +76,8 @@ module E2eTester
         authentication: 'login',
         port: 587
       }
-    when 'letter_opener'
-      config.action_mailer.delivery_method = :letter_opener
+    when 'letter_opener', 'letter_opener_web'
+      config.action_mailer.delivery_method = Settings.mailer.type.to_sym
     else
       config.action_mailer.delivery_method = :file
     end
