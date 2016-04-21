@@ -1,2 +1,4 @@
 p = "Hello #{@user.name_or_email}"
-p = "You are invited to the project #{@project.title}"
+p
+  | You are invited to the project 
+  = link_to @project.title, project_url(@project)

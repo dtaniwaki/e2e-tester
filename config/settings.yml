@@ -2,7 +2,7 @@ service:
   host: <%= ENV['SERVICE_HOST'] || 'TBA' %>
   protocol: 'http'
 mailer:
-  type: 'letter_opener'
+  type: 'letter_opener_web'
   sender:
     default: <%= ENV['MAILER_SENDER_DEFAULT'] || 'foo@example.com' %>
 secret_key_base: 'TBA'

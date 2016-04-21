@@ -10,6 +10,10 @@ class Test < TestStepSet
   validates :test_browsers, length: { minimum: 1, maximum: 10 }
   validate :validate_same_test
 
+  def title
+    super.presence || project.title
+  end
+
   def same_test_step_set?(other)
     super &&
       (other.respond_to?(:browser_ids) && browser_ids == other.browser_ids)
