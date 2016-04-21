@@ -32,7 +32,7 @@ class User < ApplicationRecord
     variables = Hash[*user_variables.map { |v| [v.name, v.value] }.flatten]
     variables.merge! Hash[*user_project_variables.with_project(test.project).map { |v| [v.name, v.value] }.flatten]
     variables.merge! Hash[*user_test_variables.with_test(test).map { |v| [v.name, v.value] }.flatten]
-    variables
+    variables.with_indifferent_access
   end
 
   def name_or_email
