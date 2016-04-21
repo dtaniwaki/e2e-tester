@@ -5,6 +5,8 @@ module TestStep
 
     scope :with_test_step_set, -> (test_step_set) { where(shared_test_step_set_id: test_step_set.is_a?(ActiveRecord::Base) ? test_step_set.id : test_step_set) }
 
+    validate :validate_accessibility
+
     def execute!(test_step_execution, driver, variables = {})
       test_execution_browser = test_step_execution.test_execution_browser
       executions = test_steps.map do |ts|
@@ -33,6 +35,14 @@ module TestStep
 
     def same_step?(other)
       self.class == other.class && shared_test_step_set_id == other.shared_test_step_set_id
+    end
+
+    private
+
+    def validate_accessibility
+      return if test_step_set.base_test_step_set&.test_step_sets&.with_test_step_set(shared_test_step_set)&.exists?
+      return if shared_test_step_set&.user_shared_test_step_sets.with_user(test_step_set.user).exists?
+      errors.add :shared_test_step_set_id, :invalid
     end
   end
 end
