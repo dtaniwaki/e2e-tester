@@ -38,3 +38,5 @@ Style/IndentArray:
   EnforcedStyle: consistent
 Lint/EndAlignment:
   AlignWith: variable
+Style/FrozenStringLiteralComment:
+  Enabled: false

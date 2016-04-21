@@ -40,9 +40,8 @@ module WebDriverExt
           image.resize "#{screen_width}x#{screen_height}" # Align the pixel size
           # Trim outer height part
           real_height = inner_height - (n * inner_height - scroll_top)
-          if real_height <= 0
-            break
-          elsif real_height < inner_height
+          break if real_height <= 0
+          if real_height < inner_height
             image.crop "#{screen_width}x#{real_height}+0+#{inner_height - real_height}"
           end
           append_file_paths << image.path

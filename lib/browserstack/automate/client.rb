@@ -5,7 +5,7 @@ require 'yajl'
 module Browserstack
   module Automate
     class Client
-      END_POINT = 'https://www.browserstack.com/automate'.freeze
+      END_POINT = 'https://www.browserstack.com/automate'
 
       def initialize(config)
         config = Hash[config.map { |k, v| [k.to_sym, v] }]
