@@ -4,18 +4,18 @@ class TestStepSetsController < BaseController
   end
 
   def show
-    @test_step_set = TestStepSet::Share.find(params[:id])
+    @test_step_set = SharedTestStepSet.find(params[:id])
     authorize @test_step_set
   end
 
   def new
-    @test_step_set = @base_test_step_set = (params[:base_test_step_set_id].presence && TestStepSet::Base.find(params[:base_test_step_set_id]))
+    @test_step_set = @base_test_step_set = (params[:base_test_step_set_id].presence && TestStepSet.find(params[:base_test_step_set_id]))
     @test_step_set ||= current_user.test_step_sets.build
     authorize @test_step_set
   end
 
   def create
-    @base_test_step_set = (params[:base_test_step_set_id].presence && TestStepSet::Base.find(params[:base_test_step_set_id]))
+    @base_test_step_set = (params[:base_test_step_set_id].presence && TestStepSet.find(params[:base_test_step_set_id]))
     authorize @base_test_step_set if @base_test_step_set.present?
 
     @test_step_set = current_user.shared_test_step_sets.build(permitted_params.merge(user: current_user, base_test_step_set: @base_test_step_set))
@@ -30,7 +30,7 @@ class TestStepSetsController < BaseController
   end
 
   def destroy
-    @test_step_set = TestStepSet::Share.find(params[:id])
+    @test_step_set = SharedTestStepSet.find(params[:id])
     authorize @test_step_set
 
     @test_step_set.destroy!
