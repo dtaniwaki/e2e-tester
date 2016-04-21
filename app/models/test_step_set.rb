@@ -3,6 +3,8 @@ class TestStepSet < ApplicationRecord
   belongs_to :base_test_step_set, class_name: 'TestStepSet', foreign_key: 'test_step_set_id', inverse_of: :inherited_test_step_sets
   has_many :inherited_test_step_sets, class_name: 'TestStepSet', foreign_key: 'test_step_set_id', inverse_of: :base_test_step_set
   has_many :test_steps, -> { order(position: :asc) }, class_name: 'TestStep::Base', inverse_of: :test_step_set
+  has_many :test_step_sets, class_name: 'TestStep::StepSet', inverse_of: :shared_test_step_set
+  has_many :shared_test_step_sets, through: :test_step_sets, source: :shared_test_step_set
 
   validates :title, length: { maximum: 100 }, allow_blank: true
   validates :test_steps, length: { minimum: 1, maximum: 50 }

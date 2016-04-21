@@ -9,5 +9,5 @@ div.panel
       - @test_step_set.test_steps.each do |ts|
         li.list-group-item = ts.to_line
   div
-    = link_to 'Edit the test step set', new_test_step_set_path(base_test_step_set_id: @test_step_set), class: 'btn btn-default'
-
+    - if policy(@test_step_set).new?
+      = link_to 'Edit the test step set', new_test_step_set_path(base_test_step_set_id: @test_step_set), class: 'btn btn-default'

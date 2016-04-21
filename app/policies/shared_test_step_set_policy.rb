@@ -13,6 +13,6 @@ class SharedTestStepSetPolicy < ApplicationPolicy
 
   def destroy?
     @record.user == @user ||
-      @record.user_test_step_set_shares.with_user(@user).exists?
+      @record.user_shared_test_step_sets.with_user(@user).exists?
   end
 end

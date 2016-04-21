@@ -1,6 +1,6 @@
 class TestStepSetsController < BaseController
   def index
-    @test_step_sets = policy_scope(current_user.accessible_test_step_set_shares).latest.page(params[:page]).per(20)
+    @test_step_sets = policy_scope(current_user.accessible_shared_test_step_sets).latest.page(params[:page]).per(20)
   end
 
   def show
@@ -9,16 +9,16 @@ class TestStepSetsController < BaseController
   end
 
   def new
-    @test_step_set = @base_test_step_set = (params[:base_test_step_set_id].presence && TestStepSet::Share.find(params[:base_test_step_set_id]))
+    @test_step_set = @base_test_step_set = (params[:base_test_step_set_id].presence && TestStepSet::Base.find(params[:base_test_step_set_id]))
     @test_step_set ||= current_user.test_step_sets.build
     authorize @test_step_set
   end
 
   def create
-    @base_test_step_set = (params[:base_test_step_set_id].presence && TestStepSet::Share.find(params[:base_test_step_set_id]))
+    @base_test_step_set = (params[:base_test_step_set_id].presence && TestStepSet::Base.find(params[:base_test_step_set_id]))
     authorize @base_test_step_set if @base_test_step_set.present?
 
-    @test_step_set = current_user.test_step_set_shares.build(permitted_params.merge(user: current_user, base_test_step_set: @base_test_step_set))
+    @test_step_set = current_user.shared_test_step_sets.build(permitted_params.merge(user: current_user, base_test_step_set: @base_test_step_set))
     authorize @test_step_set
 
     return redirect_to test_step_sets_path if @test_step_set.same_test_step_set?(@base_test_step_set)
@@ -41,6 +41,6 @@ class TestStepSetsController < BaseController
   private
 
   def permitted_params
-    params.require(:test_step_set_share).permit(:title, :test_steps_attributes)
+    params.require(:test_step_set).permit(:title, :test_steps_attributes)
   end
 end
