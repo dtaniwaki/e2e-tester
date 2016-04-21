@@ -1,0 +1,6 @@
+= link_to 'Back to test step sets index', test_step_sets_path
+h1 New Test Step Set
+
+= form_for @test_step_set, url: test_step_sets_path, method: :post do |f|
+  = hidden_field_tag :base_test_step_set_id, @base_test_step_set&.id
+  = render 'form', f: f
