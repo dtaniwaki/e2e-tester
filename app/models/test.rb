@@ -12,7 +12,7 @@ class Test < TestStepSet
 
   def same_test_step_set?(other)
     super &&
-      browser_ids == other.browser_ids
+      (other.respond_to?(:browser_ids) && browser_ids == other.browser_ids)
   end
 
   private

@@ -9,6 +9,12 @@ RSpec.describe Test, type: :model do
     it 'returns true for a cloned instance' do
       expect(subject.same_test_step_set?(subject.clone)).to be true
     end
+    context 'against the test step set' do
+      let(:target) { create :shared_test_step_set, base_test_step_set: base_test_step_set }
+      it 'returns false if the other instance is a shared test step set' do
+        expect(subject.same_test_step_set?(target)).to be false
+      end
+    end
     context 'for other instance' do
       let(:target) { create :test, base_test_step_set: base_test_step_set, browsers: browsers }
       before do
