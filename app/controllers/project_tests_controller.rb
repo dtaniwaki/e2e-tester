@@ -6,7 +6,7 @@ class ProjectTestsController < BaseController
   end
 
   def new
-    @test = @base_test = (params[:base_test_id].presence && @project.tests.find(params[:base_test_id]))
+    @test = @base_test_step_set = (params[:base_test_step_set_id].presence && @project.tests.find(params[:base_test_step_set_id]))
     @test ||= @project.tests.build
     authorize @test
 
@@ -15,13 +15,13 @@ class ProjectTestsController < BaseController
   end
 
   def create
-    @base_test = (params[:base_test_id].presence && @project.tests.find(params[:base_test_id]))
-    authorize @base_test if @base_test.present?
+    @base_test_step_set = (params[:base_test_step_set_id].presence && @project.tests.find(params[:base_test_step_set_id]))
+    authorize @base_test_step_set if @base_test_step_set.present?
 
-    @test = @project.tests.build(permitted_params.merge(user: current_user, base_test: @base_test))
+    @test = @project.tests.build(permitted_params.merge(user: current_user, base_test_step_set: @base_test_step_set))
     authorize @test
 
-    return redirect_to project_path(@project) if @test.same_test?(@base_test)
+    return redirect_to project_path(@project) if @test.same_test_step_set?(@base_test_step_set)
     if @test.save
       flash[:notice] = 'Succesfully created new test'
       return redirect_to project_path(@project)

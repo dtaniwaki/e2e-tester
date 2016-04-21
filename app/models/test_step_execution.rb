@@ -1,8 +1,8 @@
 class TestStepExecution < ApplicationRecord
   belongs_to :test_step, class_name: 'TestStep::Base', inverse_of: :test_step_executions
   belongs_to :test_execution_browser, inverse_of: :test_step_executions
-  has_one :screenshot, inverse_of: :test_step_execution, dependent: :destroy
-  has_one :page_source, inverse_of: :test_step_execution, dependent: :destroy
+  has_one :screenshot, inverse_of: :test_step_execution
+  has_one :page_source, inverse_of: :test_step_execution
   has_one :test_browser, through: :test_execution_browser
   has_one :browser, through: :test_execution_browser
   has_one :test_execution, through: :test_execution_browser

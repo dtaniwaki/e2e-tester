@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :test_step, class: TestStep::None do
-    test
+    association :test_step_set, factory: :test
     factory :navigation_step, class: TestStep::Navigation do
       url 'http://www.example.com/'
     end
@@ -14,5 +14,8 @@ FactoryGirl.define do
     end
     factory :maximize_window_step, class: TestStep::MaximizeWindow
     factory :page_source_step, class: TestStep::PageSource
+    factory :step_set_step, class: TestStep::StepSet do
+      shared_test_step_set { create :shared_test_step_set, user: test_step_set.user }
+    end
   end
 end

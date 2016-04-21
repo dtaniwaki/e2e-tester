@@ -1,7 +1,7 @@
 class Project < ApplicationRecord
   belongs_to :user, inverse_of: :projects
-  has_many :user_projects, inverse_of: :project, dependent: :destroy
-  has_many :tests, inverse_of: :project, dependent: :destroy
+  has_many :user_projects, inverse_of: :project
+  has_many :tests, inverse_of: :project
 
   acts_as_paranoid
 

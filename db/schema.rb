@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160407025152) do
+ActiveRecord::Schema.define(version: 20160414223057) do
 
   create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "namespace"
@@ -170,31 +170,35 @@ ActiveRecord::Schema.define(version: 20160407025152) do
   add_index "test_step_executions", ["test_step_id", "test_execution_browser_id"], name: "index_test_step_id_and_test_execution_browser_id", unique: true, using: :btree
   add_index "test_step_executions", ["test_step_id"], name: "index_test_step_executions_on_test_step_id", using: :btree
 
+  create_table "test_step_sets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "project_id"
+    t.integer  "test_step_set_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.integer  "user_id",          null: false
+    t.string   "title"
+    t.string   "type",             null: false
+    t.datetime "deleted_at"
+  end
+
+  add_index "test_step_sets", ["project_id"], name: "index_test_step_sets_on_project_id", using: :btree
+  add_index "test_step_sets", ["test_step_set_id"], name: "index_test_step_sets_on_test_step_set_id", using: :btree
+  add_index "test_step_sets", ["user_id"], name: "index_test_step_sets_on_user_id", using: :btree
+
   create_table "test_steps", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "type",                     null: false
-    t.integer  "test_id",                  null: false
+    t.string   "type",                                  null: false
+    t.integer  "test_step_set_id",                      null: false
     t.integer  "position"
-    t.text     "data",       limit: 65535
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.text     "data",                    limit: 65535
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+    t.integer  "shared_test_step_set_id"
   end
 
   add_index "test_steps", ["position"], name: "index_test_steps_on_position", using: :btree
-  add_index "test_steps", ["test_id"], name: "index_test_steps_on_test_id", using: :btree
+  add_index "test_steps", ["shared_test_step_set_id"], name: "index_test_steps_on_shared_test_step_set_id", using: :btree
+  add_index "test_steps", ["test_step_set_id"], name: "index_test_steps_on_test_step_set_id", using: :btree
   add_index "test_steps", ["type"], name: "index_test_steps_on_type", using: :btree
-
-  create_table "tests", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "project_id", null: false
-    t.integer  "test_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "user_id",    null: false
-    t.string   "title"
-  end
-
-  add_index "tests", ["project_id"], name: "index_tests_on_project_id", using: :btree
-  add_index "tests", ["test_id"], name: "index_tests_on_test_id", using: :btree
-  add_index "tests", ["user_id"], name: "index_tests_on_user_id", using: :btree
 
   create_table "user_project_variables", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_project_id",             null: false
@@ -219,6 +223,17 @@ ActiveRecord::Schema.define(version: 20160407025152) do
   add_index "user_projects", ["project_id"], name: "index_user_projects_on_project_id", using: :btree
   add_index "user_projects", ["user_id", "project_id"], name: "index_user_projects_on_user_id_and_project_id", unique: true, using: :btree
   add_index "user_projects", ["user_id"], name: "index_user_projects_on_user_id", using: :btree
+
+  create_table "user_shared_test_step_sets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id",                 null: false
+    t.integer  "shared_test_step_set_id", null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  add_index "user_shared_test_step_sets", ["shared_test_step_set_id"], name: "index_user_shared_test_step_sets_on_shared_test_step_set_id", using: :btree
+  add_index "user_shared_test_step_sets", ["user_id", "shared_test_step_set_id"], name: "index_user_shared_test_step_sets_on_user_n_shared_test_step_set", unique: true, using: :btree
+  add_index "user_shared_test_step_sets", ["user_id"], name: "index_user_shared_test_step_sets_on_user_id", using: :btree
 
   create_table "user_test_variables", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_test_id",             null: false
@@ -294,23 +309,26 @@ ActiveRecord::Schema.define(version: 20160407025152) do
   add_foreign_key "screenshots", "test_step_executions"
   add_foreign_key "screenshots", "test_steps"
   add_foreign_key "test_browsers", "browsers"
-  add_foreign_key "test_browsers", "tests"
+  add_foreign_key "test_browsers", "test_step_sets", column: "test_id"
   add_foreign_key "test_execution_browsers", "test_browsers"
   add_foreign_key "test_execution_browsers", "test_executions"
-  add_foreign_key "test_executions", "tests"
+  add_foreign_key "test_executions", "test_step_sets", column: "test_id"
   add_foreign_key "test_executions", "users"
   add_foreign_key "test_step_executions", "test_execution_browsers"
   add_foreign_key "test_step_executions", "test_steps"
-  add_foreign_key "test_steps", "tests"
-  add_foreign_key "tests", "projects"
-  add_foreign_key "tests", "tests"
-  add_foreign_key "tests", "users"
+  add_foreign_key "test_step_sets", "projects"
+  add_foreign_key "test_step_sets", "test_step_sets"
+  add_foreign_key "test_step_sets", "users"
+  add_foreign_key "test_steps", "test_step_sets"
+  add_foreign_key "test_steps", "test_step_sets", column: "shared_test_step_set_id"
   add_foreign_key "user_project_variables", "user_projects"
   add_foreign_key "user_projects", "projects"
   add_foreign_key "user_projects", "users"
   add_foreign_key "user_projects", "users", column: "assigned_by_id"
+  add_foreign_key "user_shared_test_step_sets", "test_step_sets", column: "shared_test_step_set_id"
+  add_foreign_key "user_shared_test_step_sets", "users"
   add_foreign_key "user_test_variables", "user_tests"
-  add_foreign_key "user_tests", "tests"
+  add_foreign_key "user_tests", "test_step_sets", column: "test_id"
   add_foreign_key "user_tests", "users"
   add_foreign_key "user_tests", "users", column: "assigned_by_id"
   add_foreign_key "user_variables", "users"

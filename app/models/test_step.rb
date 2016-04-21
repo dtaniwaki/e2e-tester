@@ -15,7 +15,8 @@ module TestStep
       TestStep::MaximizeWindow,
       TestStep::Fill,
       TestStep::Click,
-      TestStep::Eval
+      TestStep::Eval,
+      TestStep::StepSet
     ].freeze
   end
 end

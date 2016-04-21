@@ -1,7 +1,7 @@
 class AdminUser < ApplicationRecord
   devise :omniauthable, omniauth_providers: [:google_oauth2]
 
-  has_many :comments, as: :commenter, inverse_of: :commenter, dependent: :destroy
+  has_many :comments, as: :commenter, inverse_of: :commenter
 
   validates :email, format: { with: /\A#{Settings.admin.email_format}\Z/ }
   validates :name, :email, :provider, :uid, :encrypted_password, presence: true

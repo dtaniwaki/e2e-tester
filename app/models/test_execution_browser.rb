@@ -3,7 +3,7 @@ class TestExecutionBrowser < ApplicationRecord
   belongs_to :test_browser, inverse_of: :test_execution_browsers
   has_one :browser, through: :test_browser
   has_one :test, through: :test_execution
-  has_many :test_step_executions, inverse_of: :test_execution_browser, dependent: :destroy
+  has_many :test_step_executions, inverse_of: :test_execution_browser
 
   enum state: { initial: 0, running: 1, done: 2, failed: 3 }
 

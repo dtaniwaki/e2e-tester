@@ -4,10 +4,10 @@ module TestStep
 
     self.table_name = 'test_steps'
 
-    belongs_to :test, inverse_of: :test_steps
-    has_many :test_step_executions, inverse_of: :test_step, foreign_key: :test_step_id, dependent: :destroy
+    belongs_to :test_step_set, inverse_of: :test_steps
+    has_many :test_step_executions, inverse_of: :test_step, foreign_key: :test_step_id
 
-    acts_as_list scope: :test
+    acts_as_list scope: :test_step_set_id
 
     def self.from_line(_line)
       raise NotImplementedError

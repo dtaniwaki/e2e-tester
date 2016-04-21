@@ -1,0 +1,21 @@
+h1 Test Step Sets
+
+- if @test_step_sets.present?
+  div.panel.panel-default
+    table.table
+      tr
+        th ID
+        th Parent
+        th Title
+        th Created At
+        th Created By
+        th
+      - @test_step_sets.each do |t|
+        tr
+          td = link_to t.id, test_step_set_path(t)
+          td = link_to t.test_step_set_id, polymorphic_test_step_set_path(t.base_test_step_set) if t.base_test_step_set.present? && policy(t.base_test_step_set).show?
+          td = link_to t.title, test_step_set_path(t) if t.title.present?
+          td = link_to t.created_at.to_s, test_step_set_path(t)
+          td = t.user.name_or_email
+          td = link_to 'Delete', test_step_set_path(t), method: :delete, data: {confirm: 'Are you sure?'}
+    = paginate @test_step_sets
