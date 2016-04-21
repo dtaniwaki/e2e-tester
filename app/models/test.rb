@@ -23,6 +23,10 @@ class Test < ApplicationRecord
     test_steps.map(&:to_line).join("\n")
   end
 
+  def title
+    super.presence || project.title
+  end
+
   def assign_attributes(params = {})
     params = params.dup
     lines = params.delete(:test_steps_attributes)

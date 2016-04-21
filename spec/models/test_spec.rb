@@ -1,7 +1,20 @@
 require 'rails_helper'
 
 RSpec.describe Test, type: :model do
-  subject { create :test }
+  subject(:test) { create :test }
+  describe '#title' do
+    let(:project) { create :project, title: 'foo' }
+    subject(:test) { create :test, project: project, title: 'bar' }
+    it 'returns the title' do
+      expect(subject.title).to eq 'bar'
+    end
+    context 'with empty title' do
+      subject(:test) { create :test, project: project, title: nil }
+      it 'returns project\'s title' do
+        expect(subject.title).to eq 'foo'
+      end
+    end
+  end
   describe '#same_test?' do
     let(:browsers) { create_list(:browser, 1) }
     let(:base_test) { create :test }
