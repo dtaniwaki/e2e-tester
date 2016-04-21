@@ -14,5 +14,8 @@ FactoryGirl.define do
     end
     factory :maximize_window_step, class: TestStep::MaximizeWindow
     factory :page_source_step, class: TestStep::PageSource
+    factory :step_set_step, class: TestStep::StepSet do
+      association :shared_test_step_set, factory: :shared_test_step_set
+    end
   end
 end
