@@ -9,6 +9,8 @@ h3 = @test.title
 
 div.panel
   div
+    = markdown(@test.description)
+  div
     ul.list-group
       - @test.test_steps.each do |ts|
         li.list-group-item = ts.to_line

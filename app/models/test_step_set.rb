@@ -7,7 +7,7 @@ class TestStepSet < ApplicationRecord
   has_many :shared_test_step_sets, through: :test_step_sets, source: :shared_test_step_set
 
   validates :title, length: { maximum: 100 }, allow_blank: true
-  validates :description, length: { maximum: 65535 }, allow_blank: true
+  validates :description, length: { maximum: 65_535 }, allow_blank: true
   validates :test_steps, length: { minimum: 1, maximum: 50 }
 
   scope :latest, -> { order(created_at: :desc) }

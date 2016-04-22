@@ -41,6 +41,6 @@ class TestStepSetsController < BaseController
   private
 
   def permitted_params
-    params.require(:test_step_set).permit(:title, :test_steps_attributes)
+    params.require(:test_step_set).permit(:title, :description, :test_steps_attributes)
   end
 end
