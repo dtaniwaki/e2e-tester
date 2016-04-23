@@ -4,7 +4,7 @@ class SharedTestStepSetPolicy < ApplicationPolicy
   end
 
   def show?
-    true
+    @record.user_shared_test_step_sets.with_user(@user).exists?
   end
 
   def create?
