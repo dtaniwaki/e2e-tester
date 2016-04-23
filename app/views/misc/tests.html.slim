@@ -1,4 +1,3 @@
-= link_to 'Back to project', project_path(@project)
 h1 Tests
 
 - if @tests.present?
@@ -6,14 +5,14 @@ h1 Tests
     table.table
       tr
         th ID
-        th Parent
+        th Project Title
         th Title
-        th Created At
+        th Created
         th Created By
       - @tests.each do |t|
         tr
           td = link_to t.id, test_path(t)
-          td = link_to t.test_step_set_id, polymorphic_test_step_set_path(t.base_test_step_set) if t.base_test_step_set.present? && policy(t.base_test_step_set).show?
+          td = link_to t.project.title, test_path(t)
           td = link_to t.title, test_path(t) if t.title.present?
           td = link_to t.created_at.to_s, test_path(t)
           td = t.user.name_or_email

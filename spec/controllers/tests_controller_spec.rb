@@ -1,27 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe TestsController, type: :controller do
-  describe 'GET index' do
-    let!(:tests) { create_list :test, 2 }
-    context 'with signed in user' do
-      include_context 'with signed in user'
-      it 'renders successfully' do
-        get :index
+  render_views
 
-        expect(response.status).to be 200
-        expect(response).to render_template('tests/index')
-      end
-    end
-    context 'without signed in user' do
-      include_context 'without signed in user'
-      it 'renders successfully' do
-        get :index
-
-        expect(response.status).to be 302
-        expect(response).to redirect_to(new_user_session_path)
-      end
-    end
-  end
   describe 'GET show' do
     let!(:test) { create :test }
     context 'with signed in user' do
