@@ -1,6 +1,0 @@
-= link_to 'Back to the project', project_path(@project)
-h1 New Test
-
-= form_for @test, url: project_tests_path(@project), method: :post do |f|
-  = hidden_field_tag :base_test_step_set_id, @base_test_step_set&.id
-  = render 'form', f: f

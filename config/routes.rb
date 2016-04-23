@@ -31,19 +31,21 @@ Rails.application.routes.draw do
   }
 
   resources :projects, shallow: true do
-    resources :tests, controller: :project_tests, only: [:index, :new, :create]
+    resources :tests do
+      resources :test_executions, only: [:create, :index, :show] do
+        member do
+          get :done
+        end
+        resources :test_step_executions, only: [:show]
+      end
+      resources :user_tests, only: [:create, :update, :index]
+    end
     resources :user_projects, only: [:create, :update, :index]
   end
-  resources :tests, shallow: true, only: [:index, :show] do
-    resources :test_executions, only: [:create, :index, :show] do
-      member do
-        get :done
-      end
-      resources :test_step_executions, only: [:show]
-    end
-    resources :user_tests, only: [:create, :update, :index]
+  resources :test_step_sets
+  namespace :misc do
+    get :tests
   end
-  resources :test_step_sets, only: [:index, :show, :new, :create, :destroy]
 
-  root to: 'misc#root'
+  root to: 'public#root'
 end

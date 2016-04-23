@@ -1,0 +1,18 @@
+= link_to 'Back to the test', test_path(@test)
+h1 Edit Test
+
+= form_for @test, url: test_path(@test), method: :put do |f|
+  = form_errors_for f.object
+  div.form-group
+    = f.label :title
+    small
+      |  (Optional)
+    = f.text_field :title, class: 'form-control', maxlength: 100
+  div.form-group
+    = f.label :description
+    small
+      |  (Optional)
+    = f.text_area :description, class: 'form-control', maxlength: 65535
+
+  div.fomr-group
+    = f.submit class: 'btn btn-primary'

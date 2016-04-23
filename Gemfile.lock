@@ -418,6 +418,7 @@ GEM
     rb-fsevent (0.9.7)
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
+    redcarpet (3.2.3)
     redis (3.2.2)
     redis-namespace (1.5.2)
       redis (~> 3.0, >= 3.0.4)
@@ -586,6 +587,7 @@ DEPENDENCIES
   rails (>= 5.0.0.beta3, < 5.1)
   rails-controller-testing (~> 0.1.1)
   ransack!
+  redcarpet (~> 3.2.3)
   redis-actionpack!
   redis-activesupport!
   redis-namespace (~> 1.5.2)

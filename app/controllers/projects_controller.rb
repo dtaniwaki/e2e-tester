@@ -64,6 +64,6 @@ class ProjectsController < BaseController
   private
 
   def permitted_params
-    params.require(:project).permit(:title)
+    params.require(:project).permit(:title, :description)
   end
 end

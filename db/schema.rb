@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160414223057) do
+ActiveRecord::Schema.define(version: 20160421231250) do
 
   create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "namespace"
@@ -96,10 +96,11 @@ ActiveRecord::Schema.define(version: 20160414223057) do
 
   create_table "projects", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
-    t.string   "title",      null: false
+    t.string   "title",                     null: false
     t.datetime "deleted_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.text     "description", limit: 65535
   end
 
   add_index "projects", ["deleted_at"], name: "index_projects_on_deleted_at", using: :btree
@@ -173,12 +174,13 @@ ActiveRecord::Schema.define(version: 20160414223057) do
   create_table "test_step_sets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "project_id"
     t.integer  "test_step_set_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-    t.integer  "user_id",          null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.integer  "user_id",                        null: false
     t.string   "title"
-    t.string   "type",             null: false
+    t.string   "type",                           null: false
     t.datetime "deleted_at"
+    t.text     "description",      limit: 65535
   end
 
   add_index "test_step_sets", ["project_id"], name: "index_test_step_sets_on_project_id", using: :btree

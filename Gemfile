@@ -53,6 +53,7 @@ gem 'paranoia', github: 'rubysherpas/paranoia', branch: 'core'
 gem 'slim-rails', '~> 3.0.1'
 gem 'pundit', '~> 1.1.0'
 gem 'bugsnag', '~> 4.0.0'
+gem 'redcarpet', '~> 3.2.3'
 
 ################################
 # redis-rails Rails 5 support

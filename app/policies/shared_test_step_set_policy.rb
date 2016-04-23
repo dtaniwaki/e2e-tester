@@ -4,15 +4,18 @@ class SharedTestStepSetPolicy < ApplicationPolicy
   end
 
   def show?
-    true
+    @record.user_shared_test_step_sets.with_user(@user).exists?
   end
 
   def create?
     true
   end
 
+  def update?
+    @record.user_shared_test_step_sets.with_user(@user).exists?
+  end
+
   def destroy?
-    @record.user == @user ||
-      @record.user_shared_test_step_sets.with_user(@user).exists?
+    @record.user_shared_test_step_sets.with_user(@user).exists?
   end
 end

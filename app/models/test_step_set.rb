@@ -7,6 +7,7 @@ class TestStepSet < ApplicationRecord
   has_many :shared_test_step_sets, through: :test_step_sets, source: :shared_test_step_set
 
   validates :title, length: { maximum: 100 }, allow_blank: true
+  validates :description, length: { maximum: 65_535 }, allow_blank: true
   validates :test_steps, length: { minimum: 1, maximum: 50 }
 
   scope :latest, -> { order(created_at: :desc) }
@@ -52,6 +53,8 @@ class TestStepSet < ApplicationRecord
     return false if other.nil?
     return false if self.class != other.class
     return false if test_steps_attributes != other.test_steps_attributes
+    return false if title != other.title
+    return false if description != other.description
     test_step_set_id == other.id || id == other.test_step_set_id || test_step_set_id == other.test_step_set_id
   end
 end

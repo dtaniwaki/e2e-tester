@@ -3,6 +3,8 @@ h1 = @project.title
 
 div.panel
   div
+    = markdown(@project.description)
+  div
     = link_to 'Edit the project', edit_project_path(@project), class: 'btn btn-default'
     = link_to 'Delete the project', project_path(@project), class: 'btn btn-default', method: :delete, data: {confirm: 'Are you sure?'}
     = link_to 'Create new test', new_project_test_path(@project), class: 'btn btn-success', method: :get
