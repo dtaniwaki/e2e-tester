@@ -12,4 +12,6 @@ div.panel
         li.list-group-item = ts.to_line
   div
     - if policy(@test_step_set).new?
-      = link_to 'Edit the test step set', new_test_step_set_path(base_test_step_set_id: @test_step_set), class: 'btn btn-default'
+      = link_to 'Fork the test step set', new_test_step_set_path(base_test_step_set_id: @test_step_set), class: 'btn btn-default'
+    - if policy(@test_step_set).edit?
+      = link_to 'Edit the test step set', edit_test_step_set_path(@test_step_set), class: 'btn btn-default'

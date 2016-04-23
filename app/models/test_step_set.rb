@@ -53,6 +53,8 @@ class TestStepSet < ApplicationRecord
     return false if other.nil?
     return false if self.class != other.class
     return false if test_steps_attributes != other.test_steps_attributes
+    return false if title != other.title
+    return false if description != other.description
     test_step_set_id == other.id || id == other.test_step_set_id || test_step_set_id == other.test_step_set_id
   end
 end

@@ -1,0 +1,14 @@
+= link_to 'Back to test step set', test_step_set_path(@test_step_set)
+h1 Edit Test Step Set
+
+= form_for @test_step_set, url: test_step_set_path(@test_step_set), method: :put, as: :test_step_set do |f|
+  = hidden_field_tag :base_test_step_set_id, @base_test_step_set&.id
+  = form_errors_for f.object
+  div.form-group
+    = f.label :title
+    = f.text_field :title, class: 'form-control', maxlength: 100
+  div.form-group
+    = f.label :description
+    = f.text_area :description, class: 'form-control', maxlength: 65535
+  div.fomr-group
+    = f.submit class: 'btn btn-primary'

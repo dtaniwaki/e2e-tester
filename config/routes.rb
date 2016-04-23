@@ -43,7 +43,7 @@ Rails.application.routes.draw do
     end
     resources :user_tests, only: [:create, :update, :index]
   end
-  resources :test_step_sets, only: [:index, :show, :new, :create, :destroy]
+  resources :test_step_sets
 
   root to: 'misc#root'
 end
