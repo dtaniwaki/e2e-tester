@@ -9,14 +9,23 @@ class TestStepSetsController < BaseController
   end
 
   def new
-    @test_step_set = @base_test_step_set = (params[:base_test_step_set_id].presence && TestStepSet.find(params[:base_test_step_set_id]))
-    @test_step_set ||= current_user.test_step_sets.build
+    @base_test_step_set = (params[:base_test_step_set_id].presence && TestStepSet.find(params[:base_test_step_set_id]))
+    if @base_test_step_set.present?
+      @base_test_step_set = @base_test_step_set.becomes! @base_test_step_set.type.constantize
+      authorize @base_test_step_set, :show?
+    end
+
+    @test_step_set = @base_test_step_set
+    @test_step_set ||= current_user.shared_test_step_sets.build
     authorize @test_step_set
   end
 
   def create
     @base_test_step_set = (params[:base_test_step_set_id].presence && TestStepSet.find(params[:base_test_step_set_id]))
-    authorize @base_test_step_set if @base_test_step_set.present?
+    if @base_test_step_set.present?
+      @base_test_step_set = @base_test_step_set.becomes! @base_test_step_set.type.constantize
+      authorize @base_test_step_set, :show?
+    end
 
     @test_step_set = current_user.shared_test_step_sets.build(permitted_create_params.merge(user: current_user, base_test_step_set: @base_test_step_set))
     authorize @test_step_set
