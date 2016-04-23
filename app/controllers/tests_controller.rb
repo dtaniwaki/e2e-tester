@@ -20,22 +20,30 @@ class TestsController < BaseController
   end
 
   def new
-    @test = @base_test_step_set = (params[:base_test_step_set_id].presence && @project.tests.find(params[:base_test_step_set_id]))
+    @base_test_step_set = (params[:base_test_step_set_id].presence && TestStepSet.find(params[:base_test_step_set_id]))
+    if @base_test_step_set.present?
+      @base_test_step_set = @base_test_step_set.becomes! @base_test_step_set.type.constantize
+      authorize @base_test_step_set
+    end
+
+    @test = @base_test_step_set
     @test ||= @project.tests.build
-    authorize @test
 
     @selected_browsers = @test&.browsers || []
     assign_browsers
   end
 
   def create
-    @base_test_step_set = (params[:base_test_step_set_id].presence && @project.tests.find(params[:base_test_step_set_id]))
-    authorize @base_test_step_set if @base_test_step_set.present?
+    @base_test_step_set = (params[:base_test_step_set_id].presence && TestStepSet.find(params[:base_test_step_set_id]))
+    if @base_test_step_set.present?
+      @base_test_step_set = @base_test_step_set.becomes! @base_test_step_set.type.constantize
+      authorize @base_test_step_set
+    end
 
     @test = @project.tests.build(permitted_create_params.merge(user: current_user, base_test_step_set: @base_test_step_set))
     authorize @test
 
-    return redirect_to :back if @test.same_test_step_set?(@base_test_step_set)
+    return redirect_to test_path(@test) if @test.same_test_step_set?(@base_test_step_set)
     if @test.save
       flash[:notice] = 'Succesfully created new test'
       return redirect_to test_path(@test)
@@ -68,13 +76,13 @@ class TestsController < BaseController
     @test.destroy!
 
     flash[:alert] = 'Succesfully deleted the test'
-    redirect_to :back
+    redirect_to project_tests_path(@test.project)
   end
 
   private
 
   def assign_project
-    @project = current_user.accessible_projects.find(params[:project_id])
+    @project = Project.find(params[:project_id])
     authorize @project, :show?
   end
 
