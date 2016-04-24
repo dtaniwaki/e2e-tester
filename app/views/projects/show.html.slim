@@ -38,7 +38,10 @@ div.panel
           td = link_to t.test_step_set_id, polymorphic_test_step_set_path(t.base_test_step_set) if t.base_test_step_set.present? && policy(t.base_test_step_set).show?
           td = link_to t.title, test_path(t) if t.title.present?
           td = link_to t.created_at.to_s, test_path(t)
-          td = t.user.name_or_email
+          td
+            = gravatar_image_tag(t.user.email, :alt => t.user.name_or_email, gravatar: { size: 20 })
+            |  
+            = t.user.name_or_email
   div.panel
     = link_to 'More tests', project_tests_path(@project)
 
@@ -64,7 +67,10 @@ h3 Invite User
       - @user_projects.each do |up|
         tr
           td = up.user.id
-          td = up.user.name_or_email
+          td
+            = gravatar_image_tag(up.user.email, :alt => up.user.name_or_email, gravatar: { size: 20 })
+            |  
+            = up.user.name_or_email
   div.panel
     = link_to 'More assigned users', project_user_projects_path(@project)
 

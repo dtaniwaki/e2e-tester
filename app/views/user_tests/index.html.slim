@@ -10,5 +10,8 @@ h1 Assigned Users
       - @user_tests.each do |ut|
         tr
           td = ut.user.id
-          td = ut.user.name_or_email
+          td
+            = gravatar_image_tag(ut.user.email, :alt => ut.user.name_or_email, gravatar: { size: 20 })
+            |  
+            = ut.user.name_or_email
     = paginate @user_tests
