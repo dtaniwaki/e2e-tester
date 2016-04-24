@@ -9,7 +9,10 @@ nav.navbar.navbar-default
       a.navbar-brand href=root_path E2E Tester
     ul.nav.navbar-nav.navbar-right
       - if user_signed_in?
-        li = link_to "Hi #{current_user.name_or_email}", edit_user_registration_path
+        li = link_to edit_user_registration_path do
+          = gravatar_image_tag(current_user.email, :alt => current_user.name_or_email, gravatar: { size: 20 })
+          |  
+          = current_user.name_or_email
         li = link_to 'Sign Out', destroy_user_session_path, method: :delete
       - else
         li = link_to 'Sign In', new_user_session_path

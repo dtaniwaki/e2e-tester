@@ -39,7 +39,10 @@ div.panel
           td = link_to te.id, test_execution_path(te)
           td = link_to te.state, test_execution_path(te)
           td = link_to te.created_at.to_s, test_execution_path(te)
-          td = te.user.name_or_email
+          td
+            = gravatar_image_tag(te.user.email, :alt => te.user.name_or_email, gravatar: { size: 20 })
+            |  
+            = te.user.name_or_email
   div.panel
     = link_to 'More test executions', test_test_executions_path(@test)
 
@@ -66,7 +69,10 @@ div.panel
         - @user_tests.each do |ut|
           tr
             td = ut.user.id
-            td = ut.user.name_or_email
+            td
+              = gravatar_image_tag(ut.user.email, :alt => ut.user.name_or_email, gravatar: { size: 20 })
+              |  
+              = ut.user.name_or_email
     div.panel
       = link_to 'More assigned users', test_user_tests_path(@test)
 
