@@ -21,10 +21,7 @@ class TestsController < BaseController
 
   def new
     @base_test_step_set = (params[:base_test_step_set_id].presence && TestStepSet.find(params[:base_test_step_set_id]))
-    if @base_test_step_set.present?
-      @base_test_step_set = @base_test_step_set.becomes! @base_test_step_set.type.constantize
-      authorize @base_test_step_set
-    end
+    authorize @base_test_step_set if @base_test_step_set.present?
 
     @test = @base_test_step_set
     @test ||= @project.tests.build
@@ -34,10 +31,7 @@ class TestsController < BaseController
 
   def create
     @base_test_step_set = (params[:base_test_step_set_id].presence && TestStepSet.find(params[:base_test_step_set_id]))
-    if @base_test_step_set.present?
-      @base_test_step_set = @base_test_step_set.becomes! @base_test_step_set.type.constantize
-      authorize @base_test_step_set
-    end
+    authorize @base_test_step_set if @base_test_step_set.present?
 
     @test = @project.tests.build(permitted_create_params.merge(user: current_user, base_test_step_set: @base_test_step_set))
     authorize @test
