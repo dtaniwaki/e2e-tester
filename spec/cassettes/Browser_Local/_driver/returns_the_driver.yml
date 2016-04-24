@@ -1,0 +1,37 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://127.0.0.1:8910/session
+    body:
+      encoding: UTF-8
+      string: '{"desiredCapabilities":{"browserName":"phantomjs","version":"","platform":"ANY","javascriptEnabled":true,"cssSelectorsEnabled":true,"takesScreenshot":true,"nativeEvents":false,"rotatable":false}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '195'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache:
+      - no-cache
+      Content-Length:
+      - '543'
+      Content-Type:
+      - application/json;charset=UTF-8
+    body:
+      encoding: UTF-8
+      string: '{"sessionId":"foo","status":0,"value":{"browserName":"phantomjs","version":"2.1.1","driverName":"ghostdriver","driverVersion":"1.2.0","platform":"mac-10.9
+        (Mavericks)-64bit","javascriptEnabled":true,"takesScreenshot":true,"handlesAlerts":false,"databaseEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"cssSelectorsEnabled":true,"webStorageEnabled":false,"rotatable":false,"acceptSslCerts":false,"nativeEvents":true,"proxy":{"proxyType":"direct"}}}'
+    http_version: 
+  recorded_at: Sun, 24 Apr 2016 06:59:48 GMT
+recorded_with: VCR 3.0.1

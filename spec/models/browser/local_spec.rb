@@ -13,7 +13,7 @@ RSpec.describe Browser::Local, type: :model do
       end
     end
   end
-  describe '#driver' do
+  describe '#driver', :vcr do
     subject { create :local_browser, browser: :phantomjs }
     it 'returns the driver' do
       expect(subject.driver).to be_a Selenium::WebDriver::Driver
