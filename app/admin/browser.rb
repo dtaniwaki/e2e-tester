@@ -23,6 +23,13 @@ ActiveAdmin.register Browser::Base, as: 'browser' do
     link_to 'Update Browsers', update_browsers_admin_browsers_path, method: :post
   end
 
+  action_item :view, only: [:show] do
+    s = ''.html_safe
+    s += link_to 'Enable', enable_admin_browser_path(browser), method: :post if browser.disabled?
+    s += link_to 'Disable', disable_admin_browser_path(browser), method: :post unless browser.disabled?
+    s
+  end
+
   batch_action :enable do |ids|
     Browser::Base.where(id: ids).update_all disabled: false
     flash[:notice] = "Successfully enabled Browser#{ids.map { |id| "##{id}" }.join(', ')}"
@@ -35,16 +42,16 @@ ActiveAdmin.register Browser::Base, as: 'browser' do
     redirect_to :back
   end
 
-  member_action :enable do |b|
-    b.update_attributes!(disabled: false)
-    flash[:notice] = "Successfully enabled Browser\##{b.id}"
-    redirect_to :back
+  member_action :enable, method: :post do
+    resource.update_attributes!(disabled: false)
+    flash[:notice] = "Successfully enabled Browser\##{resource.id}"
+    redirect_to request.referer || admin_browser_path(resource)
   end
 
-  member_action :disable do |b|
-    b.update_attributes!(disabled: true)
-    flash[:notice] = "Successfully disabled Browser\##{b.id}"
-    redirect_to :back
+  member_action :disable, method: :post do
+    resource.update_attributes!(disabled: true)
+    flash[:notice] = "Successfully disabled Browser\##{resource.id}"
+    redirect_to request.referer || admin_browser_path(resource)
   end
 
   collection_action :update_browsers, method: :post do

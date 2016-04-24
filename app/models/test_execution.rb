@@ -47,7 +47,7 @@ class TestExecution < ApplicationRecord
     return if state_was == 'done'
     return if state != 'done'
     project.user_projects.includes(:user).find_each do |up|
-      UserMailer.task_execution_result(up) if up.user != user
+      UserMailer.task_execution_result(up, self).deliver_now if up.user != user
     end
   end
 

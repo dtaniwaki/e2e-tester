@@ -31,7 +31,7 @@ class TestExecutionsController < BaseController
   end
 
   def done
-    @test_execution = current_user.test_executions.includes(test_execution_browsers: { test_step_executions: :test_step }).find(params[:id])
+    @test_execution = TestExecution.includes(test_execution_browsers: { test_step_executions: :test_step }).find(params[:id])
     authorize @test_execution
 
     @test_execution_browsers = @test_execution.test_execution_browsers

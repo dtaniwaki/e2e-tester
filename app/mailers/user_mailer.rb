@@ -11,9 +11,10 @@ class UserMailer < ApplicationMailer
     mail to: @user.email
   end
 
-  def task_execution_result(user_project)
-    @user = user_test.user
-    @project = user_project.project
+  def task_execution_result(user_project, test_execution)
+    @user = user_project.user
+    @test_execution = test_execution
+    @test = test_execution.test
     mail to: @user.email
   end
 end

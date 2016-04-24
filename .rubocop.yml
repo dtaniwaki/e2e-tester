@@ -40,3 +40,5 @@ Lint/EndAlignment:
   AlignWith: variable
 Style/FrozenStringLiteralComment:
   Enabled: false
+RSpec/AnyInstance:
+  Enabled: false
