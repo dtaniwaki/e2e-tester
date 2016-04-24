@@ -7,7 +7,8 @@ module AdminUsers
 
       if @admin_user.persisted?
         flash[:notice] = I18n.t 'devise.omniauth_callbacks.success', kind: 'Google'
-        sign_in_and_redirect @admin_user, event: :authentication
+        sign_in @admin_user
+        redirect_to request.env['omniauth.origin'] || admin_dashboard_path
       else
         set_flash_message :alert, :failure, kind: 'Google', reason: @admin_user.errors.full_messages.join(', ')
         redirect_to after_omniauth_failure_path_for(resource_name)

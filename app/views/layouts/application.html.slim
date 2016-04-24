@@ -9,6 +9,7 @@ html
     = stylesheet_link_tag    'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css'
     = javascript_include_tag 'application', 'data-turbolinks-track' => 'reload'
     = javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js'
+    = render 'shared/google_analytics'
 
   body id="#{controller_name}_#{action_name}"
     = render 'layouts/header'
