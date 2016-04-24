@@ -43,7 +43,7 @@ class TestsController < BaseController
     @test = @project.tests.build(permitted_create_params.merge(user: current_user, base_test_step_set: @base_test_step_set))
     authorize @test
 
-    return redirect_to test_path(@test) if @test.same_test_step_set?(@base_test_step_set)
+    return redirect_to test_path(@base_test_step_set) if @test.same_test_step_set?(@base_test_step_set)
     if @test.save
       flash[:notice] = 'Succesfully created new test'
       return redirect_to test_path(@test)
