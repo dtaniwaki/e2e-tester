@@ -1,37 +1,17 @@
 h2 = "Edit #{resource_name.to_s.humanize}"
 
-= form_for resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, autocomplete: 'off' } do |f|
-  = devise_error_messages!
+- email_hint = devise_mapping.confirmable? && resource.pending_reconfirmation? ? "Currently waiting confirmation for: #{resource.unconfirmed_email}" : nil
+- password_hint = "leave blank if you don't want to change it"
+- current_password_hint = 'we need your current password to confirm your changes'
 
-  div.form-group
-    = f.label :name
-    = f.text_field :name, autofocus: true, class: 'form-control'
-
-  div.form-group
-    = f.label :email
-    = f.email_field :email, class: 'form-control'
-
-  - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-    div = "Currently waiting confirmation for: #{resource.unconfirmed_email}"
-
-  div.form-group
-    = f.label :password
-    i
-      |  (leave blank if you don't want to change it)
-    = f.password_field :password, autocomplete: "off", class: 'form-control'
-
-  div.form-group
-    = f.label :password_confirmation
-    = f.password_field :password_confirmation, autocomplete: "off", class: 'form-control'
-
-  div.form-group
-    = f.label :current_password
-    i
-      |  (we need your current password to confirm your changes)
-    = f.password_field :current_password, autocomplete: "off", class: 'form-control'
-
-  div.form-group
-    = f.submit "Update", class: 'btn btn-default'
+= simple_form_for resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, autocomplete: 'off' } do |f|
+  = f.error_notification
+  = f.input :name, input_html: { autocomplete: 'off' }
+  = f.input :email, hint: email_hint, input_html: { autocomplete: 'off' }
+  = f.input :password, hint: password_hint, input_html: { autocomplete: 'off' }
+  = f.input :password_confirmation, input_html: { autocomplete: 'off' }
+  = f.input :current_password, hint: current_password_hint, input_html: { autocomplete: 'off' }, required: true
+  = f.button :submit, "Update"
 
 h3 Cancel my account
 

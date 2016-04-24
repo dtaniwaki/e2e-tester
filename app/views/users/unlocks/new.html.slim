@@ -1,13 +1,8 @@
 h2 Resend unlock instructions
 
-= form_for resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post } do |f|
-  = devise_error_messages!
-
-  div.form-group
-    = f.label :email
-    = f.email_field :email, autofocus: true, class: 'form-control'
-
-  div.form-group
-    = f.submit "Resend unlock instructions", class: 'btn btn-default'
+= simple_form_for resource, as: resource_name, url: unlock_path(resource_name), html: { autocomplete: 'off', method: :post } do |f|
+  = f.error_notification
+  = f.input :email, input_html: { autocomplete: 'off', autofocus: true }
+  = f.button :submit, 'Resend unlock instructions'
 
 = render "users/shared/links"

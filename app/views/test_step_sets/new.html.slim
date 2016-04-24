@@ -1,15 +1,11 @@
 = link_to 'Back to test step sets index', test_step_sets_path
 h1 New Test Step Set
 
-= form_for @test_step_set, url: test_step_sets_path, method: :post, as: :test_step_set do |f|
+= simple_form_for @test_step_set, url: test_step_sets_path, method: :post, as: :test_step_set do |f|
   = hidden_field_tag :base_test_step_set_id, @base_test_step_set&.id
-  = form_errors_for f.object
-  div.form-group
-    = f.label :title
-    = f.text_field :title, class: 'form-control', maxlength: 100
-  div.form-group
-    = f.label :description
-    = f.text_area :description, class: 'form-control', maxlength: 65535
+  = f.error_notification
+  = f.input :title
+  = f.input :description
   div.form-group
     = f.label :test_steps_attributes
     = f.text_area :test_steps_attributes, value: f.object.test_steps_attributes, class: 'form-control', rows: 10
@@ -20,5 +16,4 @@ h1 New Test Step Set
     pre
       code
         = safe_join(TestStep.steps.map { |ts| ts.line_regexp.inspect }, "\n")
-  div.fomr-group
-    = f.submit class: 'btn btn-primary'
+  = f.button :submit

@@ -1,19 +1,12 @@
 = link_to 'Back to the project', project_path(@project)
 h1 New Test
 
-= form_for @test, url: project_tests_path(@project), method: :post do |f|
+= simple_form_for @test, url: project_tests_path(@project), method: :post do |f|
+  = f.error_notification
+
   = hidden_field_tag :base_test_step_set_id, @base_test_step_set&.id
-  = form_errors_for f.object
-  div.form-group
-    = f.label :title
-    small
-      |  (Optional)
-    = f.text_field :title, class: 'form-control', maxlength: 100
-  div.form-group
-    = f.label :description
-    small
-      |  (Optional)
-    = f.text_area :description, class: 'form-control', maxlength: 65535
+  = f.input :title
+  = f.input :description
   div.form-group
     = f.label :test_steps_attributes
     = f.text_area :test_steps_attributes, value: f.object.test_steps_attributes, class: 'form-control', rows: 10
@@ -28,5 +21,5 @@ h1 New Test
         = safe_join(test_steps, "\n")
 
   = render 'checkboxes', f: f, browsers: @browsers, browser_sets: @browser_sets, selected_browsers: @selected_browsers
-  div.fomr-group
-    = f.submit class: 'btn btn-primary'
+
+  = f.button :submit

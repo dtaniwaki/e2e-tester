@@ -1,20 +1,9 @@
 h2 = t 'devise.invitations.edit.header'
 
-= form_for resource, as: resource_name, url: invitation_path(resource_name), html: { :method => :put } do |f|
-  = devise_error_messages!
-  = f.hidden_field :invitation_token
-
-  div.form-group
-    = f.label :name
-    = f.text_field :name, autofocus: true, class: 'form-control'
-
-  div.form-group
-    = f.label :password
-    = f.password_field :password, class: 'form-control'
-
-  div.form-group
-    = f.label :password_confirmation
-    = f.password_field :password_confirmation, class: 'form-control'
-
-  div.form-group
-    = f.submit t("devise.invitations.edit.submit_button"), class: 'btn btn-default'
+= simple_form_for resource, as: resource_name, url: invitation_path(resource_name), html: { autocomplete: 'off', method: :put } do |f|
+  = f.error_notification
+  = f.input :invitation_token, as: :hidden
+  = f.input :name, input_html: { autocomplete: 'off', autofocus: 'off' }
+  = f.input :password, input_html: { autocomplete: 'off' }, required: true
+  = f.input :password_confirmation, input_html: { autocomplete: 'off' }, required: true
+  = f.button :submit, t("devise.invitations.edit.submit_button")

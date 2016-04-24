@@ -1,20 +1,12 @@
 h2 Change your password
 
-= form_for resource, as: resource_name, url: password_path(resource_name), html: { method: :put } do |f|
-  = devise_error_messages!
-  = f.hidden_field :reset_password_token
+- email_hint = @minimum_password_length ?  "#{@minimum_password_length} characters minimum" : nil
 
-  div.form-group
-    = f.label :password, "New password"
-    - if @minimum_password_length
-      em = " (#{@minimum_password_length} characters minimum)"
-    = f.password_field :password, autofocus: true, autocomplete: "off", class: 'form-control'
-
-  div.form-group
-    = f.label :password_confirmation, "Confirm new password"
-    = f.password_field :password_confirmation, autocomplete: "off", class: 'form-control'
-
-  div.form-group
-    = f.submit "Change my password", class: 'btn btn-default'
+= simple_form_for resource, as: resource_name, url: password_path(resource_name), html: { autocomplete: 'off', method: :put } do |f|
+  = f.error_notification
+  = f.input :reset_password_token, as: :hidden
+  = f.input :password, label: 'New password', hint: email_hint, input_html: { autocomplete: 'off', autofocus: true }, required: true
+  = f.input :password_confirmation, label: 'Confirm new password', input_html: { autocomplete: 'off' }, required: true
+  = f.button :submit, 'Change my password'
 
 = render "users/shared/links"
