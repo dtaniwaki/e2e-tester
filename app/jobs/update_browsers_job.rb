@@ -1,4 +1,4 @@
-class UpdateBrowsersJob
+class UpdateBrowsersJob < ApplicationJob
   include Sidekiq::Worker
 
   sidekiq_options queue: :low, retry: false, backtrace: true

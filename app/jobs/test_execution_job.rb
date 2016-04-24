@@ -1,4 +1,4 @@
-class TestExecutionJob
+class TestExecutionJob < ApplicationJob
   include Sidekiq::Worker
 
   sidekiq_options queue: :test_execution, retry: false, backtrace: true, unique: :while_executing
