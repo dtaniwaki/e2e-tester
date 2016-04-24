@@ -9,6 +9,6 @@ VCR.configure do |c|
     match_requests_on: [:method, :host, :path, :query, :body, :headers]
   }
   c.before_record do |interaction|
-    interaction.request.uri.sub!(%r|://[^@]+@|, '://username:password@')
+    interaction.request.uri.sub!(%r{://[^@]+@}, '://username:password@')
   end
 end

@@ -4,7 +4,7 @@ class TestExecutionPolicy < ApplicationPolicy
   end
 
   def show?
-    @record.test.user_tests.with_user(@user).exists? ||
+    @record.user == @user ||
       @record.project.user_projects.with_user(@user).exists?
   end
 
@@ -14,6 +14,7 @@ class TestExecutionPolicy < ApplicationPolicy
   end
 
   def done?
-    @record.user == @user
+    @record.user == @user ||
+      @record.project.user_projects.with_user(@user).exists?
   end
 end
