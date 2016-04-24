@@ -29,7 +29,6 @@ class TestsController < BaseController
     @test = @base_test_step_set
     @test ||= @project.tests.build
 
-    @selected_browsers = @test&.browsers || []
     assign_browsers
   end
 
@@ -48,7 +47,6 @@ class TestsController < BaseController
       flash[:notice] = 'Succesfully created new test'
       return redirect_to test_path(@test)
     end
-    @selected_browsers = @test&.browsers || []
     assign_browsers
     render :new
   end
@@ -88,7 +86,7 @@ class TestsController < BaseController
 
   def assign_browsers
     @browser_sets = BrowserSet.includes(:browsers).all
-    @browsers = Browser::Base.active.all
+    @browsers = Browser::Base.active.all.group_by(&:class)
   end
 
   def permitted_create_params
