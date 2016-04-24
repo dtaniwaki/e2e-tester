@@ -1,11 +1,7 @@
-tr.e2e-variable
+tr.nested-fields
   td
-    - if f.object.persisted?
-      = f.hidden_field :id
-    = f.text_field :name
+    = f.input :name
   td
-    = f.text_field :value
+    = f.input :value
   td
-    label
-      = f.check_box :_destroy
-      | Delete
+    = link_to_remove_association "remove", f

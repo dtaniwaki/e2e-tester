@@ -17,13 +17,3 @@ $(document).on('click', '#toggle_browsers', function(e){
     $('#toggle_browsers').text('Hide all browsers')
   }
 })
-
-$(document).on('click', '#e2e_variables input[type=checkbox]', function(e) {
-  $(this).closest(".e2e-variable").fadeOut()
-})
-
-$(document).on('click', '#e2e_add_new_variable', function(e) {
-  e.preventDefault()
-  e.stopPropagation()
-  $(this).closest('tr').before($(this).data("html").replace(/PLACEHOLDER/g, $("#e2e_variables .e2e-variable:visible").length))
-})
