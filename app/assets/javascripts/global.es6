@@ -18,14 +18,6 @@ $(document).on('click', '#toggle_browsers', function(e){
   }
 })
 
-$(document).on('turbolinks:load', function() {
-  $('#browser_sets_select').each(function(idx){
-    let $this = $(this)
-    $this.closest('.bootstrap-select').after($this).remove()
-    $this.selectpicker({size: $(this).find('option').length, showIcon: false})
-  })
-})
-
 $(document).on('click', '#e2e_variables input[type=checkbox]', function(e) {
   $(this).closest(".e2e-variable").fadeOut()
 })

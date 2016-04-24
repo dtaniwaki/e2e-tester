@@ -16,6 +16,7 @@
 //= require bootstrap-sprockets
 //= require ./images
 //= require ./global
+//= require ./bootstrap
 //= require ./test_executions
 
 $(document).on('turbolinks:load', function() {

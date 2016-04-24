@@ -2,7 +2,7 @@
 
 - unless disabled
   div
-    select#browser_sets_select.selectpicker
+    select#browser_sets_select data-toggle='selectpicker'
       option value="" Custom
       - browser_sets.each do |bs|
         option value=bs.id data-browser-ids=bs.browsers.map(&:id).map(&:to_s).to_json = bs.name
