@@ -481,6 +481,9 @@ GEM
     sidekiq-unique-jobs (4.0.17)
       sidekiq (>= 2.6)
       thor
+    simple_form (3.2.1)
+      actionpack (> 4, < 5.1)
+      activemodel (> 4, < 5.1)
     simplecov (0.11.2)
       docile (~> 1.1.0)
       json (~> 1.8)
@@ -603,6 +606,7 @@ DEPENDENCIES
   sidekiq (~> 4.1.0)
   sidekiq-failures (~> 0.4.5)
   sidekiq-unique-jobs (~> 4.0.13)
+  simple_form (~> 3.2.1)
   simplecov (~> 0.11.2)
   sinatra!
   slim-rails (~> 3.0.1)
