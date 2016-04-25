@@ -24,7 +24,7 @@ class TestStepSetsController < BaseController
     @test_step_set = current_user.shared_test_step_sets.build(permitted_create_params.merge(user: current_user, base_test_step_set: @base_test_step_set))
     authorize @test_step_set
 
-    return redirect_to test_step_sets_path if @test_step_set.same_test_step_set?(@base_test_step_set)
+    return redirect_to test_step_set_path(@base_test_step_set) if @test_step_set.same_test_step_set?(@base_test_step_set)
     if @test_step_set.save
       flash[:notice] = 'Succesfully created new test step set'
       return redirect_to test_step_set_path(@test_step_set)
