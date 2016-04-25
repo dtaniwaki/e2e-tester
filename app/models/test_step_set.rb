@@ -8,7 +8,7 @@ class TestStepSet < ApplicationRecord
 
   validates :title, length: { maximum: 100 }, allow_blank: true
   validates :description, length: { maximum: 65_535 }, allow_blank: true
-  validates :test_steps, length: { minimum: 1, maximum: 50 }
+  validates :test_steps, length: { minimum: 1, maximum: 50 }, presence: true
 
   scope :latest, -> { order(created_at: :desc) }
 

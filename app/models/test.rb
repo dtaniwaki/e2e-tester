@@ -7,7 +7,7 @@ class Test < TestStepSet
 
   scope :with_user, ->(user) { joins(:user_tests).merge(UserTest.where(user_id: user.is_a?(ActiveRecord::Base) ? user.id : user)) }
 
-  validates :test_browsers, length: { minimum: 1, maximum: 10 }
+  validates :browsers, length: { minimum: 1, maximum: 10 }, presence: true
   validate :validate_same_test
 
   def title
