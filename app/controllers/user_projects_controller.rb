@@ -3,16 +3,20 @@ class UserProjectsController < BaseController
     @project = Project.find(params[:project_id])
     authorize @project, :show?
     @user = User.find_or_invite_by({ email: params[:email] }, current_user)
-    @user_project = @project.user_projects.with_user(@user).first_or_initialize
-    authorize @user_project
-    @user_project.assigned_by = current_user
+    if @user.valid?
+      @user_project = @project.user_projects.with_user(@user).first_or_initialize
+      authorize @user_project
+      @user_project.assigned_by = current_user
 
-    if @user_project.save
-      flash[:notice] = 'Successfully invited the user'
+      if @user_project.save
+        flash[:notice] = 'Successfully invited the user'
+      else
+        flash[:alert] = 'Failed to invite the user'
+      end
     else
       flash[:alert] = 'Failed to invite the user'
     end
-    redirect_to :back
+    redirect_to request.referer || root_path
   end
 
   def update
@@ -24,7 +28,7 @@ class UserProjectsController < BaseController
     else
       flash[:alert] = 'Failed to update the user project'
     end
-    redirect_to :back
+    redirect_to request.referer || root_path
   end
 
   def index
