@@ -38,7 +38,7 @@ module TestStep
       false
     end
 
-    def same_step?
+    def same_step?(_other)
       false
     end
   end
