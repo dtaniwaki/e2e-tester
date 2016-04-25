@@ -24,18 +24,8 @@ module TestStep
       driver.execute_script('window.scrollTo(0, 0)')
     end
 
-    # FIXME: temporary implementation
     def to_line
       "Resize window to #{width}x#{height}"
-    end
-
-    # FIXME: temporary implementation
-    def self.from_line(line)
-      new(width: Regexp.last_match(1), height: Regexp.last_match(2)) if line =~ line_regexp
-    end
-
-    def self.line_regexp
-      /^resize window to (\d+%?)?x(\d+%?)?/i
     end
 
     def same_step?(other)

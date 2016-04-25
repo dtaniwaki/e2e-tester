@@ -84,7 +84,13 @@ class TestsController < BaseController
   end
 
   def permitted_create_params
-    params.require(:test).permit(:title, :description, :test_steps_attributes, browser_ids: [])
+    params.require(:test).permit(
+      :title,
+      :description,
+      test_steps_attributes:
+        [:test_step_type, :_destroy, data: [:message, :selector, :javascript, :value, :url, :width, :height, :shared_test_step_set_id, :duration]],
+      browser_ids: []
+    )
   end
 
   def permitted_update_params

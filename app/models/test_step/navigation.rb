@@ -11,18 +11,8 @@ module TestStep
       driver.navigate.to(url)
     end
 
-    # FIXME: temporary implementation
     def to_line
       "Navigate to #{url}"
-    end
-
-    # FIXME: temporary implementation
-    def self.from_line(line)
-      new(url: Regexp.last_match(1)) if line =~ line_regexp
-    end
-
-    def self.line_regexp
-      /^navigate to ([^ ]*)/i
     end
 
     def same_step?(other)

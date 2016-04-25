@@ -1,15 +1,13 @@
-- disabled ||= nil
-
-- unless disabled
-  div
+.form-group  class=(f.object.errors.full_messages.present? ? 'has-error' : '')
+  = f.label :browsers, class: 'control-label'
+  .form-group
     select#browser_sets_select data-toggle='selectpicker'
       option value="" Custom
       - browser_sets.each do |bs|
         option value=bs.id data-browser-ids=bs.browsers.map(&:id).map(&:to_s).to_json = bs.name
-
-div
-  div style="margin-bottom: 10px;"
-    a#toggle_browsers href="#" Show all browsers
-  div#all_browsers style='display: none;'
+    div style="margin-bottom: 10px;"
+      a#toggle_browsers href="#" Show all browsers
+  .form-group#all_browsers style='display: none;'
     - browsers.each do |klass, browsers_collection|
       = f.association :browsers, label: klass, as: :check_boxes, wrapper: :horizontal_radio_and_checkboxes, collection: browsers_collection, item_wrapper_class: 'checkbox-inline'
+  = f.error :test_steps

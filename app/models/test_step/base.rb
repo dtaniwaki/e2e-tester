@@ -12,12 +12,14 @@ module TestStep
 
     acts_as_list scope: :test_step_set_id
 
-    def self.from_line(_line)
-      raise NotImplementedError
+    # Avoid malicious attack on type column
+    def test_step_type=(s)
+      s = "TestStep::#{s.camelize}"
+      becomes! s.constantize if TestStep.steps.map(&:to_s).include?(s)
     end
 
-    def self.line_regexp
-      raise NotImplementedError
+    def test_step_type
+      type&.demodulize&.underscore
     end
 
     def to_line

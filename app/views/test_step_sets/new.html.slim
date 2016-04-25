@@ -6,14 +6,5 @@ h1 New Test Step Set
   = f.error_notification
   = f.input :title
   = f.input :description
-  div.form-group
-    = f.label :test_steps_attributes
-    = f.text_area :test_steps_attributes, value: f.object.test_steps_attributes, class: 'form-control', rows: 10
-  div.form-group
-    h4 Example Regular Expression
-    div.alert.alert-info
-      | You can use placeholders to make your password or anything variable. The variables are configurable per user/project/test
-    pre
-      code
-        = safe_join(TestStep.steps.map { |ts| ts.line_regexp.inspect }, "\n")
+  = render 'shared/test_steps_fields', f: f
   = f.button :submit

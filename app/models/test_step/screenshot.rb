@@ -8,18 +8,8 @@ module TestStep
       screenshots.find_or_create_by(test_step_execution_id: test_step_execution.id).update_attributes!(image: take_full_screenshot(driver))
     end
 
-    # FIXME: temporary implementation
     def to_line
       'Take screenshot'
-    end
-
-    # FIXME: temporary implementation
-    def self.from_line(line)
-      new if line =~ line_regexp
-    end
-
-    def self.line_regexp
-      /^take screenshot/i
     end
 
     def screenshot?

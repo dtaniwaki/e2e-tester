@@ -20,6 +20,15 @@
   margin-bottom: 40px;
 }
 
+.e2e-test-step-placeholder {
+  height: 34px;
+  line-height: 34px;
+  border-radius: 4px;
+  border: 1px solid #cccccc;
+  color: #cccccc;
+  padding: 0 10px;
+}
+
 // For errors with form_for
 .field_with_errors {
     @extend .form-group;

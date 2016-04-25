@@ -95,7 +95,7 @@ RSpec.describe TestStepSetsController, type: :controller do
     end
   end
   describe 'POST create' do
-    let(:test_step_set_attributes) { attributes_for(:shared_test_step_set).merge(test_steps_attributes: build(:test_step).to_line) }
+    let(:test_step_set_attributes) { attributes_for(:shared_test_step_set).merge(test_steps_attributes: [attributes_for(:test_step)]) }
     context 'with signed in user' do
       include_context 'with signed in user'
       it 'renders successfully' do

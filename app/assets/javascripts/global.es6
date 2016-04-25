@@ -17,3 +17,13 @@ $(document).on('click', '#toggle_browsers', function(e){
     $('#toggle_browsers').text('Hide all browsers')
   }
 })
+
+$(document).on('turbolinks:load cocoon:after-insert', function(e, target) {
+  $('[data-sortable]').each(function() {
+    $(this).sortable({
+      handle: '[data-sortable-handle]',
+      placeholder: 'e2e-test-step-placeholder',
+      items: $(this).data('sortable')
+    })
+  })
+})

@@ -62,7 +62,12 @@ class TestStepSetsController < BaseController
   private
 
   def permitted_create_params
-    params.require(:test_step_set).permit(:title, :description, :test_steps_attributes)
+    params.require(:test_step_set).permit(
+      :title,
+      :description,
+      test_steps_attributes:
+        [:test_step_type, :_destroy, data: [:message, :selector, :javascript, :value, :url, :width, :height, :shared_test_step_set_id, :duration]]
+    )
   end
 
   def permitted_update_params

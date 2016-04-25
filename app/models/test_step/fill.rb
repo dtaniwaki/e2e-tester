@@ -12,18 +12,8 @@ module TestStep
       driver.find_element(:css, selector).send_keys(value)
     end
 
-    # FIXME: temporary implementation
     def to_line
       %(Fill "#{selector}" with "#{value}")
-    end
-
-    # FIXME: temporary implementation
-    def self.from_line(line)
-      new(selector: Regexp.last_match(1), value: Regexp.last_match(2)) if line =~ line_regexp
-    end
-
-    def self.line_regexp
-      /^fill "([^"]*)" with "([^"]*)"/i
     end
 
     def same_step?(other)
