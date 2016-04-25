@@ -1,3 +1,5 @@
+- content_for :title, 'Home'
+
 ul
   - if user_signed_in?
     li = link_to "Projects", projects_path

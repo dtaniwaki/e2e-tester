@@ -1,3 +1,5 @@
+= content_for :title, "Edit #{resource_name.to_s.humanize}"
+
 h2 = "Edit #{resource_name.to_s.humanize}"
 
 - email_hint = devise_mapping.confirmable? && resource.pending_reconfirmation? ? "Currently waiting confirmation for: #{resource.unconfirmed_email}" : nil

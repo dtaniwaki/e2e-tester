@@ -1,3 +1,5 @@
+= content_for :title, 'Resend confirmation instructions'
+
 h2 Resend confirmation instructions
 
 = simple_form_for resource, as: resource_name, url: confirmation_path(resource_name), html: { autocomplete: 'off', method: :post } do |f|

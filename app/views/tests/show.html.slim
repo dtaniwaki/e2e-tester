@@ -1,3 +1,5 @@
+- content_for :title, "Test #{@test.title}"
+
 - if @is_owner
   = link_to 'Back to Project', project_path(@test.project)
 - else
