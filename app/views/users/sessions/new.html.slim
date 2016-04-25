@@ -1,21 +1,10 @@
 h2 Log in
 
-= form_for resource, as: resource_name, url: session_path(resource_name) do |f|
-  = devise_error_messages!
-
-  div.form-group
-    = f.label :email
-    = f.email_field :email, autofocus: true, class: 'form-control'
-
-  div.form-group
-    = f.label :password
-    = f.password_field :password, autocomplete: "off", class: 'form-control'
-
-  div.form-group
-    = f.check_box :remember_me
-    = f.label :remember_me, t('activerecord.attributes.user.remember_me', default: "Remember me")
-
-  div.form-group
-    = f.submit "Log in", class: 'btn btn-default'
+= simple_form_for resource, as: resource_name, url: session_path(resource_name), html: { autocomplete: 'off' } do |f|
+  = f.error_notification
+  = f.input :email, input_html: { autocomplete: 'off', autofocus: true }
+  = f.input :password, input_html: { autocomplete: 'off' }, required: true
+  = f.input :remember_me, as: :boolean, label: '&nbsp;', inline_label: t('activerecord.attributes.user.remember_me')
+  = f.button :submit, 'Log in'
 
 = render "users/shared/links"

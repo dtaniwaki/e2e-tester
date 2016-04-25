@@ -22,3 +22,5 @@ h1 Test Step Sets
             = t.user.name_or_email
           td = link_to 'Delete', test_step_set_path(t), method: :delete, data: {confirm: 'Are you sure?'}
     = paginate @test_step_sets
+
+= link_to 'Create new test step set', new_test_step_set_path, class: 'btn btn-default'

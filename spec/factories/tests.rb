@@ -7,6 +7,7 @@ FactoryGirl.define do
       browser_count 3
       test_steps nil
       test_step_count 3
+      test_steps_attributes nil
     end
     after :build do |test, evaluator|
       test.project ||= create :project
@@ -15,10 +16,14 @@ FactoryGirl.define do
       else
         create_list(:browser, evaluator.browser_count)
       end
-      test.test_steps = if evaluator.test_steps.present?
-        evaluator.test_steps
+      if !evaluator.test_steps_attributes.nil?
+        test.test_steps_attributes = evaluator.test_steps_attributes
       else
-        build_list(:test_step, evaluator.test_step_count, test_step_set: test)
+        test.test_steps = if !evaluator.test_steps.nil?
+          evaluator.test_steps
+        else
+          build_list(:test_step, evaluator.test_step_count, test_step_set: test)
+        end
       end
     end
   end

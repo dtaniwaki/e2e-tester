@@ -9,7 +9,7 @@ class UserProject < ApplicationRecord
 
   after_commit :send_notification!, on: :create, if: ->(ut) { ut.assigned_by.present? }
 
-  accepts_nested_attributes_for :user_project_variables, allow_destroy: true
+  accepts_nested_attributes_for :user_project_variables, allow_destroy: true, reject_if: -> (attributes) { attributes[:name].blank? && attributes[:value].blank? }
 
   def send_notification!
     UserMailer.assigned_project(self).deliver_now!

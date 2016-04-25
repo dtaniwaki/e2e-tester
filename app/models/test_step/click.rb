@@ -10,18 +10,8 @@ module TestStep
       driver.find_element(:css, selector).click
     end
 
-    # FIXME: temporary implementation
     def to_line
       %(Click "#{selector}")
-    end
-
-    # FIXME: temporary implementation
-    def self.from_line(line)
-      new(selector: Regexp.last_match(1)) if line =~ line_regexp
-    end
-
-    def self.line_regexp
-      /^click "([^"]*)"/i
     end
 
     def same_step?(other)

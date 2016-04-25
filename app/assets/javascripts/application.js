@@ -12,11 +12,14 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui/sortable
 //= require turbolinks
 //= require bootstrap-sprockets
+//= require cocoon
 //= require ./images
 //= require ./global
 //= require ./test_executions
+//= require_tree ./ext
 
 $(document).on('turbolinks:load', function() {
   var loadFunc = $.app && $.app[$('body').attr('id')]

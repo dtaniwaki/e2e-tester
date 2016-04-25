@@ -117,7 +117,7 @@ RSpec.describe TestsController, type: :controller do
     end
   end
   describe 'POST create' do
-    let(:test_attributes) { attributes_for(:test).merge(test_steps_attributes: build(:test_step).to_line, browser_ids: create_list(:browser, 1).map(&:id)) }
+    let(:test_attributes) { attributes_for(:test).merge(test_steps_attributes: [attributes_for(:test_step)], browser_ids: create_list(:browser, 1).map(&:id)) }
     let(:project) { create :project }
     context 'with signed in user' do
       include_context 'with signed in user'

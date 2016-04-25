@@ -1,8 +1,4 @@
 module TestStep
-  def self.from_line(line)
-    steps.map { |ts| ts.from_line(line) }.compact[0]
-  end
-
   def self.steps
     # Manually assign the classes to avoid multi threaded requiring
     @stesp ||= [

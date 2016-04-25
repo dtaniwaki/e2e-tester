@@ -1,9 +1,4 @@
-= form_errors_for f.object
-div class="form-group"
-  = f.label :title
-  = f.text_field :title, maxlength: 255, class: 'form-control'
-div.form-group
-  = f.label :description
-  = f.text_area :description, class: 'form-control', maxlength: 65535
-div.fomr-group
-  = f.submit class: 'btn btn-primary'
+= f.error_notification
+= f.input :title, class: 'form-control'
+= f.input :description, class: 'form-control'
+= f.button :submit

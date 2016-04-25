@@ -10,18 +10,8 @@ module TestStep
       driver.execute_script(javascript)
     end
 
-    # FIXME: temporary implementation
     def to_line
       %(Eval #{javascript})
-    end
-
-    # FIXME: temporary implementation
-    def self.from_line(line)
-      new(javascript: Regexp.last_match(1)) if line =~ line_regexp
-    end
-
-    def self.line_regexp
-      /^eval (.*)$/i
     end
 
     def same_step?(other)

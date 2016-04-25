@@ -1,4 +1,5 @@
 = link_to 'Back to project', project_path(@project)
+
 h1 Tests
 
 - if @tests.present?
@@ -21,3 +22,5 @@ h1 Tests
             |  
             = t.user.name_or_email
     = paginate @tests
+
+= link_to 'Create new test', new_project_test_path(@project), class: 'btn btn-success', method: :get

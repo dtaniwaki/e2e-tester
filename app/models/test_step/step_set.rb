@@ -19,18 +19,8 @@ module TestStep
       raise 'Some of the test steps failed' if executions.any?(&:failed?)
     end
 
-    # FIXME: temporary implementation
     def to_line
       %(SharedTestStepSet #{shared_test_step_set_id})
-    end
-
-    # FIXME: temporary implementation
-    def self.from_line(line)
-      new(shared_test_step_set_id: Regexp.last_match(1)) if line =~ line_regexp
-    end
-
-    def self.line_regexp
-      /^SharedTestStepSet (\d+)$/i
     end
 
     def same_step?(other)

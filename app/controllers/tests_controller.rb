@@ -21,34 +21,26 @@ class TestsController < BaseController
 
   def new
     @base_test_step_set = (params[:base_test_step_set_id].presence && TestStepSet.find(params[:base_test_step_set_id]))
-    if @base_test_step_set.present?
-      @base_test_step_set = @base_test_step_set.becomes! @base_test_step_set.type.constantize
-      authorize @base_test_step_set
-    end
+    authorize @base_test_step_set if @base_test_step_set.present?
 
     @test = @base_test_step_set
     @test ||= @project.tests.build
 
-    @selected_browsers = @test&.browsers || []
     assign_browsers
   end
 
   def create
     @base_test_step_set = (params[:base_test_step_set_id].presence && TestStepSet.find(params[:base_test_step_set_id]))
-    if @base_test_step_set.present?
-      @base_test_step_set = @base_test_step_set.becomes! @base_test_step_set.type.constantize
-      authorize @base_test_step_set
-    end
+    authorize @base_test_step_set if @base_test_step_set.present?
 
     @test = @project.tests.build(permitted_create_params.merge(user: current_user, base_test_step_set: @base_test_step_set))
     authorize @test
 
-    return redirect_to test_path(@test) if @test.same_test_step_set?(@base_test_step_set)
+    return redirect_to test_path(@base_test_step_set) if @test.same_test_step_set?(@base_test_step_set)
     if @test.save
       flash[:notice] = 'Succesfully created new test'
       return redirect_to test_path(@test)
     end
-    @selected_browsers = @test&.browsers || []
     assign_browsers
     render :new
   end
@@ -88,11 +80,17 @@ class TestsController < BaseController
 
   def assign_browsers
     @browser_sets = BrowserSet.includes(:browsers).all
-    @browsers = Browser::Base.active.all
+    @browsers = Browser::Base.active.all.group_by(&:class)
   end
 
   def permitted_create_params
-    params.require(:test).permit(:title, :description, :test_steps_attributes, browser_ids: [])
+    params.require(:test).permit(
+      :title,
+      :description,
+      test_steps_attributes:
+        [:test_step_type, :_destroy, data: [:message, :selector, :javascript, :value, :url, :width, :height, :shared_test_step_set_id, :duration]],
+      browser_ids: []
+    )
   end
 
   def permitted_update_params

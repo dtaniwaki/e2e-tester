@@ -5,7 +5,7 @@ class Project < ApplicationRecord
 
   acts_as_paranoid
 
-  validates :title, length: { maximum: 255 }, presence: true
+  validates :title, length: { maximum: 100 }, presence: true
 
   after_create :assign_owner!
 

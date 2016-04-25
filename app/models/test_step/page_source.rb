@@ -6,18 +6,8 @@ module TestStep
       page_sources.find_or_create_by(test_step_execution_id: test_step_execution.id).update_attributes!(source: StringIO.new(driver.page_source))
     end
 
-    # FIXME: temporary implementation
     def to_line
       'Store page source'
-    end
-
-    # FIXME: temporary implementation
-    def self.from_line(line)
-      new if line =~ line_regexp
-    end
-
-    def self.line_regexp
-      /^store page source/i
     end
 
     def page_source?
