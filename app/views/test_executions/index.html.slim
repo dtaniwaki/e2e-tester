@@ -1,9 +1,8 @@
 - content_for :title, "Test #{@test.title} Test Executions"
 
 = link_to 'Back to Test', test_path(@test)
-h1 Test Executions
-
-h2 = @test.project.title
+h1 = @test.project.title
+h2 Test Executions
 
 - if @test_executions.present?
   div.panel.panel-default

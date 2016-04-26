@@ -15,8 +15,7 @@ class TestsController < BaseController
       @test_executions = current_user.test_executions.with_test(@test).eager_load(:user).latest.limit(10)
       @user_test = @test.user_tests.with_user(current_user).eager_load(:user_test_variables).first!
     end
-    @is_owner = current_user.user_projects.with_project(@test.project).exists?
-    @user_tests = @test.user_tests.eager_load(:user).limit(10) if @is_owner
+    @user_tests = @test.user_tests.eager_load(:user).limit(10) if policy(@test.project).show?
   end
 
   def new

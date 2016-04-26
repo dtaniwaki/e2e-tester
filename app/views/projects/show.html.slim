@@ -50,14 +50,16 @@ div.panel
 - if @user_project.present?
   = render '/shared/variables_form', target: @user_project, variable_name: 'user_project_variables'
 
-h3 Invite User
-= form_for [@project, UserProject.new], method: :post, html: {autocomplete: 'off'} do |f|
-  div.form-group
-    = label_tag :email
-    = text_field_tag :email, nil, class: 'form-control', autocomplete: 'off'
+- user_project = @project.user_projects.build
+- if policy(user_project).new?
+  h3 Invite User
+  = form_for [@project, user_project], method: :post, html: {autocomplete: 'off'} do |f|
+    div.form-group
+      = label_tag :email
+      = text_field_tag :email, nil, class: 'form-control', autocomplete: 'off'
 
-  div.form-group
-    = f.submit t("devise.invitations.new.submit_button"), class: 'btn btn-default'
+    div.form-group
+      = f.submit t("devise.invitations.new.submit_button"), class: 'btn btn-default'
 
 - if @user_projects.present?
   div.panel.panel-default

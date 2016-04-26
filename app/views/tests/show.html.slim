@@ -1,13 +1,13 @@
 - content_for :title, "Test #{@test.title}"
 
-- if @is_owner
+- if policy(@test.project).show?
   = link_to 'Back to Project', project_path(@test.project)
 - else
   = link_to 'Back to Tests', misc_tests_path
-h1 Test
 
-h2 = @test.project.title
-h3 = @test.title
+h1 = @test.title
+- if policy(@test.project).show?
+  h2 = @test.project.title
 
 div.panel
   div
@@ -51,9 +51,10 @@ div.panel
 - if @user_test.present?
   = render '/shared/variables_form', target: @user_test, variable_name: 'user_test_variables'
 
-- if @is_owner
+- user_test = @test.user_tests.build
+- if policy(user_test).new?
   h3 Invite User
-  = form_for [@test, UserTest.new], method: :post, html: {autocomplete: 'off'} do |f|
+  = form_for [@test, user_test], method: :post, html: {autocomplete: 'off'} do |f|
     div.form-group
       = label_tag :email
       = text_field_tag :email, nil, class: 'form-control', autocomplete: 'off'
