@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :test do
     user
-    title 'foo'
+    sequence(:title) { |n| "test-#{n}" }
     transient do
       browsers nil
       browser_count 3
