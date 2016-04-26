@@ -17,7 +17,15 @@ module SerializedAttribute
         serialized_attribute_keys << name
         define_method name do
           self.data ||= {}
-          self.data[name]
+          value = self.data[name]
+          case options[:type]
+          when :float
+            value.to_f
+          when :integer
+            value.to_i
+          else
+            value.to_s
+          end
         end
         define_method "#{name}=" do |value|
           self.data ||= {}
