@@ -47,5 +47,5 @@ Rails.application.routes.draw do
     get :tests
   end
 
-  root to: 'public#root'
+  root to: 'misc#home'
 end
