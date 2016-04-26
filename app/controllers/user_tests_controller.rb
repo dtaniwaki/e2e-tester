@@ -3,16 +3,20 @@ class UserTestsController < BaseController
     @test = Test.find(params[:test_id])
     authorize @test, :show?
     @user = User.find_or_invite_by({ email: params[:email] }, current_user)
-    @user_test = @test.user_tests.with_user(@user).first_or_initialize
-    authorize @user_test
-    @user_test.assigned_by = current_user
 
-    if @user_test.save
-      flash[:notice] = 'Successfully invited the user'
+    if @user.valid?
+      @user_test = @test.user_tests.with_user(@user).first_or_initialize
+      authorize @user_test
+      @user_test.assigned_by = current_user
+      if @user_test.save
+        flash[:notice] = 'Successfully invited the user'
+      else
+        flash[:alert] = 'Failed to invite the user'
+      end
     else
       flash[:alert] = 'Failed to invite the user'
     end
-    redirect_to :back
+    redirect_to request.referer || root_path
   end
 
   def update
@@ -24,7 +28,7 @@ class UserTestsController < BaseController
     else
       flash[:alert] = 'Failed to update the user test'
     end
-    redirect_to :back
+    redirect_to request.referer || root_path
   end
 
   def index
