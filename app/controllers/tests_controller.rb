@@ -79,7 +79,7 @@ class TestsController < BaseController
 
   def assign_browsers
     @browser_sets = BrowserSet.includes(:browsers).all
-    @browsers = Browser::Base.active.all.group_by(&:class)
+    @browsers = Browser::Base.active.all.group_by(&:class).map { |gk, bs| [gk, bs.group_by { |b| [b.os, b.os_version] }] }
   end
 
   def permitted_create_params
