@@ -21,10 +21,22 @@ class TestStepExecution < ApplicationRecord
     begin
       test_step.execute!(self, driver, variables)
       self.message = nil
+      save!
       done!
     rescue => e
-      self.message = e.message
       logger.warn "Failed to execute TestStep##{id}: #{e.class} #{e.message}"
+      # Errors thrown from web drivers vary
+      if e.is_a? Selenium::WebDriver::Error::WebDriverError
+        error = begin
+                  JSON.parse(e.message.match(/^[^{]*({.*})[^}]*$/)[1])
+                rescue
+                  {}
+                end
+        self.message = error['errorMessage'] || e.message
+      else
+        self.message = e.message
+      end
+      save!
       failed!
     end
   end
