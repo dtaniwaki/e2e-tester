@@ -39,7 +39,7 @@ div.panel
       - @test_executions.each do |te|
         tr
           td = link_to te.id, test_execution_path(te)
-          td = link_to te.state, test_execution_path(te)
+          td = bootstrap_status_tag :span, te.state, te.done?, te.failed?
           td = link_to te.created_at.to_s, test_execution_path(te)
           td
             = gravatar_image_tag(te.user.email, :alt => te.user.name_or_email, gravatar: { size: 20 })
