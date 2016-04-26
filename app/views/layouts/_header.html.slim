@@ -1,18 +1,32 @@
 nav.navbar.navbar-default
-  div.container
-    div.navbar-header
-      button.navbar-toggle.collapsed type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"
+  .container
+    .navbar-header
+      button.navbar-toggle.collapsed type='button' data-toggle='collapse' data-target='#navbar'
         span.sr-only Toggle navigation
         span.icon-bar
         span.icon-bar
         span.icon-bar
       a.navbar-brand href=root_path E2E Tester
-    ul.nav.navbar-nav.navbar-right
-      - if user_signed_in?
-        li = link_to edit_user_registration_path do
-          = gravatar_image_tag(current_user.email, :alt => current_user.name_or_email, gravatar: { size: 20 })
-          |  
-          = current_user.name_or_email
-        li = link_to 'Sign Out', destroy_user_session_path, method: :delete
-      - else
-        li = link_to 'Sign In', new_user_session_path
+    #navbar.navbar-collapse.collapse
+      ul.nav.navbar-nav
+        - if user_signed_in?
+          li class=(controller_name == 'projects' ? 'active' : nil)
+            = link_to 'Projects', projects_path
+          li class=(controller_name == 'misc' && action_name == 'tests' ? 'active' : nil)
+            = link_to 'Assigned Tests', misc_tests_path
+          li class=(controller_name == 'test_step_sets' ? 'active' : nil)
+            = link_to 'Test Step Sets', test_step_sets_path
+      ul.nav.navbar-nav.navbar-right
+        - if user_signed_in?
+          li.dropdown
+            a.dropdown-toggle href='#' data-toggle='dropdown'
+              = gravatar_image_tag(current_user.email, :alt => current_user.name_or_email, gravatar: { size: 20 })
+              |  
+              = current_user.name_or_email
+              span.caret
+            ul.dropdown-menu
+              li = link_to 'Edit profile', edit_user_registration_path
+              li = link_to 'Invite User', new_user_invitation_path
+              li = link_to 'Sign Out', destroy_user_session_path, method: :delete
+        - else
+          li = link_to 'Sign In', new_user_session_path
