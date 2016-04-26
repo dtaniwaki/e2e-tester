@@ -2,7 +2,7 @@ module TestStep
   class Wait < Base
     validates :duration, numericality: { greater_than: 0, less_than_or_equal_to: 10 }, presence: true
 
-    serialized_attribute :duration
+    serialized_attribute :duration, type: :float
 
     def execute!(_test_step_execution, _driver, _variables = {})
       sleep duration

@@ -2,7 +2,7 @@ module TestStep
   class ResizeWindow < Base
     validates :width, :height, format: { with: /\A\d+%?\Z/ }, allow_nil: true
 
-    serialized_attribute :width, :height
+    serialized_attribute :width, :height, type: :integer
 
     def execute!(_test_step_execution, driver, _variables = {})
       width = self.width
