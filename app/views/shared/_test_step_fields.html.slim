@@ -4,7 +4,8 @@
     .input-group-addon data-sortable-handle=''
       .glyphicon.glyphicon-move
     = f.simple_fields_for :data do |ff|
-      = render "shared/test_step_fields/#{f.object.class.to_s.demodulize.underscore}", f: ff
+      - # Set f instead of ff purposely to use the accessors
+      = render "shared/test_step_fields/#{f.object.class.to_s.demodulize.underscore}", f: f
     .input-group-addon
       = link_to_remove_association '', f, class: 'glyphicon glyphicon-remove'
   - f.object.class.serialized_attribute_keys.each do |key|
