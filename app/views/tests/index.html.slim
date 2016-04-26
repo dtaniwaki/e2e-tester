@@ -13,6 +13,7 @@ h1 Tests
         th Title
         th Created At
         th Created By
+        th
       - @tests.each do |t|
         tr
           td = link_to t.id, test_path(t)
@@ -23,6 +24,8 @@ h1 Tests
             = gravatar_image_tag(t.user.email, :alt => t.user.name_or_email, gravatar: { size: 20 })
             |  
             = t.user.name_or_email
+          td
+            = link_to 'Execute', test_test_executions_path(t), class: 'btn btn-xs btn-primary', method: :post
     = paginate @tests
 - else
   .alert.alert-warning

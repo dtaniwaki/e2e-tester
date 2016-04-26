@@ -35,6 +35,7 @@ div.panel
         th Title
         th Created
         th Created By
+        th
       - @tests.each do |t|
         tr
           td = link_to t.id, test_path(t)
@@ -45,6 +46,8 @@ div.panel
             = gravatar_image_tag(t.user.email, :alt => t.user.name_or_email, gravatar: { size: 20 })
             |  
             = t.user.name_or_email
+          td
+            = link_to 'Execute', test_test_executions_path(t), class: 'btn btn-xs btn-primary', method: :post
   div.panel
     = link_to 'More tests', project_tests_path(@project)
 
