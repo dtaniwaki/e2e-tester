@@ -4,29 +4,34 @@
 h1 Test Execution
 
 div data-path-done-test-execution-path=done_test_execution_path(@test_execution)
-  h2 = "Execution ##{@test_execution.id}"
-  h3 class="state #{@test_execution.state}"
-    | State: 
-    - if @test_execution.done?
-      span.label.label-success = @test_execution.state
-    - else
-      span.label.label-info = @test_execution.state
+  h2
+    = "Execution ##{@test_execution.id}"
+    |  
+    - %w(done failed).each do |state|
+      span class=(@test_execution.public_send("#{state}?") ? nil : 'hidden') data-execution-state=state
+        = bootstrap_status_tag :span, state, state == 'done', state == 'failed'
 
-  table.table#test_execution style='width: initial; table-layout: fixed; white-space: normal; word-wrap: break-word;'
+  table.table.table-bordered#test_execution style='width: initial; table-layout: fixed; white-space: normal; word-wrap: break-word;'
     tr
       th style='width: 200px; max-width: 200px;'
       - @test_execution.test_execution_browsers.each do |teb|
-        th style='width: 200px; max-width: 200px;' = teb.browser.name
+        th style='width: 200px; max-width: 200px;'
+          span.label.label-default title=teb.browser.full_name data-toggle='tooltip' = teb.browser.name
     - @test_execution.test.test_steps.each do |ts|
       tr id="test_step_#{ts.id}"
-        th style='width: 200px; max-width: 200px; white-space: normal; word-wrap: break-word;' = ts.to_line
+        th style='width: 200px; max-width: 200px; white-space: normal; word-wrap: break-word;' = ts.to_line.truncate(100)
         - @test_execution.test_execution_browsers.each do |teb|
-          td style='width: 200px; max-width: 200px;' id="test_execution_browser_#{teb.id}" class="#{ 'active' if teb.initial? || teb.running? }"
-            div.state
-              - if tse = teb.test_step_executions.find { |tse_| tse_.test_step_id == ts.id }
-                = link_to tse.state, test_step_execution_path(tse), target: '_blank' unless tse.initial?
+          td style='width: 200px; max-width: 200px;' id="test_execution_browser_#{teb.id}"
+            .state
+              - %w(done failed running).each do |state|
+                - if tse = teb.test_step_executions.find { |tse_| tse_.test_step_id == ts.id }
+                    = link_to test_step_execution_path(tse), target: '_blank', class: tse.public_send("#{state}?") ? nil : 'hidden', data: { state: state } do
+                      = bootstrap_status_tag :span, state, state == 'done', state == 'failed'
+                - else
+                  = link_to 'javascript:void(0)', target: '_blank', class: 'hidden', data: { state: state } do
+                    = bootstrap_status_tag :span, state, state == 'done', state == 'failed'
             - if ts.screenshot?
-              div.screenshot
+              .screenshot
                 - if tse = teb.test_step_executions.find { |tse_| tse_.test_step_id == ts.id }
                   - if tse.done?
                     = link_to image_tag(tse.screenshot.image.url(:thumb), width: '100%'), test_step_execution_path(tse), target: '_blank'
