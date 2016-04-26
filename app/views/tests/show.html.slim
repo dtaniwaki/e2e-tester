@@ -21,12 +21,12 @@ div.panel
     - @test.browsers.each do |b|
       span.label.label-default title=b.full_name data-toggle='tooltip' = b.name
   div
-    = link_to 'Execute the test', test_test_executions_path(@test), class: 'btn btn-primary', method: :post
+    = link_to 'Execute', test_test_executions_path(@test), class: 'btn btn-primary', method: :post
     - if policy(@test).new?
-      = link_to 'Fork the test', new_project_test_path(@test.project, base_test_step_set_id: @test), class: 'btn btn-default'
-      = link_to 'Make shared test step set', new_test_step_set_path(base_test_step_set_id: @test), class: 'btn btn-default'
+      = link_to 'Fork', new_project_test_path(@test.project, base_test_step_set_id: @test), class: 'btn btn-success'
+      = link_to 'Share', new_test_step_set_path(base_test_step_set_id: @test), class: 'btn btn-default'
     - if policy(@test).edit?
-      = link_to 'Edit the test', edit_test_path(@test), class: 'btn btn-default'
+      = link_to 'Edit', edit_test_path(@test), class: 'btn btn-default'
 
 - if @test_executions.present?
   div.panel.panel-default
