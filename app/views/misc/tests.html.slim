@@ -1,6 +1,6 @@
-- content_for :title, 'My Tests'
+- content_for :title, 'Assigned Tests'
 
-h1 My Tests
+h1 Assigned Tests
 
 - if @tests.present?
   div.panel.panel-default
@@ -19,3 +19,6 @@ h1 My Tests
           td = link_to t.created_at.to_s, test_path(t)
           td = t.user.name_or_email
     = paginate @tests
+- else
+  .alert.alert-warning
+    | You don't have any assigned test.

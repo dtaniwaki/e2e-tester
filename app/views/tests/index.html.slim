@@ -24,5 +24,8 @@ h1 Tests
             |  
             = t.user.name_or_email
     = paginate @tests
+- else
+  .alert.alert-warning
+    | You don't have any test.
 
 = link_to 'Create new test', new_project_test_path(@project), class: 'btn btn-success', method: :get
