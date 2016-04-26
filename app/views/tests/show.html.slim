@@ -10,8 +10,9 @@ h1 = @test.title
   h2 = @test.project.title
 
 div.panel
-  div
-    = markdown(@test.description)
+  - if @test.description.present?
+    pre
+      = markdown(@test.description)
   div
     ul.list-group
       - @test.test_steps.each do |ts|

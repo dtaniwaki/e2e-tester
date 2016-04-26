@@ -6,8 +6,9 @@ h1 Test Step Set
 h2 = @test_step_set.title
 
 div.panel
-  div
-    = markdown(@test_step_set.description)
+  - if @test_step_set.description.present?
+    pre
+      = markdown(@test_step_set.description)
   div
     ul.list-group
       - @test_step_set.test_steps.each do |ts|
