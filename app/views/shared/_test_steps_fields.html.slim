@@ -1,4 +1,4 @@
-.form-group data-sortable='.nested-fields' class=(f.object.errors.full_messages.present? ? 'has-error' : '')
+.form-group data-sortable='.nested-fields' class=(f.object.errors[:test_steps].present? ? 'has-error' : '')
   = f.label :test_steps, class: 'control-label'
   .alert.alert-info
     | You can use placeholders to make your password or anything variable. The variables are configurable per user/project/test

@@ -1,4 +1,4 @@
-.form-group  class=(f.object.errors.full_messages.present? ? 'has-error' : '')
+.form-group  class=(f.object.errors[:browsers].present? ? 'has-error' : '')
   = f.label :browsers, class: 'control-label'
   .form-group
     select#browser_sets_select data-toggle='selectpicker'
@@ -12,4 +12,4 @@
       h3.control-label = klass.to_s.demodulize
       - grouped_browsers.each do |os_and_version, browsers_collection|
         = f.association :browsers, label: os_and_version.compact.join(' '), as: :check_boxes, wrapper: :horizontal_radio_and_checkboxes, collection: browsers_collection, item_wrapper_class: 'checkbox-inline', label_method: -> (b) { content_tag :span, b.name, title: b.full_name, data: { toggle: 'tooltip' } }, required: false, error: false
-  = f.full_error :browsers
+  = f.error :browsers
