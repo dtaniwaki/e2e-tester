@@ -32,7 +32,7 @@ module TestStep
 
     def attributes
       h = super
-      h.merge((h.delete('data') || {}).stringify_keys)
+      h.merge((h['data'] || {}).stringify_keys)
     end
 
     def screenshot?

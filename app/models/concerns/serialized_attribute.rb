@@ -21,13 +21,13 @@ module SerializedAttribute
         end
         define_method "#{name}=" do |value|
           self.data ||= {}
-          case options[:type]
-          when :float
-            value = value.to_f
-          when :integer
-            value = value.to_i
-          else
-            value = value.to_s
+          value = case options[:type]
+                  when :float
+                    value.to_f
+                  when :integer
+                    value.to_i
+                  else
+                    value.to_s
           end
           self.data[name] = value
         end
