@@ -19,7 +19,7 @@ div.panel
           li.list-group-item = ts.to_line
     div
       - @latest_test.browsers.each do |b|
-        span.label.label-default = b.name
+        span.label.label-default title=b.full_name data-toggle='tooltip' = b.name
     div
       - if @latest_test.present?
         = link_to 'Execute the test', test_test_executions_path(@latest_test), class: 'btn btn-primary', method: :post
