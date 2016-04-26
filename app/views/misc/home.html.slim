@@ -3,8 +3,8 @@
 h1 Projects
 
 - if @projects.present?
-  div.panel.panel-default
-    table.table
+  .panel.panel-default
+    table.table.table-striped
       tr
         th ID
         th Title
@@ -17,10 +17,11 @@ h1 Projects
   .alert.alert-warning
     | You don't have any project.
 
+h1 Assigned Tests
+
 - if @tests.present?
-  h1 Assigned Tests
-  div.panel.panel-default
-    table.table
+  .panel.panel-default
+    table.table.table-striped
       tr
         th ID
         th Parent
