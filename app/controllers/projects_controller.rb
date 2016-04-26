@@ -8,7 +8,6 @@ class ProjectsController < BaseController
     authorize @project
 
     @tests = @project.tests.preload(test_browsers: :browser).latest.limit(10)
-    @latest_test = @project.tests.preload(:test_steps, test_browsers: :browser).latest.first
     @user_project = @project.user_projects.with_user(current_user).includes(:user_project_variables).first
     @user_projects = @project.user_projects.eager_load(:user).limit(10)
   end
