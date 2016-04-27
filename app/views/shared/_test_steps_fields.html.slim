@@ -6,8 +6,8 @@
     = render 'shared/test_step_fields', f: ff
   .form-group
     #insertion_node
-      .e2e-test-step-placeholder New step
+      .e2e-test-step-placeholder New step comes here
   = f.error :test_steps
 .form-group
   - TestStep.steps.each do |test_step_class|
-    = link_to_add_association test_step_class.name, f, :test_steps, partial: 'shared/test_step_fields', wrap_object: -> (test_step) { test_step.becomes! test_step_class }, id: test_step_class.class, data: { 'association-insertion-node': "#insertion_node" }, class: 'btn btn-sm btn-default'
+    = link_to_add_association test_step_class.name.demodulize, f, :test_steps, partial: 'shared/test_step_fields', wrap_object: -> (test_step) { test_step.becomes! test_step_class }, id: test_step_class.class, data: { 'association-insertion-node': "#insertion_node" }, class: 'btn btn-sm btn-default'
