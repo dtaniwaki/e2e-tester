@@ -1,5 +1,5 @@
 unless User.where(email: 'foo@example.com').exists?
-  User.create!(email: 'foo@example.com', password: '11111111', password_confirmation: '11111111', confirmed_at: DateTime.now)
+  User.create!(name: 'Foo', email: 'foo@example.com', password: '11111111', password_confirmation: '11111111', confirmed_at: DateTime.now)
 end
 
 Browser::Local.update_all!
@@ -11,7 +11,7 @@ end
 if user = User.first
   project = user.projects.find_or_create_by!(title: 'Sample Project')
   test = project.tests.find_or_initialize_by(title: 'Sample Test')
-  test.update_attributes!(user: user, browsers: Browser::Local.all, test_steps_attributes: 'None')
+  test.update_attributes!(user: user, browsers: Browser::Local.all, test_steps: [TestStep::None.new])
   test_step_set = SharedTestStepSet.find_or_initialize_by(title: 'Sample Test Step Set')
-  test_step_set.update_attributes!(user: user, test_steps_attributes: 'None')
+  test_step_set.update_attributes!(user: user, test_steps: [TestStep::None.new])
 end
