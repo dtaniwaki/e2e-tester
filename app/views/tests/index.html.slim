@@ -18,7 +18,7 @@ h1 Tests
         tr
           td = link_to t.id, test_path(t)
           td = link_to t.base_test_step_set.title, polymorphic_test_step_set_path(t.base_test_step_set) if t.base_test_step_set.present? && policy(t.base_test_step_set).show?
-          td = link_to t.title, test_path(t) if t.title.present?
+          td = link_to t.title, test_path(t)
           td = link_to t.created_at.to_s, test_path(t)
           td
             = gravatar_image_tag(t.user.email, :alt => t.user.name_or_email, gravatar: { size: 20 })
@@ -31,4 +31,4 @@ h1 Tests
   .alert.alert-warning
     | You don't have any test.
 
-= link_to 'Create new test', new_project_test_path(@project), class: 'btn btn-success', method: :get
+= link_to 'New test', new_project_test_path(@project), class: 'btn btn-success', method: :get

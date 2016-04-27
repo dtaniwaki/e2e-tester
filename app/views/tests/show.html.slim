@@ -17,7 +17,7 @@ div.panel
     ul.list-group
       - @test.test_steps.each do |ts|
         li.list-group-item = ts.to_line
-  div
+  div style='margin-bottom: 20px;'
     - @test.browsers.each do |b|
       span.label.label-default title=b.full_name data-toggle='tooltip' = b.name
   div

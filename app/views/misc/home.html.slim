@@ -32,7 +32,7 @@ h1 Assigned Tests
         tr
           td = link_to t.id, test_path(t)
           td = link_to t.test_step_set_id, polymorphic_test_step_set_path(t.base_test_step_set) if t.base_test_step_set.present? && policy(t.base_test_step_set).show?
-          td = link_to t.title, test_path(t) if t.title.present?
+          td = link_to t.title, test_path(t)
           td = link_to t.created_at.to_s, test_path(t)
           td
             = gravatar_image_tag(t.user.email, :alt => t.user.name_or_email, gravatar: { size: 20 })

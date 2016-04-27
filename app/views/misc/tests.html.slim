@@ -7,7 +7,6 @@ h1 Assigned Tests
     table.table.table-striped
       tr
         th ID
-        th Project Title
         th Title
         th Created
         th Created By
@@ -15,8 +14,7 @@ h1 Assigned Tests
       - @tests.each do |t|
         tr
           td = link_to t.id, test_path(t)
-          td = link_to t.project.title, test_path(t)
-          td = link_to t.title, test_path(t) if t.title.present?
+          td = link_to t.title, test_path(t)
           td = link_to t.created_at.to_s, test_path(t)
           td = t.user.name_or_email
           td

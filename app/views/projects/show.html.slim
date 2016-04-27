@@ -10,7 +10,6 @@ div.panel
   div
     = link_to 'Edit', edit_project_path(@project), class: 'btn btn-default'
     = link_to 'Delete', project_path(@project), class: 'btn btn-default', method: :delete, data: {confirm: 'Are you sure?'}
-    = link_to 'New test', new_project_test_path(@project), class: 'btn btn-success', method: :get
 
 - if @tests.present?
   div.panel.panel-default
@@ -27,7 +26,7 @@ div.panel
         tr
           td = link_to t.id, test_path(t)
           td = link_to t.base_test_step_set.title, polymorphic_test_step_set_path(t.base_test_step_set) if t.base_test_step_set.present? && policy(t.base_test_step_set).show?
-          td = link_to t.title, test_path(t) if t.title.present?
+          td = link_to t.title, test_path(t)
           td = link_to t.created_at.to_s, test_path(t)
           td
             = gravatar_image_tag(t.user.email, :alt => t.user.name_or_email, gravatar: { size: 20 })
@@ -37,6 +36,12 @@ div.panel
             = link_to 'Execute', test_test_executions_path(t), class: 'btn btn-xs btn-primary', method: :post
   div.panel
     = link_to 'More tests', project_tests_path(@project)
+- else
+  .alert.alert-warning
+    | You don't have any assigned test.
+
+div style='margin-bottom: 20px;'
+  = link_to 'New test', new_project_test_path(@project), class: 'btn btn-success', method: :get
 
 - if @user_project.present?
   = render '/shared/variables_form', target: @user_project, variable_name: 'user_project_variables'
