@@ -24,10 +24,9 @@ class ProjectsController < BaseController
     if @project.update_attributes(permitted_params)
       flash[:notice] = 'Succesfully created new project'
       redirect_to project_path(@project)
-    else
-      flash[:alert] = 'Failed to create new project'
-      render :new
+      return
     end
+    render :new
   end
 
   def edit
@@ -42,10 +41,9 @@ class ProjectsController < BaseController
     if @project.update_attributes(permitted_params)
       flash[:notice] = 'Succesfully created the project'
       redirect_to project_path(@project)
-    else
-      flash[:alert] = 'Failed to update the project'
-      render :edit
+      return
     end
+    render :edit
   end
 
   def destroy

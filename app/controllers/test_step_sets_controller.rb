@@ -29,6 +29,7 @@ class TestStepSetsController < BaseController
       flash[:notice] = 'Succesfully created new test step set'
       return redirect_to test_step_set_path(@test_step_set)
     end
+
     render :new
   end
 

@@ -41,6 +41,7 @@ class TestsController < BaseController
       return redirect_to test_path(@test)
     end
     assign_browsers
+
     render :new
   end
 
@@ -57,6 +58,7 @@ class TestsController < BaseController
       flash[:notice] = 'Succesfully created new test'
       return redirect_to test_path(@test)
     end
+
     render :edit
   end
 
