@@ -12,6 +12,7 @@ h1 Projects
         tr
           td = link_to p.id, project_path(p)
           td = link_to p.title, project_path(p)
+  .center-block.text-center
     = paginate @projects
 - else
   .alert.alert-warning

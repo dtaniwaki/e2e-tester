@@ -21,5 +21,6 @@ h2 Test Executions
             = gravatar_image_tag(te.user.email, :alt => te.user.name_or_email, gravatar: { size: 20 })
             |  
             = te.user.name_or_email
-  div.panel
-    = paginate(@test_executions)
+
+  .center-block.text-center
+    = paginate @test_executions

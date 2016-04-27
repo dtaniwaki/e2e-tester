@@ -26,6 +26,7 @@ h1 Tests
             = t.user.name_or_email
           td
             = link_to 'Execute', test_test_executions_path(t), class: 'btn btn-xs btn-primary', method: :post
+  .center-block.text-center
     = paginate @tests
 - else
   .alert.alert-warning
