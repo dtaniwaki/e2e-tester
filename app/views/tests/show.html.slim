@@ -46,7 +46,7 @@
           td = bootstrap_status_tag :span, te.state, te.done?, te.failed?
           td = link_to te.created_at.to_s, test_execution_path(te)
           td
-            = gravatar_image_tag(te.user.email, :alt => te.user.name_or_email, gravatar: { size: 20 })
+            = gravatar_image_tag(te.user.email, alt: te.user.name_or_email, gravatar: { size: 20 })
             |  
             = te.user.name_or_email
   div.panel
@@ -77,7 +77,7 @@
           tr
             td = ut.user.id
             td
-              = gravatar_image_tag(ut.user.email, :alt => ut.user.name_or_email, gravatar: { size: 20 })
+              = gravatar_image_tag(ut.user.email, alt: ut.user.name_or_email, gravatar: { size: 20 })
               |  
               = ut.user.name_or_email
     div.panel

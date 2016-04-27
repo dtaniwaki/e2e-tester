@@ -23,7 +23,7 @@
           td = link_to t.title, test_step_set_path(t)
           td = link_to t.created_at.to_s, test_step_set_path(t)
           td
-            = gravatar_image_tag(t.user.email, :alt => t.user.name_or_email, gravatar: { size: 20 })
+            = gravatar_image_tag(t.user.email, alt: t.user.name_or_email, gravatar: { size: 20 })
             |  
             = t.user.name_or_email
           td = link_to 'Delete', test_step_set_path(t), method: :delete, data: {confirm: 'Are you sure?'}

@@ -25,7 +25,7 @@
           td = link_to t.title, test_path(t)
           td = link_to t.created_at.to_s, test_path(t)
           td
-            = gravatar_image_tag(t.user.email, :alt => t.user.name_or_email, gravatar: { size: 20 })
+            = gravatar_image_tag(t.user.email, alt: t.user.name_or_email, gravatar: { size: 20 })
             |  
             = t.user.name_or_email
           td

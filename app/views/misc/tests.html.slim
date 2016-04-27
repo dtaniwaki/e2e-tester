@@ -16,7 +16,10 @@ h1 Assigned Tests
           td = link_to t.id, test_path(t)
           td = link_to t.title, test_path(t)
           td = link_to t.created_at.to_s, test_path(t)
-          td = t.user.name_or_email
+          td
+            = gravatar_image_tag(t.user.email, alt: t.user.name_or_email, gravatar: { size: 20 })
+            |  
+            = t.user.name_or_email
           td
             = link_to 'Execute', test_test_executions_path(t), class: 'btn btn-xs btn-primary', method: :post
   .center-block.text-center

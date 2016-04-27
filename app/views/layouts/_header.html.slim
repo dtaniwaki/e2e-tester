@@ -20,7 +20,7 @@ nav.navbar.navbar-default
         - if user_signed_in?
           li.dropdown
             a.dropdown-toggle href='#' data-toggle='dropdown'
-              = gravatar_image_tag(current_user.email, :alt => current_user.name_or_email, gravatar: { size: 20 })
+              = gravatar_image_tag(current_user.email, alt: current_user.name_or_email, gravatar: { size: 20 })
               |  
               = current_user.name_or_email
               span.caret
