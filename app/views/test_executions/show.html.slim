@@ -1,7 +1,11 @@
 - content_for :title, "Test Execution #{@test_execution.id}"
 
 = link_to 'Back to test', test_path(@test)
-h1 = @test.title
+
+.block
+  .pull-right
+    = link_to 'Retry', test_test_executions_path(@test_execution), class: 'btn btn-primary', method: :post
+  h1 = @test.title
 
 div data-path-done-test-execution-path=done_test_execution_path(@test_execution)
   h2

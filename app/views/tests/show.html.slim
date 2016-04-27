@@ -7,26 +7,29 @@
 
 - if policy(@project).show?
   h1 = @project.title
-h2 = @test.title
 
-div.panel
-  - if @test.description.present?
-    pre
-      = markdown(@test.description)
-  div
-    ul.list-group
-      - @test.test_steps.each do |ts|
-        li.list-group-item = ts.to_line
-  div style='margin-bottom: 20px;'
-    - @test.browsers.each do |b|
-      span.label.label-default title=b.full_name data-toggle='tooltip' = b.name
-  div
-    = link_to 'Execute', test_test_executions_path(@test), class: 'btn btn-primary', method: :post
+.block
+  .pull-right
     - if policy(@test).new?
       = link_to 'Fork', new_project_test_path(@project, base_test_step_set_id: @test), class: 'btn btn-success'
       = link_to 'Share', new_test_step_set_path(base_test_step_set_id: @test), class: 'btn btn-default'
     - if policy(@test).edit?
       = link_to 'Edit', edit_test_path(@test), class: 'btn btn-default'
+  h2 = @test.title
+
+.panel
+  - if @test.description.present?
+    pre
+      = markdown(@test.description)
+  .block
+    ul.list-group
+      - @test.test_steps.each do |ts|
+        li.list-group-item = ts.to_line
+  .block style='margin-bottom: 20px;'
+    - @test.browsers.each do |b|
+      span.label.label-default title=b.full_name data-toggle='tooltip' = b.name
+  .block
+    = link_to 'Execute', test_test_executions_path(@test), class: 'btn btn-primary', method: :post
 
 - if @test_executions.present?
   div.panel.panel-default

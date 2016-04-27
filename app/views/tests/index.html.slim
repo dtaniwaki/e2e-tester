@@ -2,10 +2,14 @@
 
 = link_to 'Back to project', project_path(@project)
 
-h1 Tests
+.block
+  .pull-right
+    = link_to 'New test', new_project_test_path(@project), class: 'btn btn-success', method: :get
+
+  h1 Tests
 
 - if @tests.present?
-  div.panel.panel-default
+  .panel.panel-default
     table.table.table-striped
       tr
         th ID
@@ -31,5 +35,3 @@ h1 Tests
 - else
   .alert.alert-warning
     | You don't have any test.
-
-= link_to 'New test', new_project_test_path(@project), class: 'btn btn-success', method: :get

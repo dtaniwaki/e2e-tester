@@ -1,9 +1,13 @@
 - content_for :title, 'Projects'
 
-h1 Projects
+.block
+  .pull-right
+    = link_to 'New Project', new_project_path, class: 'btn btn-success'
+
+  h1 Projects
 
 - if @projects.present?
-  div.panel.panel-default
+  .panel.panel-default
     table.table.table-striped
       tr
         th ID
@@ -17,6 +21,3 @@ h1 Projects
 - else
   .alert.alert-warning
     | You don't have any project.
-
-div
-  = link_to 'New Project', new_project_path, class: 'btn btn-success'

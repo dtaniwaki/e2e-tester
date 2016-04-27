@@ -1,9 +1,13 @@
 - content_for :title, "Test Step Sets"
 
-h1 Test Step Sets
+.block
+  .pull-right
+    = link_to 'New test step set', new_test_step_set_path, class: 'btn btn-success'
+
+  h1 Test Step Sets
 
 - if @test_step_sets.present?
-  div.panel.panel-default
+  .panel.panel-default
     table.table.table-striped
       tr
         th ID
@@ -29,4 +33,3 @@ h1 Test Step Sets
   .alert.alert-warning
     | You don't have any test step set.
 
-= link_to 'New test step set', new_test_step_set_path, class: 'btn btn-success'

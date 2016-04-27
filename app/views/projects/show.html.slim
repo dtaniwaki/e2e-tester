@@ -1,15 +1,18 @@
 - content_for :title, "Project #{@project.title}"
 
 = link_to 'Back to Projects', projects_path
-h1 = @project.title
 
-div.panel
-  - if @project.description.present?
-    pre
-      = markdown(@project.description)
-  div
+.block
+  .pull-right
     = link_to 'Edit', edit_project_path(@project), class: 'btn btn-default'
     = link_to 'Delete', project_path(@project), class: 'btn btn-default', method: :delete, data: {confirm: 'Are you sure?'}
+
+  h1 = @project.title
+
+- if @project.description.present?
+  div.panel
+    pre
+      = markdown(@project.description)
 
 - if @tests.present?
   div.panel.panel-default
@@ -40,7 +43,7 @@ div.panel
   .alert.alert-warning
     | You don't have any assigned test.
 
-div style='margin-bottom: 20px;'
+.block style='margin-bottom: 20px;'
   = link_to 'New test', new_project_test_path(@project), class: 'btn btn-success', method: :get
 
 - if @user_project.present?
