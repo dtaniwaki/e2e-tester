@@ -1,4 +1,6 @@
 class ProjectsController < BaseController
+  auto_decorate :tests, only: [:index, :show]
+
   def index
     @projects = policy_scope(current_user.accessible_projects).latest.page(params[:page]).per(20)
   end

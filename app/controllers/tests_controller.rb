@@ -1,5 +1,6 @@
 class TestsController < BaseController
   before_action :assign_project, only: [:index, :new, :create]
+  auto_decorate :tests, :test, only: [:index, :show]
 
   def index
     @tests = policy_scope(@project.tests).latest.page(params[:page]).per(20)
@@ -8,6 +9,7 @@ class TestsController < BaseController
   def show
     @test = Test.includes(:project, test_browsers: :browser).find(params[:id])
     authorize @test
+    @project = @test.project
 
     if current_user.user_projects.with_project(@test.project).exists?
       @test_executions = @test.test_executions.eager_load(:user).latest.limit(10)

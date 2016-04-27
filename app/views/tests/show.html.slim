@@ -1,13 +1,13 @@
 - content_for :title, "Test #{@test.title}"
 
-- if policy(@test.project).show?
-  = link_to 'Back to Project', project_path(@test.project)
+- if policy(@project).show?
+  = link_to 'Back to Project', project_path(@project)
 - else
   = link_to 'Back to Tests', misc_tests_path
 
-h1 = @test.title
-- if policy(@test.project).show?
-  h2 = @test.project.title
+- if policy(@project).show?
+  h1 = @project.title
+h2 = @test.title
 
 div.panel
   - if @test.description.present?
@@ -23,7 +23,7 @@ div.panel
   div
     = link_to 'Execute', test_test_executions_path(@test), class: 'btn btn-primary', method: :post
     - if policy(@test).new?
-      = link_to 'Fork', new_project_test_path(@test.project, base_test_step_set_id: @test), class: 'btn btn-success'
+      = link_to 'Fork', new_project_test_path(@project, base_test_step_set_id: @test), class: 'btn btn-success'
       = link_to 'Share', new_test_step_set_path(base_test_step_set_id: @test), class: 'btn btn-default'
     - if policy(@test).edit?
       = link_to 'Edit', edit_test_path(@test), class: 'btn btn-default'

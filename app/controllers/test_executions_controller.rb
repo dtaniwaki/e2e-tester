@@ -1,4 +1,6 @@
 class TestExecutionsController < BaseController
+  auto_decorate :test, only: [:index, :show]
+
   def index
     @test = Test.find(params[:test_id])
     authorize @test, :show?
@@ -13,6 +15,7 @@ class TestExecutionsController < BaseController
   def show
     @test_execution = TestExecution.includes(test_execution_browsers: [:browser, :test_step_executions], test: :test_steps).find(params[:id])
     authorize @test_execution
+    @test = @test_execution.test
   end
 
   def create

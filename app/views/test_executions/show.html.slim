@@ -1,7 +1,7 @@
 - content_for :title, "Test Execution #{@test_execution.id}"
 
-= link_to 'Back to test', test_path(@test_execution.test)
-h1 Test Execution
+= link_to 'Back to test', test_path(@test)
+h1 = @test.title
 
 div data-path-done-test-execution-path=done_test_execution_path(@test_execution)
   h2
