@@ -185,6 +185,9 @@ GEM
       babel-source (>= 4.0, < 6)
       execjs (~> 2.0)
     bcrypt (3.1.11)
+    bootstrap-kaminari-views (0.0.5)
+      kaminari (>= 0.13)
+      rails (>= 3.1)
     bootstrap-sass (3.3.6)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
@@ -559,6 +562,7 @@ DEPENDENCIES
   activeadmin!
   activemodel-serializers-xml!
   acts_as_list (~> 0.7.2)
+  bootstrap-kaminari-views (~> 0.0.5)
   bootstrap-sass (~> 3.3.6)
   brakeman (~> 3.2.1)
   bugsnag (~> 4.0.0)

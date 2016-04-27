@@ -59,6 +59,7 @@ gem 'gravatar_image_tag', '~> 1.2.0'
 gem 'simple_form', '~> 3.2.1'
 gem 'cocoon', '~> 1.2.9'
 gem 'nilify_blanks', '~> 1.2.1'
+gem 'bootstrap-kaminari-views', '~> 0.0.5'
 
 ################################
 # redis-rails Rails 5 support
