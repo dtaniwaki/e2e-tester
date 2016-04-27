@@ -1,6 +1,6 @@
 module Users
   class InvitationsController < Devise::InvitationsController
-    before_filter :configure_permitted_parameters
+    before_action :configure_permitted_parameters
 
     private
 
