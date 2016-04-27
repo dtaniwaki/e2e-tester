@@ -1,7 +1,7 @@
 doctype html
 html
   head
-    title E2E Tester
+    title = [yield(:title).presence || nil, 'E2E Tester'].compact.join(' | ')
     = csrf_meta_tags
     = action_cable_meta_tag
 

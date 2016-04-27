@@ -2,34 +2,36 @@ $.extend(true, $, {
   app: {
     test_executions_show: function() {
       let doneTestExecutionPath = $('[data-path-done-test-execution-path]').data('path-done-test-execution-path')
-      if ($('.state.initial, .state.running').length > 0) {
+      if ($('[data-execution-state].hidden').length > 0) {
         let timerId
         timerId = setInterval(function() {
           if (timerId) {
             $.ajax(doneTestExecutionPath, {
               dataType: 'json'
-            }).done(function(data, textStatus, jqXHR) {
-              var data = data.data
-              if (data.state === 'done') {
+            }).done(function(res, textStatus, jqXHR) {
+              let data = res.data
+              if (data.state === 'done' || data.state === 'failed') {
+                $(`[data-execution-state="${data.state}"]`).removeClass('hidden')
                 timerId = null
                 clearInterval(timerId)
               }
               data.browsers.forEach(function(browser) {
                 browser.steps.forEach(function(step) {
-                  var $target = $(`#test_step_${step.test_step_id} #test_execution_browser_${browser.id}`)
-                  if (step.state === 'running') {
-                    $target.addClass('active')
-                    if (step.screenshot) {
-                      $('.screenshot', $target).html(`<img src="${$.images.loadingGif}" width="100%" />`)
-                    }
-                  } else if (step.state === 'done' || step.state === 'failed') {
-                    $target.removeClass('active')
-                    if (step.screenshot) {
+                  let $target = $(`#test_step_${step.test_step_id} #test_execution_browser_${browser.id}`)
+                  $target.find(`[data-state="${step.state}"]`).removeClass('hidden')
+                  $target.find(`[data-state]:not([data-state="${step.state}"])`).addClass('hidden')
+                  if (step.link_url) {
+                    let aTag = $target.find('a')
+                    aTag.attr('href', step.link_url)
+                  }
+                  if (step.screenshot) {
+                    if (step.state === 'running') {
+                      $('.screenshot', $target).html(`<img src="${$.images.loading}" width="100%" />`)
+                    } else if (step.state === 'failed') {
+                      $('.screenshot', $target).html(`<img src="${$.images.failed}" width="100%" />`)
+                    } else if (step.screenshot) {
                       $('.screenshot', $target).html(`<a href="${step.link_url}" target="_blank"><img src="${step.screenshot.image_url}" width="100%" /></a>`)
                     }
-                  }
-                  if (step.state !== 'initial') {
-                    $('.state', $target).html(`<a href="${step.link_url}" target="_blank">${step.state}</a>`)
                   }
                 })
               })

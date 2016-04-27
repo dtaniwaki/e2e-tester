@@ -1,13 +1,13 @@
-.form-group data-sortable='.nested-fields' class=(f.object.errors.full_messages.present? ? 'has-error' : '')
+.form-group data-sortable='.nested-fields' class=(f.object.errors[:test_steps].present? ? 'has-error' : '')
   = f.label :test_steps, class: 'control-label'
-  .alert.alert-info
-    | You can use placeholders to make your password or anything variable. The variables are configurable per user/project/test
+  .help-block
+    | You can use placeholders enclosed with {} to make your password or anything variable. The variables are configurable per user/project/test.
   = f.simple_fields_for(:test_steps, f.object.test_steps.map { |ts| ts.becomes ts.type.constantize }, include_id: false) do |ff|
     = render 'shared/test_step_fields', f: ff
   .form-group
     #insertion_node
-      .e2e-test-step-placeholder New step
+      .e2e-test-step-placeholder New step comes here
   = f.error :test_steps
 .form-group
   - TestStep.steps.each do |test_step_class|
-    = link_to_add_association test_step_class.name, f, :test_steps, partial: 'shared/test_step_fields', wrap_object: -> (test_step) { test_step.becomes! test_step_class }, id: test_step_class.class, data: { 'association-insertion-node': "#insertion_node" }, class: 'btn btn-sm btn-default'
+    = link_to_add_association test_step_class.name.demodulize, f, :test_steps, partial: 'shared/test_step_fields', wrap_object: -> (test_step) { test_step.becomes! test_step_class }, id: test_step_class.class, data: { 'association-insertion-node': "#insertion_node" }, class: 'btn btn-sm btn-default'

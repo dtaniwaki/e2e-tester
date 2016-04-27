@@ -1,12 +1,13 @@
-= link_to 'Back to Test', test_path(@test)
-h1 Test Executions
+- content_for :title, "Test #{@test.title} Test Executions"
 
-h2 = @test.project.title
+= link_to 'Back to Test', test_path(@test)
+
+h1 = @test.title
+h2 Test Executions
 
 - if @test_executions.present?
-  div.panel.panel-default
-    div.panel-heading Executions
-    table.table
+  .panel.panel-default
+    table.table.table-striped
       tr
         th ID
         th State
@@ -15,11 +16,12 @@ h2 = @test.project.title
       - @test_executions.each do |te|
         tr
           td = link_to te.id, test_execution_path(te)
-          td = link_to te.state, test_execution_path(te)
+          td = bootstrap_status_tag :span, te.state, te.done?, te.failed?
           td = link_to te.created_at.to_s, test_execution_path(te)
           td
-            = gravatar_image_tag(te.user.email, :alt => te.user.name_or_email, gravatar: { size: 20 })
+            = gravatar_image_tag(te.user.email, alt: te.user.name, gravatar: { size: 20 })
             |  
-            = te.user.name_or_email
-  div.panel
-    = paginate(@test_executions)
+            = te.user.name
+
+  .center-block.text-center
+    = paginate @test_executions

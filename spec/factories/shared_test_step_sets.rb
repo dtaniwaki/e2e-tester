@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :shared_test_step_set do
     user
-    title 'foo'
+    sequence(:title) { |n| "shared-test-step-set-#{n}" }
     transient do
       test_steps nil
       test_step_count 3

@@ -1,4 +1,6 @@
 class TestStepSetsController < BaseController
+  auto_decorate :test_step_sets, :test_step_set, only: [:index, :show]
+
   def index
     @test_step_sets = policy_scope(current_user.accessible_shared_test_step_sets).latest.page(params[:page]).per(20)
   end
@@ -29,6 +31,7 @@ class TestStepSetsController < BaseController
       flash[:notice] = 'Succesfully created new test step set'
       return redirect_to test_step_set_path(@test_step_set)
     end
+
     render :new
   end
 

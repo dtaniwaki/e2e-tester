@@ -11,6 +11,10 @@ module Browser
       super.presence || device.presence || "#{browser} #{browser_version}"
     end
 
+    def full_name
+      ['Browserstack', os, os_version, browser, browser_version, device].compact.join(' ')
+    end
+
     def driver
       caps = Selenium::WebDriver::Remote::Capabilities.new
       caps['device']          = device          if device.present?

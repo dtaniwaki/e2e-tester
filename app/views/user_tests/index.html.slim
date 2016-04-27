@@ -1,4 +1,5 @@
 = link_to "Back to the test", test_path(@test)
+
 h1 Assigned Users
 
 - if @user_tests.present?
@@ -11,7 +12,8 @@ h1 Assigned Users
         tr
           td = ut.user.id
           td
-            = gravatar_image_tag(ut.user.email, :alt => ut.user.name_or_email, gravatar: { size: 20 })
+            = gravatar_image_tag(ut.user.email, alt: ut.user.name, gravatar: { size: 20 })
             |  
-            = ut.user.name_or_email
+            = ut.user.name
+  .center-block.text-center
     = paginate @user_tests

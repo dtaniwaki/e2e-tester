@@ -43,9 +43,9 @@ Rails.application.routes.draw do
     resources :user_projects, only: [:create, :update, :index]
   end
   resources :test_step_sets
-  namespace :misc do
+  namespace :misc, path: '' do
     get :tests
   end
 
-  root to: 'public#root'
+  root to: 'misc#home'
 end

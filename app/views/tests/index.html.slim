@@ -1,26 +1,37 @@
+- content_for :title, "Project #{@project.title} Tests"
+
 = link_to 'Back to project', project_path(@project)
 
-h1 Tests
+.block
+  .pull-right
+    = link_to 'New test', new_project_test_path(@project), class: 'btn btn-success', method: :get
+
+  h1 Tests
 
 - if @tests.present?
-  div.panel.panel-default
-    table.table
+  .panel.panel-default
+    table.table.table-striped
       tr
         th ID
-        th Parent
+        th Parent Test
         th Title
         th Created At
         th Created By
+        th
       - @tests.each do |t|
         tr
           td = link_to t.id, test_path(t)
-          td = link_to t.test_step_set_id, polymorphic_test_step_set_path(t.base_test_step_set) if t.base_test_step_set.present? && policy(t.base_test_step_set).show?
-          td = link_to t.title, test_path(t) if t.title.present?
+          td = link_to t.base_test_step_set.title, polymorphic_test_step_set_path(t.base_test_step_set) if t.base_test_step_set.present? && policy(t.base_test_step_set).show?
+          td = link_to t.title, test_path(t)
           td = link_to t.created_at.to_s, test_path(t)
           td
-            = gravatar_image_tag(t.user.email, :alt => t.user.name_or_email, gravatar: { size: 20 })
+            = gravatar_image_tag(t.user.email, alt: t.user.name, gravatar: { size: 20 })
             |  
-            = t.user.name_or_email
+            = t.user.name
+          td
+            = link_to 'Execute', test_test_executions_path(t), class: 'btn btn-xs btn-primary', method: :post
+  .center-block.text-center
     = paginate @tests
-
-= link_to 'Create new test', new_project_test_path(@project), class: 'btn btn-success', method: :get
+- else
+  .alert.alert-warning
+    | You don't have any test.

@@ -1,11 +1,17 @@
-h1 Test Step Sets
+- content_for :title, "Test Step Sets"
+
+.block
+  .pull-right
+    = link_to 'New test step set', new_test_step_set_path, class: 'btn btn-success'
+
+  h1 Test Step Sets
 
 - if @test_step_sets.present?
-  div.panel.panel-default
-    table.table
+  .panel.panel-default
+    table.table.table-striped
       tr
         th ID
-        th Parent
+        th Parent Title
         th Title
         th Created At
         th Created By
@@ -13,14 +19,17 @@ h1 Test Step Sets
       - @test_step_sets.each do |t|
         tr
           td = link_to t.id, test_step_set_path(t)
-          td = link_to t.test_step_set_id, polymorphic_test_step_set_path(t.base_test_step_set) if t.base_test_step_set.present? && policy(t.base_test_step_set).show?
-          td = link_to t.title, test_step_set_path(t) if t.title.present?
+          td = link_to t.base_test_step_set.title, polymorphic_test_step_set_path(t.base_test_step_set) if t.base_test_step_set.present? && policy(t.base_test_step_set).show?
+          td = link_to t.title, test_step_set_path(t)
           td = link_to t.created_at.to_s, test_step_set_path(t)
           td
-            = gravatar_image_tag(t.user.email, :alt => t.user.name_or_email, gravatar: { size: 20 })
+            = gravatar_image_tag(t.user.email, alt: t.user.name, gravatar: { size: 20 })
             |  
-            = t.user.name_or_email
+            = t.user.name
           td = link_to 'Delete', test_step_set_path(t), method: :delete, data: {confirm: 'Are you sure?'}
+  .center-block.text-center
     = paginate @test_step_sets
+-else
+  .alert.alert-warning
+    | You don't have any test step set.
 
-= link_to 'Create new test step set', new_test_step_set_path, class: 'btn btn-default'

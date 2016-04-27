@@ -39,6 +39,10 @@ module Browser
       s
     end
 
+    def full_name
+      "Local #{name}"
+    end
+
     def driver
       browser_name = browser.to_sym
       caps = {}

@@ -30,11 +30,6 @@ module TestStep
       raise NotImplementedError
     end
 
-    def attributes
-      h = super
-      h.merge((h['data'] || {}).stringify_keys)
-    end
-
     def screenshot?
       false
     end

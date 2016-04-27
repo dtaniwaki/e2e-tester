@@ -1,8 +1,14 @@
-h1 Projects
+- content_for :title, 'Projects'
+
+.block
+  .pull-right
+    = link_to 'New Project', new_project_path, class: 'btn btn-success'
+
+  h1 Projects
 
 - if @projects.present?
-  div.panel.panel-default
-    table.table
+  .panel.panel-default
+    table.table.table-striped
       tr
         th ID
         th Title
@@ -10,7 +16,8 @@ h1 Projects
         tr
           td = link_to p.id, project_path(p)
           td = link_to p.title, project_path(p)
+  .center-block.text-center
     = paginate @projects
-
-div
-  = link_to 'New Project', new_project_path, class: 'btn btn-default'
+- else
+  .alert.alert-warning
+    | You don't have any project.

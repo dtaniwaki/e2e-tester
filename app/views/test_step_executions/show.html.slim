@@ -1,31 +1,31 @@
+- content_for :title, "Test Step Execution #{@test_step_execution.id}"
+
 = link_to 'Back to Test Execution', test_execution_path(@test_step_execution.test_execution)
 
 div style="margin: 20px 0 20px 0;"
   ul.nav.nav-pills
     - @other_browser_test_step_executions.each do |tse|
       li class="#{@test_step_execution == tse ? 'active' : nil}"
-        = link_to tse.browser.name, test_step_execution_path(tse)
+        = link_to tse.browser.name, test_step_execution_path(tse), class: 'label label-default', title: tse.browser.full_name, data: { toggle: 'tooltip' }
 div
   div.col-md-3
     ul.nav.nav-pills.nav-stacked
       - @same_browser_test_step_executions.each do |tse|
-        li class="#{@test_step_execution == tse ? 'active' : nil}"
-          = link_to tse.test_step.to_line, test_step_execution_path(tse)
+        li class="#{@test_step_execution == tse ? 'active' : nil}" style='white-space: normal; word-wrap: break-word;'
+          = link_to tse.test_step.to_line.truncate(100), test_step_execution_path(tse)
 
   div.col-md-9
+    h4 = @test_step_execution.browser.full_name
     div
       ul.list-group
         li.list-group-item
           = @test_step_execution.test_step.to_line
+
     div
-      | State: 
-      - if @test_step_execution.done?
-        span.label.label-success = @test_step_execution.state
-      - else
-        span.label.label-info = @test_step_execution.state
+      = bootstrap_status_tag :span, @test_step_execution.state, @test_step_execution.done?, @test_step_execution.failed?
 
     - if @test_step_execution.failed?
-      div.alert.alert-warning
+      div.alert.alert-error
         = @test_step_execution.message
     - if @test_step_execution.test_step.screenshot? && @test_step_execution.screenshot.try(:image).present?
       div

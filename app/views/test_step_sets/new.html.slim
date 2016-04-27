@@ -1,3 +1,5 @@
+- content_for :title, "New Test Step Set"
+
 = link_to 'Back to test step sets index', test_step_sets_path
 h1 New Test Step Set
 
@@ -7,4 +9,4 @@ h1 New Test Step Set
   = f.input :title
   = f.input :description
   = render 'shared/test_steps_fields', f: f
-  = f.button :submit
+  = f.button :submit, class: 'btn-success'

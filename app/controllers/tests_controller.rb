@@ -1,5 +1,6 @@
 class TestsController < BaseController
   before_action :assign_project, only: [:index, :new, :create]
+  auto_decorate :tests, :test, only: [:index, :show]
 
   def index
     @tests = policy_scope(@project.tests).latest.page(params[:page]).per(20)
@@ -8,6 +9,7 @@ class TestsController < BaseController
   def show
     @test = Test.includes(:project, test_browsers: :browser).find(params[:id])
     authorize @test
+    @project = @test.project
 
     if current_user.user_projects.with_project(@test.project).exists?
       @test_executions = @test.test_executions.eager_load(:user).latest.limit(10)
@@ -15,8 +17,7 @@ class TestsController < BaseController
       @test_executions = current_user.test_executions.with_test(@test).eager_load(:user).latest.limit(10)
       @user_test = @test.user_tests.with_user(current_user).eager_load(:user_test_variables).first!
     end
-    @is_owner = current_user.user_projects.with_project(@test.project).exists?
-    @user_tests = @test.user_tests.eager_load(:user).limit(10) if @is_owner
+    @user_tests = @test.user_tests.eager_load(:user).limit(10) if policy(@test.project).show?
   end
 
   def new
@@ -42,6 +43,7 @@ class TestsController < BaseController
       return redirect_to test_path(@test)
     end
     assign_browsers
+
     render :new
   end
 
@@ -58,6 +60,7 @@ class TestsController < BaseController
       flash[:notice] = 'Succesfully created new test'
       return redirect_to test_path(@test)
     end
+
     render :edit
   end
 

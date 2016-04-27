@@ -1,29 +1,35 @@
-- if @is_owner
-  = link_to 'Back to Project', project_path(@test.project)
+- content_for :title, "Test #{@test.title}"
+
+- if policy(@project).show?
+  = link_to 'Back to Project', project_path(@project)
 - else
   = link_to 'Back to Tests', misc_tests_path
-h1 Test
 
-h2 = @test.project.title
-h3 = @test.title
+- if policy(@project).show?
+  h1 = @project.title
 
-div.panel
-  div
-    = markdown(@test.description)
-  div
+.block
+  .pull-right
+    - if policy(@test).new?
+      = link_to 'Fork', new_project_test_path(@project, base_test_step_set_id: @test), class: 'btn btn-success'
+      = link_to 'Share', new_test_step_set_path(base_test_step_set_id: @test), class: 'btn btn-default'
+    - if policy(@test).edit?
+      = link_to 'Edit', edit_test_path(@test), class: 'btn btn-default'
+  h2 = @test.title
+
+.panel
+  - if @test.description.present?
+    pre
+      = markdown(@test.description)
+  .block
     ul.list-group
       - @test.test_steps.each do |ts|
         li.list-group-item = ts.to_line
-  div
+  .block style='margin-bottom: 20px;'
     - @test.browsers.each do |b|
-      span.label.label-default = b.name
-  div
-    = link_to 'Execute the test', test_test_executions_path(@test), class: 'btn btn-primary', method: :post
-    - if policy(@test).new?
-      = link_to 'Fork the test', new_project_test_path(@test.project, base_test_step_set_id: @test), class: 'btn btn-default'
-      = link_to 'Make shared test step set', new_test_step_set_path(base_test_step_set_id: @test), class: 'btn btn-default'
-    - if policy(@test).edit?
-      = link_to 'Edit the test', edit_test_path(@test), class: 'btn btn-default'
+      span.label.label-default title=b.full_name data-toggle='tooltip' = b.name
+  .block
+    = link_to 'Execute', test_test_executions_path(@test), class: 'btn btn-primary', method: :post
 
 - if @test_executions.present?
   div.panel.panel-default
@@ -37,21 +43,22 @@ div.panel
       - @test_executions.each do |te|
         tr
           td = link_to te.id, test_execution_path(te)
-          td = link_to te.state, test_execution_path(te)
+          td = bootstrap_status_tag :span, te.state, te.done?, te.failed?
           td = link_to te.created_at.to_s, test_execution_path(te)
           td
-            = gravatar_image_tag(te.user.email, :alt => te.user.name_or_email, gravatar: { size: 20 })
+            = gravatar_image_tag(te.user.email, alt: te.user.name, gravatar: { size: 20 })
             |  
-            = te.user.name_or_email
+            = te.user.name
   div.panel
     = link_to 'More test executions', test_test_executions_path(@test)
 
 - if @user_test.present?
   = render '/shared/variables_form', target: @user_test, variable_name: 'user_test_variables'
 
-- if @is_owner
+- user_test = @test.user_tests.build
+- if policy(user_test).new?
   h3 Invite User
-  = form_for [@test, UserTest.new], method: :post, html: {autocomplete: 'off'} do |f|
+  = form_for [@test, user_test], method: :post, html: {autocomplete: 'off'} do |f|
     div.form-group
       = label_tag :email
       = text_field_tag :email, nil, class: 'form-control', autocomplete: 'off'
@@ -70,9 +77,9 @@ div.panel
           tr
             td = ut.user.id
             td
-              = gravatar_image_tag(ut.user.email, :alt => ut.user.name_or_email, gravatar: { size: 20 })
+              = gravatar_image_tag(ut.user.email, alt: ut.user.name, gravatar: { size: 20 })
               |  
-              = ut.user.name_or_email
+              = ut.user.name
     div.panel
       = link_to 'More assigned users', test_user_tests_path(@test)
 

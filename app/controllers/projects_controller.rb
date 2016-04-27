@@ -1,4 +1,6 @@
 class ProjectsController < BaseController
+  auto_decorate :tests, only: [:index, :show]
+
   def index
     @projects = policy_scope(current_user.accessible_projects).latest.page(params[:page]).per(20)
   end
@@ -8,7 +10,6 @@ class ProjectsController < BaseController
     authorize @project
 
     @tests = @project.tests.preload(test_browsers: :browser).latest.limit(10)
-    @latest_test = @project.tests.preload(:test_steps, test_browsers: :browser).latest.first
     @user_project = @project.user_projects.with_user(current_user).includes(:user_project_variables).first
     @user_projects = @project.user_projects.eager_load(:user).limit(10)
   end
@@ -25,10 +26,9 @@ class ProjectsController < BaseController
     if @project.update_attributes(permitted_params)
       flash[:notice] = 'Succesfully created new project'
       redirect_to project_path(@project)
-    else
-      flash[:alert] = 'Failed to create new project'
-      render :new
+      return
     end
+    render :new
   end
 
   def edit
@@ -43,10 +43,9 @@ class ProjectsController < BaseController
     if @project.update_attributes(permitted_params)
       flash[:notice] = 'Succesfully created the project'
       redirect_to project_path(@project)
-    else
-      flash[:alert] = 'Failed to update the project'
-      render :edit
+      return
     end
+    render :edit
   end
 
   def destroy

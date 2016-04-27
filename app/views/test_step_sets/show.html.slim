@@ -1,17 +1,20 @@
-= link_to 'Back to Test Step Set index', test_step_sets_path
-h1 Test Step Set
+- content_for :title, "Test Step Set #{@test_step_set.title}"
 
-h2 = @test_step_set.title
+= link_to 'Back to Test Step Set index', test_step_sets_path
+
+.block
+  .pull-right
+    - if policy(@test_step_set).new?
+      = link_to 'Fork', new_test_step_set_path(base_test_step_set_id: @test_step_set), class: 'btn btn-success'
+    - if policy(@test_step_set).edit?
+      = link_to 'Edit', edit_test_step_set_path(@test_step_set), class: 'btn btn-default'
+  h1 = @test_step_set.title
 
 div.panel
-  div
-    = markdown(@test_step_set.description)
+  - if @test_step_set.description.present?
+    pre
+      = markdown(@test_step_set.description)
   div
     ul.list-group
       - @test_step_set.test_steps.each do |ts|
         li.list-group-item = ts.to_line
-  div
-    - if policy(@test_step_set).new?
-      = link_to 'Fork the test step set', new_test_step_set_path(base_test_step_set_id: @test_step_set), class: 'btn btn-default'
-    - if policy(@test_step_set).edit?
-      = link_to 'Edit the test step set', edit_test_step_set_path(@test_step_set), class: 'btn btn-default'

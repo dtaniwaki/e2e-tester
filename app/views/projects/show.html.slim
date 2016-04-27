@@ -1,26 +1,18 @@
+- content_for :title, "Project #{@project.title}"
+
 = link_to 'Back to Projects', projects_path
-h1 = @project.title
 
-div.panel
-  div
-    = markdown(@project.description)
-  div
-    = link_to 'Edit the project', edit_project_path(@project), class: 'btn btn-default'
-    = link_to 'Delete the project', project_path(@project), class: 'btn btn-default', method: :delete, data: {confirm: 'Are you sure?'}
-    = link_to 'Create new test', new_project_test_path(@project), class: 'btn btn-success', method: :get
+.block
+  .pull-right
+    = link_to 'Edit', edit_project_path(@project), class: 'btn btn-default'
+    = link_to 'Delete', project_path(@project), class: 'btn btn-default', method: :delete, data: {confirm: 'Are you sure?'}
 
-- if @latest_test
+  h1 = @project.title
+
+- if @project.description.present?
   div.panel
-    div
-      ul.list-group
-        - @latest_test.test_steps.each do |ts|
-          li.list-group-item = ts.to_line
-    div
-      - @latest_test.browsers.each do |b|
-        span.label.label-default = b.name
-    div
-      - if @latest_test.present?
-        = link_to 'Execute the test', test_test_executions_path(@latest_test), class: 'btn btn-primary', method: :post
+    pre
+      = markdown(@project.description)
 
 - if @tests.present?
   div.panel.panel-default
@@ -28,34 +20,45 @@ div.panel
     table.table
       tr
         th ID
-        th Parent
+        th Parent Test
         th Title
         th Created
         th Created By
+        th
       - @tests.each do |t|
         tr
           td = link_to t.id, test_path(t)
-          td = link_to t.test_step_set_id, polymorphic_test_step_set_path(t.base_test_step_set) if t.base_test_step_set.present? && policy(t.base_test_step_set).show?
-          td = link_to t.title, test_path(t) if t.title.present?
+          td = link_to t.base_test_step_set.title, polymorphic_test_step_set_path(t.base_test_step_set) if t.base_test_step_set.present? && policy(t.base_test_step_set).show?
+          td = link_to t.title, test_path(t)
           td = link_to t.created_at.to_s, test_path(t)
           td
-            = gravatar_image_tag(t.user.email, :alt => t.user.name_or_email, gravatar: { size: 20 })
+            = gravatar_image_tag(t.user.email, alt: t.user.name, gravatar: { size: 20 })
             |  
-            = t.user.name_or_email
+            = t.user.name
+          td
+            = link_to 'Execute', test_test_executions_path(t), class: 'btn btn-xs btn-primary', method: :post
   div.panel
     = link_to 'More tests', project_tests_path(@project)
+- else
+  .alert.alert-warning
+    | You don't have any assigned test.
+
+.block style='margin-bottom: 20px;'
+  = link_to 'New test', new_project_test_path(@project), class: 'btn btn-success', method: :get
 
 - if @user_project.present?
   = render '/shared/variables_form', target: @user_project, variable_name: 'user_project_variables'
 
-h3 Invite User
-= form_for [@project, UserProject.new], method: :post, html: {autocomplete: 'off'} do |f|
-  div.form-group
-    = label_tag :email
-    = text_field_tag :email, nil, class: 'form-control', autocomplete: 'off'
+- user_project = @project.user_projects.build
+- if policy(user_project).new?
+  h3 Invite User
+  = form_for [@project, user_project], method: :post, html: {autocomplete: 'off'} do |f|
+    div.form-group
+      = label_tag :email
+      = text_field_tag :email, nil, class: 'form-control', autocomplete: 'off'
 
-  div.form-group
-    = f.submit t("devise.invitations.new.submit_button"), class: 'btn btn-default'
+    div.form-group
+      = f.submit t("devise.invitations.new.submit_button"), class: 'btn btn-default'
 
 - if @user_projects.present?
   div.panel.panel-default
@@ -68,9 +71,9 @@ h3 Invite User
         tr
           td = up.user.id
           td
-            = gravatar_image_tag(up.user.email, :alt => up.user.name_or_email, gravatar: { size: 20 })
+            = gravatar_image_tag(up.user.email, alt: up.user.name, gravatar: { size: 20 })
             |  
-            = up.user.name_or_email
+            = up.user.name
   div.panel
     = link_to 'More assigned users', project_user_projects_path(@project)
 

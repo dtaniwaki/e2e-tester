@@ -1,3 +1,5 @@
+= content_for :title, "Edit #{resource_name.to_s.humanize}"
+
 h2 = "Edit #{resource_name.to_s.humanize}"
 
 - email_hint = devise_mapping.confirmable? && resource.pending_reconfirmation? ? "Currently waiting confirmation for: #{resource.unconfirmed_email}" : nil
@@ -11,7 +13,7 @@ h2 = "Edit #{resource_name.to_s.humanize}"
   = f.input :password, hint: password_hint, input_html: { autocomplete: 'off' }
   = f.input :password_confirmation, input_html: { autocomplete: 'off' }
   = f.input :current_password, hint: current_password_hint, input_html: { autocomplete: 'off' }, required: true
-  = f.button :submit, "Update"
+  = f.button :submit, "Update", class: 'btn-success'
 
 h3 Cancel my account
 

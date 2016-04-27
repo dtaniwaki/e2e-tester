@@ -9,7 +9,9 @@ module TestStep
 
     def execute!(_test_step_execution, driver, variables = {})
       value = self.value.replace_variables(variables)
-      driver.find_element(:css, selector).send_keys(value)
+      element = driver.find_element(:css, selector)
+      element.clear
+      element.send_keys(value)
     end
 
     def to_line

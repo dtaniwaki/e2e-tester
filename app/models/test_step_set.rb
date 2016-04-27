@@ -6,7 +6,7 @@ class TestStepSet < ApplicationRecord
   has_many :test_step_sets, class_name: 'TestStep::StepSet', inverse_of: :shared_test_step_set
   has_many :shared_test_step_sets, through: :test_step_sets, source: :shared_test_step_set
 
-  validates :title, length: { maximum: 100 }, allow_blank: true
+  validates :title, length: { minimum: 1, maximum: 100 }, uniqueness: { scope: [:type, :project_id] }, allow_nil: true
   validates :description, length: { maximum: 65_535 }, allow_blank: true
   validates :test_steps, length: { minimum: 1, maximum: 50 }, presence: true
 
