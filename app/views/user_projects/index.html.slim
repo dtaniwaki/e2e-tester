@@ -12,8 +12,8 @@ h1 Assigned Users
         tr
           td = up.user.id
           td
-            = gravatar_image_tag(up.user.email, alt: up.user.name_or_email, gravatar: { size: 20 })
+            = gravatar_image_tag(up.user.email, alt: up.user.name, gravatar: { size: 20 })
             |  
-            = up.user.name_or_email
+            = up.user.name
   .center-block.text-center
     = paginate @user_projects

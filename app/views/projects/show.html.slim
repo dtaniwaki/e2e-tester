@@ -32,9 +32,9 @@
           td = link_to t.title, test_path(t)
           td = link_to t.created_at.to_s, test_path(t)
           td
-            = gravatar_image_tag(t.user.email, alt: t.user.name_or_email, gravatar: { size: 20 })
+            = gravatar_image_tag(t.user.email, alt: t.user.name, gravatar: { size: 20 })
             |  
-            = t.user.name_or_email
+            = t.user.name
           td
             = link_to 'Execute', test_test_executions_path(t), class: 'btn btn-xs btn-primary', method: :post
   div.panel
@@ -71,9 +71,9 @@
         tr
           td = up.user.id
           td
-            = gravatar_image_tag(up.user.email, alt: up.user.name_or_email, gravatar: { size: 20 })
+            = gravatar_image_tag(up.user.email, alt: up.user.name, gravatar: { size: 20 })
             |  
-            = up.user.name_or_email
+            = up.user.name
   div.panel
     = link_to 'More assigned users', project_user_projects_path(@project)
 
