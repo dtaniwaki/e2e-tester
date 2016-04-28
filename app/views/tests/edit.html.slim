@@ -6,5 +6,5 @@ h1 Edit Test
 = simple_form_for @test, url: test_path(@test), method: :put do |f|
   = f.error_notification
   = f.input :title
-  = f.input :description
+  = f.input :description, hint: "Markdown supported. #{link_to('What is markdown?', doc_path(:markdown), target: '_blank')}".html_safe
   = f.button :submit, class: 'btn-success'
