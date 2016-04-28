@@ -11,7 +11,8 @@ class TestExecutionBrowser < ApplicationRecord
     running!
     # Do not receive variables as the argument because it's vulnerable to execute it via Sidekiq
     variables = user.variables(test)
-    driver = browser.driver
+    credential = user.user_credentials.find { |c| c.credential_for?(browser) }
+    driver = browser.driver(credential)
     test.test_steps.each do |ts|
       test_step_executions.eager_load(:test_step).find_or_create_by(test_step_id: ts.id)
     end

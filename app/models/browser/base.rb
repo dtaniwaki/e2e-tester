@@ -37,7 +37,7 @@ module Browser
       name
     end
 
-    def driver
+    def driver(_credential = nil)
       raise NotImplementedError
     end
   end

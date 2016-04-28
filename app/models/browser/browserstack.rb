@@ -3,6 +3,7 @@ module Browser
     validates :os, :os_version, presence: true
 
     def self.update_source
+
       client = ::Browserstack::Automate::Client.new(Settings.browserstack.to_hash)
       client.browsers
     end
@@ -15,7 +16,7 @@ module Browser
       ['Browserstack', os, os_version, browser, browser_version, device].compact.join(' ')
     end
 
-    def driver
+    def driver(credential = nil)
       caps = Selenium::WebDriver::Remote::Capabilities.new
       caps['device']          = device          if device.present?
       caps['browser']         = browser         if browser.present?
@@ -29,7 +30,16 @@ module Browser
       caps.css_selectors_enabled = true
       caps.takes_screenshot = true
 
-      url = "http://#{Settings.browserstack.username}:#{Settings.browserstack.password}@hub.browserstack.com/wd/hub"
+      if credential
+        username = credential.username
+        password = credential.password
+      elsif Settings.application.misc.use_global_browserstack_credential && Settings.browserstack.username.present?
+        username = Settings.browserstack.username
+        password = Settings.browserstack.password
+      else
+        raise 'You need to set up a crendetial'
+      end
+      url = "http://#{username}:#{password}@hub.browserstack.com/wd/hub"
       driver = Selenium::WebDriver.for :remote, url: url, desired_capabilities: caps
       driver.manage.window.maximize
 
