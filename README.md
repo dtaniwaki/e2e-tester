@@ -4,6 +4,7 @@
 [![Build Status][build-image]][build-link]
 [![Coverage Status][cov-image]][cov-link]
 [![Code Climate][gpa-image]][gpa-link]
+[![Gratipay][gratipay-image]][gratipay-link]
 
 End-to-end test across the browsers.
 
@@ -149,4 +150,6 @@ Copyright (c) 2014 Daisuke Taniwaki. See [LICENSE](LICENSE) for details.
 [cov-link]:    https://coveralls.io/r/dtaniwaki/e2e-tester
 [gpa-image]:   https://codeclimate.com/github/dtaniwaki/e2e-tester.png
 [gpa-link]:    https://codeclimate.com/github/dtaniwaki/e2e-tester
+[gratipay-image]: https://img.shields.io/badge/support%20via-gratipay-green.svg
+[gratipay-link]: https://gratipay.com/~dtaniwaki/
 
