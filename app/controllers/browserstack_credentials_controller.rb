@@ -9,7 +9,7 @@ class BrowserstackCredentialsController < BaseController
       flash[:alert] = 'Failed to create the credential'
     end
 
-    redirect_to user_credentials_path
+    redirect_to origin || user_credentials_path
   end
 
   def update
@@ -18,26 +18,36 @@ class BrowserstackCredentialsController < BaseController
     authorize @credential
 
     if @credential.save
-      flash[:notice] = 'Successfully created the credential'
+      flash[:notice] = 'Successfully updated the credential'
     else
-      flash[:alert] = 'Failed to create the credential'
+      flash[:alert] = 'Failed to update the credential'
     end
-    redirect_to user_credentials_path
+    redirect_to origin || user_credentials_path
   end
 
   def destroy
     @credential = current_user.browserstack_credential
-    authorize @credential
+    if @credential
+      authorize @credential
 
-    @credential.destroy!
-    flash[:notice] = 'Successfully deleted the credential'
+      @credential.destroy!
+      flash[:notice] = 'Successfully deleted the credential'
+    end
 
-    redirect_to user_credentials_path
+    redirect_to origin || user_credentials_path
   end
 
   private
 
   def browserstack_permitted_params
     params.require(:browserstack).permit(:username, :password)
+  end
+
+  def origin
+    url = params[:origin]
+    if url
+      url = URI.parse(url)
+      url.host == request.host && url.scheme == request.scheme ? url.to_s : nil
+    end
   end
 end
