@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.describe UserMailer, type: :mailer do
   let(:user) { create :user }
   describe '#assigned_test' do
-    let(:user_test) { create :user_test, user: user }
-    subject(:mail) { described_class.assigned_test(user_test).deliver_now }
+    let(:test) { create :test }
+    subject(:mail) { described_class.assigned_test(user, test).deliver_now }
     it 'sends an email' do
       expect(subject.subject).to eq 'Assigned test'
       expect(subject.from).to eq ['foo@example.com']
@@ -13,8 +13,8 @@ RSpec.describe UserMailer, type: :mailer do
     end
   end
   describe '#assigned_project' do
-    let(:user_project) { create :user_project, user: user }
-    subject(:mail) { described_class.assigned_project(user_project).deliver_now }
+    let(:project) { create :project }
+    subject(:mail) { described_class.assigned_project(user, project).deliver_now }
     it 'sends an email' do
       expect(subject.subject).to eq 'Assigned project'
       expect(subject.from).to eq ['foo@example.com']
