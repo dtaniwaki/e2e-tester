@@ -4,7 +4,7 @@
 
 .block
   .pull-right
-    = link_to 'Retry', test_test_executions_path(@test_execution), class: 'btn btn-primary', method: :post
+    = link_to 'Retry', test_test_executions_path(@test_execution.test), class: 'btn btn-primary', method: :post
   h1 = @test.title
 
 div data-path-done-test-execution-path=done_test_execution_path(@test_execution)
