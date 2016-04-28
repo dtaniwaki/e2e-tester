@@ -7,7 +7,16 @@ module TestStep
     serialized_attribute :javascript
 
     def execute!(_test_step_execution, driver, _variables = {})
-      driver.execute_script(javascript)
+      code = <<-EOS
+        try {
+          #{javascript}
+          return nil;
+        } catch(e) {
+          return e.message;
+        }
+      EOS
+      res = driver.execute_script(code)
+      raise "JavaScript Error: #{res}" unless res.nil?
     end
 
     def to_line
