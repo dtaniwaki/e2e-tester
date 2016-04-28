@@ -1,6 +1,6 @@
 namespace :browser do
   desc 'Update browsers'
-  task update: [:local, :browserstack]
+  task update: ['update:local', 'update:browserstack']
 
   namespace :update do
     desc 'Update local browsers'
