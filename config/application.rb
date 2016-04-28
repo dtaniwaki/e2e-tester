@@ -82,6 +82,6 @@ module E2eTester
       config.action_mailer.delivery_method = :file
     end
 
-    routes.default_url_options = Settings.application.to_h
+    routes.default_url_options = Settings.application.url_options.to_h
   end
 end

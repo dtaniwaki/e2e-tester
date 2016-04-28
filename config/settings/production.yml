@@ -1,6 +1,7 @@
 application:
-  host: <%= ENV['SERVICE_HOST'] || 'TBA' %>
-  protocol: <%= ENV['SERVICE_PROTOCOL'] || 'http' %>
+  url_options:
+    host: <%= ENV['SERVICE_HOST'] || 'TBA' %>
+    protocol: <%= ENV['SERVICE_PROTOCOL'] || 'http' %>
 admin:
   email_format: <%= ENV['ADMIN_EMAIL_FORMAT'] || 'TBA' %>
 omniauth:
