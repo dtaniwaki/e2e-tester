@@ -19,6 +19,7 @@ module Browser
       ['Browserstack', os, os_version, browser, browser_version, device].compact.join(' ')
     end
 
+    # rubocop:disable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
     def driver(credential = nil)
       caps = Selenium::WebDriver::Remote::Capabilities.new
       caps['device']          = device          if device.present?
@@ -56,5 +57,6 @@ module Browser
 
       driver
     end
+    # rubocop:enable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
   end
 end

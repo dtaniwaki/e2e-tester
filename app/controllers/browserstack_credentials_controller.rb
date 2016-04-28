@@ -45,9 +45,9 @@ class BrowserstackCredentialsController < BaseController
 
   def origin
     url = params[:origin]
-    if url
-      url = URI.parse(url)
-      url.host == request.host && url.scheme == request.scheme ? url.to_s : nil
-    end
+    return if url.nil?
+    url = URI.parse(url)
+    # Only allow redirection to the same scheme/host to avoid open redirection
+    url.host == request.host && url.scheme == request.scheme ? url.to_s : nil
   end
 end
