@@ -10,4 +10,12 @@ module UrlHelper
       raise NotImplementedError
     end
   end
+
+  def doc_path(type)
+    # TODO: Make it i18n
+    case type
+    when :markdown
+      'https://daringfireball.net/projects/markdown/basics'
+    end
+  end
 end

@@ -8,7 +8,7 @@ h1 New Test
 
   = hidden_field_tag :base_test_step_set_id, @base_test_step_set&.id
   = f.input :title
-  = f.input :description
+  = f.input :description, hint: "Markdown supported. #{link_to('What is markdown?', doc_path(:markdown), target: '_blank')}".html_safe
   = render 'shared/test_steps_fields', f: f
   = render 'browsers_fields', f: f, browsers: @browsers, browser_sets: @browser_sets
 
