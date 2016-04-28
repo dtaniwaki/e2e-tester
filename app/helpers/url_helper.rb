@@ -16,6 +16,10 @@ module UrlHelper
     case type
     when :markdown
       'https://daringfireball.net/projects/markdown/basics'
+    when :browserstack
+      'https://www.browserstack.com/'
+    when :browserstack_credential
+      'https://www.browserstack.com/accounts/settings'
     end
   end
 end

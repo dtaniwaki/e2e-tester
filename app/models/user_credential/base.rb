@@ -6,6 +6,10 @@ module UserCredential
 
     belongs_to :user, inverse_of: :user_credentials
 
+    def self.policy_class
+      UserCredentialPolicy
+    end
+
     def credential_for?(_browser)
       false
     end
