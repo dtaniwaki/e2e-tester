@@ -7,11 +7,11 @@ class UserProject < ApplicationRecord
   scope :with_user, ->(user) { where(user_id: user.is_a?(ActiveRecord::Base) ? user.id : user) }
   scope :with_project, ->(project) { where(project_id: project.is_a?(ActiveRecord::Base) ? project.id : project) }
 
-  after_commit :send_notification!, on: :create, if: ->(ut) { ut.assigned_by.present? }
+  after_commit :send_notification!, on: :create, if: ->(up) { up.assigned_by.present? }
 
   accepts_nested_attributes_for :user_project_variables, allow_destroy: true, reject_if: -> (attributes) { attributes[:name].blank? && attributes[:value].blank? }
 
   def send_notification!
-    UserMailer.assigned_project(self).deliver_now!
+    UserMailer.assigned_project(user, project).deliver_now!
   end
 end
