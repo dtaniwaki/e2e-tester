@@ -7,5 +7,5 @@ h1 Edit Test Step Set
   = hidden_field_tag :base_test_step_set_id, @base_test_step_set&.id
   = f.error_notification
   = f.input :title
-  = f.input :description
+  = f.input :description, hint: "Markdown supported. #{link_to('What is markdown?', doc_path(:markdown), target: '_blank')}".html_safe
   = f.button :submit, class: 'btn-success'
