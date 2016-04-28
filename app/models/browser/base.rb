@@ -33,6 +33,10 @@ module Browser
       end
     end
 
+    def self.available_for?(_user)
+      true
+    end
+
     def full_name
       name
     end
