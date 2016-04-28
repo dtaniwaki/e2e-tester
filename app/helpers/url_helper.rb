@@ -11,7 +11,7 @@ module UrlHelper
     end
   end
 
-  def doc_path(type)
+  def doc_url(type)
     # TODO: Make it i18n
     case type
     when :markdown
