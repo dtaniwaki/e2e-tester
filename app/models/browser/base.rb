@@ -33,11 +33,15 @@ module Browser
       end
     end
 
+    def self.available_for?(_user)
+      true
+    end
+
     def full_name
       name
     end
 
-    def driver
+    def driver(_credential = nil)
       raise NotImplementedError
     end
   end

@@ -1,6 +1,9 @@
 application:
-  host: <%= ENV['SERVICE_HOST'] || 'TBA' %>
-  protocol: 'http'
+  url_options:
+    host: <%= ENV['SERVICE_HOST'] || 'TBA' %>
+    protocol: 'http'
+  misc:
+    use_global_browserstack_credential: false
 mailer:
   type: 'letter_opener_web'
   sender:

@@ -42,6 +42,11 @@ Rails.application.routes.draw do
     end
     resources :user_projects, only: [:create, :update, :index]
   end
+  resources :user_credentials, only: [:index] do
+    collection do
+      resource :browserstack_credentials, only: [:create, :update, :destroy], path: :browserstack
+    end
+  end
   resources :test_step_sets
   namespace :misc, path: '' do
     get :tests

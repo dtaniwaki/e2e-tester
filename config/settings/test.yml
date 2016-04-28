@@ -1,6 +1,7 @@
 application:
-  host: 'example.com'
-  protocol: 'http'
+  url_options:
+    host: 'example.com'
+    protocol: 'http'
 admin:
   email_format: '.*@example.com'
 redis:

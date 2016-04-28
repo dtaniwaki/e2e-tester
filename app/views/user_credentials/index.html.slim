@@ -1,0 +1,19 @@
+h1 Credentials
+
+h2
+  | Browserstack
+  small = link_to '', doc_url(:browserstack), target: '_blank', class: 'glyphicon glyphicon-link'
+
+= simple_form_for @browserstack_credential, as: :browserstack, url: @browserstack_credential.new_record? ? browserstack_credentials_path : browserstack_credentials_path, method: @browserstack_credential.new_record? ? :post : :put, html: { class: 'form-inline', autocomplete: 'off' } do |f|
+  = hidden_field_tag :origin, params[:origin]
+  .form-group
+    = f.input :username, input_html: { autocomplete: 'off' }
+  .form-group
+    = f.input :password, input_html: { autocomplete: 'off', value: f.object.password }
+  .form-group
+    = f.button :submit, class: 'btn-success'
+  .form-group
+    = link_to 'Delete', browserstack_credentials_path, method: :delete, class: 'btn btn-default', data: { confirm: 'Are you sure?' } if @browserstack_credential.persisted?
+  .help-doc
+    | You can get the credentials from 
+    = link_to 'here', doc_url(:browserstack_credential), target: '_blank'

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160421231250) do
+ActiveRecord::Schema.define(version: 20160428182447) do
 
   create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "namespace"
@@ -202,6 +202,17 @@ ActiveRecord::Schema.define(version: 20160421231250) do
   add_index "test_steps", ["test_step_set_id"], name: "index_test_steps_on_test_step_set_id", using: :btree
   add_index "test_steps", ["type"], name: "index_test_steps_on_type", using: :btree
 
+  create_table "user_credentials", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "type",                     null: false
+    t.integer  "user_id",                  null: false
+    t.text     "data",       limit: 65535
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  add_index "user_credentials", ["type"], name: "index_user_credentials_on_type", using: :btree
+  add_index "user_credentials", ["user_id"], name: "index_user_credentials_on_user_id", using: :btree
+
   create_table "user_project_variables", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_project_id",             null: false
     t.string   "name",            limit: 128, null: false
@@ -323,6 +334,7 @@ ActiveRecord::Schema.define(version: 20160421231250) do
   add_foreign_key "test_step_sets", "users"
   add_foreign_key "test_steps", "test_step_sets"
   add_foreign_key "test_steps", "test_step_sets", column: "shared_test_step_set_id"
+  add_foreign_key "user_credentials", "users"
   add_foreign_key "user_project_variables", "user_projects"
   add_foreign_key "user_projects", "projects"
   add_foreign_key "user_projects", "users"

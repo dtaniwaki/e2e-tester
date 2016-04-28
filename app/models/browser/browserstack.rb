@@ -7,6 +7,10 @@ module Browser
       client.browsers
     end
 
+    def self.available_for?(user)
+      Settings.application.misc.use_global_browserstack_credential || user.browserstack_credential.present?
+    end
+
     def name
       super.presence || device.presence || "#{browser} #{browser_version}"
     end
@@ -15,7 +19,8 @@ module Browser
       ['Browserstack', os, os_version, browser, browser_version, device].compact.join(' ')
     end
 
-    def driver
+    # rubocop:disable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
+    def driver(credential = nil)
       caps = Selenium::WebDriver::Remote::Capabilities.new
       caps['device']          = device          if device.present?
       caps['browser']         = browser         if browser.present?
@@ -29,7 +34,16 @@ module Browser
       caps.css_selectors_enabled = true
       caps.takes_screenshot = true
 
-      url = "http://#{Settings.browserstack.username}:#{Settings.browserstack.password}@hub.browserstack.com/wd/hub"
+      if credential
+        username = credential.username
+        password = credential.password
+      elsif Settings.application.misc.use_global_browserstack_credential && Settings.browserstack.username.present?
+        username = Settings.browserstack.username
+        password = Settings.browserstack.password
+      else
+        raise 'You need to set up a crendetial'
+      end
+      url = "http://#{username}:#{password}@hub.browserstack.com/wd/hub"
       driver = Selenium::WebDriver.for :remote, url: url, desired_capabilities: caps
       driver.manage.window.maximize
 
@@ -43,5 +57,6 @@ module Browser
 
       driver
     end
+    # rubocop:enable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
   end
 end

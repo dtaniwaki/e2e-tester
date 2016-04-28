@@ -43,7 +43,7 @@ module Browser
       "Local #{name}"
     end
 
-    def driver
+    def driver(_credential = nil)
       browser_name = browser.to_sym
       caps = {}
       case browser_name
