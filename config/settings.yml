@@ -82,4 +82,4 @@ mailgun:
   password: <%= ENV['MAILGUN_PASSWORD'] || 'TBA' %>
 google:
   analytics:
-    tracking_id: <%= ENV['GOOGLE_ANALYTICS_TRACKING_ID'] || 'TBA' %>
+    tracking_id: <%= ENV['GOOGLE_ANALYTICS_TRACKING_ID'] %>
