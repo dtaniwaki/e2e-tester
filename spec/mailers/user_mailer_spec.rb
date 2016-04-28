@@ -22,12 +22,11 @@ RSpec.describe UserMailer, type: :mailer do
       expect(subject.body.encoded).to match user.name
     end
   end
-  describe '#task_execution_result' do
-    let!(:user_project) { create :user_project, user: user }
+  describe '#test_execution_result' do
     let(:test_execution) { create :test_execution }
-    subject(:mail) { described_class.task_execution_result(user_project, test_execution).deliver_now }
+    subject(:mail) { described_class.test_execution_result(user, test_execution).deliver_now }
     it 'sends an email' do
-      expect(subject.subject).to eq 'Task execution result'
+      expect(subject.subject).to eq 'Test execution result'
       expect(subject.from).to eq ['foo@example.com']
       expect(subject.to).to eq [user.email]
       expect(subject.body.encoded).to match user.name

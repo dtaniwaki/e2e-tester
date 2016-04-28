@@ -44,10 +44,10 @@ class TestExecution < ApplicationRecord
   end
 
   def send_notification!
-    return if state_was == 'done'
-    return if state != 'done'
-    project.user_projects.includes(:user).find_each do |up|
-      UserMailer.task_execution_result(up, self).deliver_now if up.user != user
+    return if previous_changes[:state].nil?
+    return unless done? || failed?
+    (project.user_projects.preload(:user).map(&:user) + [user]).uniq.each do |u|
+      UserMailer.test_execution_result(u, self).deliver_now
     end
   end
 
