@@ -6,7 +6,7 @@ class BrowserstackCredentialsController < BaseController
     if @credential.save
       flash[:notice] = 'Successfully created the credential'
     else
-      flash[:alert] = 'Failed to create the credential'
+      flash[:alert] = ['Failed to create the credential', *@credential.errors.full_messages].join(', ')
     end
 
     redirect_to origin || user_credentials_path
@@ -20,7 +20,7 @@ class BrowserstackCredentialsController < BaseController
     if @credential.save
       flash[:notice] = 'Successfully updated the credential'
     else
-      flash[:alert] = 'Failed to update the credential'
+      flash[:alert] = ['Failed to update the credential', *@credential.errors.full_messages].join(', ')
     end
     redirect_to origin || user_credentials_path
   end
