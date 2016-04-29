@@ -21,7 +21,7 @@ module Browserstack
 
       def browsers
         response = @connection.get('browsers.json')
-        @parser.parse(response.body)
+        @parser.parse(response.body) || []
       end
     end
   end
