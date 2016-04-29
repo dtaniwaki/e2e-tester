@@ -28,6 +28,7 @@ Here's [the working example](http://e2e-tester.dtaniwaki.com/).
 
 ```bash
 bundle install
+bundle exec rake bower:install
 bundle exec puma -C config/puma.rb -d
 bundle exec sidekiq -C config/sidekiq.yml -d
 open http://localhost:3000/
