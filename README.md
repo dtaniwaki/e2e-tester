@@ -91,6 +91,7 @@ open http://localhost:3000/admin/
 You can try the e2e tester without any settings with docker-compose.
 
 ```bash
+cp .docker_env.sample .docker_env
 docker-compose up
 open http://$(docker-machine ip $machine):3000
 ```
