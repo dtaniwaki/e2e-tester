@@ -3,8 +3,11 @@ module Browser
     validates :os, :os_version, presence: true
 
     def self.update_source
-      client = ::Browserstack::Automate::Client.new(Settings.browserstack.to_hash)
-      client.browsers
+      browsers = if Settings.browserstack.username.present? && Settings.browserstack.password.present?
+        client = ::Browserstack::Automate::Client.new(username: Settings.browserstack.username, password: Settings.browserstack.password)
+        client.browsers
+      end
+      browsers || []
     end
 
     def self.available_for?(user)
