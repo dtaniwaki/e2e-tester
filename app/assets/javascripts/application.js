@@ -15,6 +15,7 @@
 //= require jquery-ui/sortable
 //= require turbolinks
 //= require bootstrap-sprockets
+//= require startbootstrap-sb-admin-2/dist/js/sb-admin-2
 //= require cocoon
 //= require ./images
 //= require ./global
