@@ -34,3 +34,12 @@
     @extend .form-group;
     @extend .has-error;
 }
+
+.e2e-left-margin-btn-group {
+  .btn {
+    margin-left: 5px;
+  }
+  .btn:first {
+    margin-left: 0px;
+  }
+}

@@ -4,8 +4,9 @@
 
 .block
   .pull-right
-    = link_to 'Edit', edit_project_path(@project), class: 'btn btn-default'
-    = link_to 'Delete', project_path(@project), class: 'btn btn-default', method: :delete, data: {confirm: 'Are you sure?'}
+    .e2e-left-margin-btn-group
+      = link_to 'Edit', edit_project_path(@project), class: 'btn btn-default'
+      = link_to 'Delete', project_path(@project), class: 'btn btn-default', method: :delete, data: {confirm: 'Are you sure?'}
 
   h1
     small.glyphicon.glyphicon-briefcase
