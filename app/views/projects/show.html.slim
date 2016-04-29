@@ -4,10 +4,11 @@
 
 .block
   .pull-right
-    = link_to 'Edit', edit_project_path(@project), class: 'btn btn-default'
-    = link_to 'Delete', project_path(@project), class: 'btn btn-default', method: :delete, data: {confirm: 'Are you sure?'}
+    .e2e-left-margin-btn-group
+      = link_to 'Edit', edit_project_path(@project), class: 'btn btn-default'
+      = link_to 'Delete', project_path(@project), class: 'btn btn-default', method: :delete, data: {confirm: 'Are you sure?'}
 
-  h1
+  h1.e2e-truncate
     small.glyphicon.glyphicon-briefcase
     = " #{@project.title}"
 
@@ -50,38 +51,43 @@
 .block style='margin-bottom: 20px;'
   = link_to 'New test', new_project_test_path(@project), class: 'btn btn-success', method: :get
 
-- if @user_project.present?
-  = render '/shared/variables_form', target: @user_project, variable_name: 'user_project_variables'
+.row
+  - if @user_project.present?
+    .col-lg-6
+      = render '/shared/variables_form', target: @user_project, variable_name: 'user_project_variables'
 
-- user_project = @project.user_projects.build
-- if policy(user_project).new?
-  h3
-    small.glyphicon.glyphicon-send
-    |  Invite User
-  = form_for [@project, user_project], method: :post, html: {autocomplete: 'off'} do |f|
-    div.form-group
-      = label_tag :email
-      = text_field_tag :email, nil, class: 'form-control', autocomplete: 'off'
+  .col-lg-6
+    - user_project = @project.user_projects.build
+    - if policy(user_project).new?
+      .panel.panel-default
+        .panel-heading
+          small.glyphicon.glyphicon-send
+          |  Invite User
+        .panel-body
+          = form_for [@project, user_project], method: :post, html: {autocomplete: 'off'} do |f|
+            .form-group
+              = label_tag :email
+              = text_field_tag :email, nil, class: 'form-control', autocomplete: 'off'
 
-    div.form-group
-      = f.submit t("devise.invitations.new.submit_button"), class: 'btn btn-default'
+            .form-group
+              = f.submit t("devise.invitations.new.submit_button"), class: 'btn btn-default'
 
-- if @user_projects.present?
-  div.panel.panel-default
-    div.panel-heading
-      small.glyphicon.glyphicon-user
-      |  Assigned Users
-    table.table
-      tr
-        th ID
-        th Email
-      - @user_projects.each do |up|
-        tr
-          td = up.user.id
-          td
-            = gravatar_image_tag(up.user.email, alt: up.user.name, gravatar: { size: 20 })
-            |  
-            = up.user.name
-  div.panel
-    = link_to 'More assigned users', project_user_projects_path(@project)
+    - if @user_projects.present?
+      div.panel.panel-default
+        div.panel-heading
+          small.glyphicon.glyphicon-user
+          |  Assigned Users
+        table.table
+          tr
+            th ID
+            th Name
+          - @user_projects.each do |up|
+            tr
+              td = up.user.id
+              td
+                = gravatar_image_tag(up.user.email, alt: up.user.name, gravatar: { size: 20 })
+                |  
+                = up.user.name
+      div.panel
+        = link_to 'More assigned users', project_user_projects_path(@project)
 

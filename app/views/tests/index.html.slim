@@ -3,7 +3,7 @@
 = link_to 'Back to project', project_path(@project)
 
 - if policy(@project).show?
-  h1
+  h1.e2e-truncate
     small.glyphicon.glyphicon-briefcase
     = " #{@project.title}"
 

@@ -2,10 +2,9 @@
 
 = link_to 'Back to Test', test_path(@test)
 
-h1
+h1.e2e-truncate
   small.glyphicon.glyphicon-tasks
-  |  
-  = @test.title
+  = " #{@test.title}"
 h2
   small.glyphicon.glyphicon-film
   |  Test Executions
