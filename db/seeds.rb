@@ -11,7 +11,11 @@ end
 if user = User.first
   project = user.projects.find_or_create_by!(title: 'Sample Project')
   test = project.tests.find_or_initialize_by(title: 'Sample Test')
-  test.update_attributes!(user: user, browsers: Browser::Local.all, test_steps: [TestStep::None.new])
+  if test.new_record?
+    test.update_attributes!(user: user, browsers: Browser::Local.all, test_steps: [TestStep::None.new])
+  end
   test_step_set = SharedTestStepSet.find_or_initialize_by(title: 'Sample Test Step Set')
-  test_step_set.update_attributes!(user: user, test_steps: [TestStep::None.new])
+  if test_step_set.new_record?
+    test_step_set.update_attributes!(user: user, test_steps: [TestStep::None.new])
+  end
 end
