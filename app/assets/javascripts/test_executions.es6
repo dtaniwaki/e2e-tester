@@ -2,7 +2,7 @@ $.extend(true, $, {
   app: {
     test_executions_show: function() {
       let doneTestExecutionPath = $('[data-path-done-test-execution-path]').data('path-done-test-execution-path')
-      if ($('[data-execution-state].hidden').length > 0) {
+      if ($('[data-execution-state]:not(.hidden)').length == 0) {
         let timerId
         timerId = setInterval(function() {
           if (timerId) {
@@ -10,14 +10,12 @@ $.extend(true, $, {
               dataType: 'json'
             }).done(function(res, textStatus, jqXHR) {
               let data = res.data
-              if (data.state === 'done' || data.state === 'failed') {
-                $(`[data-execution-state="${data.state}"]`).removeClass('hidden')
-                timerId = null
-                clearInterval(timerId)
-              }
               data.browsers.forEach(function(browser) {
+                if (browser.state === 'failed') {
+                  $(`[data-target='head'] [data-test-execution-browser-id=${browser.id}] [data-target='test-execution-browser-error']`).removeClass('hidden').attr('title', browser.message).tooltip('fixTitle')
+                }
                 browser.steps.forEach(function(step) {
-                  let $target = $(`#test_step_${step.test_step_id} #test_execution_browser_${browser.id}`)
+                  let $target = $(`[data-test-step-id=${step.test_step_id}] [data-test-execution-browser-id=${browser.id}]`)
                   $target.find(`[data-state="${step.state}"]`).removeClass('hidden')
                   $target.find(`[data-state]:not([data-state="${step.state}"])`).addClass('hidden')
                   if (step.link_url) {
@@ -35,6 +33,11 @@ $.extend(true, $, {
                   }
                 })
               })
+              if (data.state === 'done' || data.state === 'failed') {
+                $(`[data-execution-state="${data.state}"]`).removeClass('hidden')
+                timerId = null
+                clearInterval(timerId)
+              }
             }).fail(function(jqXHR, textStatus, errorThrown) {
               timerId = null
               clearInterval(timerId)
