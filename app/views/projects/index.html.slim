@@ -4,7 +4,9 @@
   .pull-right
     = link_to 'New Project', new_project_path, class: 'btn btn-success'
 
-  h1 Projects
+  h1
+    small.glyphicon.glyphicon-briefcase
+    |  Projects
 
 - if @projects.present?
   .panel.panel-default

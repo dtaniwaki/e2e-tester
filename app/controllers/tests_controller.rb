@@ -49,6 +49,7 @@ class TestsController < BaseController
 
   def edit
     @test = Test.find(params[:id])
+    @project = @test.project
     authorize @test
   end
 
@@ -61,6 +62,7 @@ class TestsController < BaseController
       return redirect_to test_path(@test)
     end
 
+    @project = @test.project
     render :edit
   end
 

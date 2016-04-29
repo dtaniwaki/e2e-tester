@@ -6,7 +6,9 @@
   = link_to 'Back to Tests', misc_tests_path
 
 - if policy(@project).show?
-  h1 = @project.title
+  h1
+    small.glyphicon.glyphicon-briefcase
+    = " #{@project.title}"
 
 .block
   .pull-right
@@ -15,7 +17,9 @@
       = link_to 'Share', new_test_step_set_path(base_test_step_set_id: @test), class: 'btn btn-default'
     - if policy(@test).edit?
       = link_to 'Edit', edit_test_path(@test), class: 'btn btn-default'
-  h2 = @test.title
+  h2
+    small.glyphicon.glyphicon-tasks
+    = " #{@test.title}"
 
 .panel
   - if @test.description.present?
@@ -33,7 +37,9 @@
 
 - if @test_executions.present?
   div.panel.panel-default
-    div.panel-heading Executions
+    div.panel-heading
+      small.glyphicon.glyphicon-film
+      |  Executions
     table.table
       tr
         th ID

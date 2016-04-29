@@ -50,6 +50,7 @@ Rails.application.routes.draw do
   resources :test_step_sets
   namespace :misc, path: '' do
     get :tests
+    get :test_executions
   end
 
   root to: 'misc#home'

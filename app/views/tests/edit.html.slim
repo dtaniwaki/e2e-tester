@@ -1,7 +1,14 @@
 - content_for :title, "Edit Test #{@test.title}"
 
 = link_to 'Back to the test', test_path(@test)
-h1 Edit Test
+
+h1
+  small.glyphicon.glyphicon-briefcase
+  = " #{@project.title}"
+
+h2
+  small.glyphicon.glyphicon-tasks
+  |  Edit Test
 
 = simple_form_for @test, url: test_path(@test), method: :put do |f|
   = f.error_notification

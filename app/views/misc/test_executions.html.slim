@@ -1,14 +1,8 @@
-- content_for :title, "Test #{@test.title} Test Executions"
-
-= link_to 'Back to Test', test_path(@test)
+- content_for :title, 'Recent Test Executions'
 
 h1
-  small.glyphicon.glyphicon-tasks
-  |  
-  = @test.title
-h2
   small.glyphicon.glyphicon-film
-  |  Test Executions
+  |  Recent Test Executions
 
 - if @test_executions.present?
   .panel.panel-default
@@ -30,3 +24,6 @@ h2
 
   .center-block.text-center
     = paginate @test_executions
+- else
+  .alert.alert-warning
+    | You don't have any test execution.

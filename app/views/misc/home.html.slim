@@ -1,6 +1,8 @@
 - content_for :title, 'Home'
 
-h1 Projects
+h1
+  small.glyphicon.glyphicon-briefcase
+  |  Projects
 
 - if @projects.present?
   .panel.panel-default
@@ -17,7 +19,9 @@ h1 Projects
   .alert.alert-warning
     | You don't have any project.
 
-h1 Assigned Tests
+h1
+  small.glyphicon.glyphicon-tasks
+  |  Assigned Tests
 
 - if @tests.present?
   .panel.panel-default
