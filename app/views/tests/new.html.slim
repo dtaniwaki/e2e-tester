@@ -1,7 +1,14 @@
 - content_for :title, 'New Test'
 
 = link_to 'Back to the project', project_path(@project)
-h1 New Test
+
+h1
+  small.glyphicon.glyphicon-briefcase
+  = " #{@project.title}"
+
+h2
+  small.glyphicon.glyphicon-tasks
+  |  New Test
 
 = simple_form_for @test, url: project_tests_path(@project), method: :post do |f|
   = f.error_notification

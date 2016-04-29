@@ -4,7 +4,9 @@
   .pull-right
     = link_to 'New test step set', new_test_step_set_path, class: 'btn btn-success'
 
-  h1 Test Step Sets
+  h1
+    small.glyphicon.glyphicon-share
+    |  Test Step Sets
 
 - if @test_step_sets.present?
   .panel.panel-default

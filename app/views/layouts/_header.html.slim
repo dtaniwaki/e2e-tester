@@ -11,11 +11,17 @@ nav.navbar.navbar-default
       ul.nav.navbar-nav
         - if user_signed_in?
           li class=(controller_name == 'projects' ? 'active' : nil)
-            = link_to 'Projects', projects_path
+            = link_to projects_path do
+              small.glyphicon.glyphicon-briefcase
+              |  Projects
           li class=(controller_name == 'misc' && action_name == 'tests' ? 'active' : nil)
-            = link_to 'Assigned Tests', misc_tests_path
+            = link_to misc_tests_path do
+              small.glyphicon.glyphicon-tasks
+              |  Assigned Tests
           li class=(controller_name == 'test_step_sets' ? 'active' : nil)
-            = link_to 'Test Step Sets', test_step_sets_path
+            = link_to test_step_sets_path do
+              small.glyphicon.glyphicon-share
+              |  Test Step Sets
       ul.nav.navbar-nav.navbar-right
         - if user_signed_in?
           li.dropdown

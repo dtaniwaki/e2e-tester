@@ -2,8 +2,13 @@
 
 = link_to 'Back to Test', test_path(@test)
 
-h1 = @test.title
-h2 Test Executions
+h1
+  small.glyphicon.glyphicon-tasks
+  |  
+  = @test.title
+h2
+  small.glyphicon.glyphicon-film
+  |  Test Executions
 
 - if @test_executions.present?
   .panel.panel-default
