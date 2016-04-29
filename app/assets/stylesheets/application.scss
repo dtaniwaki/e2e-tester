@@ -11,10 +11,12 @@
  * It is generally better to create a new file per style scope.
  *
  *= require 'devise'
+ *= require_directory './ext'
  *= require_self
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "startbootstrap-sb-admin-2/dist/css/sb-admin-2";
 
 .e2e-content {
   margin-bottom: 40px;

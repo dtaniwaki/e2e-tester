@@ -11,12 +11,15 @@ html
     = javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js'
     = render 'shared/google_analytics', tracking_id: Settings.google.analytics.tracking_id
 
-  body id="#{controller_name}_#{action_name}"
-    = render 'layouts/header'
-    div.e2e-content
-      div.container
-        - if notice
-          p.alert.alert-info = notice
-        - if alert
-          p.alert.alert-error = alert
-        = yield
+  body.body id="#{controller_name}_#{action_name}"
+    #wrapper_status data-turbolinks-permanent=''
+    #wrapper
+      = render 'layouts/header'
+      #page-wrapper.e2e-content
+        .row
+          .col-lg-12
+            - if notice
+              p.alert.alert-info = notice
+            - if alert
+              p.alert.alert-error = alert
+            = yield

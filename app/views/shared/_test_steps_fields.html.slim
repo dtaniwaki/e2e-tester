@@ -5,17 +5,13 @@
   .form-group
     = f.simple_fields_for(:test_steps, f.object.test_steps.map { |ts| ts.becomes ts.type.constantize }, include_id: false) do |ff|
       = render 'shared/test_step_fields', f: ff
-    #insertion_node
-      .form-group.input-group
-        .input-group-btn
-          .btn.btn-default
-            .glyphicon.glyphicon-arrow-up
-          button.btn.btn-default.dropdown-toggle type='button' data-toggle='dropdown'
-            | Step 
-            span.caret
-          ul.dropdown-menu
-            - TestStep.steps.each do |test_step_class|
-              li
-                = link_to_add_association test_step_class.name.demodulize, f, :test_steps, partial: 'shared/test_step_fields', wrap_object: -> (test_step) { test_step.becomes! test_step_class }, id: test_step_class.class, data: { 'association-insertion-node': "#insertion_node" }
-        = text_field_tag nil, '', class: 'form-control', readonly: true
+    #insertion_node style='margin-bottom: 20px;'
+    .dropdown
+      button.btn.btn-default.dropdown-toggle type='button' data-toggle='dropdown'
+        | Step 
+        span.caret
+      ul.dropdown-menu
+        - TestStep.steps.each do |test_step_class|
+          li
+            = link_to_add_association test_step_class.name.demodulize, f, :test_steps, partial: 'shared/test_step_fields', wrap_object: -> (test_step) { test_step.becomes! test_step_class }, id: test_step_class.class, data: { 'association-insertion-node': "#insertion_node" }
   = f.error :test_steps
