@@ -1,16 +1,14 @@
-.row
-  .col-md-5
-    = simple_form_for target, html: { autocomplete: 'off' } do |f|
-      .panel.panel-default
-        .panel-heading
-          small.glyphicon.glyphicon-cog
-          |  Variables
-        table.table
-          = f.simple_fields_for variable_name do |ff|
-            = render '/shared/variable_fields', f: ff
-          tr#insertion_node
-            td.text-center colspan=3
-              = link_to_add_association f, variable_name, partial: 'shared/variable_fields', data: { 'association-insertion-node': "#insertion_node" } do
-                span.glyphicon.glyphicon-plus-sign
-        .panel-footer.text-right
-          = f.button :submit, 'Update'
+= simple_form_for target, html: { autocomplete: 'off' } do |f|
+  .panel.panel-default
+    .panel-heading
+      small.glyphicon.glyphicon-cog
+      |  Variables
+    table.table
+      = f.simple_fields_for variable_name do |ff|
+        = render '/shared/variable_fields', f: ff
+      tr#insertion_node
+        td.text-center colspan=3
+          = link_to_add_association f, variable_name, partial: 'shared/variable_fields', data: { 'association-insertion-node': "#insertion_node" } do
+            span.glyphicon.glyphicon-plus-sign
+    .panel-footer.text-right
+      = f.button :submit, 'Update'

@@ -36,3 +36,18 @@
     @extend .form-group;
     @extend .has-error;
 }
+
+.e2e-truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.e2e-left-margin-btn-group {
+  .btn {
+    margin-left: 5px;
+  }
+  .btn:first {
+    margin-left: 0px;
+  }
+}

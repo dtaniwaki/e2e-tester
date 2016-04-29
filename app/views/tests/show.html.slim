@@ -6,18 +6,19 @@
   = link_to 'Back to Tests', misc_tests_path
 
 - if policy(@project).show?
-  h1
+  h1.e2e-truncate
     small.glyphicon.glyphicon-briefcase
     = " #{@project.title}"
 
 .block
   .pull-right
-    - if policy(@test).new?
-      = link_to 'Fork', new_project_test_path(@project, base_test_step_set_id: @test), class: 'btn btn-success'
-      = link_to 'Share', new_test_step_set_path(base_test_step_set_id: @test), class: 'btn btn-default'
-    - if policy(@test).edit?
-      = link_to 'Edit', edit_test_path(@test), class: 'btn btn-default'
-  h2
+    .e2e-left-margin-btn-group
+      - if policy(@test).new?
+        = link_to 'Fork', new_project_test_path(@project, base_test_step_set_id: @test), class: 'btn btn-success'
+        = link_to 'Share', new_test_step_set_path(base_test_step_set_id: @test), class: 'btn btn-default'
+      - if policy(@test).edit?
+        = link_to 'Edit', edit_test_path(@test), class: 'btn btn-default'
+  h2.e2e-truncate
     small.glyphicon.glyphicon-tasks
     = " #{@test.title}"
 
@@ -58,38 +59,43 @@
   div.panel
     = link_to 'More test executions', test_test_executions_path(@test)
 
-- if @user_test.present?
-  = render '/shared/variables_form', target: @user_test, variable_name: 'user_test_variables'
+.row
+  - if @user_test.present?
+    .col-lg-6
+      = render '/shared/variables_form', target: @user_test, variable_name: 'user_test_variables'
 
-- user_test = @test.user_tests.build
-- if policy(user_test).new?
-  h3
-    small.glyphicon.glyphicon-send
-    |  Invite User
-  = form_for [@test, user_test], method: :post, html: {autocomplete: 'off'} do |f|
-    div.form-group
-      = label_tag :email
-      = text_field_tag :email, nil, class: 'form-control', autocomplete: 'off'
+  .col-lg-6
+    - user_test = @test.user_tests.build
+    - if policy(user_test).new?
+      .panel.panel-default
+        .panel-heading
+          small.glyphicon.glyphicon-send
+          |  Invite User
+        .panel-body
+          = form_for [@test, user_test], method: :post, html: {autocomplete: 'off'} do |f|
+            .form-group
+              = label_tag :email
+              = text_field_tag :email, nil, class: 'form-control', autocomplete: 'off'
 
-    div.form-group
-      = f.submit t("devise.invitations.new.submit_button"), class: 'btn btn-default'
+            .form-group
+              = f.submit t("devise.invitations.new.submit_button"), class: 'btn btn-default'
 
-  - if @user_tests.present?
-    div.panel.panel-default
-      div.panel-heading
-        small.glyphicon.glyphicon-user
-        |  Assigned Users
-      table.table
-        tr
-          th ID
-          th Email
-        - @user_tests.each do |ut|
-          tr
-            td = ut.user.id
-            td
-              = gravatar_image_tag(ut.user.email, alt: ut.user.name, gravatar: { size: 20 })
-              |  
-              = ut.user.name
-    div.panel
-      = link_to 'More assigned users', test_user_tests_path(@test)
+      - if @user_tests.present?
+        div.panel.panel-default
+          div.panel-heading
+            small.glyphicon.glyphicon-user
+            |  Assigned Users
+          table.table
+            tr
+              th ID
+              th Name
+            - @user_tests.each do |ut|
+              tr
+                td = ut.user.id
+                td
+                  = gravatar_image_tag(ut.user.email, alt: ut.user.name, gravatar: { size: 20 })
+                  |  
+                  = ut.user.name
+        div.panel
+          = link_to 'More assigned users', test_user_tests_path(@test)
 
