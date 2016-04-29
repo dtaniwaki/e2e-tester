@@ -1,0 +1,10 @@
+tr.nested-fields
+  td
+    = f.input :name, label: false, placeholder: 'Name'
+  td
+    - if f.object.new_record?
+      = f.input :value, autocomplete: 'off', label: false, placeholder: 'Value'
+    - else
+      = f.input :value, as: :password, autocomplete: 'off', label: false, placeholder: 'Value', input_html: { value: f.object.value }
+  td style='vertical-align: middle;'
+    = link_to_remove_association "", f, class: 'glyphicon glyphicon-remove-circle'

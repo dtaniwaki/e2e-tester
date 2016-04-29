@@ -55,7 +55,9 @@
 
 - user_project = @project.user_projects.build
 - if policy(user_project).new?
-  h3 Invite User
+  h3
+    small.glyphicon.glyphicon-send
+    |  Invite User
   = form_for [@project, user_project], method: :post, html: {autocomplete: 'off'} do |f|
     div.form-group
       = label_tag :email
@@ -66,7 +68,9 @@
 
 - if @user_projects.present?
   div.panel.panel-default
-    div.panel-heading Assigned Users
+    div.panel-heading
+      small.glyphicon.glyphicon-user
+      |  Assigned Users
     table.table
       tr
         th ID

@@ -1,6 +1,8 @@
 = link_to "Back to the project", project_path(@project)
 
-h1 Assigned Users
+h1
+  small.glyphicon.glyphicon-user
+  |  Assigned Users
 
 - if @user_projects.present?
   div.panel.panel-default
