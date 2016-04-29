@@ -12,7 +12,11 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   CodeClimate::TestReporter::Formatter
 ])
 SimpleCov.minimum_coverage 50
-SimpleCov.start 'rails'
+SimpleCov.start 'rails' do
+  add_group 'Policies', 'app/policies'
+  add_group 'Decorators', 'app/decorators'
+  add_group 'Admin', 'app/admin'
+end
 
 require File.expand_path('../../config/environment', __FILE__)
 require 'rspec/rails'
