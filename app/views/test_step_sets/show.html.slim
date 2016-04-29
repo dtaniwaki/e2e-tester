@@ -9,7 +9,7 @@
         = link_to 'Fork', new_test_step_set_path(base_test_step_set_id: @test_step_set), class: 'btn btn-success'
       - if policy(@test_step_set).edit?
         = link_to 'Edit', edit_test_step_set_path(@test_step_set), class: 'btn btn-default'
-  h1
+  h1.e2e-truncate
     small.glyphicon.glyphicon-share
     = " #{@test_step_set.title}"
 
