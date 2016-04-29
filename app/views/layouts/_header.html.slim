@@ -22,6 +22,10 @@ nav.navbar.navbar-default
             = link_to test_step_sets_path do
               small.glyphicon.glyphicon-share
               |  Test Step Sets
+          li class=(controller_name == 'misc' && action_name == 'test_executions' ? 'active' : nil)
+            = link_to misc_test_executions_path do
+              small.glyphicon.glyphicon-film
+              |  Recent Test Executions
       ul.nav.navbar-nav.navbar-right
         - if user_signed_in?
           li.dropdown

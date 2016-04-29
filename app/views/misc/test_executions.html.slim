@@ -1,0 +1,29 @@
+- content_for :title, 'Recent Test Executions'
+
+h1
+  small.glyphicon.glyphicon-film
+  |  Recent Test Executions
+
+- if @test_executions.present?
+  .panel.panel-default
+    table.table.table-striped
+      tr
+        th ID
+        th State
+        th Executed At
+        th Executed By
+      - @test_executions.each do |te|
+        tr
+          td = link_to te.id, test_execution_path(te)
+          td = bootstrap_status_tag :span, te.state, te.done?, te.failed?
+          td = link_to te.created_at.to_s, test_execution_path(te)
+          td
+            = gravatar_image_tag(te.user.email, alt: te.user.name, gravatar: { size: 20 })
+            |  
+            = te.user.name
+
+  .center-block.text-center
+    = paginate @test_executions
+- else
+  .alert.alert-warning
+    | You don't have any test execution.
