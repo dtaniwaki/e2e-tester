@@ -2,7 +2,7 @@ h1 Credentials
 
 h2
   | Browserstack
-  small = link_to '', doc_url(:browserstack), target: '_blank', class: 'glyphicon glyphicon-link'
+  small = link_to '', doc_url(:browserstack), target: '_blank', class: 'glyphicon glyphicon-new-window'
 
 = simple_form_for @browserstack_credential, as: :browserstack, url: @browserstack_credential.new_record? ? browserstack_credentials_path : browserstack_credentials_path, method: @browserstack_credential.new_record? ? :post : :put, html: { class: 'form-inline', autocomplete: 'off' } do |f|
   = hidden_field_tag :origin, params[:origin]
