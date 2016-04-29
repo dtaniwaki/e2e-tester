@@ -11,7 +11,7 @@
  * It is generally better to create a new file per style scope.
  *
  *= require 'devise'
- *= require 'sb-admin-2-overwrite'
+ *= require_directory './ext'
  *= require_self
  */
 @import "bootstrap-sprockets";
@@ -36,4 +36,3 @@
     @extend .form-group;
     @extend .has-error;
 }
-
