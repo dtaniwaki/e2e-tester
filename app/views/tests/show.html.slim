@@ -6,7 +6,7 @@
   = link_to 'Back to Tests', misc_tests_path
 
 - if policy(@project).show?
-  h1
+  h1.e2e-truncate
     small.glyphicon.glyphicon-briefcase
     = " #{@project.title}"
 
@@ -18,7 +18,7 @@
         = link_to 'Share', new_test_step_set_path(base_test_step_set_id: @test), class: 'btn btn-default'
       - if policy(@test).edit?
         = link_to 'Edit', edit_test_path(@test), class: 'btn btn-default'
-  h2
+  h2.e2e-truncate
     small.glyphicon.glyphicon-tasks
     = " #{@test.title}"
 

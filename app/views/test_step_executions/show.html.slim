@@ -11,8 +11,8 @@ div
   div.col-md-3
     ul.nav.nav-pills.nav-stacked
       - @same_browser_test_step_executions.each do |tse|
-        li class="#{@test_step_execution == tse ? 'active' : nil}" style='white-space: normal; word-wrap: break-word;'
-          = link_to tse.test_step.to_line.truncate(100), test_step_execution_path(tse)
+        li class="#{@test_step_execution == tse ? 'active' : nil}"
+          = link_to tse.test_step.to_line, test_step_execution_path(tse), class: 'e2e-truncate'
 
   div.col-md-9
     h4 = @test_step_execution.browser.full_name

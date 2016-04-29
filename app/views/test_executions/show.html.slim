@@ -5,7 +5,7 @@
 .block
   .pull-right
     = link_to 'Retry', test_test_executions_path(@test_execution.test), class: 'btn btn-primary', method: :post
-  h1
+  h1.e2e-truncate
     small.glyphicon.glyphicon-tasks
     = " #{@test.title}"
 
