@@ -2,7 +2,7 @@ version: '2'
 services:
   init:
     build: '.'
-    command: 'bash -c ''bundle exec rails db:create db:migrate db:seed browser:update:local'''
+    command: 'bash -c ''bundle exec rails db:create db:migrate db:seed browser:update'''
     volumes:
       - ./log/:/app/log/:rw
     env_file:
@@ -12,6 +12,7 @@ services:
       DATABASE_URL: 'mysql2://root:@db:3306/production'
       REDIS_SIDEKIQ_URL: 'redis://redis:6379/1'
       REDIS_SESSION_STORE_URL: 'redis://redis:6379/2'
+      LOGGER_IO_TYPE: 'stderr'
     links:
       - db
     depends_on:
@@ -32,6 +33,7 @@ services:
       DATABASE_URL: 'mysql2://root:@db:3306/production'
       REDIS_SIDEKIQ_URL: 'redis://redis:6379/1'
       REDIS_SESSION_STORE_URL: 'redis://redis:6379/2'
+      LOGGER_IO_TYPE: 'stderr'
     links:
       - db
       - redis
@@ -43,7 +45,7 @@ services:
     build: '.'
     command: 'bash -c ''SERVICE_HOST=(docker-machine ip default):3000 bundle exec sidekiq -C config/sidekiq.yml'''
     volumes_from:
-      - web
+      - init
     env_file:
       - .docker_env
     environment:
@@ -51,6 +53,7 @@ services:
       DATABASE_URL: 'mysql2://root:@db:3306/production'
       REDIS_SIDEKIQ_URL: 'redis://redis:6379/1'
       REDIS_SESSION_STORE_URL: 'redis://redis:6379/2'
+      LOGGER_IO_TYPE: 'stderr'
     links:
       - db
       - redis
