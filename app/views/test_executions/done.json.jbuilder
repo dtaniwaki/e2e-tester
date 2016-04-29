@@ -4,6 +4,7 @@ json.data(id: @test_execution.id,
                       {
                         id: teb.id,
                         state: teb.state,
+                        message: teb.error,
                         steps: teb.test_step_executions.map do |tse|
                           h = {
                             id: tse.id,

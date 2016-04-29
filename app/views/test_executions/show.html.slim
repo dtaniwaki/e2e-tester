@@ -4,7 +4,7 @@
 
 .block
   .pull-right
-    = link_to 'Retry', test_test_executions_path(@test_execution), class: 'btn btn-primary', method: :post
+    = link_to 'Retry', test_test_executions_path(@test_execution.test), class: 'btn btn-primary', method: :post
   h1 = @test.title
 
 div data-path-done-test-execution-path=done_test_execution_path(@test_execution)
@@ -16,16 +16,17 @@ div data-path-done-test-execution-path=done_test_execution_path(@test_execution)
         = bootstrap_status_tag :span, state, state == 'done', state == 'failed'
 
   table.table.table-bordered#test_execution style='width: initial; table-layout: fixed; white-space: normal; word-wrap: break-word;'
-    tr
+    tr data-target='head'
       th style='width: 200px; max-width: 200px;'
       - @test_execution.test_execution_browsers.each do |teb|
-        th style='width: 200px; max-width: 200px;'
+        th style='width: 200px; max-width: 200px;' data-test-execution-browser-id=teb.id
           span.label.label-default title=teb.browser.full_name data-toggle='tooltip' = teb.browser.name
+          span.text-danger.glyphicon.glyphicon-fire title=teb.error data-toggle='tooltip' class=(teb.error.present? ? nil : 'hidden') data-target='test-execution-browser-error'
     - @test_execution.test.test_steps.each do |ts|
-      tr id="test_step_#{ts.id}"
+      tr data-test-step-id=ts.id
         th style='width: 200px; max-width: 200px; white-space: normal; word-wrap: break-word;' = ts.to_line.truncate(100)
         - @test_execution.test_execution_browsers.each do |teb|
-          td style='width: 200px; max-width: 200px;' id="test_execution_browser_#{teb.id}"
+          td style='width: 200px; max-width: 200px;' data-test-execution-browser-id=teb.id
             .state
               - %w(done failed running).each do |state|
                 - if tse = teb.test_step_executions.find { |tse_| tse_.test_step_id == ts.id }

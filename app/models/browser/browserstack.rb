@@ -45,7 +45,6 @@ module Browser
       end
       url = "http://#{username}:#{password}@hub.browserstack.com/wd/hub"
       driver = Selenium::WebDriver.for :remote, url: url, desired_capabilities: caps
-      driver.manage.window.maximize
 
       at_exit do
         begin

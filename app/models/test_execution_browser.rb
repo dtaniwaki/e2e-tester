@@ -20,7 +20,12 @@ class TestExecutionBrowser < ApplicationRecord
       tse.execute!(driver, variables)
     end
     check_completion!
+  rescue => e
+    self.error = e.message
+    save!
+    failed!
   ensure
+    test_execution.check_completion!
     driver.quit if driver
   end
 
@@ -35,6 +40,5 @@ class TestExecutionBrowser < ApplicationRecord
     else
       failed!
     end
-    test_execution.check_completion!
   end
 end

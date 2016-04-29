@@ -35,7 +35,7 @@ class TestExecution < ApplicationRecord
   end
 
   def check_completion!
-    return unless test_execution_browsers.all? { |teb| teb.done? || teb.failed? }
+    return if test_execution_browsers.any? { |teb| teb.initial? || teb.running? }
     if test_execution_browsers.all?(&:done?)
       done!
     else
