@@ -12,11 +12,13 @@ html
     = render 'shared/google_analytics', tracking_id: Settings.google.analytics.tracking_id
 
   body id="#{controller_name}_#{action_name}"
-    = render 'layouts/header'
-    div.e2e-content
-      div.container
-        - if notice
-          p.alert.alert-info = notice
-        - if alert
-          p.alert.alert-error = alert
-        = yield
+    #wrapper
+      = render 'layouts/header'
+    #page-wrapper.e2e-content
+      .row
+        .col-lg-12
+          - if notice
+            p.alert.alert-info = notice
+          - if alert
+            p.alert.alert-error = alert
+          = yield

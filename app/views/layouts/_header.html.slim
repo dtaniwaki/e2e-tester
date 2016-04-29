@@ -1,43 +1,45 @@
-nav.navbar.navbar-default
-  .container
-    .navbar-header
-      button.navbar-toggle.collapsed type='button' data-toggle='collapse' data-target='#navbar'
-        span.sr-only Toggle navigation
-        span.icon-bar
-        span.icon-bar
-        span.icon-bar
-      a.navbar-brand href=root_path E2E Tester
-    #navbar.navbar-collapse.collapse
-      ul.nav.navbar-nav
-        - if user_signed_in?
+nav.navbar.navbar-default.navbar-fixed-top role='navigation' style='margin-bottom: 0'
+  .navbar-header
+    button.navbar-toggle.collapsed type='button' data-toggle='collapse' data-target='#navbar'
+      span.sr-only Toggle navigation
+      span.icon-bar
+      span.icon-bar
+      span.icon-bar
+    a.navbar-brand href=root_path E2E Tester
+  - if user_signed_in?
+    ul.nav.navbar-top-links.navbar-right
+      li.dropdown
+        a.dropdown-toggle href='#' data-toggle='dropdown'
+          = gravatar_image_tag(current_user.email, alt: current_user.name, gravatar: { size: 20 })
+          |  
+          = current_user.name
+          span.caret
+        ul.dropdown-menu
+          li = link_to 'Edit profile', edit_user_registration_path
+          li = link_to 'Invite User', new_user_invitation_path
+          li = link_to 'Credentials', user_credentials_path
+          li = link_to 'Sign Out', destroy_user_session_path, method: :delete
+  .navbar-default.sidebar role='navigation'
+    #navbar.sidebar-nav.navbar-collapse.collapse
+      - if user_signed_in?
+        ul.nav#side-menu
           li class=(controller_name == 'projects' ? 'active' : nil)
             = link_to projects_path do
               small.glyphicon.glyphicon-briefcase
-              |  Projects
+              span.title
+                |  Projects
           li class=(controller_name == 'misc' && action_name == 'tests' ? 'active' : nil)
             = link_to misc_tests_path do
               small.glyphicon.glyphicon-tasks
-              |  Assigned Tests
+              span.title
+                |  Assigned Tests
           li class=(controller_name == 'test_step_sets' ? 'active' : nil)
             = link_to test_step_sets_path do
               small.glyphicon.glyphicon-share
-              |  Test Step Sets
+              span.title
+                |  Test Step Sets
           li class=(controller_name == 'misc' && action_name == 'test_executions' ? 'active' : nil)
             = link_to misc_test_executions_path do
               small.glyphicon.glyphicon-film
-              |  Recent Test Executions
-      ul.nav.navbar-nav.navbar-right
-        - if user_signed_in?
-          li.dropdown
-            a.dropdown-toggle href='#' data-toggle='dropdown'
-              = gravatar_image_tag(current_user.email, alt: current_user.name, gravatar: { size: 20 })
-              |  
-              = current_user.name
-              span.caret
-            ul.dropdown-menu
-              li = link_to 'Edit profile', edit_user_registration_path
-              li = link_to 'Invite User', new_user_invitation_path
-              li = link_to 'Credentials', user_credentials_path
-              li = link_to 'Sign Out', destroy_user_session_path, method: :delete
-        - else
-          li = link_to 'Sign In', new_user_session_path
+              span.title
+                |  Recent Test Executions
