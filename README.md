@@ -28,7 +28,7 @@ Here's [the working example](http://e2e-tester.dtaniwaki.com/).
 
 ```bash
 bundle install
-npm install bower # If you haven't installed yet.
+npm install
 bundle exec rake bower:install
 bundle exec puma -C config/puma.rb -d
 bundle exec sidekiq -C config/sidekiq.yml -d
