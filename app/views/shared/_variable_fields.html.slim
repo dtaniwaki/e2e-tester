@@ -1,10 +1,10 @@
 tr.nested-fields
   td
-    = f.input :name, label: false, placeholder: 'Name'
+    = f.input :name, label: false, placeholder: 'Name', wrapper_class: ''
   td
     - if f.object.persisted? && f.object.name.to_s =~ /(password|secret)/i
-      = f.input :value, as: :password, autocomplete: 'off', label: false, placeholder: 'Value', input_html: { value: f.object.value }
+      = f.input :value, as: :password, autocomplete: 'off', label: false, placeholder: 'Value', input_html: { value: f.object.value }, wrapper_class: ''
     - else
-      = f.input :value, autocomplete: 'off', label: false, placeholder: 'Value'
+      = f.input :value, autocomplete: 'off', label: false, placeholder: 'Value', wrapper_class: ''
   td style='vertical-align: middle;'
     = link_to_remove_association "", f, class: 'glyphicon glyphicon-remove-circle'
