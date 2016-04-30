@@ -2,9 +2,9 @@ tr.nested-fields
   td
     = f.input :name, label: false, placeholder: 'Name'
   td
-    - if f.object.new_record?
-      = f.input :value, autocomplete: 'off', label: false, placeholder: 'Value'
-    - else
+    - if f.object.persisted? && f.object.name.to_s =~ /(password|secret)/i
       = f.input :value, as: :password, autocomplete: 'off', label: false, placeholder: 'Value', input_html: { value: f.object.value }
+    - else
+      = f.input :value, autocomplete: 'off', label: false, placeholder: 'Value'
   td style='vertical-align: middle;'
     = link_to_remove_association "", f, class: 'glyphicon glyphicon-remove-circle'
