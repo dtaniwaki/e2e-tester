@@ -1,6 +1,0 @@
-{
-  "name": "e2e-tester",
-  "dependencies": {
-    "startbootstrap-sb-admin-2" : "~1.0.8"
-  }
-}
