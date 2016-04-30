@@ -1,5 +1,7 @@
 module Users
   class RegistrationsController < Devise::RegistrationsController
+    layout 'public', only: [:new, :create]
+
     before_action :configure_permitted_parameters
 
     protected

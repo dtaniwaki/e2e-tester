@@ -1,0 +1,23 @@
+doctype html
+html
+  head
+    title = [yield(:title).presence || nil, 'E2E Tester'].compact.join(' | ')
+    = csrf_meta_tags
+    = action_cable_meta_tag
+
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => 'reload'
+    = stylesheet_link_tag    'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css'
+    = javascript_include_tag 'application', 'data-turbolinks-track' => 'reload'
+    = javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js'
+    = render 'shared/google_analytics', tracking_id: Settings.google.analytics.tracking_id
+
+  body.body id="#{controller_name}_#{action_name}"
+    #wrapper
+      = render 'layouts/public_header'
+      .e2e-content
+        .col-lg-offset-4.col-lg-4.col-md-offset-3.col-md-6.col-sm-offset-2.col-sm-8
+          - if notice
+            p.alert.alert-info = notice
+          - if alert
+            p.alert.alert-error = alert
+          = yield

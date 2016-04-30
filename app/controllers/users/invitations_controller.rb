@@ -1,5 +1,7 @@
 module Users
   class InvitationsController < Devise::InvitationsController
+    layout 'public', only: [:edit, :update]
+
     before_action :configure_permitted_parameters
 
     private
