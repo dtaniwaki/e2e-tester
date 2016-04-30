@@ -9,8 +9,8 @@ env:
   - DATABASE_URL=mysql2://root:@127.0.0.1/e2e_tester_test
 before_script:
   - mysql -u root -h 127.0.0.1 -e 'CREATE DATABASE IF NOT EXISTS e2e_tester_test;'
-  - npm install -g bower
-  - bundle exec rake assets:precompile
+  - npm install
+  - bundle exec rake bower:install
 script:
   - bundle exec rake
   - bundle exec rails db:environment:set RAILS_ENV=test; bundle exec rails db:drop db:create db:migrate db:seed
@@ -22,3 +22,5 @@ addons:
     - mysql-server-5.6
     - mysql-client-core-5.6
     - mysql-client-5.6
+notifications:
+  email: false
