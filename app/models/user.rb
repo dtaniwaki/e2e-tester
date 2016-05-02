@@ -26,7 +26,8 @@ class User < ApplicationRecord
 
   validates :email, :confirmation_token, :reset_password_token, :unlock_token, uniqueness: true, allow_blank: true
   validates :email, :encrypted_password, presence: true
-  validates :name, length: { minimum: 2, maximum: 100 }, presence: true
+  validates :name, presence: true, if: -> (u) { u.accepted_or_not_invited? || u.accepting_invitation? }
+  validates :name, length: { minimum: 2, maximum: 100 }, allow_blank: true
 
   def self.find_or_invite_by(params, user)
     user = User.find_by(params)
