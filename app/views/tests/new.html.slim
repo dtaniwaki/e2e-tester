@@ -17,6 +17,6 @@ h2
   = f.input :title
   = f.input :description, hint: "Markdown supported. #{link_to('What is markdown?', doc_url(:markdown), target: '_blank')}".html_safe
   = render 'shared/test_steps_fields', f: f
-  = render 'browsers_fields', f: f, browsers: @browsers, browser_sets: @browser_sets
+  = render 'shared/browsers_fields', f: f, browsers: @browsers, browser_sets: @browser_sets
 
   = f.button :submit, class: 'btn-success'

@@ -1,3 +1,6 @@
+- browsers ||= {}
+- browser_sets ||= []
+
 .form-group  class=(f.object.errors[:browsers].present? ? 'has-error' : '')
   = f.label :browsers, class: 'control-label'
   .form-group
