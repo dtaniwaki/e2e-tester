@@ -46,7 +46,7 @@
     = link_to 'More tests', project_tests_path(@project)
 - else
   .alert.alert-warning
-    | You don't have any assigned test.
+    | You don't have any test.
 
 .block style='margin-bottom: 20px;'
   = link_to 'New test', new_project_test_path(@project), class: 'btn btn-success', method: :get
@@ -62,7 +62,7 @@
       .panel.panel-default
         .panel-heading
           small.glyphicon.glyphicon-send
-          |  Invite User
+          |  Invite Collaborator
         .panel-body
           = form_for [@project, user_project], method: :post, html: {autocomplete: 'off'} do |f|
             .form-group
@@ -76,7 +76,7 @@
       div.panel.panel-default
         div.panel-heading
           small.glyphicon.glyphicon-user
-          |  Assigned Users
+          |  Collaborators
         table.table
           tr
             th ID
@@ -89,5 +89,5 @@
                 |  
                 = up.user.name
       div.panel
-        = link_to 'More assigned users', project_user_projects_path(@project)
+        = link_to 'More collaborators', project_user_projects_path(@project)
 

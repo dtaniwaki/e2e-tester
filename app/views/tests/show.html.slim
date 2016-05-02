@@ -70,7 +70,7 @@
       .panel.panel-default
         .panel-heading
           small.glyphicon.glyphicon-send
-          |  Invite User
+          |  Invite Tester
         .panel-body
           = form_for [@test, user_test], method: :post, html: {autocomplete: 'off'} do |f|
             .form-group
@@ -84,7 +84,7 @@
         div.panel.panel-default
           div.panel-heading
             small.glyphicon.glyphicon-user
-            |  Assigned Users
+            |  Assigned Testers
           table.table
             tr
               th ID
@@ -97,5 +97,5 @@
                   |  
                   = ut.user.name
         div.panel
-          = link_to 'More assigned users', test_user_tests_path(@test)
+          = link_to 'More assigned testers', test_user_tests_path(@test)
 

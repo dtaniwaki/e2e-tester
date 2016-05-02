@@ -2,14 +2,14 @@
 
 h1
   small.glyphicon.glyphicon-user
-  |  Assigned Users
+  |  Assigned Testers
 
 - if @user_tests.present?
   div.panel.panel-default
     table.table
       tr
         th ID
-        th Email
+        th Name
       - @user_tests.each do |ut|
         tr
           td = ut.user.id

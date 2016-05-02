@@ -1,12 +1,12 @@
-= content_for :title, 'Log in'
+= content_for :title, 'Sign in'
 
-h2 Log in
+h2 Sign in
 
 = simple_form_for resource, as: resource_name, url: session_path(resource_name), html: { autocomplete: 'off' } do |f|
   = f.error_notification
   = f.input :email, input_html: { autocomplete: 'off', autofocus: true }
   = f.input :password, input_html: { autocomplete: 'off' }, required: true
   = f.input :remember_me, as: :boolean, label: '&nbsp;', inline_label: t('activerecord.attributes.user.remember_me')
-  = f.button :submit, 'Log in'
+  = f.button :submit, 'Sign in'
 
 = render "users/shared/links"

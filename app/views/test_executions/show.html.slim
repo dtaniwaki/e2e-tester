@@ -21,14 +21,14 @@ div data-path-done-test-execution-path=done_test_execution_path(@test_execution)
   table.table.table-bordered#test_execution style="table-layout: fixed; white-space: normal; word-wrap: break-word;"
     tr data-target='head'
       th.text-center style='width: 200px; min-width: 200px;'
-      - (@test_execution.test_execution_browsers + @test_execution.test_execution_browsers + @test_execution.test_execution_browsers).each do |teb|
+      - @test_execution.test_execution_browsers.each do |teb|
         th.text-center data-test-execution-browser-id=teb.id style='width: 200px; min-width: 200px;'
           span.label.label-default title=teb.browser.full_name data-toggle='tooltip' = teb.browser.name
           span.text-danger.glyphicon.glyphicon-fire title=teb.error data-toggle='tooltip' class=(teb.error.present? ? nil : 'hidden') data-target='test-execution-browser-error'
     - @test_execution.test.test_steps.each do |ts|
       tr data-test-step-id=ts.id
         th.e2e-truncate = ts.to_line
-        - (@test_execution.test_execution_browsers + @test_execution.test_execution_browsers + @test_execution.test_execution_browsers).each do |teb|
+        - @test_execution.test_execution_browsers.each do |teb|
           td.text-center data-test-execution-browser-id=teb.id
             .state
               - %w(done failed running).each do |state|

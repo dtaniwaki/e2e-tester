@@ -6,7 +6,7 @@ h2 Sign up
 
 = simple_form_for resource, as: resource_name, url: registration_path(resource_name), html: { autocomplete: 'off' } do |f|
   = f.error_notification
-  = f.input :name, input_html: { autocomplete: 'off' }
+  = f.input :name, input_html: { autocomplete: 'off' }, required: true
   = f.input :email, input_html: { autocomplete: 'off' }
   = f.input :password, hint: password_hint, input_html: { autocomplete: 'off' }, required: true
   = f.input :password_confirmation, input_html: { autocomplete: 'off' }, required: true

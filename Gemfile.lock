@@ -114,15 +114,6 @@ GIT
       activerecord (>= 4.0, < 5.1)
 
 GIT
-  remote: git://github.com/scambra/devise_invitable.git
-  revision: 63c12ed868bb836cda12f7f48df9dfc31ee58114
-  branch: master
-  specs:
-    devise_invitable (1.5.5)
-      actionmailer (>= 3.2.6, < 5)
-      devise (>= 3.2.0)
-
-GIT
   remote: git://github.com/sinatra/sinatra.git
   revision: 4c7d38eb1b2cc02ce51029f28e0c3c34ca12ccfd
   specs:
@@ -247,6 +238,9 @@ GEM
       railties (>= 4.1.0, < 5.1)
       responders
       warden (~> 1.2.3)
+    devise_invitable (1.6.0)
+      actionmailer (>= 3.2.6)
+      devise (>= 3.2.0)
     diff-lcs (1.2.5)
     docile (1.1.5)
     erubis (2.7.0)
@@ -575,7 +569,7 @@ DEPENDENCIES
   coveralls (~> 0.8.13)
   database_rewinder (~> 0.5.3)
   devise (~> 4.0.0.rc1)
-  devise_invitable!
+  devise_invitable (~> 1.6.0)
   draper!
   factory_girl_rails (~> 4.6.0)
   fakeredis (~> 0.5.0)
