@@ -7,12 +7,16 @@ class Test < TestStepSet
 
   scope :with_user, ->(user) { joins(:user_tests).merge(UserTest.where(user_id: user.is_a?(ActiveRecord::Base) ? user.id : user)) }
 
-  validates :browsers, length: { minimum: 1, maximum: 10 }, presence: true
+  validates :browsers, length: { minimum: 1, maximum: 10 }, allow_blank: true
   validate :validate_same_test
 
   def same_test_step_set?(other)
     super &&
       (other.respond_to?(:browser_ids) && browser_ids == other.browser_ids)
+  end
+
+  def executable?
+    browsers.present? && test_steps.present?
   end
 
   private
