@@ -15,6 +15,7 @@ class TestExecution < ApplicationRecord
   after_commit :send_notification!
 
   validate :validate_execution_limit
+  validate :validate_executable
 
   def execute!(user, async: false)
     running!
@@ -60,5 +61,10 @@ class TestExecution < ApplicationRecord
       diff = ((user.test_executions.last.created_at - limit_time) / 60).ceil
       errors.add :base, "You can execute only one test every #{EXECUTION_SPAN} minutes (#{diff} minutes)"
     end
+  end
+
+  def validate_executable
+    return if test.executable?
+    errors.add :base, "The test is not executable"
   end
 end

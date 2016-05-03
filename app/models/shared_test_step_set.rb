@@ -5,6 +5,7 @@ class SharedTestStepSet < TestStepSet
   after_create :assign_owner!
 
   validates :title, presence: true
+  validates :test_steps, presence: true
 
   private
 

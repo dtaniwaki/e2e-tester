@@ -1,3 +1,6 @@
+- browsers ||= {}
+- browser_sets ||= []
+
 .form-group  class=(f.object.errors[:browsers].present? ? 'has-error' : '')
   = f.label :browsers, class: 'control-label'
   .form-group
@@ -18,5 +21,5 @@
         .col-sm-9
           .alert.alert-warning
             | You haven't set up the browserstack credential. 
-            = link_to 'Set up?', user_credentials_path(origin: new_project_test_url(@project)), data: { confirm: "You are leaving the page and will lose the current change." }
+            = link_to 'Set up?', user_credentials_path(origin: request.url), data: { confirm: "You are leaving the page and will lose the current change." }
   = f.error :browsers

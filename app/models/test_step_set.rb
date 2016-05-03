@@ -8,7 +8,7 @@ class TestStepSet < ApplicationRecord
 
   validates :title, length: { minimum: 1, maximum: 100 }, uniqueness: { scope: [:type, :project_id] }, allow_nil: true
   validates :description, length: { maximum: 65_535 }, allow_blank: true
-  validates :test_steps, length: { minimum: 1, maximum: 50 }, presence: true
+  validates :test_steps, length: { minimum: 1, maximum: 50 }, allow_blank: true
 
   scope :latest, -> { order(created_at: :desc) }
 
