@@ -20,7 +20,7 @@ module TestStep
     end
 
     def to_line
-      %(SharedTestStepSet #{shared_test_step_set_id})
+      shared_test_step_set.title
     end
 
     def same_step?(other)
