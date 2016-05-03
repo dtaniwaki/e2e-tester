@@ -13,6 +13,8 @@
 .block
   .pull-right
     .e2e-left-margin-btn-group
+      - if policy(@project).edit?
+        = link_to 'Edit', edit_project_path(@project, base_test_step_set_id: @test), class: 'btn btn-default'
       - if policy(Project.new).new?
         = link_to 'Fork', new_project_path(base_test_step_set_id: @test), class: 'btn btn-default'
       - if policy(SharedTestStepSet.new).new?

@@ -1,7 +1,7 @@
 class ProjectsController < BaseController
   auto_decorate :tests, only: [:index, :show]
 
-  before_action :assign_base_test_step_set, only: [:new, :create]
+  before_action :assign_base_test_step_set, only: [:new, :create, :edit, :update]
   before_action :assign_browsers, only: [:new, :create, :edit, :update]
 
   def index
@@ -38,7 +38,7 @@ class ProjectsController < BaseController
       return
     end
 
-    @base_test_step_set ||= @project.updating_test
+    @base_test_step_set = @project.updating_test
     render :new
   end
 
@@ -46,7 +46,7 @@ class ProjectsController < BaseController
     @project = Project.find(params[:id])
     authorize @project
 
-    @base_test_step_set = @project.updating_test
+    @base_test_step_set ||= @project.updating_test
   end
 
   def update
@@ -55,7 +55,7 @@ class ProjectsController < BaseController
 
     @project.assign_attributes(permitted_params)
     @project.updating_tests.each do |t|
-      t.assign_attributes(user: current_user, base_test_step_set: @project.current_test)
+      t.assign_attributes(user: current_user, base_test_step_set: @base_test_step_set || @project.current_test)
     end
     if @project.save
       flash[:notice] = 'Succesfully created the project'
