@@ -10,7 +10,9 @@ div style="margin: 20px 0 20px 0;"
 div
   div.col-md-3
     ul.nav.nav-pills.nav-stacked
-      - @same_browser_test_step_executions.each do |tse|
+      - @test_steps.each do |ts|
+        - tse = @same_browser_test_step_executions.find { |tse| tse.test_step == ts }
+        - next if tse.nil?
         li class="#{@test_step_execution == tse ? 'active' : nil}"
           = link_to tse.test_step.to_line, test_step_execution_path(tse), class: 'e2e-truncate'
 
