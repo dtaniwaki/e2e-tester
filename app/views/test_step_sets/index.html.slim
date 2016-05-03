@@ -28,7 +28,8 @@
             = gravatar_image_tag(t.user.email, alt: t.user.name, gravatar: { size: 20 })
             |  
             = t.user.name
-          td = link_to 'Delete', test_step_set_path(t), method: :delete, data: {confirm: 'Are you sure?'}
+          td
+            = link_to 'Create Test', new_project_path(base_test_step_set_id: t), class: 'btn btn-xs btn-success'
   .center-block.text-center
     = paginate @test_step_sets
 -else

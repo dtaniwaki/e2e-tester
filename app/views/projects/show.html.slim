@@ -41,7 +41,7 @@
             |  
             = t.user.name
           td
-            = link_to 'Execute', test_test_executions_path(t), class: 'btn btn-xs btn-primary', method: :post
+            = button_to 'Execute', test_test_executions_path(t), class: 'btn btn-xs btn-primary', method: :post, disabled: !t.executable?
   div.panel
     = link_to 'More tests', project_tests_path(@project)
 - else
