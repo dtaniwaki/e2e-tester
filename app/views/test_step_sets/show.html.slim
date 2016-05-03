@@ -15,11 +15,4 @@
     small.glyphicon.glyphicon-share
     = " #{@test_step_set.title}"
 
-div.panel
-  - if @test_step_set.description.present?
-    pre
-      = markdown(@test_step_set.description)
-  div
-    ul.list-group
-      - @test_step_set.test_steps.each do |ts|
-        li.list-group-item = ts.to_line
+= render 'shared/test_step_set_panel', test_step_set: @test_step_set

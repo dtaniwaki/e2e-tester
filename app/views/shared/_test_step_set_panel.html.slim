@@ -1,0 +1,12 @@
+.panel
+  - if test_step_set.description.present?
+    pre
+      = markdown(test_step_set.description)
+  .block
+    - if test_step_set.test_steps.present?
+      ul.list-group
+        - test_step_set.test_steps.each do |ts|
+          li.list-group-item = ts.to_line
+    - else
+      .alert.alert-error
+        | No test steps set
