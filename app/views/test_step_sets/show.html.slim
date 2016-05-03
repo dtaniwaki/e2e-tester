@@ -5,10 +5,12 @@
 .block
   .pull-right
     .e2e-left-margin-btn-group
-      - if policy(@test_step_set).new?
-        = link_to 'Fork', new_test_step_set_path(base_test_step_set_id: @test_step_set), class: 'btn btn-success'
+      - if policy(SharedTestStepSet.new).new?
+        = link_to 'Fork', new_test_step_set_path(base_test_step_set_id: @test_step_set), class: 'btn btn-default'
       - if policy(@test_step_set).edit?
         = link_to 'Edit', edit_test_step_set_path(@test_step_set), class: 'btn btn-default'
+      - if policy(@test_step_set).destroy?
+        = link_to 'Delete', test_step_set_path(@test_step_set), method: :delete, class: 'btn btn-default', data: {confirm: 'Are you sure?'}
   h1.e2e-truncate
     small.glyphicon.glyphicon-share
     = " #{@test_step_set.title}"

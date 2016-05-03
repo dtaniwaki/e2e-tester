@@ -15,6 +15,7 @@
     .e2e-left-margin-btn-group
       - if policy(@test).new?
         = link_to 'Fork', new_project_test_path(@project, base_test_step_set_id: @test), class: 'btn btn-success'
+      - if policy(SharedTestStepSet.new).new?
         = link_to 'Share', new_test_step_set_path(base_test_step_set_id: @test), class: 'btn btn-default'
       - if policy(@test).edit?
         = link_to 'Edit', edit_test_path(@test), class: 'btn btn-default'
