@@ -65,6 +65,6 @@ class TestExecution < ApplicationRecord
 
   def validate_executable
     return if test.executable?
-    errors.add :base, "The test is not executable"
+    errors.add :base, 'The test is not executable'
   end
 end
