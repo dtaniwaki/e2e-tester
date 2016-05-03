@@ -6,7 +6,7 @@ class TestStepSet < ApplicationRecord
   has_many :test_step_sets, class_name: 'TestStep::StepSet', inverse_of: :shared_test_step_set
   has_many :shared_test_step_sets, through: :test_step_sets, source: :shared_test_step_set
 
-  validates :title, length: { minimum: 1, maximum: 100 }, uniqueness: { scope: [:type, :project_id] }, allow_nil: true
+  validates :title, length: { minimum: 1, maximum: 100 }, presence: true
   validates :description, length: { maximum: 65_535 }, allow_blank: true
   validates :test_steps, length: { minimum: 1, maximum: 50 }, allow_blank: true
 
@@ -23,6 +23,6 @@ class TestStepSet < ApplicationRecord
     return false if test_steps.map { |ts| ts.becomes ts.type.constantize }.zip(other.test_steps.map { |ts| ts.becomes ts.type.constantize }).any? { |a, b| !a.same_step?(b) }
     return false if title != other.title
     return false if description != other.description
-    test_step_set_id == other.id || id == other.test_step_set_id || test_step_set_id == other.test_step_set_id
+    true
   end
 end

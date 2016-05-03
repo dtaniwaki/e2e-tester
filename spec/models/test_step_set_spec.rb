@@ -25,12 +25,6 @@ RSpec.describe TestStepSet, type: :model do
       it 'returns true for the same contents' do
         expect(subject.same_test_step_set?(target)).to be true
       end
-      context 'test_step_set_id is different' do
-        let(:target) { create :test, base_test_step_set: create(:test), test_steps_attributes: target_attributes, title: 'foo', description: 'foo', browsers: browsers }
-        it 'returns false' do
-          expect(subject.same_test_step_set?(target)).to be false
-        end
-      end
       context 'test_steps is different' do
         let(:target_attributes) { [attributes_for(:test_step), attributes_for(:test_step)] }
         it 'returns false' do

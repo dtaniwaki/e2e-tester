@@ -31,7 +31,7 @@ Rails.application.routes.draw do
   }
 
   resources :projects, shallow: true do
-    resources :tests do
+    resources :tests, only: [:index, :show, :destroy] do
       resources :test_executions, only: [:create, :index, :show] do
         member do
           get :done
