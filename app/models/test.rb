@@ -7,6 +7,9 @@ class Test < TestStepSet
 
   scope :with_user, ->(user) { joins(:user_tests).merge(UserTest.where(user_id: user.is_a?(ActiveRecord::Base) ? user.id : user)) }
 
+  after_create :assign_current_test!
+
+  validates :title, presence: true
   validates :browsers, length: { minimum: 1, maximum: 10 }, allow_blank: true
   validate :validate_same_test
 
@@ -23,5 +26,10 @@ class Test < TestStepSet
 
   def validate_same_test
     errors.add :base, 'The test is the same as the base test' if base_test_step_set && same_test_step_set?(base_test_step_set)
+  end
+
+  def assign_current_test!
+    project.current_test = self
+    project.save!
   end
 end

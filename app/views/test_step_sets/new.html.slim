@@ -5,8 +5,8 @@ h1
   small.glyphicon.glyphicon-share
   |  New Test Step Set
 
-= simple_form_for @test_step_set, url: test_step_sets_path, method: :post, as: :test_step_set do |f|
-  = hidden_field_tag :base_test_step_set_id, @base_test_step_set&.id
+= simple_form_for @base_test_step_set, url: test_step_sets_path, method: :post, as: :test_step_set do |f|
+  = hidden_field_tag :base_test_step_set_id, @base_test_step_set&.id if @base_test_step_set.present?
   = f.error_notification
   = f.input :title
   = f.input :description, hint: "Markdown supported. #{link_to('What is markdown?', doc_url(:markdown), target: '_blank')}".html_safe

@@ -5,17 +5,17 @@
 .block
   .pull-right
     .e2e-left-margin-btn-group
-      = link_to 'Edit', edit_project_path(@project), class: 'btn btn-default'
-      = link_to 'Delete', project_path(@project), class: 'btn btn-default', method: :delete, data: {confirm: 'Are you sure?'}
+      - if policy(@project).edit?
+        = link_to 'Edit', edit_project_path(@project), class: 'btn btn-default'
+      - if policy(@project).destroy?
+        = link_to 'Delete', project_path(@project), class: 'btn btn-default', method: :delete, data: {confirm: 'Are you sure?'}
 
   h1.e2e-truncate
     small.glyphicon.glyphicon-briefcase
     = " #{@project.title}"
 
-- if @project.description.present?
-  div.panel
-    pre
-      = markdown(@project.description)
+- if @project.current_test
+  = render 'shared/test_panel', test: @project.current_test
 
 - if @tests.present?
   div.panel.panel-default
@@ -47,9 +47,6 @@
 - else
   .alert.alert-warning
     | You don't have any test.
-
-.block style='margin-bottom: 20px;'
-  = link_to 'New test', new_project_test_path(@project), class: 'btn btn-success', method: :get
 
 .row
   - if @user_project.present?

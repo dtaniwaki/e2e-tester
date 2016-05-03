@@ -9,11 +9,11 @@ class TestPolicy < ApplicationPolicy
   end
 
   def create?
-    (@record.project && @record.project.user_projects.with_user(@user).exists?)
+    false
   end
 
   def update?
-    (@record.project && @record.project.user_projects.with_user(@user).exists?)
+    false
   end
 
   def destroy?

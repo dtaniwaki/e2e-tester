@@ -47,6 +47,7 @@ module TestStep
     def validate_as_subclass
       return if self.class.to_s == type
       sub = becomes(type.constantize)
+      sub.test_step_set = test_step_set
       sub.valid?
       sub.errors.each do |k, v|
         errors.add k, v

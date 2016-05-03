@@ -14,9 +14,10 @@ class TestStepSetsController < BaseController
     @base_test_step_set = (params[:base_test_step_set_id].presence && TestStepSet.find(params[:base_test_step_set_id]))
     authorize @base_test_step_set, :show? if @base_test_step_set.present?
 
-    @test_step_set = @base_test_step_set
-    @test_step_set ||= current_user.shared_test_step_sets.build
+    @test_step_set = current_user.shared_test_step_sets.build
     authorize @test_step_set
+
+    @base_test_step_set ||= @test_step_set
   end
 
   def create
@@ -26,12 +27,12 @@ class TestStepSetsController < BaseController
     @test_step_set = current_user.shared_test_step_sets.build(permitted_create_params.merge(user: current_user, base_test_step_set: @base_test_step_set))
     authorize @test_step_set
 
-    return redirect_to test_step_set_path(@base_test_step_set) if @test_step_set.same_test_step_set?(@base_test_step_set)
     if @test_step_set.save
       flash[:notice] = 'Succesfully created new test step set'
       return redirect_to test_step_set_path(@test_step_set)
     end
 
+    @base_test_step_set = @test_step_set
     render :new
   end
 

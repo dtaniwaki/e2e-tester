@@ -12,6 +12,7 @@ h1
         th State
         th Executed At
         th Executed By
+        th
       - @test_executions.each do |te|
         tr
           td = link_to te.id, test_execution_path(te)
@@ -21,6 +22,8 @@ h1
             = gravatar_image_tag(te.user.email, alt: te.user.name, gravatar: { size: 20 })
             |  
             = te.user.name
+          td
+            = link_to 'Retry', test_test_executions_path(te.test), class: 'btn btn-xs btn-primary', method: :post
 
   .center-block.text-center
     = paginate @test_executions

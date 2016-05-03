@@ -1,6 +1,9 @@
 class ProjectsController < BaseController
   auto_decorate :tests, only: [:index, :show]
 
+  before_action :assign_base_test_step_set, only: [:new, :create, :edit, :update]
+  before_action :assign_browsers, only: [:new, :create, :edit, :update]
+
   def index
     @projects = policy_scope(current_user.accessible_projects).latest.page(params[:page]).per(20)
   end
@@ -17,34 +20,50 @@ class ProjectsController < BaseController
   def new
     @project = current_user.projects.build
     authorize @project
+
+    @base_test_step_set ||= @project.updating_test
   end
 
   def create
     @project = current_user.projects.build
     authorize @project
 
-    if @project.update_attributes(permitted_params)
+    @project.assign_attributes(permitted_params)
+    @project.updating_tests.each do |t|
+      t.assign_attributes(user: current_user, base_test_step_set: @base_test_step_set)
+    end
+    if @project.save
       flash[:notice] = 'Succesfully created new project'
       redirect_to project_path(@project)
       return
     end
+
+    @base_test_step_set = @project.updating_test
     render :new
   end
 
   def edit
     @project = Project.find(params[:id])
     authorize @project
+
+    @base_test_step_set ||= @project.updating_test
   end
 
   def update
     @project = Project.find(params[:id])
     authorize @project
 
-    if @project.update_attributes(permitted_params)
+    @project.assign_attributes(permitted_params)
+    @project.updating_tests.each do |t|
+      t.assign_attributes(user: current_user, base_test_step_set: @base_test_step_set || @project.current_test)
+    end
+    if @project.save
       flash[:notice] = 'Succesfully created the project'
       redirect_to project_path(@project)
       return
     end
+
+    @base_test_step_set = @project.updating_test
     render :edit
   end
 
@@ -62,7 +81,26 @@ class ProjectsController < BaseController
 
   private
 
+  def assign_browsers
+    @browser_sets = BrowserSet.includes(:browsers).all
+    @browsers = Browser::Base.active.all.group_by(&:class).map { |gk, bs| [gk, bs.group_by { |b| [b.os, b.os_version] }] }
+  end
+
+  def assign_base_test_step_set
+    @base_test_step_set = (params[:base_test_step_set_id].presence && TestStepSet.find(params[:base_test_step_set_id]))
+    return if @base_test_step_set.nil?
+    authorize @base_test_step_set, :show?
+    @base_test_step_set = @base_test_step_set.becomes Test
+  end
+
   def permitted_params
-    params.require(:project).permit(:title, :description)
+    params.require(:project).permit(
+      updating_tests_attributes: [
+        :title, :description,
+        test_steps_attributes:
+          [:test_step_type, :_destroy, :shared_test_step_set_id, data: [:message, :selector, :javascript, :value, :url, :width, :height, :duration]],
+        browser_ids: []
+      ]
+    )
   end
 end

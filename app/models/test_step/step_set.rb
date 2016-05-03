@@ -20,7 +20,7 @@ module TestStep
     end
 
     def to_line
-      %(SharedTestStepSet #{shared_test_step_set_id})
+      shared_test_step_set.title
     end
 
     def same_step?(other)
@@ -31,7 +31,7 @@ module TestStep
 
     def validate_accessibility
       return if test_step_set.base_test_step_set&.test_step_sets&.with_test_step_set(shared_test_step_set)&.exists?
-      return if shared_test_step_set&.user_shared_test_step_sets.with_user(test_step_set.user).exists?
+      return if shared_test_step_set&.user_shared_test_step_sets&.with_user(test_step_set.user)&.exists?
       errors.add :shared_test_step_set_id, :invalid
     end
   end
