@@ -23,19 +23,7 @@
     small.glyphicon.glyphicon-tasks
     = " #{@test.title}"
 
-.panel
-  - if @test.description.present?
-    pre
-      = markdown(@test.description)
-  .block
-    ul.list-group
-      - @test.test_steps.each do |ts|
-        li.list-group-item = ts.to_line
-  .block style='margin-bottom: 20px;'
-    - @test.browsers.each do |b|
-      span.label.label-default title=b.full_name data-toggle='tooltip' = b.name
-  .block
-    = link_to 'Execute', test_test_executions_path(@test), class: 'btn btn-primary', method: :post
+= render 'shared/test_panel', test: @test
 
 - if @test_executions.present?
   div.panel.panel-default
