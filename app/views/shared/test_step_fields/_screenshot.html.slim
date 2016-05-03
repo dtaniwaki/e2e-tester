@@ -1,2 +1,3 @@
-.input-group-addon Take screenshot
-= text_field_tag nil, '', class: 'form-control', disabled: true
+= f.simple_fields_for :data, OpenStruct.new(f.object.data) do |ff|
+  .input-group-addon Take screenshot
+  = text_field_tag nil, '', class: 'form-control', disabled: true

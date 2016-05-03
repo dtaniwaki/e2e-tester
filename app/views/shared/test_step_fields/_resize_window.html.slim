@@ -1,4 +1,5 @@
-.input-group-addon Resize window to
-= f.input :width, label: false, placeholder: 'Width', error: false
-.input-group-addon x
-= f.input :height, label: false, placeholder: 'Height', error: false
+= f.simple_fields_for :data, OpenStruct.new(f.object.data) do |ff|
+  .input-group-addon Resize window to
+  = ff.input :width, label: false, placeholder: 'Width', error: false
+  .input-group-addon x
+  = ff.input :height, label: false, placeholder: 'Height', error: false

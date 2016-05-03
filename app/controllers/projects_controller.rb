@@ -88,7 +88,9 @@ class ProjectsController < BaseController
 
   def assign_base_test_step_set
     @base_test_step_set = (params[:base_test_step_set_id].presence && TestStepSet.find(params[:base_test_step_set_id]))
-    authorize @base_test_step_set, :show? if @base_test_step_set.present?
+    return if @base_test_step_set.nil?
+    authorize @base_test_step_set, :show?
+    @base_test_step_set = @base_test_step_set.becomes Test
   end
 
   def permitted_params
@@ -96,7 +98,7 @@ class ProjectsController < BaseController
       updating_tests_attributes: [
         :title, :description,
         test_steps_attributes:
-          [:test_step_type, :_destroy, data: [:message, :selector, :javascript, :value, :url, :width, :height, :shared_test_step_set_id, :duration]],
+          [:test_step_type, :_destroy, :shared_test_step_set_id, data: [:message, :selector, :javascript, :value, :url, :width, :height, :duration]],
         browser_ids: []
       ]
     )

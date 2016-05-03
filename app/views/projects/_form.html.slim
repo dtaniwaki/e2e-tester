@@ -1,6 +1,6 @@
 = f.error_notification
 
-= f.simple_fields_for :updating_tests, @base_test_step_set&.becomes(Test), include_id: false do |ff|
+= f.simple_fields_for :updating_tests, @base_test_step_set, include_id: false do |ff|
   = hidden_field_tag :base_test_step_set_id, @base_test_step_set.id if @base_test_step_set.present?
   = ff.input :title
   = ff.input :description, hint: "Markdown supported. #{link_to('What is markdown?', doc_url(:markdown), target: '_blank')}".html_safe

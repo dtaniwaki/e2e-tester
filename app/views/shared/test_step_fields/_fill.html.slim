@@ -1,4 +1,5 @@
-.input-group-addon Fill
-= f.input :selector, label: false, placeholder: 'Selector', error: false
-.input-group-addon with
-= f.input :value, label: false, placeholder: 'Value', error: false
+= f.simple_fields_for :data, OpenStruct.new(f.object.data) do |ff|
+  .input-group-addon Fill
+  = ff.input :selector, label: false, placeholder: 'Selector', error: false
+  .input-group-addon with
+  = ff.input :value, label: false, placeholder: 'Value', error: false
