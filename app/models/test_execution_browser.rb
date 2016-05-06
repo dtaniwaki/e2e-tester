@@ -22,6 +22,7 @@ class TestExecutionBrowser < ApplicationRecord
     check_completion!
   rescue => e
     self.error = e.message
+    logger.warn "#{e.message}\n  #{e.backtrace.join("\n  ")}"
     save!
     failed!
   ensure
