@@ -162,6 +162,9 @@ GEM
       i18n (~> 0.7)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
+    acts_as_hashids (0.1.1)
+      activerecord (>= 4.0)
+      hashids (~> 1.0)
     acts_as_list (0.7.2)
       activerecord (>= 3.0)
     addressable (2.4.0)
@@ -557,6 +560,7 @@ PLATFORMS
 DEPENDENCIES
   activeadmin!
   activemodel-serializers-xml!
+  acts_as_hashids (~> 0.1.1)
   acts_as_list (~> 0.7.2)
   bootstrap-kaminari-views (~> 0.0.5)
   bootstrap-sass (~> 3.3.6)
@@ -580,7 +584,6 @@ DEPENDENCIES
   fog-local (~> 0.3.0)
   formtastic!
   gravatar_image_tag (~> 1.2.0)
-  hashids (~> 1.0.2)
   jbuilder (~> 2.0)
   jquery-rails (~> 4.1.0)
   jquery-ui-rails (~> 5.0.5)
