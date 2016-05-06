@@ -1,13 +1,13 @@
 - content_for :title, "Test Execution #{@test_execution.id}"
 
-= link_to 'Back to test', test_path(@test)
+= link_to 'Back to test', test_version_position_path(@test_version)
 
 .block
   .pull-right
-    = link_to 'Retry', test_test_executions_path(@test_execution.test), class: 'btn btn-primary', method: :post
+    = link_to 'Retry', test_version_test_executions_path(@test_execution.test_version), class: 'btn btn-primary', method: :post
   h1.e2e-truncate
     small.glyphicon.glyphicon-tasks
-    = " #{@test.title}"
+    = " #{@test_version.title}"
 
 div data-path-done-test-execution-path=done_test_execution_path(@test_execution)
   h2
@@ -25,7 +25,7 @@ div data-path-done-test-execution-path=done_test_execution_path(@test_execution)
         th.text-center data-test-execution-browser-id=teb.id style='width: 200px; min-width: 200px;'
           span.label.label-default title=teb.browser.full_name data-toggle='tooltip' = teb.browser.name
           span.text-danger.glyphicon.glyphicon-fire title=teb.error data-toggle='tooltip' class=(teb.error.present? ? nil : 'hidden') data-target='test-execution-browser-error'
-    - @test_execution.test.test_steps.each do |ts|
+    - @test_execution.test_version.test_steps.each do |ts|
       tr data-test-step-id=ts.id
         th.e2e-truncate = ts.to_line
         - @test_execution.test_execution_browsers.each do |teb|

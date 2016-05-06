@@ -1,0 +1,21 @@
+.panel
+  - if test_version.description.present?
+    pre
+      = markdown(test_version.description)
+  .block
+    - if test_version.test_steps.present?
+      ul.list-group
+        - test_version.test_steps.each do |ts|
+          li.list-group-item = ts.to_line
+    - else
+      .alert.alert-error
+        | No test steps set
+  .block style='margin-bottom: 20px;'
+    - if test_version.browsers.present?
+      - test_version.browsers.each do |b|
+        span.label.label-default title=b.full_name data-toggle='tooltip' = b.name
+    - else
+      .alert.alert-error
+        | No browsers set
+  .block
+    = button_to 'Execute', test_version_test_executions_path(test_version), class: 'btn btn-primary', method: :post, disabled: !test_version.executable?

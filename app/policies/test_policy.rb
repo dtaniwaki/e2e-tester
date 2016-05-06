@@ -4,19 +4,26 @@ class TestPolicy < ApplicationPolicy
   end
 
   def show?
-    @record.user_tests.with_user(@user).exists? ||
-      (@record.project && @record.project.user_projects.with_user(@user).exists?)
+    @record.user_tests.with_user(@user).exists?
   end
 
   def create?
-    false
+    true
+  end
+
+  def new?
+    create?
   end
 
   def update?
-    false
+    @record.user_tests.with_user(@user).exists?
+  end
+
+  def edit?
+    update?
   end
 
   def destroy?
-    (@record.project && @record.project.user_projects.with_user(@user).exists?)
+    @record.user_tests.with_user(@user).exists?
   end
 end

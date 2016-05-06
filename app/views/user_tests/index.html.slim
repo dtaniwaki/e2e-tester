@@ -2,7 +2,7 @@
 
 h1
   small.glyphicon.glyphicon-user
-  |  Assigned Testers
+  |  Collaborators
 
 - if @user_tests.present?
   div.panel.panel-default
@@ -10,12 +10,12 @@ h1
       tr
         th ID
         th Name
-      - @user_tests.each do |ut|
+      - @user_tests.each do |up|
         tr
-          td = ut.user.id
+          td = up.user.id
           td
-            = gravatar_image_tag(ut.user.email, alt: ut.user.name, gravatar: { size: 20 })
+            = gravatar_image_tag(up.user.email, alt: up.user.name, gravatar: { size: 20 })
             |  
-            = ut.user.name
+            = up.user.name
   .center-block.text-center
     = paginate @user_tests

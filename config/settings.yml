@@ -4,6 +4,7 @@ application:
     protocol: 'http'
   misc:
     use_global_browserstack_credential: false
+    hashids_secret: <%= ENV['HASHIDS_SECRET'] || 'TBD' %>
 mailer:
   type: 'letter_opener_web'
   sender:

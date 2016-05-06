@@ -7,7 +7,7 @@ class UserTest < ApplicationRecord
   scope :with_user, ->(user) { where(user_id: user.is_a?(ActiveRecord::Base) ? user.id : user) }
   scope :with_test, ->(test) { where(test_id: test.is_a?(ActiveRecord::Base) ? test.id : test) }
 
-  after_commit :send_notification!, on: :create, if: ->(ut) { ut.assigned_by.present? }
+  after_commit :send_notification!, on: :create, if: ->(up) { up.assigned_by.present? }
 
   accepts_nested_attributes_for :user_test_variables, allow_destroy: true, reject_if: -> (attributes) { attributes[:name].blank? && attributes[:value].blank? }
 

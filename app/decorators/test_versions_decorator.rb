@@ -1,0 +1,2 @@
+class TestVersionsDecorator < PaginatingDecorator
+end

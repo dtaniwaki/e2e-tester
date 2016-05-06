@@ -1,13 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe TestStepSet, type: :model do
-  subject { create :test }
+  subject { create :test_version }
   describe '#same_test_step_set?' do
     let(:browsers) { create_list(:browser, 1) }
-    let(:base_test_step_set) { create :test }
+    let(:base_test_step_set) { create :test_version }
     let(:test_steps_attributes) { [attributes_for(:test_step)] }
     let(:target_attributes) { [attributes_for(:test_step)] }
-    subject { create :test, base_test_step_set: base_test_step_set, test_steps_attributes: test_steps_attributes, title: 'foo', description: 'foo', browsers: browsers }
+    subject { create :test_version, base_test_step_set: base_test_step_set, test_steps_attributes: test_steps_attributes, title: 'foo', description: 'foo', browsers: browsers }
     it 'returns true for a cloned instance' do
       expect(subject.same_test_step_set?(subject.clone)).to be true
     end
@@ -18,7 +18,7 @@ RSpec.describe TestStepSet, type: :model do
       end
     end
     context 'for other instance' do
-      let(:target) { create :test, base_test_step_set: base_test_step_set, test_steps_attributes: target_attributes, title: 'foo', description: 'foo', browsers: browsers }
+      let(:target) { create :test_version, base_test_step_set: base_test_step_set, test_steps_attributes: target_attributes, title: 'foo', description: 'foo', browsers: browsers }
       before do
         expect(subject).not_to eq target
       end
@@ -34,9 +34,9 @@ RSpec.describe TestStepSet, type: :model do
     end
   end
   describe 'validate :validate_same_test_step_set' do
-    let(:base_test_step_set) { create :test }
+    let(:base_test_step_set) { create :test_version }
     context 'against the base test with the same content' do
-      subject { build :test, base_test_step_set: base_test_step_set }
+      subject { build :test_version, base_test_step_set: base_test_step_set }
       before do
         allow(subject).to receive(:same_test_step_set?).and_return true
       end
@@ -48,7 +48,7 @@ RSpec.describe TestStepSet, type: :model do
     end
     context 'against the base test with the different content' do
       let(:different_step) { create :test_step, message: 'different' }
-      subject { build :test, base_test_step_set: base_test_step_set }
+      subject { build :test_version, base_test_step_set: base_test_step_set }
       before do
         allow(subject).to receive(:same_test_step_set?).and_return false
       end

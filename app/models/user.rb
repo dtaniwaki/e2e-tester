@@ -1,22 +1,22 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :confirmable, :recoverable, :rememberable, :validatable, :invitable, :lockable
 
-  has_many :projects, inverse_of: :user
-  has_many :user_projects, inverse_of: :user
-  has_many :accessible_projects, through: :user_projects, source: :project
+  has_many :tests, inverse_of: :user
   has_many :user_tests, inverse_of: :user
   has_many :accessible_tests, through: :user_tests, source: :test
+  has_many :user_test_versions, inverse_of: :user
+  has_many :accessible_test_versions, through: :user_test_versions, source: :test_version
   has_many :test_step_sets, inverse_of: :user
-  has_many :tests, inverse_of: :user
+  has_many :test_versions, inverse_of: :user
   has_many :shared_test_step_sets, inverse_of: :user
   has_many :test_executions, inverse_of: :user
   has_many :test_execution_browsers, through: :test_executions
   has_many :test_step_executions, through: :test_execution_browsers
   has_many :user_variables, inverse_of: :user
+  has_many :user_test_version_variables, through: :user_test_versions
   has_many :user_test_variables, through: :user_tests
-  has_many :user_project_variables, through: :user_projects
-  has_many :assigned_project_users, class_name: 'UserProject', foreign_key: 'assigned_user_id', inverse_of: :assigned_by
   has_many :assigned_test_users, class_name: 'UserTest', foreign_key: 'assigned_user_id', inverse_of: :assigned_by
+  has_many :assigned_test_version_users, class_name: 'UserTestVersion', foreign_key: 'assigned_user_id', inverse_of: :assigned_by
   has_many :user_shared_test_step_sets, inverse_of: :user
   has_many :accessible_shared_test_step_sets, through: :user_shared_test_step_sets, source: :shared_test_step_set
   has_many :user_credentials, class_name: 'UserCredential::Base', inverse_of: :user
@@ -35,10 +35,10 @@ class User < ApplicationRecord
     user
   end
 
-  def variables(test)
+  def variables(test_version)
     variables = Hash[*user_variables.map { |v| [v.name, v.value] }.flatten]
-    variables.merge! Hash[*user_project_variables.with_project(test.project).map { |v| [v.name, v.value] }.flatten]
-    variables.merge! Hash[*user_test_variables.with_test(test).map { |v| [v.name, v.value] }.flatten]
+    variables.merge! Hash[*user_test_variables.with_test(test_version.test).map { |v| [v.name, v.value] }.flatten]
+    variables.merge! Hash[*user_test_version_variables.with_test_version(test_version).map { |v| [v.name, v.value] }.flatten]
     variables.with_indifferent_access
   end
 

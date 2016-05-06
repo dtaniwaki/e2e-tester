@@ -30,17 +30,22 @@ Rails.application.routes.draw do
     invitations: 'users/invitations'
   }
 
-  resources :projects, shallow: true do
-    resources :tests, only: [:index, :show, :destroy] do
+  resources :tests, shallow: true do
+    resources :user_tests, only: [:create, :update, :index]
+    resources :test_versions, only: [] do
       resources :test_executions, only: [:create, :index, :show] do
         member do
           get :done
         end
         resources :test_step_executions, only: [:show]
       end
-      resources :user_tests, only: [:create, :update, :index]
+      resources :user_test_versions, only: [:create, :update, :index]
     end
-    resources :user_projects, only: [:create, :update, :index]
+  end
+  resources :tests, only: [] do
+    get 'versions' => 'test_versions#index', as: :test_versions
+    get ':num' => 'test_versions#show', as: :test_version
+    delete ':num' => 'test_versions#destroy'
   end
   resources :user_credentials, only: [:index] do
     collection do
@@ -49,7 +54,7 @@ Rails.application.routes.draw do
   end
   resources :test_step_sets
   namespace :misc, path: '' do
-    get :tests
+    get :assigned_tests
     get :test_executions
   end
 

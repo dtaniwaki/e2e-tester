@@ -1,0 +1,10 @@
+- content_for :title, 'New Test'
+
+= link_to 'Back to the test list', tests_path
+
+h1
+  small.glyphicon.glyphicon-briefcase
+  |  New Test
+
+= simple_form_for @test do |f|
+  = render 'form', f: f

@@ -5,6 +5,6 @@ class TestStepExecutionPolicy < ApplicationPolicy
 
   def show?
     @record.test_execution.user == @user ||
-      @record.test_execution.project.user_projects.where(user_id: @user.id).exists?
+      @record.test_execution.test.user_tests.with_user(@user).exists?
   end
 end
