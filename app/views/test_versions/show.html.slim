@@ -1,0 +1,90 @@
+- content_for :title, "Test #{@test_version.title}"
+
+- if policy(@test).show?
+  = link_to 'Back to Test', test_path(@test)
+- else
+  = link_to 'Back to Tests', misc_assigned_tests_path
+
+- if policy(@test).show?
+  h1.e2e-truncate
+    small.glyphicon.glyphicon-briefcase
+    = " #{@test.title}"
+
+.block
+  .pull-right
+    .e2e-left-margin-btn-group
+      - if policy(@test).edit?
+        = link_to 'Edit', edit_test_path(@test, base_test_step_set_id: @test_version), class: 'btn btn-default'
+      - if policy(Test.new).new?
+        = link_to 'Fork', new_test_path(base_test_step_set_id: @test_version), class: 'btn btn-default'
+      - if policy(SharedTestStepSet.new).new?
+        = link_to 'Share', new_test_step_set_path(base_test_step_set_id: @test_version), class: 'btn btn-default'
+  h2.e2e-truncate
+    small.glyphicon.glyphicon-tasks
+    = " #{@test_version.title}"
+
+= render 'shared/test_version_panel', test_version: @test_version
+
+- if @test_executions.present?
+  div.panel.panel-default
+    div.panel-heading
+      small.glyphicon.glyphicon-film
+      |  Executions
+    table.table
+      tr
+        th ID
+        th State
+        th Executed
+        th Executed By
+      - @test_executions.each do |te|
+        tr
+          td = link_to te.id, test_execution_path(te)
+          td = bootstrap_status_tag :span, te.state, te.done?, te.failed?
+          td = link_to te.created_at.to_s, test_execution_path(te)
+          td
+            = gravatar_image_tag(te.user.email, alt: te.user.name, gravatar: { size: 20 })
+            |  
+            = te.user.name
+  div.panel
+    = link_to 'More executions', test_version_test_executions_path(@test_version)
+
+.row
+  - if @user_test_version.present?
+    .col-lg-6
+      = render '/shared/variables_form', target: @user_test_version, variable_name: 'user_test_version_variables'
+
+  .col-lg-6
+    - user_test_version = @test_version.user_test_versions.build
+    - if policy(user_test_version).new?
+      .panel.panel-default
+        .panel-heading
+          small.glyphicon.glyphicon-send
+          |  Invite Tester
+        .panel-body
+          = form_for [@test_version, user_test_version], method: :post, html: {autocomplete: 'off'} do |f|
+            .form-group
+              = label_tag :email
+              = text_field_tag :email, nil, class: 'form-control', autocomplete: 'off'
+
+            .form-group
+              = f.submit t("devise.invitations.new.submit_button"), class: 'btn btn-default'
+
+      - if @user_test_versions.present?
+        div.panel.panel-default
+          div.panel-heading
+            small.glyphicon.glyphicon-user
+            |  Assigned Testers
+          table.table
+            tr
+              th ID
+              th Name
+            - @user_test_versions.each do |ut|
+              tr
+                td = ut.user.id
+                td
+                  = gravatar_image_tag(ut.user.email, alt: ut.user.name, gravatar: { size: 20 })
+                  |  
+                  = ut.user.name
+        div.panel
+          = link_to 'More assigned testers', test_version_user_test_versions_path(@test_version)
+

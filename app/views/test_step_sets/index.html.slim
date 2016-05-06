@@ -18,18 +18,18 @@
         th Created At
         th Created By
         th
-      - @test_step_sets.each do |t|
+      - @test_step_sets.each do |tv|
         tr
-          td = link_to t.id, test_step_set_path(t)
-          td = link_to t.base_test_step_set.title, polymorphic_test_step_set_path(t.base_test_step_set) if t.base_test_step_set.present? && policy(t.base_test_step_set).show?
-          td = link_to t.title, test_step_set_path(t)
-          td = link_to t.created_at.to_s, test_step_set_path(t)
+          td = link_to tv.id, test_step_set_path(tv)
+          td = link_to tv.base_test_step_set.title, polymorphic_test_step_set_path(tv.base_test_step_set) if tv.base_test_step_set.present? && policy(tv.base_test_step_set).show?
+          td = link_to tv.title, test_step_set_path(tv)
+          td = link_to tv.created_at.to_s, test_step_set_path(tv)
           td
-            = gravatar_image_tag(t.user.email, alt: t.user.name, gravatar: { size: 20 })
+            = gravatar_image_tag(tv.user.email, alt: tv.user.name, gravatar: { size: 20 })
             |  
-            = t.user.name
+            = tv.user.name
           td
-            = link_to 'Create Test', new_project_path(base_test_step_set_id: t), class: 'btn btn-xs btn-success'
+            = link_to 'Create Test', new_test_path(base_test_step_set_id: tv), class: 'btn btn-xs btn-success'
   .center-block.text-center
     = paginate @test_step_sets
 -else

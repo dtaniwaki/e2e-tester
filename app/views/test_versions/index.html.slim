@@ -1,0 +1,40 @@
+- content_for :title, "Test #{@test.title} Test Versions"
+
+= link_to 'Back to Test', test_path(@test)
+
+- if policy(@test).show?
+  h1.e2e-truncate
+    small.glyphicon.glyphicon-briefcase
+    = " #{@test.title}"
+
+  h2
+    small.glyphicon.glyphicon-tasks
+    |  Test Versios
+
+- if @test_versions.present?
+  .panel.panel-default
+    table.table.table-striped
+      tr
+        th Number
+        th Base Test
+        th Title
+        th Created At
+        th Created By
+        th
+      - @test_versions.each do |tv|
+        tr
+          td = link_to tv.position, test_version_position_path(tv)
+          td = link_to tv.base_test_step_set.title, polymorphic_test_step_set_path(tv.base_test_step_set) if tv.base_test_step_set.present? && policy(tv.base_test_step_set).show?
+          td = link_to tv.title, test_version_position_path(tv)
+          td = link_to tv.created_at.to_s, test_version_position_path(tv)
+          td
+            = gravatar_image_tag(tv.user.email, alt: tv.user.name, gravatar: { size: 20 })
+            |  
+            = tv.user.name
+          td
+            = button_to 'Execute', test_version_test_executions_path(tv.test_version), class: 'btn btn-xs btn-primary', method: :post, disabled: !tv.executable?
+  .center-block.text-center
+    = paginate @test_versions
+- else
+  .alert.alert-warning
+    | You don't have any test_version.

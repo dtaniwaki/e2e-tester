@@ -23,7 +23,7 @@ h1
             |  
             = te.user.name
           td
-            = link_to 'Retry', test_test_executions_path(te.test), class: 'btn btn-xs btn-primary', method: :post
+            = link_to 'Retry', test_version_test_executions_path(te.test_version), class: 'btn btn-xs btn-primary', method: :post
 
   .center-block.text-center
     = paginate @test_executions

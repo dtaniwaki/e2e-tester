@@ -1,2 +1,0 @@
-class TestsDecorator < PaginatingDecorator
-end

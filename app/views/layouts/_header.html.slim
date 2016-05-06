@@ -23,23 +23,23 @@ nav.navbar.navbar-default.navbar-fixed-top role='navigation' style='margin-botto
     #navbar.sidebar-nav.navbar-collapse.collapse
       - if user_signed_in?
         ul.nav#side-menu
-          li class=(controller_name == 'projects' ? 'active' : nil)
-            = link_to projects_path do
+          li
+            = link_to tests_path, class: controller_name == 'tests' ? 'active' : nil do
               small.glyphicon.glyphicon-briefcase
               span.title
-                |  Projects
-          li class=(controller_name == 'misc' && action_name == 'tests' ? 'active' : nil)
-            = link_to misc_tests_path do
+                |  Your Tests
+          li
+            = link_to misc_assigned_tests_path, class: controller_name == 'misc' && action_name == 'assigned_tests' ? 'active' : nil do
               small.glyphicon.glyphicon-tasks
               span.title
                 |  Assigned Tests
-          li class=(controller_name == 'test_step_sets' ? 'active' : nil)
-            = link_to test_step_sets_path do
+          li
+            = link_to test_step_sets_path, class: controller_name == 'test_step_sets' ? 'active' : nil do
               small.glyphicon.glyphicon-share
               span.title
                 |  Test Step Sets
-          li class=(controller_name == 'misc' && action_name == 'test_executions' ? 'active' : nil)
-            = link_to misc_test_executions_path do
+          li
+            = link_to misc_test_executions_path, class: controller_name == 'misc' && action_name == 'test_executions' ? 'active' : nil do
               small.glyphicon.glyphicon-film
               span.title
                 |  Recent Test Executions

@@ -10,7 +10,7 @@ RSpec.describe UserTest, type: :model do
     end
     context 'for non user assignment' do
       subject { build :user_test, test: test, assigned_by: nil }
-      it 'does not send a notification' do
+      it 'does not send a notification to the user' do
         expect(UserMailer).not_to receive(:assigned_test)
         subject.save!
       end

@@ -11,6 +11,7 @@ module AutoDecorate
           decorated = "@#{variable}"
 
           next unless instance_variable_defined?(decorated)
+          next if decorated.nil?
           if only.include?(action_name) && !except.include?(action_name)
             instance_variable_set decorated, instance_variable_get(decorated).decorate
           end

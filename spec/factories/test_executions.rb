@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :test_execution do
     user
-    test
+    test_version
     transient do
       test_execution_browsers nil
       test_execution_browser_count 2

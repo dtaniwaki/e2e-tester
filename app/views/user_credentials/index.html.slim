@@ -14,6 +14,7 @@ h2
     = f.button :submit, class: 'btn-success'
   .form-group
     = link_to 'Delete', browserstack_credentials_path, method: :delete, class: 'btn btn-default', data: { confirm: 'Are you sure?' } if @browserstack_credential.persisted?
-  .help-doc
-    | You can get the credentials from 
-    = link_to 'here', doc_url(:browserstack_credential), target: '_blank'
+  - if f.object.new_record?
+    .help-doc
+      | You can get the credentials from 
+      = link_to 'here', doc_url(:browserstack_credential), target: '_blank'

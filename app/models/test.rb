@@ -1,35 +1,35 @@
-class Test < TestStepSet
-  belongs_to :project, inverse_of: :tests
+class Test < ApplicationRecord
+  belongs_to :user, inverse_of: :tests
+  belongs_to :current_test_version, class_name: 'TestVersion', foreign_key: :current_test_version_id
   has_many :user_tests, inverse_of: :test
-  has_many :test_executions, inverse_of: :test
-  has_many :test_browsers, inverse_of: :test
-  has_many :browsers, through: :test_browsers
+  has_many :test_versions, inverse_of: :test
+  has_many :updating_test_versions, -> { where(id: nil) }, class_name: 'TestVersion', inverse_of: :test
 
+  acts_as_paranoid
+
+  after_create :assign_owner!
+
+  scope :latest, -> { order(created_at: :desc) }
   scope :with_user, ->(user) { joins(:user_tests).merge(UserTest.where(user_id: user.is_a?(ActiveRecord::Base) ? user.id : user)) }
 
-  after_create :assign_current_test!
+  delegate :title, :description, to: :current_test_version, allow_nil: true
 
-  validates :title, presence: true
-  validates :browsers, length: { minimum: 1, maximum: 10 }, allow_blank: true
-  validate :validate_same_test
+  accepts_nested_attributes_for :updating_test_versions, allow_destroy: false, reject_if: :curret_test_version_same_as?
 
-  def same_test_step_set?(other)
-    super &&
-      (other.respond_to?(:browser_ids) && browser_ids == other.browser_ids)
-  end
-
-  def executable?
-    browsers.present? && test_steps.present?
+  def updating_test_version
+    updating_test_versions.first || current_test_version || updating_test_versions.build
   end
 
   private
 
-  def validate_same_test
-    errors.add :base, 'The test is the same as the base test' if base_test_step_set && same_test_step_set?(base_test_step_set)
+  def curret_test_version_same_as?(attributes)
+    new_version = TestVersion.new(attributes)
+    new_version.nilify_blanks
+    new_version.base_test_step_set = current_test_version
+    new_version.same_test_step_set?(current_test_version)
   end
 
-  def assign_current_test!
-    project.current_test = self
-    project.save!
+  def assign_owner!
+    user_tests.create!(user: user)
   end
 end

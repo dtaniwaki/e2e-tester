@@ -1,14 +1,14 @@
-- content_for :title, "Test #{@test.title} Test Executions"
+- content_for :title, "Test #{@test_version.title} Test Executions"
 
-= link_to 'Back to Test', test_path(@test)
+= link_to 'Back to Test', test_path(@test_version)
 
 h1.e2e-truncate
   small.glyphicon.glyphicon-tasks
-  = " #{@test.title}"
+  = " #{@test_version.title}"
 
 h2
   .pull-right
-    = link_to 'Retry', test_test_executions_path(@test), class: 'btn btn-primary', method: :post
+    = link_to 'Retry', test_version_test_executions_path(@test_version), class: 'btn btn-primary', method: :post
   small.glyphicon.glyphicon-film
   |  Test Executions
 

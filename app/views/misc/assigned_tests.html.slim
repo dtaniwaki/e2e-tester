@@ -1,0 +1,29 @@
+- content_for :title, 'Assigned Tests'
+
+h1
+  small.glyphicon.glyphicon-tasks
+  |  Assigned Tests
+
+- if @test_versions.present?
+  .panel.panel-default
+    table.table.table-striped
+      tr
+        th Title
+        th Created
+        th Created By
+        th
+      - @test_versions.each do |tv|
+        tr
+          td = link_to tv.title, test_version_position_path(tv)
+          td = link_to tv.created_at.to_s, test_version_position_path(tv)
+          td
+            = gravatar_image_tag(tv.user.email, alt: tv.user.name, gravatar: { size: 20 })
+            |  
+            = tv.user.name
+          td
+            = button_to 'Execute', test_version_test_executions_path(tv), class: 'btn btn-xs btn-primary', method: :post
+  .center-block.text-center
+    = paginate @test_versions
+- else
+  .alert.alert-warning
+    | You don't have any assigned test_version.

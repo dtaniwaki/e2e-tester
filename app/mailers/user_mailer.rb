@@ -1,13 +1,13 @@
 class UserMailer < ApplicationMailer
-  def assigned_test(user, test)
+  def assigned_test_version(user, test_version)
     @user = user
-    @test = test
+    @test_version = test_version
     mail to: @user.email
   end
 
-  def assigned_project(user, project)
+  def assigned_test(user, test)
     @user = user
-    @project = project
+    @test = test
     mail to: @user.email
   end
 

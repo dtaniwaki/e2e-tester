@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :test_step, class: TestStep::None do
     test_step_type 'none'
-    association :test_step_set, factory: :test
+    association :test_step_set, factory: :test_version
     factory :navigation_step, class: TestStep::Navigation do
       test_step_type 'navigation'
       url 'http://www.example.com/'

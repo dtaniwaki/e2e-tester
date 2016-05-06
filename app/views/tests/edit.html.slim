@@ -1,0 +1,10 @@
+- content_for :title, "Edit Test #{@test.title}"
+
+= link_to 'Back to the test', test_path(@test)
+
+h1
+  small.glyphicon.glyphicon-briefcase
+  |  Edit Test
+
+= simple_form_for @test do |f|
+  = render 'form', f: f

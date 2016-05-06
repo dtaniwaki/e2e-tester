@@ -1,52 +1,52 @@
 - content_for :title, "Test #{@test.title}"
 
-- if policy(@project).show?
-  = link_to 'Back to Project', project_path(@project)
-- else
-  = link_to 'Back to Tests', misc_tests_path
-
-- if policy(@project).show?
-  h1.e2e-truncate
-    small.glyphicon.glyphicon-briefcase
-    = " #{@project.title}"
+= link_to 'Back to Tests', tests_path
 
 .block
   .pull-right
     .e2e-left-margin-btn-group
-      - if policy(@project).edit?
-        = link_to 'Edit', edit_project_path(@project, base_test_step_set_id: @test), class: 'btn btn-default'
-      - if policy(Project.new).new?
-        = link_to 'Fork', new_project_path(base_test_step_set_id: @test), class: 'btn btn-default'
-      - if policy(SharedTestStepSet.new).new?
-        = link_to 'Share', new_test_step_set_path(base_test_step_set_id: @test), class: 'btn btn-default'
-  h2.e2e-truncate
-    small.glyphicon.glyphicon-tasks
+      - if policy(@test).edit?
+        = link_to 'Edit', edit_test_path(@test), class: 'btn btn-default'
+      - if policy(@test).destroy?
+        = link_to 'Delete', test_path(@test), class: 'btn btn-default', method: :delete, data: {confirm: 'Are you sure?'}
+
+  h1.e2e-truncate
+    small.glyphicon.glyphicon-briefcase
     = " #{@test.title}"
 
-= render 'shared/test_panel', test: @test
+- if @test.current_test_version
+  = render 'shared/test_version_panel', test_version: @test.current_test_version
 
-- if @test_executions.present?
+- if @test_versions.present?
   div.panel.panel-default
     div.panel-heading
-      small.glyphicon.glyphicon-film
-      |  Executions
+      small.glyphicon.glyphicon-tasks
+      |  Test Versions
     table.table
       tr
-        th ID
-        th State
-        th Executed
-        th Executed By
-      - @test_executions.each do |te|
+        th Number
+        th Base Test
+        th Title
+        th Created
+        th Created By
+        th
+      - @test_versions.each do |tv|
         tr
-          td = link_to te.id, test_execution_path(te)
-          td = bootstrap_status_tag :span, te.state, te.done?, te.failed?
-          td = link_to te.created_at.to_s, test_execution_path(te)
+          td = link_to tv.position, test_version_position_path(tv)
+          td = link_to tv.base_test_step_set.title, polymorphic_test_step_set_path(tv.base_test_step_set) if tv.base_test_step_set.present? && policy(tv.base_test_step_set).show?
+          td = link_to tv.title, test_version_position_path(tv)
+          td = link_to tv.created_at.to_s, test_version_position_path(tv)
           td
-            = gravatar_image_tag(te.user.email, alt: te.user.name, gravatar: { size: 20 })
+            = gravatar_image_tag(tv.user.email, alt: tv.user.name, gravatar: { size: 20 })
             |  
-            = te.user.name
+            = tv.user.name
+          td
+            = button_to 'Execute', test_version_test_executions_path(@test, tv.position), class: 'btn btn-xs btn-primary', method: :post, disabled: !tv.executable?
   div.panel
-    = link_to 'More test executions', test_test_executions_path(@test)
+    = link_to 'More test versions', test_test_versions_path(@test)
+- else
+  .alert.alert-warning
+    | You don't have any test version.
 
 .row
   - if @user_test.present?
@@ -59,7 +59,7 @@
       .panel.panel-default
         .panel-heading
           small.glyphicon.glyphicon-send
-          |  Invite Tester
+          |  Invite Collaborator
         .panel-body
           = form_for [@test, user_test], method: :post, html: {autocomplete: 'off'} do |f|
             .form-group
@@ -69,22 +69,22 @@
             .form-group
               = f.submit t("devise.invitations.new.submit_button"), class: 'btn btn-default'
 
-      - if @user_tests.present?
-        div.panel.panel-default
-          div.panel-heading
-            small.glyphicon.glyphicon-user
-            |  Assigned Testers
-          table.table
+    - if @user_tests.present?
+      div.panel.panel-default
+        div.panel-heading
+          small.glyphicon.glyphicon-user
+          |  Collaborators
+        table.table
+          tr
+            th ID
+            th Name
+          - @user_tests.each do |up|
             tr
-              th ID
-              th Name
-            - @user_tests.each do |ut|
-              tr
-                td = ut.user.id
-                td
-                  = gravatar_image_tag(ut.user.email, alt: ut.user.name, gravatar: { size: 20 })
-                  |  
-                  = ut.user.name
-        div.panel
-          = link_to 'More assigned testers', test_user_tests_path(@test)
+              td = up.user.id
+              td
+                = gravatar_image_tag(up.user.email, alt: up.user.name, gravatar: { size: 20 })
+                |  
+                = up.user.name
+      div.panel
+        = link_to 'More collaborators', test_user_tests_path(@test)
 

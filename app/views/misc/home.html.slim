@@ -2,28 +2,28 @@
 
 h1
   small.glyphicon.glyphicon-briefcase
-  |  Projects
+  |  Tests
 
-- if @projects.present?
+- if @tests.present?
   .panel.panel-default
     table.table.table-striped
       tr
         th ID
         th Title
-      - @projects.each do |p|
+      - @tests.each do |t|
         tr
-          td = link_to p.id, project_path(p)
-          td = link_to p.title, project_path(p)
-  = link_to 'All projects', projects_path
+          td = link_to t.id, test_path(t)
+          td = link_to t.title, test_path(t)
+  = link_to 'All tests', tests_path
 -else
   .alert.alert-warning
-    | You don't have any project.
+    | You don't have any test.
 
 h1
   small.glyphicon.glyphicon-tasks
   |  Assigned Tests
 
-- if @tests.present?
+- if @test_versions.present?
   .panel.panel-default
     table.table.table-striped
       tr
@@ -32,17 +32,17 @@ h1
         th Title
         th Created At
         th Created By
-      - @tests.each do |t|
+      - @test_versions.each do |tv|
         tr
-          td = link_to t.id, test_path(t)
-          td = link_to t.test_step_set_id, polymorphic_test_step_set_path(t.base_test_step_set) if t.base_test_step_set.present? && policy(t.base_test_step_set).show?
-          td = link_to t.title, test_path(t)
-          td = link_to t.created_at.to_s, test_path(t)
+          td = link_to tv.id, test_version_position_path(tv)
+          td = link_to tv.base_test_step_set_id, polymorphic_test_step_set_path(tv.base_test_step_set) if tv.base_test_step_set.present? && policy(tv.base_test_step_set).show?
+          td = link_to tv.title, test_version_position_path(tv)
+          td = link_to tv.created_at.to_s, test_version_position_path(tv)
           td
-            = gravatar_image_tag(t.user.email, alt: t.user.name, gravatar: { size: 20 })
+            = gravatar_image_tag(tv.user.email, alt: tv.user.name, gravatar: { size: 20 })
             |  
-            = t.user.name
-  = link_to 'All assigned tests', misc_tests_path
+            = tv.user.name
+  = link_to 'All assigned tests', misc_assigned_tests_path
 -else
   .alert.alert-warning
-    | You don't have any assigned test.
+    | You don't have any assigned test version.

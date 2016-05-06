@@ -1,0 +1,21 @@
+= link_to "Back to the test_version", test_version_position_path(@test_version)
+
+h1
+  small.glyphicon.glyphicon-user
+  |  Assigned Testers
+
+- if @user_test_versions.present?
+  div.panel.panel-default
+    table.table
+      tr
+        th ID
+        th Name
+      - @user_test_versions.each do |ut|
+        tr
+          td = ut.user.id
+          td
+            = gravatar_image_tag(ut.user.email, alt: ut.user.name, gravatar: { size: 20 })
+            |  
+            = ut.user.name
+  .center-block.text-center
+    = paginate @user_test_versions

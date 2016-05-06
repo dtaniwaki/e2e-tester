@@ -3,11 +3,11 @@ class UserTestsController < BaseController
     @test = Test.find(params[:test_id])
     authorize @test, :show?
     @user = User.find_or_invite_by({ email: params[:email] }, current_user)
-
     if @user.valid?
       @user_test = @test.user_tests.with_user(@user).first_or_initialize
       authorize @user_test
       @user_test.assigned_by = current_user
+
       if @user_test.save
         flash[:notice] = 'Successfully invited the user'
       else

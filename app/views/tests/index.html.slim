@@ -1,38 +1,23 @@
-- content_for :title, "Project #{@project.title} Tests"
+- content_for :title, 'Tests'
 
-= link_to 'Back to project', project_path(@project)
+.block
+  .pull-right
+    = link_to 'New Test', new_test_path, class: 'btn btn-success'
 
-- if policy(@project).show?
-  h1.e2e-truncate
+  h1
     small.glyphicon.glyphicon-briefcase
-    = " #{@project.title}"
-
-  h2
-    small.glyphicon.glyphicon-tasks
-    |  Tests
+    |  Your Tests
 
 - if @tests.present?
   .panel.panel-default
     table.table.table-striped
       tr
         th ID
-        th Parent Test
         th Title
-        th Created At
-        th Created By
-        th
-      - @tests.each do |t|
+      - @tests.each do |p|
         tr
-          td = link_to t.id, test_path(t)
-          td = link_to t.base_test_step_set.title, polymorphic_test_step_set_path(t.base_test_step_set) if t.base_test_step_set.present? && policy(t.base_test_step_set).show?
-          td = link_to t.title, test_path(t)
-          td = link_to t.created_at.to_s, test_path(t)
-          td
-            = gravatar_image_tag(t.user.email, alt: t.user.name, gravatar: { size: 20 })
-            |  
-            = t.user.name
-          td
-            = button_to 'Execute', test_test_executions_path(t), class: 'btn btn-xs btn-primary', method: :post, disabled: !t.executable?
+          td = link_to p.id, test_path(p)
+          td = link_to p.title, test_path(p)
   .center-block.text-center
     = paginate @tests
 - else
