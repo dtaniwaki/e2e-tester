@@ -61,6 +61,7 @@ gem 'cocoon', '~> 1.2.9'
 gem 'nilify_blanks', '~> 1.2.1'
 gem 'bootstrap-kaminari-views', '~> 0.0.5'
 gem 'bower-rails', '~> 0.10.0'
+gem 'hashids', '~> 1.0.2'
 
 ################################
 # redis-rails Rails 5 support
