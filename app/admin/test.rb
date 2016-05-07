@@ -1,4 +1,6 @@
 ActiveAdmin.register Test do
+  menu parent: 'Test'
+
   scope :with_deleted
   scope :only_deleted
 

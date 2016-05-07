@@ -1,4 +1,6 @@
 ActiveAdmin.register TestVersion do
+  menu parent: 'Test'
+
   permit_params
 
   index do

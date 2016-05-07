@@ -1,4 +1,6 @@
 ActiveAdmin.register BrowserSet do
+  menu parent: 'Browser'
+
   permit_params :name, browser_ids: []
 
   form do |f|
