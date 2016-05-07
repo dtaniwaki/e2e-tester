@@ -1,4 +1,4 @@
-unless User.where(email: 'foo@example.com').exists?
+unless User.first
   User.create!(name: 'Foo', email: 'foo@example.com', password: '11111111', password_confirmation: '11111111', confirmed_at: DateTime.now)
 end
 
@@ -18,4 +18,8 @@ if user = User.first
   if test_step_set.new_record?
     test_step_set.update_attributes!(user: user, test_steps: [TestStep::None.new])
   end
+end
+
+unless AdminUser.first
+  AdminUser.create!(name: 'Foo', email: 'foo@example.com', password: '11111111', password_confirmation: '11111111')
 end

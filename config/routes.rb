@@ -1,18 +1,11 @@
 Rails.application.routes.draw do
-  ActiveAdmin.routes(self)
-  if Settings.service.admin
+  if Settings.service.admin || Settings.service.sidekiq
     scope :admin do
-      devise_for :admin_users, controllers: { omniauth_callbacks: 'admin_users/omniauth_callbacks' }
-      as :admin_user do
-        get 'sign_in', to: redirect(status: 302) { |_params, req|
-          Rails.application.routes.url_helpers.admin_user_google_oauth2_omniauth_authorize_path(origin: req.referer)
-        }, as: :new_admin_user_session
-        delete 'sign_out', to: 'devise/sessions#destroy', as: :destroy_admin_user_session
-      end
+      devise_for :admin_users, ActiveAdmin::Devise.config
     end
   end
 
-  mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
+  ActiveAdmin.routes(self) if Settings.service.admin
 
   authenticate :admin_user do
     if Settings.service.sidekiq
@@ -20,6 +13,8 @@ Rails.application.routes.draw do
       mount Sidekiq::Web => '/admin/sidekiq_web'
     end
   end
+
+  mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
 
   devise_for :users, controllers: {
     sessions: 'users/sessions',
