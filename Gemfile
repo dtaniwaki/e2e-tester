@@ -62,6 +62,7 @@ gem 'nilify_blanks', '~> 1.2.1'
 gem 'bootstrap-kaminari-views', '~> 0.0.5'
 gem 'bower-rails', '~> 0.10.0'
 gem 'acts_as_hashids', '~> 0.1.2'
+gem 'enum_help', '~> 0.0.15'
 
 ################################
 # redis-rails Rails 5 support
