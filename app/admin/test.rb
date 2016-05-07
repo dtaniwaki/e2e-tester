@@ -5,6 +5,8 @@ ActiveAdmin.register Test do
   scope :with_deleted
   scope :only_deleted
 
+  actions :all, except: [:new]
+
   controller do
     def scoped_collection
       super.includes :user, :current_test_version

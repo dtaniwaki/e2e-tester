@@ -3,6 +3,8 @@ ActiveAdmin.register TestVersion do
 
   permit_params
 
+  actions :all, except: [:new]
+
   controller do
     def scoped_collection
       super.includes :user, :test, :base_test_step_set
