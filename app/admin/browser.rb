@@ -1,6 +1,7 @@
 ActiveAdmin.register Browser::Base, as: 'browser' do
   menu parent: 'Browser'
 
+  scope :all, default: true
   scope :active
   scope :inactive
 
