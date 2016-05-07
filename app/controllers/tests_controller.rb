@@ -66,7 +66,7 @@ class TestsController < BaseController
   end
 
   def destroy
-    @test = current_user.tests.find(params[:id])
+    @test = Test.find(params[:id])
     authorize @test
 
     if @test.destroy
