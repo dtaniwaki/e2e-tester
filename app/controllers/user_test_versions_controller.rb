@@ -16,7 +16,7 @@ class UserTestVersionsController < BaseController
     else
       flash[:alert] = 'Failed to invite the user'
     end
-    redirect_to request.referer || root_path
+    redirect_to test_version_position_path(@test_version)
   end
 
   def update
@@ -28,7 +28,7 @@ class UserTestVersionsController < BaseController
     else
       flash[:alert] = 'Failed to update the user test_version'
     end
-    redirect_to request.referer || root_path
+    redirect_to test_version_position_path(@user_test_version.test_version)
   end
 
   def index
