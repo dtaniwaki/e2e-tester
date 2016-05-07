@@ -2,8 +2,6 @@ application:
   url_options:
     host: <%= ENV['SERVICE_HOST'] || 'TBA' %>
     protocol: <%= ENV['SERVICE_PROTOCOL'] || 'http' %>
-admin:
-  email_format: <%= ENV['ADMIN_EMAIL_FORMAT'] || 'TBA' %>
 omniauth:
   google:
     app_id: <%= ENV['OMNIAUTH_GOOGLE_APP_ID'] || 'TBA' %>
