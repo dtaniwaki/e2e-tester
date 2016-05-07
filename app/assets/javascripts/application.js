@@ -17,6 +17,7 @@
 //= require bootstrap-sprockets
 //= require metisMenu/dist/metisMenu.js
 //= require startbootstrap-sb-admin-2/dist/js/sb-admin-2
+//= require pwstrength-bootstrap/dist/pwstrength-bootstrap
 //= require cocoon
 //= require ./images
 //= require ./global

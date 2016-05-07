@@ -8,7 +8,7 @@ h2 Sign up
   = f.error_notification
   = f.input :name, input_html: { autocomplete: 'off' }, required: true
   = f.input :email, input_html: { autocomplete: 'off' }
-  = f.input :password, hint: password_hint, input_html: { autocomplete: 'off' }, required: true
+  = f.input :password, hint: password_hint, input_html: { autocomplete: 'off', data: { 'password-strength': 8 } }, required: true
   = f.input :password_confirmation, input_html: { autocomplete: 'off' }, required: true
   = f.button :submit, "Sign up"
 
