@@ -18,10 +18,12 @@ h1
             |  
             = utv.user.name
           td
-            time datetime=utv.created_at.iso8601 data-timeago='' = utv.created_at.to_s
+            - if utv.assigned_by.present?
+              time datetime=utv.created_at.iso8601 data-timeago='' = utv.created_at.to_s
           td
-            = gravatar_image_tag(utv.assigned_by.email, alt: utv.assigned_by.name, gravatar: { size: 20 })
-            |  
-            = utv.assigned_by.name
+            - if utv.assigned_by.present?
+              = gravatar_image_tag(utv.assigned_by.email, alt: utv.assigned_by.name, gravatar: { size: 20 })
+              |  
+              = utv.assigned_by.name
   .center-block.text-center
     = paginate @user_test_versions
