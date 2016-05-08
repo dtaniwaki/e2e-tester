@@ -28,7 +28,11 @@ class User < ApplicationRecord
   validates :email, :encrypted_password, presence: true
   validates :name, :username, presence: true, if: -> (u) { u.accepted_or_not_invited? || u.accepting_invitation? }
   validates :name, length: { minimum: 1, maximum: 100 }, allow_blank: true
-  validates :username, format: { with: /\A[a-zA-Z0-9_\-]+\Z/ }, length: { minimum: 1, maximum: 20 }, allow_blank: true
+  validates :username,
+            format: { with: /\A([a-zA-Z0-9_][a-zA-Z0-9_\-\.]*[a-zA-Z0-9_]|[a-zA-Z0-9_])\Z/ },
+            length: { minimum: 1, maximum: 20 },
+            uniqueness: { case_sensitive: false },
+            allow_blank: true
 
   def self.find_or_invite_by(params, user)
     user = User.find_by(params)
