@@ -8,20 +8,16 @@ h1
   .panel.panel-default
     table.table.table-striped
       tr
-        th ID
+        th Title
         th State
         th Executed At
-        th Executed By
         th
       - @test_executions.each do |te|
         tr
-          td = link_to te.id, test_execution_path(te)
-          td = bootstrap_status_tag :span, te.state, te.done?, te.failed?
-          td = link_to te.created_at.to_s, test_execution_path(te)
-          td
-            = gravatar_image_tag(te.user.email, alt: te.user.name, gravatar: { size: 20 })
-            |  
-            = te.user.name
+          td = link_to te.test_version.title, test_execution_path(te)
+          td = bootstrap_status_tag :span, te.state_i18n, te.done?, te.failed?
+          td = link_to test_execution_path(te) do
+            time datetime=te.created_at.iso8601 data-timeago='' = te.created_at.to_s
           td
             = link_to 'Retry', test_version_test_executions_path(te.test_version), class: 'btn btn-xs btn-primary', method: :post
 

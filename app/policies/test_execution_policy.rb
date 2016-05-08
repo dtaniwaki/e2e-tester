@@ -17,4 +17,14 @@ class TestExecutionPolicy < ApplicationPolicy
     @record.user == @user ||
       @record.test.user_tests.with_user(@user).exists?
   end
+
+  class Scope < Scope
+    def resolve
+      if @context && @user.user_tests.with_test(@context.test).exists?
+        scope
+      else
+        scope.with_user(@user)
+      end
+    end
+  end
 end

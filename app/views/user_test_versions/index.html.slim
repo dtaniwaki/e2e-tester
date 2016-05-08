@@ -8,14 +8,22 @@ h1
   div.panel.panel-default
     table.table
       tr
-        th ID
         th Name
-      - @user_test_versions.each do |ut|
+        th Assigned At
+        th Assigned By
+      - @user_test_versions.each do |utv|
         tr
-          td = ut.user.id
           td
-            = gravatar_image_tag(ut.user.email, alt: ut.user.name, gravatar: { size: 20 })
+            = gravatar_image_tag(utv.user.email, alt: utv.user.name, gravatar: { size: 20 })
             |  
-            = ut.user.name
+            = utv.user.name
+          td
+            - if utv.assigned_by.present?
+              time datetime=utv.created_at.iso8601 data-timeago='' = utv.created_at.to_s
+          td
+            - if utv.assigned_by.present?
+              = gravatar_image_tag(utv.assigned_by.email, alt: utv.assigned_by.name, gravatar: { size: 20 })
+              |  
+              = utv.assigned_by.name
   .center-block.text-center
     = paginate @user_test_versions

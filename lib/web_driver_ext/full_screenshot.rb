@@ -2,7 +2,7 @@ module WebDriverExt
   module FullScreenshot
     def take_full_screenshot(driver)
       tempfiles = []
-      MiniMagick.debug = true
+      MiniMagick.logger.level = Logger::DEBUG
       # Webdriver doesn't support full screenshot, so implement it by myself
       append_file_paths = []
       screen_width = driver.execute_script('return window.screen.width').to_i

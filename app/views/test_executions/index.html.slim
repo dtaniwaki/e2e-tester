@@ -1,6 +1,6 @@
 - content_for :title, "Test #{@test_version.title} Test Executions"
 
-= link_to 'Back to Test', test_path(@test_version)
+= link_to 'Back to Test', test_path(@test_version.test)
 
 h1.e2e-truncate
   small.glyphicon.glyphicon-tasks
@@ -16,15 +16,14 @@ h2
   .panel.panel-default
     table.table.table-striped
       tr
-        th ID
         th State
         th Executed At
         th Executed By
       - @test_executions.each do |te|
         tr
-          td = link_to te.id, test_execution_path(te)
-          td = bootstrap_status_tag :span, te.state, te.done?, te.failed?
-          td = link_to te.created_at.to_s, test_execution_path(te)
+          td = bootstrap_status_tag :span, te.state_i18n, te.done?, te.failed?
+          td = link_to test_execution_path(te) do
+            time datetime=te.created_at.iso8601 data-timeago='' = te.created_at.to_s
           td
             = gravatar_image_tag(te.user.email, alt: te.user.name, gravatar: { size: 20 })
             |  
