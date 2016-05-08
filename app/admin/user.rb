@@ -1,5 +1,8 @@
 ActiveAdmin.register User do
-  permit_params :email, :password, :password_confirmation, :confirmation_token, :confirmed_at, :reset_password_token, :reset_password_setn_at, :unlock_token, :unlocked_at
+  permit_params :username, :name, :email, :password, :password_confirmation,
+                :confirmation_token, :confirmed_at,
+                :reset_password_token, :reset_password_setn_at,
+                :unlock_token, :unlocked_at
 
   scope :all, default: true
   scope :invitation_accepted
@@ -10,6 +13,8 @@ ActiveAdmin.register User do
   index do
     selectable_column
     id_column
+    column :username
+    column :name
     column :email
     column :created_at
     column :updated_at
