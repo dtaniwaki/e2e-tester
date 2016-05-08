@@ -1,5 +1,5 @@
 unless User.first
-  User.create!(name: 'Foo', email: 'foo@example.com', password: '11111111', password_confirmation: '11111111', confirmed_at: DateTime.now)
+  User.create!(username: 'foo', name: 'Foo', email: 'foo@example.com', password: '11111111', password_confirmation: '11111111', confirmed_at: DateTime.now)
 end
 
 Browser::Local.update_all!
