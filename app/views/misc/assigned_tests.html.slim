@@ -15,7 +15,8 @@ h1
       - @test_versions.each do |tv|
         tr
           td = link_to tv.title, test_version_position_path(tv)
-          td = link_to tv.created_at.to_s, test_version_position_path(tv)
+          td = link_to test_version_position_path(tv) do
+            time datetime=tv.created_at.iso8601 data-timeago='' = tv.created_at.to_s
           td
             = gravatar_image_tag(tv.user.email, alt: tv.user.name, gravatar: { size: 20 })
             |  

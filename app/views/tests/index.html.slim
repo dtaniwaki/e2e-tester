@@ -16,7 +16,7 @@
         th Title
       - @tests.each do |p|
         tr
-          td = link_to p.id, test_path(p)
+          td = link_to p.to_param, test_path(p)
           td = link_to p.title, test_path(p)
   .center-block.text-center
     = paginate @tests

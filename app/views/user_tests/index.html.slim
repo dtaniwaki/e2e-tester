@@ -12,7 +12,7 @@ h1
         th Name
       - @user_tests.each do |up|
         tr
-          td = up.user.id
+          td = up.user.to_param
           td
             = gravatar_image_tag(up.user.email, alt: up.user.name, gravatar: { size: 20 })
             |  
