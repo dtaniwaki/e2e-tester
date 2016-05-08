@@ -1,6 +1,6 @@
 - content_for :title, "Test #{@test_version.title} Test Executions"
 
-= link_to 'Back to Test', test_path(@test_version)
+= link_to 'Back to Test', test_path(@test_version.test)
 
 h1.e2e-truncate
   small.glyphicon.glyphicon-tasks
