@@ -42,7 +42,7 @@
             |  
             = tv.user.name
           td
-            = button_to 'Execute', test_version_test_executions_path(@test, tv.position), class: 'btn btn-xs btn-primary', method: :post, disabled: !tv.executable?
+            = button_to 'Execute', test_version_test_executions_path(@test.test_version), class: 'btn btn-xs btn-primary', method: :post, disabled: !tv.executable?
   div.panel
     = link_to 'More test versions', test_test_versions_path(@test)
 - else
