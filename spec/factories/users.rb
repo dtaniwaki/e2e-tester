@@ -1,6 +1,7 @@
 FactoryGirl.define do
   factory :user do
-    name 'username'
+    sequence(:username) { |n| "dtaniwaki-#{n}" }
+    name 'Daisuke Taniwaki'
     sequence(:email) { |n| "foo-#{n}@example.com" }
     password Devise.friendly_token(8)
     password_confirmation { password }
