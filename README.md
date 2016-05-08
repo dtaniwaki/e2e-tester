@@ -64,25 +64,13 @@ bundle exec rake browser:update:browserstack
 
 ### ActiveAdmin
 
-To use [ActiveAdmin](https://github.com/activeadmin/activeadmin) for this application, you need to set up Google Oauth2 settings.
+To use [ActiveAdmin](https://github.com/activeadmin/activeadmin) for this application, you need to create admin user to sign in.
 
-As environment variables,
-
-```bash
-OMNIAUTH_GOOGLE_APP_ID=foo
-OMNIAUTH_GOOGLE_APP_SECRET=bar
+```rb
+AdminUser.create!(name: 'Your Name', email: 'foo@example.com', password: 'password', password_confirmation: 'password')
 ```
 
-Or in `config/settings.local.yml`,
-
-```
-omniauth:
-  google:
-    app_id: foo
-    app_secret: bar
-```
-
-Then, open the admin console in your browser.
+Then, open the admin console in your browser and sign in as the user.
 
 ```bash
 open http://localhost:3000/admin/
