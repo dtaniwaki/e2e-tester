@@ -23,26 +23,24 @@ h1
   small.glyphicon.glyphicon-tasks
   |  Assigned Tests
 
-- if @test_versions.present?
+- if @user_test_versions.present?
   .panel.panel-default
     table.table.table-striped
       tr
         th ID
-        th Parent
         th Title
-        th Created At
-        th Created By
-      - @test_versions.each do |tv|
+        th Assigned At
+        th Assigned By
+      - @user_test_versions.each do |utv|
         tr
-          td = link_to tv.to_param, test_version_position_path(tv)
-          td = link_to tv.base_test_step_set_id, polymorphic_test_step_set_path(tv.base_test_step_set) if tv.base_test_step_set.present? && policy(tv.base_test_step_set).show?
-          td = link_to tv.title, test_version_position_path(tv)
-          td = link_to test_version_position_path(tv) do
-            time datetime=tv.created_at.iso8601 data-timeago='' = tv.created_at.to_s
+          td = link_to utv.test_version.to_param, test_version_position_path(utv.test_version)
+          td = link_to utv.test_version.title, test_version_position_path(utv.test_version)
+          td = link_to test_version_position_path(utv.test_version) do
+            time datetime=utv.created_at.iso8601 data-timeago='' = utv.created_at.to_s
           td
-            = gravatar_image_tag(tv.user.email, alt: tv.user.name, gravatar: { size: 20 })
+            = gravatar_image_tag(utv.assigned_by.email, alt: utv.assigned_by.name, gravatar: { size: 20 })
             |  
-            = tv.user.name
+            = utv.assigned_by.name
   = link_to 'All assigned tests', misc_assigned_tests_path
 -else
   .alert.alert-warning

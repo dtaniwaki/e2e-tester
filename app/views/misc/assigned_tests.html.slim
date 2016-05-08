@@ -4,27 +4,27 @@ h1
   small.glyphicon.glyphicon-tasks
   |  Assigned Tests
 
-- if @test_versions.present?
+- if @user_test_versions.present?
   .panel.panel-default
     table.table.table-striped
       tr
         th Title
-        th Created
-        th Created By
+        th Assigned At
+        th Assigned By
         th
-      - @test_versions.each do |tv|
+      - @user_test_versions.each do |utv|
         tr
-          td = link_to tv.title, test_version_position_path(tv)
-          td = link_to test_version_position_path(tv) do
-            time datetime=tv.created_at.iso8601 data-timeago='' = tv.created_at.to_s
+          td = link_to utv.test_version.title, test_version_position_path(utv.test_version)
+          td = link_to test_version_position_path(utv.test_version) do
+            time datetime=utv.created_at.iso8601 data-timeago='' = utv.created_at.to_s
           td
-            = gravatar_image_tag(tv.user.email, alt: tv.user.name, gravatar: { size: 20 })
+            = gravatar_image_tag(utv.assigned_by.email, alt: utv.assigned_by.name, gravatar: { size: 20 })
             |  
-            = tv.user.name
+            = utv.assigned_by.name
           td
-            = button_to 'Execute', test_version_test_executions_path(tv), class: 'btn btn-xs btn-primary', method: :post
+            = button_to 'Execute', test_version_test_executions_path(utv.test_version), class: 'btn btn-xs btn-primary', method: :post
   .center-block.text-center
-    = paginate @test_versions
+    = paginate @user_test_versions
 - else
   .alert.alert-warning
     | You don't have any assigned test_version.

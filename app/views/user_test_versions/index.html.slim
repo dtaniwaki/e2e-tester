@@ -10,12 +10,20 @@ h1
       tr
         th ID
         th Name
-      - @user_test_versions.each do |ut|
+        th Assigned At
+        th Assigned By
+      - @user_test_versions.each do |utv|
         tr
-          td = ut.user.to_param
+          td = utv.user.to_param
           td
-            = gravatar_image_tag(ut.user.email, alt: ut.user.name, gravatar: { size: 20 })
+            = gravatar_image_tag(utv.user.email, alt: utv.user.name, gravatar: { size: 20 })
             |  
-            = ut.user.name
+            = utv.user.name
+          td
+            time datetime=utv.created_at.iso8601 data-timeago='' = utv.created_at.to_s
+          td
+            = gravatar_image_tag(utv.assigned_by.email, alt: utv.assigned_by.name, gravatar: { size: 20 })
+            |  
+            = utv.assigned_by.name
   .center-block.text-center
     = paginate @user_test_versions

@@ -5,6 +5,7 @@ class UserTestVersion < ApplicationRecord
   has_many :user_test_version_variables, inverse_of: :user_test_version
   has_one :test, through: :test_version
 
+  scope :latest, -> { order(created_at: :desc) }
   scope :with_user, ->(user) { where(user_id: user.is_a?(ActiveRecord::Base) ? user.id : user) }
   scope :with_test_version, ->(test_version) { where(test_version_id: test_version.is_a?(ActiveRecord::Base) ? test_version.id : test_version) }
 
