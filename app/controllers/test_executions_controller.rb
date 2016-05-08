@@ -5,11 +5,7 @@ class TestExecutionsController < BaseController
     @test_version = TestVersion.find(params[:test_version_id])
     authorize @test_version, :show?
 
-    @test_executions = if current_user.user_tests.with_test(@test_version.test).exists?
-      policy_scope(@test_version.test_executions).eager_load(:user).latest.page(params[:page]).per(20)
-    else
-      policy_scope(@test_version.test_executions.with_user(current_user)).eager_load(:user).latest.page(params[:page]).per(20)
-    end
+    @test_executions = policy_scope(@test_version.test_executions, @test_version).eager_load(:user).latest.page(params[:page]).per(20)
   end
 
   def show

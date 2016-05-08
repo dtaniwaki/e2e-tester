@@ -39,11 +39,12 @@ class ApplicationPolicy
   end
 
   class Scope
-    attr_reader :user, :scope
+    attr_reader :user, :scope, :context
 
-    def initialize(user = nil, scope = nil)
+    def initialize(user = nil, scope = nil, context = nil)
       @user = user
       @scope = scope
+      @context = context
     end
 
     def resolve

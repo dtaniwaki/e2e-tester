@@ -13,11 +13,7 @@ class TestVersionsController < BaseController
     authorize @test_version
     @test = @test_version.test
 
-    if current_user.user_tests.with_test(@test_version.test).exists?
-      @test_executions = @test_version.test_executions.eager_load(:user).latest.limit(10)
-    elsif current_user.user_test_versions.with_test_version(@test_version).exists?
-      @test_executions = current_user.test_executions.with_test_version(@test_version).eager_load(:user).latest.limit(10)
-    end
+    @test_executions = policy_scope(@test_version.test_executions, @test_version).eager_load(:user).latest.limit(10)
     if current_user.user_test_versions.with_test_version(@test_version).exists?
       @user_test_version = @test_version.user_test_versions.with_user(current_user).eager_load(:user_test_version_variables).first!
     end
