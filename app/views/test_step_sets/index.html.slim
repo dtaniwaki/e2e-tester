@@ -12,15 +12,13 @@
   .panel.panel-default
     table.table.table-striped
       tr
-        th ID
-        th Parent Title
+        th Base Step Set
         th Title
         th Created At
         th Created By
         th
       - @test_step_sets.each do |tv|
         tr
-          td = link_to tv.to_param, test_step_set_path(tv)
           td = link_to tv.base_test_step_set.title, polymorphic_test_step_set_path(tv.base_test_step_set) if tv.base_test_step_set.present? && policy(tv.base_test_step_set).show?
           td = link_to tv.title, test_step_set_path(tv)
           td = link_to test_step_set_path(tv) do

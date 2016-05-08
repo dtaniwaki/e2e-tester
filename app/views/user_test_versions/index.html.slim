@@ -8,13 +8,11 @@ h1
   div.panel.panel-default
     table.table
       tr
-        th ID
         th Name
         th Assigned At
         th Assigned By
       - @user_test_versions.each do |utv|
         tr
-          td = utv.user.to_param
           td
             = gravatar_image_tag(utv.user.email, alt: utv.user.name, gravatar: { size: 20 })
             |  

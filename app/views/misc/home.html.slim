@@ -8,11 +8,9 @@ h1
   .panel.panel-default
     table.table.table-striped
       tr
-        th ID
         th Title
       - @tests.each do |t|
         tr
-          td = link_to t.to_param, test_path(t)
           td = link_to t.title, test_path(t)
   = link_to 'All your tests', tests_path
 -else
@@ -27,13 +25,11 @@ h1
   .panel.panel-default
     table.table.table-striped
       tr
-        th ID
         th Title
         th Assigned At
         th Assigned By
       - @user_test_versions.each do |utv|
         tr
-          td = link_to utv.test_version.to_param, test_version_position_path(utv.test_version)
           td = link_to utv.test_version.title, test_version_position_path(utv.test_version)
           td = link_to test_version_position_path(utv.test_version) do
             time datetime=utv.created_at.iso8601 data-timeago='' = utv.created_at.to_s

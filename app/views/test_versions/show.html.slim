@@ -32,13 +32,11 @@
       |  Executions
     table.table
       tr
-        th ID
         th State
         th Executed At
         th Executed By
       - @test_executions.each do |te|
         tr
-          td = link_to te.to_param, test_execution_path(te)
           td = bootstrap_status_tag :span, te.state_i18n, te.done?, te.failed?
           td = link_to test_execution_path(te) do
             time datetime=te.created_at.iso8601 data-timeago='' = te.created_at.to_s
@@ -77,11 +75,9 @@
             |  Assigned Testers
           table.table
             tr
-              th ID
               th Name
             - @user_test_versions.each do |ut|
               tr
-                td = ut.user.to_param
                 td
                   = gravatar_image_tag(ut.user.email, alt: ut.user.name, gravatar: { size: 20 })
                   |  
