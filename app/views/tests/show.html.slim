@@ -4,7 +4,7 @@
 
 .block
   .pull-right
-    .e2e-left-margin-btn-group
+    .e2e-margined-btn-group
       - if policy(@test).edit?
         = link_to 'Edit', edit_test_path(@test), class: 'btn btn-default'
       - if policy(@test).destroy?

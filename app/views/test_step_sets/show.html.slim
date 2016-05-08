@@ -4,7 +4,7 @@
 
 .block
   .pull-right
-    .e2e-left-margin-btn-group
+    .e2e-margined-btn-group
       - if policy(Test.new).new?
         = link_to 'Create Test', new_test_path(base_test_step_set_id: @test_step_set), class: 'btn btn-success'
       - if policy(SharedTestStepSet.new).new?
