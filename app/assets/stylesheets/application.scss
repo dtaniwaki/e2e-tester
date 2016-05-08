@@ -44,11 +44,21 @@
   text-overflow: ellipsis;
 }
 
-.e2e-left-margin-btn-group {
+.e2e-margined-btn-group {
   .btn {
-    margin-left: 5px;
+    margin-right: 5px;
   }
-  .btn:first {
+  .btn:last-child {
+    margin-left: 0px;
+  }
+}
+
+.e2e-margined-label-group {
+  .label {
+    margin-right: 5px;
+    display: inline-block; // label is styled as inline so this is a workaround until bootstrap 4
+  }
+  .label:first-child {
     margin-left: 0px;
   }
 }
