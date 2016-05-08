@@ -32,12 +32,6 @@
   padding: 0 10px;
 }
 
-// For errors with form_for
-.field_with_errors {
-    @extend .form-group;
-    @extend .has-error;
-}
-
 .e2e-truncate {
   white-space: nowrap;
   overflow: hidden;
