@@ -24,7 +24,7 @@ div
           = @test_step_execution.test_step.to_line
 
     div
-      = bootstrap_status_tag :span, @test_step_execution.state, @test_step_execution.done?, @test_step_execution.failed?
+      = bootstrap_status_tag :span, @test_step_execution.state_i18n, @test_step_execution.done?, @test_step_execution.failed?
 
     - if @test_step_execution.failed?
       div.alert.alert-error
