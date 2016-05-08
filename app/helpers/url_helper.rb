@@ -15,6 +15,10 @@ module UrlHelper
     test_test_version_path(test_version.test, test_version.position, options)
   end
 
+  def test_version_position_url(test_version, options = {})
+    test_test_version_url(test_version.test, test_version.position, options)
+  end
+
   def doc_url(type)
     # TODO: Make it i18n
     case type

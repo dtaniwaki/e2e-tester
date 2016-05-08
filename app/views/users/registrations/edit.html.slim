@@ -8,7 +8,7 @@ h2 = "Edit #{resource_name.to_s.humanize}"
 
 = simple_form_for resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, autocomplete: 'off' } do |f|
   = f.error_notification
-  = f.input :username, input_html: { autocomplete: 'off' }, required: true
+  = f.input :username, input_html: { autocomplete: 'off' }, required: true, hint: %|Username can contain only letters, digits, '_', '-' and '.'. Cannot start or end with '-' and '.'.|
   = f.input :name, input_html: { autocomplete: 'off' }, required: true
   = f.input :email, hint: email_hint, input_html: { autocomplete: 'off' }
   = f.input :password, hint: password_hint, input_html: { autocomplete: 'off', data: { 'password-strength': 8 } }

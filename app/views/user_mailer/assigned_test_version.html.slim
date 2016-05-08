@@ -1,4 +1,4 @@
 p = "Hello #{@user.name}"
 p
-  | You are invited to the test
-  = link_to @test_version.title, test_url(@test_version)
+  | You are assigned to the test 
+  = link_to @test_version.title, test_version_position_url(@test_version)
