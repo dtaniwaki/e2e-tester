@@ -19,7 +19,3 @@ if user = User.first
     test_step_set.update_attributes!(user: user, test_steps: [TestStep::None.new])
   end
 end
-
-unless AdminUser.first
-  AdminUser.create!(name: 'Foo', email: 'foo@example.com', password: '11111111', password_confirmation: '11111111')
-end
