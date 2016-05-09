@@ -18,6 +18,8 @@ nav.navbar.navbar-default.navbar-fixed-top role='navigation' style='margin-botto
           li = link_to 'Edit profile', edit_user_registration_path
           li = link_to 'Invite User', new_user_invitation_path
           li = link_to 'Credentials', user_credentials_path
+          li = link_to 'Integrations', user_integrations_path
+          li.divider role="separator"
           li = link_to 'Sign Out', destroy_user_session_path, method: :delete
   .navbar-default.sidebar role='navigation'
     #navbar.sidebar-nav.navbar-collapse.collapse
