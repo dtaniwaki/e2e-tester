@@ -2,7 +2,8 @@ module TestStep
   class Navigation < Base
     using Refinements::ReplaceVariables
 
-    validates :url, length: { minimum: 1, maximum: 255 }, url: true, presence: true
+    validates :url, length: { minimum: 1, maximum: 255 }, presence: true
+    validates :url, url: true, unless: -> (ts) { ts.url =~ /\A{[^}]+}\Z/ }
 
     serialized_attribute :url
 
