@@ -1,0 +1,32 @@
+- content_for :title, 'Slack Integration'
+
+= link_to 'Back to integrations', user_integrations_path
+
+h1
+  = image_tag image_path("integrations/slack.png"), width: 32, height: 32
+  |  Slack Integration
+
+.block
+  .pull-right
+    .e2e-margined-btn-group
+      - if policy(@integration).edit?
+        = link_to 'Edit', edit_slack_integration_path(@integration), class: 'btn btn-default'
+      - if policy(@integration).destroy?
+        = link_to 'Delete', slack_integration_path(@integration), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-default'
+  h2.e2e-truncate
+    = @integration.name
+
+.block
+  .row
+    .col-lg-3.text-right
+      | Webhook URL
+    .col-lg-9
+      = @integration.webhook_url
+  - if @integration.last_error.present?
+    .row.text-danger
+      .col-lg-3.text-right
+        .glyphicon.glyphicon-exclamation-sign
+        |  Last Error
+      .col-lg-9
+        code = @integration.last_error
+

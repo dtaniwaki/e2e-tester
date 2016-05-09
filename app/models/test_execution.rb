@@ -12,7 +12,7 @@ class TestExecution < ApplicationRecord
 
   enum state: { initial: 0, running: 1, done: 2, failed: 3 }
 
-  after_commit :send_notification!
+  after_commit :send_notification_async!, if: -> { previous_changes[:state].present? && (done? || failed?) }
 
   validate :validate_execution_limit
   validate :validate_executable
@@ -45,10 +45,19 @@ class TestExecution < ApplicationRecord
   end
 
   def send_notification!
-    return if previous_changes[:state].nil?
-    return unless done? || failed?
-    (test.user_tests.preload(:user).map(&:user) + [user]).uniq.each do |u|
+    sent_to_owner = false
+    test.accessible_users.preload(:user_integrations).find_each do |u|
+      sent_to_owner = true if u == user
       UserMailer.test_execution_result(u, self).deliver_now
+      u.user_integrations.each do |ui|
+        ui.notify!(:test_execution_result, self)
+      end
+    end
+    unless sent_to_owner
+      UserMailer.test_execution_result(user, self).deliver_now
+      user.user_integrations.each do |ui|
+        ui.notify!(:test_execution_result, self)
+      end
     end
   end
 

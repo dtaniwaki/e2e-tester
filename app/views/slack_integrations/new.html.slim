@@ -1,0 +1,10 @@
+- content_for :title, 'New Slack Integration'
+
+= link_to 'Back to integrations', user_integrations_path
+
+h1
+  = image_tag image_path("integrations/slack.png"), width: 32, height: 32
+  |  New Slack Integration
+
+= simple_form_for @integration, url: slack_integrations_path, as: :integration, method: :post do |f|
+  = render 'form', f: f

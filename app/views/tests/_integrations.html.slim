@@ -1,0 +1,13 @@
+.panel.panel-default
+  .panel-heading
+    = link_to user_integrations_path(origin: request.url) do
+      small.glyphicon.glyphicon-link
+      |  Integrations
+  table.table
+    - integrations.each do |integration|
+     tr
+       td
+         - type = integration.class.name.humanize.demodulize
+         = link_to polymorphic_user_integration_path(type, integration) do
+           = image_tag image_path("integrations/#{type}.png"), width: 32, height: 32
+           = " #{integration.name}"
