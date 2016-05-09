@@ -8,6 +8,8 @@ class TestStepSetsController < BaseController
   def show
     @test_step_set = SharedTestStepSet.find(params[:id])
     authorize @test_step_set
+
+    @user_shared_test_step_sets = @test_step_set.user_shared_test_step_sets.limit(10)
   end
 
   def new
