@@ -4,6 +4,7 @@ class Test < ApplicationRecord
   has_many :user_tests, inverse_of: :test
   has_many :test_versions, inverse_of: :test
   has_many :updating_test_versions, -> { where(id: nil) }, class_name: 'TestVersion', inverse_of: :test
+  has_many :accessible_users, through: :user_tests, source: :user
 
   acts_as_paranoid
 

@@ -2,7 +2,7 @@ class UserTestVersion < ApplicationRecord
   belongs_to :user, inverse_of: :accessible_test_versions
   belongs_to :assigned_by, class_name: 'User', foreign_key: 'assigned_by_id', inverse_of: :assigned_test_version_users
   belongs_to :test_version, inverse_of: :user_test_versions
-  has_many :user_test_version_variables, inverse_of: :user_test_version
+  has_many :user_test_version_variables, inverse_of: :user_test_version, dependent: :destroy
   has_one :test, through: :test_version
 
   scope :latest, -> { order(created_at: :desc) }

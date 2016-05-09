@@ -37,6 +37,12 @@ Rails.application.routes.draw do
       resources :user_test_versions, only: [:create, :update, :index]
     end
   end
+  resources :user_integrations, only: [:index] do
+    collection do
+      resources :slack_integrations, path: 'slack'
+    end
+  end
+  get 'user_integrations/:type/:id', to: -> { root_path }, as: :polymorphic_user_integration # Fake route for polymorphic routes
   resources :tests, only: [] do
     get 'versions' => 'test_versions#index', as: :test_versions
     get ':num' => 'test_versions#show', as: :test_version

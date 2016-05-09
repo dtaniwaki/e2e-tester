@@ -42,7 +42,7 @@
             |  
             = tv.user.name
           td
-            = button_to 'Execute', test_version_test_executions_path(@test.test_version), class: 'btn btn-xs btn-primary', method: :post, disabled: !tv.executable?
+            = button_to 'Execute', test_version_test_executions_path(tv), class: 'btn btn-xs btn-primary', method: :post, disabled: !tv.executable?
   div.panel
     = link_to 'More test versions', test_test_versions_path(@test)
 - else
@@ -50,9 +50,11 @@
     | You don't have any test version.
 
 .row
-  - if @user_test.present?
-    .col-lg-6
+  .col-lg-6
+    - if @user_test.present?
       = render '/shared/variables_form', target: @user_test, variable_name: 'user_test_variables'
+
+    = render 'integrations', integrations: @integrations
 
   .col-lg-6
     - user_test = @test.user_tests.build

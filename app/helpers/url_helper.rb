@@ -1,5 +1,9 @@
 module UrlHelper
-  include Rails.application.routes.url_helpers
+  def self.included(base)
+    base.instance_eval do
+      include Rails.application.routes.url_helpers
+    end
+  end
 
   def polymorphic_test_step_set_path(test_step_set, options = {})
     if test_step_set.is_a?(TestVersion)
@@ -28,6 +32,8 @@ module UrlHelper
       'https://www.browserstack.com/'
     when :browserstack_credential
       'https://www.browserstack.com/accounts/settings'
+    when :integration_slack
+      'https://slack.com/apps/manage/A0F7XDUAZ-incoming-webhooks'
     end
   end
 end

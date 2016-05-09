@@ -6,6 +6,7 @@ class TestVersion < TestStepSet
   has_many :browsers, through: :test_browsers
 
   scope :with_user, ->(user) { joins(:user_test_versions).merge(UserTestVersion.where(user_id: user.is_a?(ActiveRecord::Base) ? user.id : user)) }
+  scope :with_test, ->(test) { where(test_id: test.is_a?(ActiveRecord::Base) ? test.id : test) }
 
   after_create :assign_current_test_version!
 

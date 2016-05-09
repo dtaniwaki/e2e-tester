@@ -3,6 +3,10 @@ class UserTestPolicy < ApplicationPolicy
     true
   end
 
+  def show?
+    @record.user == @user
+  end
+
   def create?
     @record.test.user_tests.with_user(@user).exists?
   end

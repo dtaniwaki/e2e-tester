@@ -42,12 +42,4 @@ class BrowserstackCredentialsController < BaseController
   def browserstack_permitted_params
     params.require(:browserstack).permit(:username, :password)
   end
-
-  def origin
-    url = params[:origin]
-    return if url.nil?
-    url = URI.parse(url)
-    # Only allow redirection to the same scheme/host to avoid open redirection
-    url.host == request.host && url.scheme == request.scheme ? url.to_s : nil
-  end
 end
