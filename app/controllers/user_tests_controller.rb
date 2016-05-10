@@ -37,6 +37,17 @@ class UserTestsController < BaseController
     @user_tests = policy_scope(@test.user_tests).eager_load(:user).page(params[:page]).per(20)
   end
 
+  def destroy
+    @user_test = UserTest.find(params[:id])
+    authorize @user_test
+
+    @user_test.destroy!
+
+    flash[:notice] = 'Successfully deleted the user test'
+
+    redirect_to test_path(@user_test.test)
+  end
+
   private
 
   def permitted_params
