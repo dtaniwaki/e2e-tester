@@ -18,6 +18,11 @@ $(document).on('click', '#toggle_browsers', function(e){
   }
 })
 
+$(document).on('click', '[data-unset-all]', function(e){
+  e.preventDefault()
+  $($(this).data('unset-all')).find('input[type=checkbox]').prop('checked', false)
+})
+
 $(document).on('turbolinks:load cocoon:after-insert', function(e, target) {
   $('[data-sortable]').each(function() {
     $(this).sortable({

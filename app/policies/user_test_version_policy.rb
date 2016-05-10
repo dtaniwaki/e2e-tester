@@ -10,4 +10,9 @@ class UserTestVersionPolicy < ApplicationPolicy
   def update?
     @record.user == @user
   end
+
+  def destroy?
+    @record.test.user_tests.with_user(@user).exists? &&
+      @record.user != @user
+  end
 end

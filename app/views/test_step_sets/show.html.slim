@@ -18,3 +18,38 @@
     = " #{@test_step_set.title}"
 
 = render 'shared/test_step_set_panel', test_step_set: @test_step_set
+
+.row
+  .col-lg-6
+    - user_shared_test_step_set = @test_step_set.user_shared_test_step_sets.with_user(current_user).build
+    - if policy(user_shared_test_step_set).new?
+      .panel.panel-default
+        .panel-heading
+          small.glyphicon.glyphicon-send
+          |  Invite Tester
+        .panel-body
+          = form_tag test_step_set_user_shared_test_step_sets_path(@test_step_set), method: :post, html: {autocomplete: 'off'} do
+            .form-group
+              = label_tag :email
+              = text_field_tag :email, nil, class: 'form-control', autocomplete: 'off'
+
+            .form-group
+              = submit_tag t("devise.invitations.new.submit_button"), class: 'btn btn-default'
+
+  .col-lg-6
+    - if @user_shared_test_step_sets.present?
+      div.panel.panel-default
+        div.panel-heading
+          small.glyphicon.glyphicon-user
+          |  Assigned Testers
+        table.table
+          tr
+            th Name
+          - @user_shared_test_step_sets.each do |ut|
+            tr
+              td
+                = gravatar_image_tag(ut.user.email, alt: ut.user.name, gravatar: { size: 20 })
+                |  
+                = ut.user.name
+      div.panel
+        = link_to 'More assigned testers', test_step_set_user_shared_test_step_sets_path(@test_step_set)

@@ -12,14 +12,19 @@
       a#toggle_browsers href="#" Show all browsers
   .form-group#all_browsers style='display: none;'
     - browsers.each do |klass, grouped_browsers|
-      h3.control-label = klass.to_s.demodulize
-      - if klass.available_for?(current_user)
-        - grouped_browsers.each do |os_and_version, browsers_collection|
-          = f.association :browsers, label: os_and_version.compact.join(' '), as: :check_boxes, wrapper: :horizontal_radio_and_checkboxes, collection: browsers_collection, item_wrapper_class: 'checkbox-inline', label_method: -> (b) { content_tag :span, b.name, title: b.full_name, data: { toggle: 'tooltip' } }, required: false, error: false
-      - else
-        .col-sm-3
-        .col-sm-9
-          .alert.alert-warning
-            | You haven't set up the browserstack credential. 
-            = link_to 'Set up?', user_credentials_path(origin: request.url), data: { confirm: "You are leaving the page and will lose the current change." }
+      .block id="#{klass.to_s.demodulize.underscore}_browsers"
+        .pull-right
+          small
+            = link_to 'Unset all', '#', data: { 'unset-all': "##{klass.to_s.demodulize.underscore}_browsers" }
+        h3.control-label
+          = klass.to_s.demodulize
+        - if klass.available_for?(current_user)
+          - grouped_browsers.each do |os_and_version, browsers_collection|
+            = f.association :browsers, label: os_and_version.compact.join(' '), as: :check_boxes, wrapper: :horizontal_radio_and_checkboxes, collection: browsers_collection, item_wrapper_class: 'checkbox-inline', label_method: -> (b) { content_tag :span, b.name, title: b.full_name, data: { toggle: 'tooltip' } }, required: false, error: false
+        - else
+          .col-sm-3
+          .col-sm-9
+            .alert.alert-warning
+              | You haven't set up the browserstack credential. 
+              = link_to 'Set up?', user_credentials_path(origin: request.url), data: { confirm: "You are leaving the page and will lose the current change." }
   = f.error :browsers

@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   }
 
   resources :tests, shallow: true do
-    resources :user_tests, only: [:create, :update, :index]
+    resources :user_tests, only: [:create, :update, :index, :destroy]
     resources :test_versions, only: [] do
       resources :test_executions, only: [:create, :index, :show] do
         member do
@@ -34,7 +34,7 @@ Rails.application.routes.draw do
         end
         resources :test_step_executions, only: [:show]
       end
-      resources :user_test_versions, only: [:create, :update, :index]
+      resources :user_test_versions, only: [:create, :update, :index, :destroy]
     end
   end
   resources :user_integrations, only: [:index] do
@@ -53,7 +53,9 @@ Rails.application.routes.draw do
       resource :browserstack_credentials, only: [:create, :update, :destroy], path: :browserstack
     end
   end
-  resources :test_step_sets
+  resources :test_step_sets, shallow: true do
+    resources :user_shared_test_step_sets, only: [:index, :create, :destroy]
+  end
   namespace :misc, path: '' do
     get :assigned_tests
     get :test_executions

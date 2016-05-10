@@ -11,6 +11,7 @@ h1
         th Name
         th Assigned At
         th Assigned By
+        th
       - @user_tests.each do |ut|
         tr
           td
@@ -25,5 +26,8 @@ h1
               = gravatar_image_tag(ut.assigned_by.email, alt: ut.assigned_by.name, gravatar: { size: 20 })
               |  
               = ut.assigned_by.name
+          td
+            - if policy(ut).destroy?
+              = link_to 'Delete', user_test_path(ut), method: :delete, data: { confirm: 'Are you sure?' }
   .center-block.text-center
     = paginate @user_tests

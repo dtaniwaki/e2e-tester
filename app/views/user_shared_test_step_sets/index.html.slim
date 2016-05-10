@@ -1,0 +1,23 @@
+= link_to "Back to the test step set", test_step_set_path(@shared_test_step_set)
+
+h1
+  small.glyphicon.glyphicon-user
+  |  Shared Users
+
+- if @user_shared_test_step_sets.present?
+  div.panel.panel-default
+    table.table
+      tr
+        th Name
+        th
+      - @user_shared_test_step_sets.each do |ut|
+        tr
+          td
+            = gravatar_image_tag(ut.user.email, alt: ut.user.name, gravatar: { size: 20 })
+            |  
+            = ut.user.name
+          td
+            - if policy(ut).destroy?
+              = link_to 'Delete', user_shared_test_step_set_path(ut), method: :delete, data: { confirm: 'Are you sure?' }
+  .center-block.text-center
+    = paginate @user_shared_test_step_sets
