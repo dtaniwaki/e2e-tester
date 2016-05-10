@@ -34,7 +34,7 @@ Rails.application.routes.draw do
         end
         resources :test_step_executions, only: [:show]
       end
-      resources :user_test_versions, only: [:create, :update, :index]
+      resources :user_test_versions, only: [:create, :update, :index, :destroy]
     end
   end
   resources :user_integrations, only: [:index] do

@@ -37,6 +37,17 @@ class UserTestVersionsController < BaseController
     @user_test_versions = policy_scope(@test_version.user_test_versions).eager_load(:user).page(params[:page]).per(20)
   end
 
+  def destroy
+    @user_test_version = UserTestVersion.find(params[:id])
+    authorize @user_test_version
+
+    @user_test_version.destroy!
+
+    flash[:notice] = 'Successfully deleted the user test_version'
+
+    redirect_to test_version_position_path(@user_test_version.test_version)
+  end
+
   private
 
   def permitted_params
