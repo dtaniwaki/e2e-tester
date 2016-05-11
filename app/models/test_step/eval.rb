@@ -10,7 +10,7 @@ module TestStep
       code = <<-EOS
         try {
           #{javascript}
-          return nil;
+          return null;
         } catch(e) {
           return e.message;
         }
