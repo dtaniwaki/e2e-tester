@@ -8,7 +8,7 @@
 
 End-to-end test across the browsers.
 
-Here's [the working example](http://e2e-tester.dtaniwaki.com/).
+Here's [the working example](http://e2e-tester.herokuapp.com/).
 
 ## Requirement
 
