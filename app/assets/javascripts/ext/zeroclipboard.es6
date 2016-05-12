@@ -1,3 +1,4 @@
+ZeroClipboard.config({ swfPath: $.images.zeroclipboard })
 $(document).on('turbolinks:load', function() {
   $('[data-zeroclipboard]').each(function(idx) {
     let $button = $(this)
