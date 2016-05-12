@@ -32,3 +32,14 @@ $(document).on('turbolinks:load cocoon:after-insert', function(e, target) {
     })
   })
 })
+
+$(document).on('turbolinks:load', function(e, target) {
+  $('[data-switch-on-click]').each(function(idx) {
+    let $this = $(this)
+    let $target = $($this.data('switch-on-click'))
+    $this.click(function(e) {
+      $target.removeClass('hidden').focus()
+      $this.addClass('hidden')
+    })
+  })
+})
