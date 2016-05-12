@@ -1,0 +1,38 @@
+- content_for :title, "Test Execution #{@test_execution.to_param} Test Execution Shares"
+
+= link_to 'Back to Test Execution', test_execution_path(@test_execution)
+
+h1.e2e-truncate
+  small.glyphicon.glyphicon-film
+  = " Execution ##{@test_execution.to_param}"
+
+- if @test_execution_shares.present?
+  .panel.panel-default
+    table.table.table-striped
+      tr
+        th Name
+        th.col-lg-5.col-md-5.col-sm-5.col-xs-5
+          | URL
+        th Shared At
+        th Expire At
+        th
+      - @test_execution_shares.each do |share|
+        tr
+          td = share.name
+          td.input-group
+            = text_field_tag nil, share.test_execution_url, readonly: true, class: 'form-control', id: "test_execution_share_#{share.to_param}"
+            .input-group-btn
+              button.btn.btn-default title="Click to copy" data-zeroclipboard="#test_execution_share_#{share.to_param}"
+                span.glyphicon.glyphicon-copy
+          td
+            time datetime=share.created_at.iso8601 data-timeago='' = share.created_at.to_s
+          td
+            - if share.expire_at.present?
+              time = share.expire_at.to_s
+          td
+            = link_to 'Delete', test_execution_share_path(share), method: :delete, data: { confirm: 'Are you sure?' }
+  .center-block.text-center
+    = paginate @test_execution_shares
+- else
+  .alert.alert-warning
+    | You don't have any test execution share.

@@ -4,7 +4,8 @@ class TestExecutionPolicy < ApplicationPolicy
   end
 
   def show?
-    @record.user == @user ||
+    @record.with_authorized_token? ||
+      @record.user == @user ||
       @record.test.user_tests.with_user(@user).exists?
   end
 

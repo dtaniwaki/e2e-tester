@@ -1,12 +1,13 @@
 - content_for :title, "Test Step Execution #{@test_step_execution.to_param}"
 
-= link_to 'Back to Test Execution', test_execution_path(@test_step_execution.test_execution)
+- if policy(@test_step_execution.test_execution).show?
+  = link_to 'Back to Test Execution', test_execution_path(@test_step_execution.test_execution, token: params[:token])
 
 div style="margin: 20px 0 20px 0;"
   ul.nav.nav-pills
     - @other_browser_test_step_executions.each do |tse|
       li class="#{@test_step_execution == tse ? 'active' : nil}"
-        = link_to tse.browser.name, test_step_execution_path(tse), class: 'label label-default', title: tse.browser.full_name, data: { toggle: 'tooltip' }
+        = link_to tse.browser.name, test_step_execution_path(tse, token: params[:token]), class: 'label label-default', title: tse.browser.full_name, data: { toggle: 'tooltip' }
 div
   div.col-md-3
     ul.nav.nav-pills.nav-stacked
@@ -14,7 +15,7 @@ div
         - tse = @same_browser_test_step_executions.find { |tse| tse.test_step == ts }
         - next if tse.nil?
         li class="#{@test_step_execution == tse ? 'active' : nil}"
-          = link_to tse.test_step.to_line, test_step_execution_path(tse), class: 'e2e-truncate'
+          = link_to tse.test_step.to_line, test_step_execution_path(tse, token: params[:token]), class: 'e2e-truncate'
 
   div.col-md-9
     h4 = @test_step_execution.browser.full_name

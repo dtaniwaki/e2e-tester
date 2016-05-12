@@ -66,6 +66,24 @@ RSpec.describe TestExecutionsController, type: :controller do
         expect(response.status).to be 302
         expect(response).to redirect_to(new_user_session_path)
       end
+      context 'with token' do
+        let!(:share) { create :test_execution_share, test_execution: test_execution }
+        context 'with valid token' do
+          it 'renders successfully' do
+            get :show, params: { id: test_execution, token: share.token }
+
+            expect(response.status).to be 200
+            expect(response).to render_template('test_executions/show')
+          end
+        end
+        context 'without valid token' do
+          it 'renders successfully' do
+            expect do
+              get :show, params: { id: test_execution, token: share.token + '-invalid' }
+            end.to raise_error(Pundit::NotAuthorizedError)
+          end
+        end
+      end
     end
   end
   describe 'POST create' do

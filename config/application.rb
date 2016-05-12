@@ -85,5 +85,6 @@ module E2eTester
     routes.default_url_options = Settings.application.url_options.to_h
 
     config.assets.paths << Rails.root.join('vendor', 'assets', 'bower_components')
+    config.assets.precompile << File.join('zeroclipboard', '**', '*.swf')
   end
 end

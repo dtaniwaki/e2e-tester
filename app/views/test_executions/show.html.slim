@@ -1,6 +1,7 @@
 - content_for :title, "Test Execution #{@test_execution.to_param}"
 
-= link_to 'Back to test', test_version_position_path(@test_version)
+- if policy(@test_version).show?
+  = link_to 'Back to test', test_version_position_path(@test_version)
 
 .block
   .pull-right
@@ -33,17 +34,56 @@ div data-path-done-test-execution-path=done_test_execution_path(@test_execution)
             .state
               - %w(done failed running).each do |state|
                 - if tse = teb.test_step_executions.find { |tse_| tse_.test_step_id == ts.id }
-                    = link_to test_step_execution_path(tse), target: '_blank', class: tse.public_send("#{state}?") ? nil : 'hidden', data: { state: state } do
+                    = link_to test_step_execution_path(tse, token: params[:token]), class: tse.public_send("#{state}?") ? nil : 'hidden', data: { state: state } do
                       = bootstrap_status_tag :span, TestExecution.states_i18n[state], state == 'done', state == 'failed'
                 - else
-                  = link_to 'javascript:void(0)', target: '_blank', class: 'hidden', data: { state: state } do
+                  = link_to 'javascript:void(0)', class: 'hidden', data: { state: state } do
                     = bootstrap_status_tag :span, TestExecution.states_i18n[state], state == 'done', state == 'failed'
             - if ts.screenshot?
               .screenshot
                 - if tse = teb.test_step_executions.find { |tse_| tse_.test_step_id == ts.id }
                   - if tse.done?
-                    = link_to image_tag(tse.screenshot.image.url(:thumb), width: '100%'), test_step_execution_path(tse), target: '_blank'
+                    = link_to image_tag(tse.screenshot.image.url(:thumb), width: '100%'), test_step_execution_path(tse, token: params[:token])
                   - elsif tse.failed?
                     = image_tag image_path('failed.png'), width: '100%'
                   - elsif tse.running?
                     = image_tag image_path('loading.gif'), width: '100%'
+
+- if policy(@test_execution.test_execution_shares.build).new?
+  .row
+    .col-lg-4
+      h3 Share the execution
+      = simple_form_for [@test_execution, TestExecutionShare.new] do |f|
+        = f.input :name
+        div style="position:relative;"
+            = f.input :expire_at, as: :string, label: 'Expire at (UTC)', placeholder: 'YYYY/MM/DD hh:mm', input_html: { data: { datetimepicker: '' } }
+        = f.button :submit
+    .col-lg-8
+      - if @test_execution_shares.present?
+        .panel.panel-default
+          .panel-heading
+            small.glyphicon.glyphicon-link
+            |  Test Execution Share
+          table.table
+            tr
+              th Name
+              th.col-lg-5.col-md-5.col-sm-5.col-xs-5
+                | URL
+              th Shared At
+              th Expire At
+            - @test_execution_shares.each do |share|
+              tr
+                td = share.name
+                td.input-group
+                  = text_field_tag nil, share.test_execution_url, readonly: true, class: 'form-control', id: "test_execution_share_#{share.to_param}"
+                  .input-group-btn
+                    button.btn.btn-default title="Click to copy" data-zeroclipboard="#test_execution_share_#{share.to_param}"
+                      span.glyphicon.glyphicon-copy
+                td
+                  time datetime=share.created_at.iso8601 data-timeago='' = share.created_at.to_s
+                td
+                  - if share.expire_at.present?
+                    time = share.expire_at.to_s
+
+        .panel
+          = link_to 'More test execution shares', test_execution_test_execution_shares_path(@test_execution)

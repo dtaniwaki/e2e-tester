@@ -22,6 +22,7 @@ class User < ApplicationRecord
   has_many :user_credentials, class_name: 'UserCredential::Base', inverse_of: :user
   has_one :browserstack_credential, class_name: 'UserCredential::Browserstack', inverse_of: :user
   has_many :user_integrations, class_name: 'UserIntegration::Base', inverse_of: :user
+  has_many :test_execution_shares, inverse_of: :user
 
   acts_as_paranoid
 

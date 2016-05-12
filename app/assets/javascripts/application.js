@@ -19,6 +19,9 @@
 //= require startbootstrap-sb-admin-2/dist/js/sb-admin-2
 //= require pwstrength-bootstrap/dist/pwstrength-bootstrap
 //= require jquery-timeago/jquery.timeago
+//= require zeroclipboard/dist/ZeroClipboard
+//= require moment/moment
+//= require eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min
 //= require cocoon
 //= require ./images
 //= require ./global

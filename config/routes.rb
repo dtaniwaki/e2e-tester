@@ -33,6 +33,7 @@ Rails.application.routes.draw do
           get :done
         end
         resources :test_step_executions, only: [:show]
+        resources :test_execution_shares, only: [:index, :create, :update, :destroy]
       end
       resources :user_test_versions, only: [:create, :update, :index, :destroy]
     end

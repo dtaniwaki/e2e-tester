@@ -1,6 +1,14 @@
 class TestStepExecutionsController < BaseController
+  skip_before_action :authenticate_user!, only: [:show]
+
   def show
     @test_step_execution = TestStepExecution.preload(:browser, :test_step, :screenshot, test_execution: { test_version: :test_steps }).find(params[:id])
+    token = params[:token]
+    if token
+      @test_step_execution.test_execution.token = token
+    else
+      authenticate_user!
+    end
     authorize @test_step_execution
 
     @test_steps = @test_step_execution.test_execution.test_version.test_steps

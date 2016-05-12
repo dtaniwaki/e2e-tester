@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160507212040) do
+ActiveRecord::Schema.define(version: 20160511173105) do
 
   create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "namespace"
@@ -134,6 +134,20 @@ ActiveRecord::Schema.define(version: 20160507212040) do
     t.index ["test_browser_id"], name: "index_test_execution_browsers_on_test_browser_id", using: :btree
     t.index ["test_execution_id", "test_browser_id"], name: "index_test_execution_id_and_test_browser_id", unique: true, using: :btree
     t.index ["test_execution_id"], name: "index_test_execution_browsers_on_test_execution_id", using: :btree
+  end
+
+  create_table "test_execution_shares", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id",           null: false
+    t.integer  "test_execution_id", null: false
+    t.string   "name",              null: false
+    t.string   "token",             null: false
+    t.datetime "expire_at"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.index ["expire_at"], name: "index_test_execution_shares_on_expire_at", using: :btree
+    t.index ["test_execution_id"], name: "index_test_execution_shares_on_test_execution_id", using: :btree
+    t.index ["token"], name: "index_test_execution_shares_on_token", unique: true, using: :btree
+    t.index ["user_id"], name: "index_test_execution_shares_on_user_id", using: :btree
   end
 
   create_table "test_executions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -333,6 +347,8 @@ ActiveRecord::Schema.define(version: 20160507212040) do
   add_foreign_key "test_browsers", "test_step_sets", column: "test_version_id"
   add_foreign_key "test_execution_browsers", "test_browsers"
   add_foreign_key "test_execution_browsers", "test_executions"
+  add_foreign_key "test_execution_shares", "test_executions"
+  add_foreign_key "test_execution_shares", "users"
   add_foreign_key "test_executions", "test_step_sets", column: "test_version_id"
   add_foreign_key "test_executions", "users"
   add_foreign_key "test_step_executions", "test_execution_browsers"

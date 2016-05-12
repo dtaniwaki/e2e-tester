@@ -36,6 +36,8 @@ Style/IndentHash:
   EnforcedStyle: consistent
 Style/IndentArray:
   EnforcedStyle: consistent
+Style/DoubleNegation:
+  Enabled: false
 Lint/EndAlignment:
   AlignWith: variable
 Style/FrozenStringLiteralComment:
