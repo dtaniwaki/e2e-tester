@@ -5,6 +5,7 @@ class TestExecution < ApplicationRecord
   belongs_to :test_version, inverse_of: :test_executions
   has_many :test_execution_browsers, inverse_of: :test_execution
   has_one :test, through: :test_version
+  has_many :test_execution_shares, inverse_of: :test_execution
 
   scope :latest, -> { order(created_at: :desc) }
   scope :with_user, ->(user) { where(user_id: user.is_a?(ActiveRecord::Base) ? user.id : user) }
@@ -16,6 +17,8 @@ class TestExecution < ApplicationRecord
 
   validate :validate_execution_limit
   validate :validate_executable
+
+  attr_accessor :token
 
   def execute!(user, async: false)
     running!
@@ -59,6 +62,10 @@ class TestExecution < ApplicationRecord
         ui.notify!(:test_execution_result, self)
       end
     end
+  end
+
+  def with_authorized_token?
+    !!token && test_execution_shares.exists?(token: token)
   end
 
   private

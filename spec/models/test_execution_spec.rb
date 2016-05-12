@@ -91,4 +91,25 @@ RSpec.describe TestExecution, type: :model do
       end
     end
   end
+  describe '#with_authorized_token?' do
+    subject(:test_execution) { create :test_execution }
+    let!(:share) { create :test_execution_share, test_execution: subject }
+    context 'with token' do
+      it 'returns true' do
+        subject.token = share.token
+        expect(subject.with_authorized_token?).to eq true
+      end
+      context 'with invalid token' do
+        it 'returns false' do
+          subject.token = share.token + '-invalid'
+          expect(subject.with_authorized_token?).to eq false
+        end
+      end
+    end
+    context 'without token' do
+      it 'returns false' do
+        expect(subject.with_authorized_token?).to eq false
+      end
+    end
+  end
 end
