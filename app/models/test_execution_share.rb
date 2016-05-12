@@ -8,7 +8,11 @@ class TestExecutionShare < ApplicationRecord
 
   before_validation :assign_token
 
-  scope :valid, -> { where("#{table_name}.expire_at IS NULL OR #{table_name}.expire_at > ?", Time.zone.now) }
+  scope :available, -> { where("#{table_name}.expire_at IS NULL OR #{table_name}.expire_at > ?", Time.zone.now) }
+
+  def available?
+    expire_at.nil? || expire_at > Time.zone.now
+  end
 
   private
 

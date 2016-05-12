@@ -50,20 +50,25 @@ div data-path-done-test-execution-path=done_test_execution_path(@test_execution)
                     = image_tag image_path('loading.gif'), width: '100%'
 
 - if policy(@test_execution.test_execution_shares.build).new?
+  hr
   .row
     .col-lg-4
-      h3 Share the execution
       = simple_form_for [@test_execution, TestExecutionShare.new] do |f|
-        = f.input :name
-        div style="position:relative;"
-            = f.input :expire_at, as: :string, label: 'Expire at (UTC)', placeholder: 'YYYY/MM/DD hh:mm', input_html: { data: { datetimepicker: '' } }
-        = f.button :submit
+        .panel.panel-default
+          .panel-heading
+            small.glyphicon.glyphicon-send
+            |  Share the execution
+          .panel-body
+              = f.input :name
+              div style="position:relative;"
+                  = f.input :expire_at, as: :string, label: 'Expire at (UTC)', placeholder: 'YYYY/MM/DD hh:mm', input_html: { data: { datetimepicker: '' } }
+              = f.button :submit
     .col-lg-8
       - if @test_execution_shares.present?
         .panel.panel-default
           .panel-heading
             small.glyphicon.glyphicon-link
-            |  Test Execution Share
+            |  Available Test Execution Share URL
           table.table
             tr
               th.col-lg-3.col-md-3.col-sm-3.col-xs-3 Name

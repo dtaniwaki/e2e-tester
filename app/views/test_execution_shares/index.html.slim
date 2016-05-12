@@ -10,6 +10,7 @@ h1.e2e-truncate
   .panel.panel-default
     table.table.table-striped
       tr
+        th
         th.col-lg-2.col-md-2.col-sm-2.col-xs-2 Name
         th.col-lg-3.col-md-3.col-sm-3.col-xs-3 Expire At
         th.col-lg-4.col-md-4.col-sm-5.col-xs-5 URL
@@ -17,6 +18,13 @@ h1.e2e-truncate
         th
       - @test_execution_shares.each do |share|
         tr
+          td.e2e-middle-valign
+            - if share.available?
+              span.text-success
+                span.glyphicon.glyphicon-ok
+            - else
+              span.text-danger
+                span.glyphicon.glyphicon-remove
           td.e2e-middle-valign
             = simple_form_for share, html: { class: 'form-inline hidden', id: "test_execution_share_name_#{share.to_param}" } do |f|
               .input-group
@@ -47,7 +55,9 @@ h1.e2e-truncate
           td.e2e-middle-valign.hidden-sm.hidden-xs
             time datetime=share.created_at.iso8601 data-timeago='' = share.created_at.to_s
           td.e2e-middle-valign
-            = link_to 'Delete', test_execution_share_path(share), method: :delete, data: { confirm: 'Are you sure?' }
+            = link_to test_execution_share_path(share), method: :delete, data: { confirm: 'Are you sure?' } do
+              span.glyphicon.glyphicon-remove-circle
+
   .center-block.text-center
     = paginate @test_execution_shares
 - else
