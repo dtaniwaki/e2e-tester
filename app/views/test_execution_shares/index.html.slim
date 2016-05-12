@@ -1,0 +1,29 @@
+- content_for :title, "Test Execution #{@test_execution.to_param} Test Execution Shares"
+
+= link_to 'Back to Test Execution', test_execution_path(@test_execution)
+
+h1.e2e-truncate
+  small.glyphicon.glyphicon-film
+  = " Execution ##{@test_execution.to_param}"
+
+- if @test_execution_shares.present?
+  .panel.panel-default
+    table.table.table-striped
+      tr
+        th Name
+        th URL
+        th Shared At
+        th
+      - @test_execution_shares.each do |share|
+        tr
+          td = share.name
+          td
+          td
+            time datetime=share.created_at.iso8601 data-timeago='' = share.created_at.to_s
+          td
+            = link_to 'Delete', test_execution_share_path(share), method: :delete, data: { confirm: 'Are you sure?' }
+  .center-block.text-center
+    = paginate @test_execution_shares
+- else
+  .alert.alert-warning
+    | You don't have any test execution share.

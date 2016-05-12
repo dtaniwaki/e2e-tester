@@ -1,5 +1,6 @@
 class TestExecutionsController < BaseController
-  auto_decorate :test_version, only: [:index, :show]
+  auto_decorate :test_version, :test_execution_shares, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: [:show]
 
   def index
     @test_version = TestVersion.find(params[:test_version_id])
@@ -10,8 +11,16 @@ class TestExecutionsController < BaseController
 
   def show
     @test_execution = TestExecution.includes(test_execution_browsers: [:browser, :test_step_executions], test_version: [:test, :test_steps]).find(params[:id])
+    token = params[:token]
+    if token
+      @test_execution.token = token
+    else
+      authenticate_user!
+    end
     authorize @test_execution
+
     @test_version = @test_execution.test_version
+    @test_execution_shares = @test_execution.test_execution_shares.latest.limit(10)
   end
 
   def create
