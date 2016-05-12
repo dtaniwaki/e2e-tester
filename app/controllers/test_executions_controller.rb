@@ -20,7 +20,7 @@ class TestExecutionsController < BaseController
     authorize @test_execution
 
     @test_version = @test_execution.test_version
-    @test_execution_shares = @test_execution.test_execution_shares.latest.limit(10)
+    @test_execution_shares = @test_execution.test_execution_shares.latest.valid.limit(10)
   end
 
   def create

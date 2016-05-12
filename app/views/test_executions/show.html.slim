@@ -52,8 +52,11 @@ div data-path-done-test-execution-path=done_test_execution_path(@test_execution)
 - if policy(@test_execution.test_execution_shares.build).new?
   .row
     .col-lg-4
+      h3 Share the execution
       = simple_form_for [@test_execution, TestExecutionShare.new] do |f|
         = f.input :name
+        div style="position:relative;"
+            = f.input :expire_at, as: :string, label: 'Expire at (UTC)', placeholder: 'YYYY/MM/DD hh:mm', input_html: { data: { datetimepicker: '' } }
         = f.button :submit
     .col-lg-8
       - if @test_execution_shares
@@ -66,6 +69,7 @@ div data-path-done-test-execution-path=done_test_execution_path(@test_execution)
               th Name
               th URL
               th Shared At
+              th Expire At
             - @test_execution_shares.each do |share|
               tr
                 td = share.name
@@ -77,6 +81,9 @@ div data-path-done-test-execution-path=done_test_execution_path(@test_execution)
                       button.btn.btn-sm.btn-default data-clipboard-text="Copy" title="Click to copy" data-zeroclipboard="#test_execution_share_#{share.to_param}" Copy
                 td
                   time datetime=share.created_at.iso8601 data-timeago='' = share.created_at.to_s
+                td
+                  - if share.expire_at.present?
+                    time = share.expire_at.to_s
 
         .panel
           = link_to 'More test execution shares', test_execution_test_execution_shares_path(@test_execution)

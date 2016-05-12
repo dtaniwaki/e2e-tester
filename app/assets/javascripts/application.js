@@ -20,6 +20,8 @@
 //= require pwstrength-bootstrap/dist/pwstrength-bootstrap
 //= require jquery-timeago/jquery.timeago
 //= require zeroclipboard/dist/ZeroClipboard
+//= require moment/moment
+//= require eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min
 //= require cocoon
 //= require ./images
 //= require ./global

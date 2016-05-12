@@ -65,7 +65,7 @@ class TestExecution < ApplicationRecord
   end
 
   def with_authorized_token?
-    !!token && test_execution_shares.exists?(token: token)
+    !!token && test_execution_shares.valid.exists?(token: token)
   end
 
   private

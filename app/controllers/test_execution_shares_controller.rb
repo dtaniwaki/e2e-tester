@@ -56,6 +56,6 @@ class TestExecutionSharesController < BaseController
   private
 
   def permitted_params
-    params.require(:test_execution_share).permit(:name)
+    params.require(:test_execution_share).permit(:name, :expire_at)
   end
 end
