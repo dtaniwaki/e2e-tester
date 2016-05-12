@@ -69,7 +69,8 @@ div data-path-done-test-execution-path=done_test_execution_path(@test_execution)
             - @test_execution_shares.each do |share|
               tr
                 td = share.name
-                td.col-lg-6.col-md-6.col-sm-6.col-xs-6 = link_to share.test_execution_url, share.test_execution_url, target: '_blank'
+                td.col-lg-6.col-md-6.col-sm-6.col-xs-6
+                  = text_field_tag nil, share.test_execution_url, readonly: true, class: 'form-control'
                 td
                   time datetime=share.created_at.iso8601 data-timeago='' = share.created_at.to_s
 
