@@ -1,3 +1,4 @@
 asset 'startbootstrap-sb-admin-2', '1.0.8'
 asset 'pwstrength-bootstrap', '2.0.0'
 asset 'jquery-timeago', '1.5.2'
+asset 'zeroclipboard', '2.2.0'
