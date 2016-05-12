@@ -83,7 +83,7 @@ div data-path-done-test-execution-path=done_test_execution_path(@test_execution)
                   time datetime=share.created_at.iso8601 data-timeago='' = share.created_at.to_s
                 td
                   - if share.expire_at.present?
-                    time = share.expire_at.to_s
+                    time datetime=share.expire_at.iso8601 data-timeago='' = share.expire_at.to_s
 
         .panel
           = link_to 'More test execution shares', test_execution_test_execution_shares_path(@test_execution)

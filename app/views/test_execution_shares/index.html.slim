@@ -28,7 +28,7 @@ h1.e2e-truncate
             time datetime=share.created_at.iso8601 data-timeago='' = share.created_at.to_s
           td
             - if share.expire_at.present?
-              time = share.expire_at.to_s
+              time datetime=share.expire_at.iso8601 data-timeago='' = share.expire_at.to_s
           td
             = link_to 'Delete', test_execution_share_path(share), method: :delete, data: { confirm: 'Are you sure?' }
   .center-block.text-center
