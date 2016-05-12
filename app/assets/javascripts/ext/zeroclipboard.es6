@@ -2,11 +2,11 @@ ZeroClipboard.config({ swfPath: $.images.zeroclipboard })
 $(document).on('turbolinks:load', function() {
   $('[data-zeroclipboard]').each(function(idx) {
     let $button = $(this)
+    let $input = $($button.data('zeroclipboard'))
     let client = new ZeroClipboard($button[0])
     client.on('ready', function(readyEvent) {
       client.on('copy', function(event) {
-        let text = $($button.data('zeroclipboard')).val()
-        event.clipboardData.setData('text/plain', text)
+        event.clipboardData.setData('text/plain', $input.val())
       })
       client.on('aftercopy', function(event) {
         alert('Copied text to clipboard: ' + event.data['text/plain']);
@@ -16,5 +16,6 @@ $(document).on('turbolinks:load', function() {
         ZeroClipboard.destroy();
       })
     })
+    $input.focus(function(e) { $(this).select() })
   })
 })
