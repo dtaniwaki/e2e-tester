@@ -294,6 +294,8 @@ GEM
     hashie (3.4.3)
     highline (1.7.8)
     i18n (0.7.0)
+    i18n_generators (2.1.1)
+      rails (>= 3.0.0)
     inherited_resources (1.6.0)
       actionpack (>= 3.2, < 5)
       has_scope (~> 0.6.0.rc)
@@ -589,6 +591,7 @@ DEPENDENCIES
   fog-local (~> 0.3.0)
   formtastic!
   gravatar_image_tag (~> 1.2.0)
+  i18n_generators (~> 2.1.1)
   jbuilder (~> 2.0)
   jquery-rails (~> 4.1.0)
   jquery-ui-rails (~> 5.0.5)
