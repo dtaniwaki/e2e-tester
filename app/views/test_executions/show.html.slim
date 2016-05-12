@@ -70,7 +70,11 @@ div data-path-done-test-execution-path=done_test_execution_path(@test_execution)
               tr
                 td = share.name
                 td.col-lg-6.col-md-6.col-sm-6.col-xs-6
-                  = text_field_tag nil, share.test_execution_url, readonly: true, class: 'form-control'
+                  .row
+                    .col-lg-9.col-md-9.col-sm-8.col-xs-7
+                      = text_field_tag nil, share.test_execution_url, readonly: true, class: 'form-control', id: "test_execution_share_#{share.to_param}"
+                    .col-lg-3.col-md-3.col-sm-4.col-xs-5
+                      button.btn.btn-sm.btn-default data-clipboard-text="Copy" title="Click to copy" data-zeroclipboard="#test_execution_share_#{share.to_param}" Copy
                 td
                   time datetime=share.created_at.iso8601 data-timeago='' = share.created_at.to_s
 
