@@ -36,6 +36,8 @@ class User < ApplicationRecord
             uniqueness: { case_sensitive: false },
             allow_blank: true
 
+  accepts_nested_attributes_for :user_variables, allow_destroy: true, reject_if: -> (attributes) { attributes[:name].blank? && attributes[:value].blank? }
+
   def self.find_or_invite_by(params, user)
     user = User.find_by(params)
     user = User.invite!(params, user) if user.nil?

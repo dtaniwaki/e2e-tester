@@ -11,7 +11,7 @@ module Users
         u.permit(:username, :name, :email, :password, :password_confirmation)
       end
       devise_parameter_sanitizer.for(:account_update) do |u|
-        u.permit(:username, :name, :email, :password, :password_confirmation, :current_password)
+        u.permit(:username, :name, :email, :password, :password_confirmation, :current_password, user_variables_attributes: [:id, :name, :value, :_destroy])
       end
     end
 
