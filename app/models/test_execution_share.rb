@@ -4,11 +4,11 @@ class TestExecutionShare < ApplicationRecord
 
   validates :token, uniqueness: true, presence: true
   validates :name, length: { maximum: 100 }, allow_blank: true
-  validates :expire_at, timeliness: { type: :datetime, after: -> { DateTime.now } }, allow_blank: true
+  validates :expire_at, timeliness: { type: :datetime, after: -> { Time.zone.now } }, allow_blank: true
 
   before_validation :assign_token
 
-  scope :valid, -> { where("#{table_name}.expire_at IS NULL OR #{table_name}.expire_at > ?", DateTime.now) }
+  scope :valid, -> { where("#{table_name}.expire_at IS NULL OR #{table_name}.expire_at > ?", Time.zone.now) }
 
   private
 
