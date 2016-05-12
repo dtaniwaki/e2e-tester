@@ -59,7 +59,7 @@ div data-path-done-test-execution-path=done_test_execution_path(@test_execution)
             = f.input :expire_at, as: :string, label: 'Expire at (UTC)', placeholder: 'YYYY/MM/DD hh:mm', input_html: { data: { datetimepicker: '' } }
         = f.button :submit
     .col-lg-8
-      - if @test_execution_shares
+      - if @test_execution_shares.present?
         .panel.panel-default
           .panel-heading
             small.glyphicon.glyphicon-link
