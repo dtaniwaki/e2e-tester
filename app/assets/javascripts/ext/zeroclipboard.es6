@@ -1,5 +1,5 @@
-ZeroClipboard.config({ swfPath: $.images.zeroclipboard })
 $(document).on('turbolinks:load', function() {
+  ZeroClipboard.config({ swfPath: $.images.zeroclipboard })
   $('[data-zeroclipboard]').each(function(idx) {
     let $button = $(this)
     let $input = $($button.data('zeroclipboard'))
@@ -18,4 +18,7 @@ $(document).on('turbolinks:load', function() {
     })
     $input.focus(function(e) { $(this).select() })
   })
+})
+$(document).on('turbolinks:click', function() {
+  ZeroClipboard.destroy()
 })
