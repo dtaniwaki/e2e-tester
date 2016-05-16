@@ -1,5 +1,5 @@
 = f.simple_fields_for :data, OpenStruct.new(f.object.data) do |ff|
   .input-group-addon Fill
-  = ff.input :selector, label: false, placeholder: 'Selector', error: false
+  = ff.input :selector, label: false, placeholder: f.object.class.human_attribute_name(:selector), error: false
   .input-group-addon with
-  = ff.input :value, label: false, placeholder: 'Value', error: false
+  = ff.input :value, label: false, placeholder: f.object.class.human_attribute_name(:value), error: false

@@ -2,11 +2,13 @@
 
 h2 = t 'devise.invitations.edit.header'
 
+- password_hint = @minimum_password_length ? t('shared.password_hint', length: @minimum_password_length) : nil
+
 = simple_form_for resource, as: resource_name, url: invitation_path(resource_name), html: { autocomplete: 'off', method: :put } do |f|
   = f.error_notification
   = f.input :invitation_token, as: :hidden
-  = f.input :username, input_html: { autocomplete: 'off' }, required: true, hint: %|Username can contain only letters, digits, '_', '-' and '.'. Cannot start or end with '-' and '.'.|
+  = f.input :username, input_html: { autocomplete: 'off' }, required: true, hint: t('shared.username_hint')
   = f.input :name, input_html: { autocomplete: 'off' }, required: true
-  = f.input :password, input_html: { autocomplete: 'off' }, required: true
+  = f.input :password, hint: password_hint, input_html: { autocomplete: 'off', data: { 'password-strength': 8 } }, required: true
   = f.input :password_confirmation, input_html: { autocomplete: 'off' }, required: true
   = f.button :submit, t("devise.invitations.edit.submit_button")

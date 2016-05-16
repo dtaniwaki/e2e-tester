@@ -9,12 +9,12 @@ class UserTestsController < BaseController
       @user_test.assigned_by = current_user
 
       if @user_test.save
-        flash[:notice] = 'Successfully invited the user'
+        flash[:notice] = t('shared.invite_success', target: User.model_name.human)
       else
-        flash[:alert] = 'Failed to invite the user'
+        flash[:alert] = t('shared.invite_failure', target: User.model_name.human, errors: @user_test.errors.full_messages.join(', '))
       end
     else
-      flash[:alert] = 'Failed to invite the user'
+      flash[:alert] = t('shared.invite_failure', target: User.model_name.human, errors: @user.errors.full_messages.join(', '))
     end
     redirect_to test_path(@test)
   end
@@ -24,9 +24,9 @@ class UserTestsController < BaseController
     authorize @user_test
 
     if @user_test.update_attributes(permitted_params)
-      flash[:notice] = 'Successfully updated the user test'
+      flash[:notice] = t('shared.update_success', target: UserTest.model_name.human)
     else
-      flash[:alert] = 'Failed to update the user test'
+      flash[:alert] = t('shared.update_failure', target: UserTest.model_name.human)
     end
     redirect_to test_path(@user_test.test)
   end
@@ -43,7 +43,7 @@ class UserTestsController < BaseController
 
     @user_test.destroy!
 
-    flash[:notice] = 'Successfully deleted the user test'
+    flash[:notice] = t('shared.destroy_success', target: UserTest.model_name.human)
 
     redirect_to test_path(@user_test.test)
   end

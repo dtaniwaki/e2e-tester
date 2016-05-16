@@ -1,21 +1,19 @@
-- content_for :title, "Test Step Sets"
-
 .block
   .pull-right
-    = link_to 'New test step set', new_test_step_set_path, class: 'btn btn-success'
+    = link_to t('shared.buttons.new', target: SharedTestStepSet.model_name.human), new_test_step_set_path, class: 'btn btn-success'
 
   h1
     small.glyphicon.glyphicon-share
-    |  Test Step Sets
+    = " #{t('.title')}"
 
 - if @test_step_sets.present?
   .panel.panel-default
     table.table.table-striped
       tr
-        th Base Step Set
-        th Title
-        th Created At
-        th Created By
+        th = SharedTestStepSet.human_attribute_name(:base_test_step_set)
+        th = SharedTestStepSet.human_attribute_name(:title)
+        th = SharedTestStepSet.human_attribute_name(:created_at)
+        th = SharedTestStepSet.human_attribute_name(:user)
         th
       - @test_step_sets.each do |tv|
         tr
@@ -28,10 +26,9 @@
             |  
             = tv.user.name
           td
-            = link_to 'Create Test', new_test_path(base_test_step_set_id: tv), class: 'btn btn-xs btn-success'
+            = link_to t('shared.buttons.create_test'), new_test_path(base_test_step_set_id: tv), class: 'btn btn-xs btn-success'
   .center-block.text-center
     = paginate @test_step_sets
 -else
   .alert.alert-warning
-    | You don't have any test step set.
-
+    = t('shared.no_records', target: SharedTestStepSet.model_name.human)

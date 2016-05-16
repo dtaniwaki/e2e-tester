@@ -1,6 +1,6 @@
-- content_for :title, "Test #{@test_version.title} Test Executions"
+- content_for :title, t('.title', test_title: @test_version.title)
 
-= link_to 'Back to Test', test_path(@test_version.test)
+= link_to t('shared.back_link', target: TestVersion.model_name.human)
 
 h1.e2e-truncate
   small.glyphicon.glyphicon-tasks
@@ -8,17 +8,17 @@ h1.e2e-truncate
 
 h2
   .pull-right
-    = link_to 'Retry', test_version_test_executions_path(@test_version), class: 'btn btn-primary', method: :post
+    = link_to t('shared.buttons.retry'), test_version_test_executions_path(@test_version), class: 'btn btn-primary', method: :post
   small.glyphicon.glyphicon-film
-  |  Test Executions
+  = " #{TestExecution.model_name.human(count: 2).humanize}"
 
 - if @test_executions.present?
   .panel.panel-default
     table.table.table-striped
       tr
-        th State
-        th Executed At
-        th Executed By
+        th = TestExecution.human_attribute_name(:state).humanize
+        th = TestExecution.human_attribute_name(:executed_at).humanize
+        th = TestExecution.human_attribute_name(:executed_by).humanize
       - @test_executions.each do |te|
         tr
           td = bootstrap_status_tag :span, te.state_i18n, te.done?, te.failed?

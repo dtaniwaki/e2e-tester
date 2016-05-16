@@ -1,0 +1,165 @@
+---
+en:
+  views:
+    layout:
+      navigation:
+        assigned_tests: Assigned tests
+        credentials: Credentials
+        edit_profile: Edit profile
+        integrations: Integrations
+        invite_user: Invite user
+        recent_executions: Recent test executions
+        sign_in: Sign in
+        sign_out: Sign out
+        test_step_sets: Test step sets
+        your_tests: Your tests
+    misc:
+      assigned_tests:
+        title: Assigned tests
+      home:
+        assigned_tests: Assigned tests
+        title: Home
+        your_tests: Your tests
+      test_executions:
+        title: Test Executions
+    shared:
+      all_records: All %{target}
+      back_link: Back to %{target}
+      browserstack_credential_hint: You haven't set up the browserstack credential.
+      browserstack_credential_link: You can get the credentials from %{link}
+      buttons:
+        create: Create
+        create_test: Create test
+        delete: Delete
+        edit: Edit
+        execute: Execute
+        fork: Fork
+        new: New %{target}
+        retry: Retry
+        save: Save
+        share: Share
+        unset_all: Unset all
+        update: Update
+      confirm: Are you sure?
+      here: here
+      invite_target: Invite %{target}
+      links:
+        forgot_password: Forgot your password?
+        resend_confirmation: Didn't receive confirmation instructions?
+        resend_unlock: Didn't receive unlock instructions?
+        sign_in: Sign in
+        sign_up: Sign up
+      markdown_support_hint: Markdown supported. %{link}
+      more_records: More %{target}
+      no_records: You don't have any %{target}.
+      origin_link: Back
+      password_hint: "%{length} characters minimum"
+      select_target: Select %{target}
+      test_step_hint_html: You can use placeholders enclosed with <code>{}</code>, e.g. <code>{password}</code> to configure your password or anything secret later.
+      test_step_set_panel:
+        no_test_step_set: No test step set
+      test_version_panel:
+        no_browser: No browser
+        no_test_step_set: No test step set
+      username_hint: Username can contain only letters, digits, '_', '-' and '.'. Cannot start or end with '-' and '.'.
+      warning_on_leave: You are leaving the page and will lose the current change.
+      what_is_markdown: What is markdown?
+    slack_integrations:
+      edit:
+        title: Edit slack integration
+      new:
+        title: New slack integration
+      show:
+        title: Slack integration
+    test_execution_shares:
+      index:
+        title: Test execution
+    test_executions:
+      index:
+        title: Test %{test_title} executions
+      show:
+        share_execution: Share execution
+        test_execution_shares: Available test execution share URL
+        title: Test execution
+    test_step_executions:
+      show:
+        title: Test execution
+    test_step_sets:
+      edit:
+        title: Edit test step set %{test_step_set_title}
+      index:
+        title: Test step sets
+      new:
+        title: New test step set
+      show:
+        share_test_step_set: Share test step set
+        shared_users: Involving users
+        title: Test step set %{test_step_set_title}
+    test_versions:
+      index:
+        title: Test versions %{test_title}
+      show:
+        assigned_testers: Assigned testers
+        title: Test %{test_title} %{version}
+    tests:
+      edit:
+        title: Edit %{test_title}
+      index:
+        title: Your tests
+      new:
+        title: New test
+      show:
+        title: Test %{test_title}
+    user_credentials:
+      index:
+        title: Credentials
+    user_integrations:
+      index:
+        title: Integrations
+    user_shared_test_step_sets:
+      index:
+        title: Involving users
+    user_test_versions:
+      index:
+        title: Assigned testers
+    user_tests:
+      index:
+        title: Collaborator
+    users:
+      confirmations:
+        new:
+          submit_button: Send
+          title: Resend confirmation instructions
+      invitations:
+        edit:
+          title: Invitee registration
+        new:
+          title: New invitation
+      passwords:
+        edit:
+          confirm_new_password: Confirm new password
+          new_password: New password
+          submit_button: Update
+          title: Change your password
+        new:
+          submit_button: Send
+          title: Send reset password instructions
+      registrations:
+        edit:
+          cancel_account_button: Cancel my account
+          email_hint: 'Currently waiting confirmation for: %{email}'
+          password_hint: Leave blank if you don't want to change it.
+          submit_button: Update
+          title: Edit profile
+          unhappy: Unhappy?
+        new:
+          submit_button: Sign up
+          title: Sign up
+      sessions:
+        new:
+          submit_button: Sign in
+          title: Sign in
+      unlocks:
+        new:
+          submit_button: Send
+          title: Resend unlock instructions

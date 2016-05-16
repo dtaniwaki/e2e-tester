@@ -1,6 +1,7 @@
 module UserIntegration
   class Slack < Base
     include UrlHelper
+    include I18nHelper
 
     serialized_attribute :webhook_url
 
@@ -15,7 +16,7 @@ module UserIntegration
               when 'failed'
                 'danger'
       end
-      faraday.post(webhook_url, username: 'E2E Tester',
+      faraday.post(webhook_url, username: Settings.application.site_name,
                                 text: text,
                                 attachments: [
                                   author_name: test_execution.user.name,

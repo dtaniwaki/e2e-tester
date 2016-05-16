@@ -1,20 +1,17 @@
 .form-group data-sortable='.nested-fields' class=(f.object.errors[:test_steps].present? ? 'has-error' : '')
   = f.label :test_steps, class: 'control-label'
   .help-block
-    | You can use placeholders enclosed with {}, e.g. 
-    code
-      | {password}
-    |  to configure your password or anything secret later.
+    = t('shared.test_step_hint_html')
   .form-group
     = f.simple_fields_for(:test_steps, f.object.test_steps.map { |ts| ts.becomes ts.type.constantize }, include_id: false) do |ff|
       = render 'shared/test_step_fields', f: ff
     #insertion_node style='margin-bottom: 20px;'
     .dropdown
       button.btn.btn-default.dropdown-toggle type='button' data-toggle='dropdown'
-        | Step 
+        = "#{TestStep::Base.model_name.human.humanize} "
         span.caret
       ul.dropdown-menu
         - TestStep.steps.each do |test_step_class|
           li
-            = link_to_add_association test_step_class.name.demodulize, f, :test_steps, partial: 'shared/test_step_fields', wrap_object: -> (test_step) { test_step.becomes! test_step_class }, id: test_step_class.class, data: { 'association-insertion-node': "#insertion_node" }
+            = link_to_add_association test_step_class.model_name.human.humanize, f, :test_steps, partial: 'shared/test_step_fields', wrap_object: -> (test_step) { test_step.becomes! test_step_class }, id: test_step_class.class, data: { 'association-insertion-node': "#insertion_node" }
   = f.error :test_steps

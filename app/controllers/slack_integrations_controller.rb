@@ -16,7 +16,7 @@ class SlackIntegrationsController < BaseController
     @integration.assign_attributes(permitted_params)
 
     if @integration.save
-      flash[:notice] = 'Successfully created new integration'
+      flash[:notice] = t('shared.create_success', target: UserIntegration::Slack.model_name.human)
       redirect_to origin || slack_integration_path(@integration)
       return
     end
@@ -36,7 +36,7 @@ class SlackIntegrationsController < BaseController
     @integration.assign_attributes(permitted_params)
 
     if @integration.save
-      flash[:notice] = 'Successfully updated the integration'
+      flash[:notice] = t('shared.update_success', target: UserIntegration::Slack.model_name.human)
       redirect_to origin || slack_integration_path(@integration)
       return
     end
@@ -50,7 +50,7 @@ class SlackIntegrationsController < BaseController
 
     @integration.destroy!
 
-    flash[:notice] = 'Successfully deleted the integration'
+    flash[:notice] = t('shared.destroy_success', target: UserIntegration::Slack.model_name.human)
     redirect_to origin || user_integrations_path
   end
 

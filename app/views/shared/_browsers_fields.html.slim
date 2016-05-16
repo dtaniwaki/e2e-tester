@@ -15,7 +15,7 @@
       .block id="#{klass.to_s.demodulize.underscore}_browsers"
         .pull-right
           small
-            = link_to 'Unset all', '#', data: { 'unset-all': "##{klass.to_s.demodulize.underscore}_browsers" }
+            = link_to t('shared.buttons.unset_all'), '#', data: { 'unset-all': "##{klass.to_s.demodulize.underscore}_browsers" }
         h3.control-label
           = image_tag image_path("browsers/#{klass.name.humanize.demodulize}.png"), width: 20, height: 20
           = " #{klass.to_s.demodulize}"
@@ -26,6 +26,6 @@
           .col-sm-3
           .col-sm-9
             .alert.alert-warning
-              | You haven't set up the browserstack credential. 
-              = link_to 'Set up?', user_credentials_path(origin: request.url), data: { confirm: "You are leaving the page and will lose the current change." }
+              = "#{t('shared.browserstack_credential_hint')} "
+              = link_to 'Set up?', user_credentials_path(origin: request.url), data: { confirm: t('shared.warning_on_leave') }
   = f.error :browsers

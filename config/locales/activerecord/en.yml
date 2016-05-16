@@ -4,295 +4,225 @@ en:
     attributes:
       active_admin/comment:
         author: :activerecord.models.author
-        author_type: Author type
-        body: Body
-        namespace: Namespace
+        author_type: author type
+        body: body
+        namespace: namespace
         resource: :activerecord.models.resource
-        resource_type: Resource type
+        resource_type: resource type
       admin_user:
-        comments: Comments
-        confirmation_sent_at: Confirmation sent at
-        confirmation_token: Confirmation token
-        confirmed_at: Confirmed at
-        deleted_at: Deleted at
-        email: Email
-        encrypted_password: Encrypted password
-        failed_attempts: Failed attempts
-        locked_at: Locked at
-        name: Name
-        remember_created_at: Remember created at
-        reset_password_sent_at: Reset password sent at
-        reset_password_token: Reset password token
-        unconfirmed_email: Unconfirmed email
-        unlock_token: Unlock token
-      browser/base:
-        browser: Browser
-        browser_browser_sets: Browser browser sets
-        browser_sets: Browser sets
-        browser_version: Browser version
-        deprecated: Deprecated
-        device: Device
-        disabled: Disabled
-        name: Name
-        os: Os
-        os_version: Os version
-        test_browsers: Test browsers
+        comments: comments
+        confirmation_sent_at: confirmation sent at
+        confirmation_token: confirmation token
+        confirmed_at: confirmed at
+        deleted_at: deleted at
+        email: email
+        encrypted_password: encrypted password
+        failed_attempts: failed attempts
+        locked_at: locked at
+        name: name
+        remember_created_at: remember created at
+        reset_password_sent_at: reset password sent at
+        reset_password_token: reset password token
+        unconfirmed_email: unconfirmed email
+        unlock_token: unlock token
+      browser/base: &browser_base
+        browser: browser
+        browser_browser_sets: browser / browser sets
+        browser_sets: browser sets
+        browser_version: browser version
+        deprecated: deprecated
+        device: device
+        disabled: disabled
+        name: name
+        os: OS
+        os_version: OS version
+        test_browsers: test browsers
       browser/browserstack:
-        browser: Browser
-        browser_browser_sets: Browser browser sets
-        browser_sets: Browser sets
-        browser_version: Browser version
-        deprecated: Deprecated
-        device: Device
-        disabled: Disabled
-        name: Name
-        os: Os
-        os_version: Os version
-        test_browsers: Test browsers
+        <<: *browser_base
       browser/local:
-        browser: Browser
-        browser_browser_sets: Browser browser sets
-        browser_sets: Browser sets
-        browser_version: Browser version
-        deprecated: Deprecated
-        device: Device
-        disabled: Disabled
-        name: Name
-        os: Os
-        os_version: Os version
-        test_browsers: Test browsers
+        <<: *browser_base
       browser_browser_set:
         browser: :activerecord.models.browser
         browser_set: :activerecord.models.browser_set
       browser_set:
-        browser_browser_sets: Browser browser sets
-        browsers: Browsers
-        disabled: Disabled
-        name: Name
+        browser_browser_sets: browser browser sets
+        browsers: browsers
+        disabled: disabled
+        name: name
       page_source:
-        source_content_type: Source content type
-        source_file_name: Source file name
-        source_file_size: Source file size
-        source_updated_at: Source updated at
+        source_content_type: source content type
+        source_file_name: source file name
+        source_file_size: source file size
+        source_updated_at: source updated at
         test_step: :activerecord.models.test_step
         test_step_execution: :activerecord.models.test_step_execution
       screenshot:
-        image_content_type: Image content type
-        image_file_name: Image file name
-        image_file_size: Image file size
-        image_updated_at: Image updated at
+        image_content_type: image content type
+        image_file_name: image file name
+        image_file_size: image file size
+        image_updated_at: image updated at
         test_step: :activerecord.models.test_step
         test_step_execution: :activerecord.models.test_step_execution
+      test_step_set: &test_step_set
+        base_test_step_set: base test
+        deleted_at: deleted at
+        description: description
+        inherited_test_step_sets: inherited test step sets
+        position: position
+        shared_test_step_sets: test step sets
+        test_step_sets: test step sets
+        test_steps: test steps
+        title: title
+        user: :activerecord.models.user
       shared_test_step_set:
-        base_test_step_set: :activerecord.models.base_test_step_set
-        deleted_at: Deleted at
-        description: Description
-        inherited_test_step_sets: Inherited test step sets
-        position: Position
-        referred_test_steps: Referred test steps
-        shared_test_step_sets: Shared test step sets
-        test_step_sets: Test step sets
-        test_steps: Test steps
-        title: Title
-        user: :activerecord.models.user
-        user_shared_test_step_sets: User shared test step sets
+        <<: *test_step_set
+        referred_test_steps: referred test steps
+        user_shared_test_step_sets: user / test step sets
       test:
-        accessible_users: Accessible users
+        accessible_users: accessible users
         current_test_version: :activerecord.models.current_test_version
-        deleted_at: Deleted at
-        test_versions: Test versions
-        updating_test_versions: Updating test versions
+        deleted_at: deleted at
+        test_versions: tests
+        updating_test_versions: updating test versions
         user: :activerecord.models.user
-        user_tests: User tests
+        user_tests: collaborators
       test_browser:
         browser: :activerecord.models.browser
-        test_execution_browsers: Test execution browsers
+        test_execution_browsers: test execution browsers
         test_version: :activerecord.models.test_version
       test_execution:
-        deleted_at: Deleted at
-        state: State
+        deleted_at: deleted at
+        state: state
         test: :activerecord.models.test
-        test_execution_browsers: Test execution browsers
-        test_execution_shares: Test execution shares
+        test_execution_browsers: test execution browsers
+        test_execution_shares: test execution shares
         test_version: :activerecord.models.test_version
         user: :activerecord.models.user
       test_execution_browser:
         browser: :activerecord.models.browser
-        error: Error
-        state: State
+        error: error
+        state: state
         test_browser: :activerecord.models.test_browser
         test_execution: :activerecord.models.test_execution
-        test_step_executions: Test step executions
+        test_step_executions: test step executions
         test_version: :activerecord.models.test_version
       test_execution_share:
-        expire_at: Expire at
-        name: Name
+        expire_at: expire at
+        name: name
         test_execution: :activerecord.models.test_execution
-        token: Token
+        token: token
         user: :activerecord.models.user
-      test_step/base:
-        data: Data
-        position: Position
-        test_step_executions: Test step executions
+      test_step/base: &test_step_base
+        data: data
+        position: position
+        test_step_executions: test step executions
         test_step_set: :activerecord.models.test_step_set
       test_step/click:
-        data: Data
-        position: Position
-        test_step_executions: Test step executions
-        test_step_set: :activerecord.models.test_step_set
+        <<: *test_step_base
       test_step/eval:
-        data: Data
-        position: Position
-        test_step_executions: Test step executions
-        test_step_set: :activerecord.models.test_step_set
+        <<: *test_step_base
       test_step/fill:
-        data: Data
-        position: Position
-        test_step_executions: Test step executions
-        test_step_set: :activerecord.models.test_step_set
+        <<: *test_step_base
       test_step/maximize_window:
-        data: Data
-        position: Position
-        test_step_executions: Test step executions
-        test_step_set: :activerecord.models.test_step_set
+        <<: *test_step_base
       test_step/navigation:
-        data: Data
-        position: Position
-        test_step_executions: Test step executions
-        test_step_set: :activerecord.models.test_step_set
+        <<: *test_step_base
       test_step/none:
-        data: Data
-        position: Position
-        test_step_executions: Test step executions
-        test_step_set: :activerecord.models.test_step_set
+        <<: *test_step_base
       test_step/page_source:
-        data: Data
-        page_sources: Page sources
-        position: Position
-        test_step_executions: Test step executions
-        test_step_set: :activerecord.models.test_step_set
+        <<: *test_step_base
+        page_sources: page sources
       test_step/resize_window:
-        data: Data
-        position: Position
-        test_step_executions: Test step executions
-        test_step_set: :activerecord.models.test_step_set
+        <<: *test_step_base
       test_step/screenshot:
-        data: Data
-        position: Position
-        screenshots: Screenshots
-        test_step_executions: Test step executions
-        test_step_set: :activerecord.models.test_step_set
+        <<: *test_step_base
+        screenshots: screenshots
       test_step/step_set:
-        data: Data
-        position: Position
+        <<: *test_step_base
         shared_test_step_set: :activerecord.models.shared_test_step_set
-        test_step_executions: Test step executions
-        test_step_set: :activerecord.models.test_step_set
-        test_steps: Test steps
+        test_steps: test steps
       test_step/wait:
-        data: Data
-        position: Position
-        test_step_executions: Test step executions
-        test_step_set: :activerecord.models.test_step_set
+        <<: *test_step_base
       test_step_execution:
         browser: :activerecord.models.browser
-        message: Message
+        message: message
         page_source: :activerecord.models.page_source
         screenshot: :activerecord.models.screenshot
-        state: State
+        state: state
         test_browser: :activerecord.models.test_browser
         test_execution: :activerecord.models.test_execution
         test_execution_browser: :activerecord.models.test_execution_browser
         test_step: :activerecord.models.test_step
-      test_step_set:
-        base_test_step_set: :activerecord.models.base_test_step_set
-        deleted_at: Deleted at
-        description: Description
-        inherited_test_step_sets: Inherited test step sets
-        position: Position
-        shared_test_step_sets: Shared test step sets
-        test_step_sets: Test step sets
-        test_steps: Test steps
-        title: Title
-        user: :activerecord.models.user
       test_version:
-        base_test_step_set: :activerecord.models.base_test_step_set
-        browsers: Browsers
-        deleted_at: Deleted at
-        description: Description
-        inherited_test_step_sets: Inherited test step sets
-        position: Position
-        shared_test_step_sets: Shared test step sets
+        <<: *test_step_set
+        browsers: browsers
         test: :activerecord.models.test
-        test_browsers: Test browsers
-        test_executions: Test executions
-        test_step_sets: Test step sets
-        test_steps: Test steps
-        title: Title
-        user: :activerecord.models.user
-        user_test_versions: User test versions
+        test_browsers: test browsers
+        test_executions: test executions
+        user_test_versions: testers
       user:
-        accessible_shared_test_step_sets: Accessible shared test step sets
-        accessible_test_versions: Accessible test versions
-        accessible_tests: Accessible tests
-        assigned_test_users: Assigned test users
-        assigned_test_version_users: Assigned test version users
+        accessible_shared_test_step_sets: accessible test step sets
+        accessible_test_versions: accessible test versions
+        accessible_tests: accessible tests
+        assigned_test_users: assigned test users
+        assigned_test_version_users: assigned test version users
         browserstack_credential: :activerecord.models.browserstack_credential
-        confirmation_sent_at: Confirmation sent at
-        confirmation_token: Confirmation token
-        confirmed_at: Confirmed at
-        deleted_at: Deleted at
-        email: Email
-        encrypted_password: Encrypted password
-        failed_attempts: Failed attempts
-        invitation_accepted_at: Invitation accepted at
-        invitation_created_at: Invitation created at
-        invitation_limit: Invitation limit
-        invitation_sent_at: Invitation sent at
-        invitation_token: Invitation token
+        confirmation_sent_at: confirmation sent at
+        confirmation_token: confirmation token
+        confirmed_at: confirmed at
+        deleted_at: deleted at
+        email: email
+        encrypted_password: encrypted password
+        failed_attempts: failed attempts
+        invitation_accepted_at: invitation accepted at
+        invitation_created_at: invitation created at
+        invitation_limit: invitation limit
+        invitation_sent_at: invitation sent at
+        invitation_token: invitation token
         invited_by: :activerecord.models.invited_by
-        invited_by_type: Invited by type
-        locked_at: Locked at
-        name: Name
-        remember_created_at: Remember created at
-        remember_me: Remember me
-        reset_password_sent_at: Reset password sent at
-        reset_password_token: Reset password token
-        shared_test_step_sets: Shared test step sets
-        test_execution_browsers: Test execution browsers
-        test_execution_shares: Test execution shares
-        test_executions: Test executions
-        test_step_executions: Test step executions
-        test_step_sets: Test step sets
-        test_versions: Test versions
-        tests: Tests
-        unconfirmed_email: Unconfirmed email
-        unlock_token: Unlock token
-        user_credentials: User credentials
-        user_integrations: User integrations
-        user_shared_test_step_sets: User shared test step sets
-        user_test_variables: User test variables
-        user_test_version_variables: User test version variables
-        user_test_versions: User test versions
-        user_tests: User tests
-        user_variables: User variables
-        username: Username
-      user_credential/base:
-        data: Data
+        invited_by_type: invited by type
+        locked_at: locked at
+        name: name
+        password: password
+        password_confirmation: password (confirmation)
+        remember_created_at: remember created at
+        remember_me: remember me
+        reset_password_sent_at: reset password sent at
+        reset_password_token: reset password token
+        shared_test_step_sets: test step sets
+        test_execution_browsers: test execution browsers
+        test_execution_shares: test execution shares
+        test_executions: test executions
+        test_step_executions: test step executions
+        test_step_sets: test step sets
+        test_versions: test versions
+        tests: tests
+        unconfirmed_email: unconfirmed email
+        unlock_token: unlock token
+        user_credentials: user credentials
+        user_integrations: user integrations
+        user_shared_test_step_sets: user / test step sets
+        user_test_variables: test variables
+        user_test_version_variables: tester variables
+        user_test_versions: testers
+        user_tests: collaborators
+        user_variables: user variables
+        username: username
+      user_credential/base: &user_credential_base
+        data: data
         user: :activerecord.models.user
       user_credential/browserstack:
-        data: Data
-        user: :activerecord.models.user
-      user_integration/base:
-        data: Data
-        last_error: Last error
-        name: Name
+        <<: *user_credential_base
+        password: password
+        username: username
+      user_integration/base: &user_integration_base
+        data: data
+        last_error: last error
+        name: name
         user: :activerecord.models.user
       user_integration/slack:
-        data: Data
-        last_error: Last error
-        name: Name
-        user: :activerecord.models.user
+        <<: *user_integration_base
+        webhook_url: webhook URL
       user_shared_test_step_set:
         shared_test_step_set: :activerecord.models.shared_test_step_set
         user: :activerecord.models.user
@@ -300,64 +230,136 @@ en:
         assigned_by: :activerecord.models.assigned_by
         test: :activerecord.models.test
         user: :activerecord.models.user
-        user_test_variables: User test variables
+        user_test_variables: user test variables
       user_test_variable:
-        name: Name
+        name: name
         user_test: :activerecord.models.user_test
-        value: Value
+        value: value
       user_test_version:
         assigned_by: :activerecord.models.assigned_by
         test: :activerecord.models.test
         test_version: :activerecord.models.test_version
         user: :activerecord.models.user
-        user_test_version_variables: User test version variables
+        user_test_version_variables: user test version variables
       user_test_version_variable:
-        name: Name
+        name: name
         user_test_version: :activerecord.models.user_test_version
-        value: Value
+        value: value
       user_variable:
-        name: Name
+        name: name
         user: :activerecord.models.user
-        value: Value
+        value: value
     models:
-      active_admin/comment: Active admin/comment
-      admin_user: Admin user
-      browser/base: Browser/base
-      browser/browserstack: Browser/browserstack
-      browser/local: Browser/local
-      browser_browser_set: Browser browser set
-      browser_set: Browser set
-      page_source: Page source
-      screenshot: Screenshot
-      shared_test_step_set: Shared test step set
-      test: Test
-      test_browser: Test browser
-      test_execution: Test execution
-      test_execution_browser: Test execution browser
-      test_execution_share: Test execution share
-      test_step/base: Test step/base
-      test_step/click: Test step/click
-      test_step/eval: Test step/eval
-      test_step/fill: Test step/fill
-      test_step/maximize_window: Test step/maximize window
-      test_step/navigation: Test step/navigation
-      test_step/none: Test step/none
-      test_step/page_source: Test step/page source
-      test_step/resize_window: Test step/resize window
-      test_step/screenshot: Test step/screenshot
-      test_step/step_set: Test step/step set
-      test_step/wait: Test step/wait
-      test_step_execution: Test step execution
-      test_step_set: Test step set
-      test_version: Test version
-      user: User
-      user_credential/base: User credential/base
-      user_credential/browserstack: User credential/browserstack
-      user_integration/base: User integration/base
-      user_integration/slack: User integration/slack
-      user_shared_test_step_set: User shared test step set
-      user_test: User test
-      user_test_variable: User test variable
-      user_test_version: User test version
-      user_test_version_variable: User test version variable
-      user_variable: User variable
+      active_admin/comment:
+        one: active admin comment
+        other: active admin comments
+      admin_user:
+        one: admin user
+        other: admin users
+      browser/base:
+        one: browser
+        other: browsers
+      browser/browserstack:
+        one: browserstack browser
+        other: browserstack browsers
+      browser/local:
+        one: local browser
+        other: local browsers
+      browser_browser_set: browser / browser set
+      browser_set:
+        one: browser set
+        other: browser sets
+      page_source:
+        one: page source
+        other: page sources
+      screenshot:
+        one: screenshot
+        other: screenshots
+      shared_test_step_set:
+        one: test step set
+        other: test step sets
+      test:
+        one: test
+        other: tests
+      test_browser: test / browser
+      test_execution:
+        one: test execution
+        other: test executions
+      test_execution_browser: test execution / browser
+      test_execution_share:
+        one: test execution share URL
+        other: test execution share URLs
+      test_step/base:
+        one: step
+        other: steps
+      test_step/click:
+        one: click
+        other: clicks
+      test_step/eval:
+        one: eval
+        other: eval
+      test_step/fill:
+        one: fill input
+        other: fill inputs
+      test_step/maximize_window:
+        one: maximize window
+        other: maximize windows
+      test_step/navigation:
+        one: navigation
+        other: navigations
+      test_step/none: none
+      test_step/page_source:
+        one: page source
+        other: page sources
+      test_step/resize_window:
+        one: resize window
+        other: resize windows
+      test_step/screenshot:
+        one: screenshot
+        other: screenshots
+      test_step/step_set:
+        one: custom step
+        other: custom steps
+      test_step/wait:
+        one: wait step
+        other: wait steps
+      test_step_execution:
+        one: test step execution
+        other: test step executions
+      test_step_set:
+        one: step set
+        other: step sets
+      test_version:
+        one: test
+        other: tests
+      user:
+        one: user
+        other: users
+      user_credential/base:
+        one: credential
+        other: credentials
+      user_credential/browserstack:
+        one: browserstack credential
+        other: browserstack credentials
+      user_integration/base:
+        one: integration
+        other: integrations
+      user_integration/slack:
+        one: slack integration
+        other: slack integrations
+      user_shared_test_step_set: user / shared test step set
+      user_test:
+        one: collaborator
+        other: collaborators
+      user_test_variable:
+        one: variable
+        other: variables
+      user_test_version:
+        one: tester
+        other: testers
+      user_test_version_variable:
+        one: variable
+        other: variables
+      user_variable:
+        one: variable
+        other: variables

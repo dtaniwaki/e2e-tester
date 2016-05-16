@@ -86,7 +86,5 @@ module E2eTester
 
     config.assets.paths << Rails.root.join('vendor', 'assets', 'bower_components')
     config.assets.precompile << File.join('zeroclipboard', '**', '*.swf')
-
-    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
   end
 end

@@ -1,6 +1,6 @@
-- content_for :title, "Test #{@test.title} Test Versions"
+- content_for :title, t('.title', test_title: @test.title)
 
-= link_to 'Back to Test', test_path(@test)
+= link_to t('shared.back_link', target: Test.model_name.human), test_path(@test)
 
 - if policy(@test).show?
   h1.e2e-truncate
@@ -9,17 +9,17 @@
 
   h2
     small.glyphicon.glyphicon-tasks
-    |  Test Versios
+    = " #{TestVersion.model_name.human(count: 2).humanize}"
 
 - if @test_versions.present?
   .panel.panel-default
     table.table.table-striped
       tr
-        th Number
-        th Base Test
-        th Title
-        th Created At
-        th Created By
+        th = TestVersion.human_attribute_name(:position).humanize
+        th = TestVersion.human_attribute_name(:base_test_step_set).humanize
+        th = TestVersion.human_attribute_name(:title).humanize
+        th = TestVersion.human_attribute_name(:created_at).humanize
+        th = TestVersion.human_attribute_name(:user).humanize
         th
       - @test_versions.each do |tv|
         tr
@@ -33,9 +33,9 @@
             |  
             = tv.user.name
           td
-            = button_to 'Execute', test_version_test_executions_path(tv.test_version), class: 'btn btn-xs btn-primary', method: :post, disabled: !tv.executable?
+            = button_to t('shared.buttons.execute'), test_version_test_executions_path(tv.test_version), class: 'btn btn-xs btn-primary', method: :post, disabled: !tv.executable?
   .center-block.text-center
     = paginate @test_versions
 - else
   .alert.alert-warning
-    | You don't have any test_version.
+    = t('shared.no_records', target: TestVersion.model_name.human(count: 2))

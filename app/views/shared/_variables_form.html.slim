@@ -2,7 +2,7 @@
   .panel.panel-default
     .panel-heading
       small.glyphicon.glyphicon-cog
-      |  Variables
+      = " #{variable_name.singularize.camelize.constantize.model_name.human(count: 2).humanize}"
     table.table
       = f.simple_fields_for variable_name do |ff|
         = render '/shared/variable_fields', f: ff
@@ -11,4 +11,4 @@
           = link_to_add_association f, variable_name, partial: 'shared/variable_fields', data: { 'association-insertion-node': "#insertion_node" } do
             span.glyphicon.glyphicon-plus-sign
     .panel-footer.text-right
-      = f.button :submit, 'Update'
+      = f.button :submit, t('shared.buttons.update')

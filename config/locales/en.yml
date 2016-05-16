@@ -1,12 +1,5 @@
 ---
 en:
-  activerecord:
-    errors:
-      messages:
-        record_invalid: 'Validation failed: %{errors}'
-        restrict_dependent_destroy:
-          has_many: Cannot delete record because dependent %{record} exist
-          has_one: Cannot delete record because a dependent %{record} exists
   date:
     abbr_day_names:
     - Sun
@@ -145,9 +138,7 @@ en:
     select:
       prompt: Please select
     submit:
-      create: Create %{model}
       submit: Save %{model}
-      update: Update %{model}
   number:
     currency:
       format:

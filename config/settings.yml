@@ -1,4 +1,5 @@
 application:
+  site_name: 'E2E Tester'
   url_options:
     host: <%= ENV['SERVICE_HOST'] || 'TBA' %>
     protocol: 'http'

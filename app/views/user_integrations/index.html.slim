@@ -1,35 +1,33 @@
-- content_for :title, 'User Integrations'
-
 - if origin
-  = link_to 'Back', origin
+  = link_to t('shared.origin_link'), origin
 
 h1
   small.glyphicon.glyphicon-link
-  |  User Integrations
+  = " #{UserIntegration::Base.model_name.human.humanize}"
 
 - UserIntegration.integration_classes.each do |klass|
   - records = @integrations.select { |i| i.class == klass }
   .block
     .pull-right
-      = link_to 'New Integration', new_slack_integration_path, class: 'btn btn-success'
+      = link_to t('shared.buttons.new', target: klass.model_name.human), new_slack_integration_path, class: 'btn btn-success'
     h2
       = image_tag image_path("integrations/#{klass.name.humanize.demodulize}.png"), width: 32, height: 32
-      = " #{klass.name.humanize.demodulize} "
+      = " #{klass.model_name.human.humanize} "
       small = link_to '', doc_url(:integration_slack), target: '_blank', class: 'glyphicon glyphicon-new-window'
 
   - if records.present?
     .panel.panel-default
       table.table.table-striped
         tr
-          th Name
+          th = UserIntegration::Base.human_attribute_name(:name).humanize
           th
         - records.each do |r|
           tr
             td = link_to r.name, slack_integration_path(r)
             td
-              = link_to 'Edit', edit_slack_integration_path(r)
+              = link_to t('shared.buttons.edit'), edit_slack_integration_path(r)
               |  
-              = link_to 'Delete', slack_integration_path(r), method: :delete, data: { confirm: 'Are you sure?' }
+              = link_to t('shared.buttons.delete'), slack_integration_path(r), method: :delete, data: { confirm: t('shared.confirm') }
   - else
     .alert.alert-warning
-      | You don't have any integration.
+      = t('shared.no_records', target: UserIntegration::Base.model_name.human)

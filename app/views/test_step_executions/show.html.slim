@@ -1,7 +1,7 @@
-- content_for :title, "Test Step Execution #{@test_step_execution.to_param}"
+- content_for :title, t('.title', execution_id: @test_step_execution.to_param, browser: @test_step_execution.browser.name, step: @test_step_execution.test_step.position).titleize
 
 - if policy(@test_step_execution.test_execution).show?
-  = link_to 'Back to Test Execution', test_execution_path(@test_step_execution.test_execution, token: params[:token])
+  = link_to t('shared.back_link', target: TestExecution.model_name.human), test_execution_path(@test_step_execution.test_execution, token: params[:token])
 
 div style="margin: 20px 0 20px 0;"
   ul.nav.nav-pills
@@ -35,4 +35,4 @@ div
         = image_tag @test_step_execution.screenshot.image.url, width: '100%'
     - elsif @test_step_execution.test_step.page_source? && @test_step_execution.page_source.try(:source).present?
       div
-        = link_to 'Page Source', @test_step_execution.page_source.source.url, target: '_blank'
+        = link_to PageSource.model_name.human, @test_step_execution.page_source.source.url, target: '_blank'
