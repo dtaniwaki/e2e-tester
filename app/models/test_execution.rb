@@ -19,6 +19,7 @@ class TestExecution < ApplicationRecord
   validate :validate_executable
 
   attr_accessor :token
+  alias_attribute :executed_at, :created_at
 
   def execute!(user, async: false)
     running!

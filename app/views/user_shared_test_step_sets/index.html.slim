@@ -1,14 +1,14 @@
-= link_to "Back to the test step set", test_step_set_path(@shared_test_step_set)
+= link_to t('shared.back_link', target: SharedTestStepSet.model_name.human), test_step_set_path(@shared_test_step_set)
 
 h1
   small.glyphicon.glyphicon-user
-  |  Shared Users
+  = " #{UserSharedTestStepSet.model_name.human(count: 2).humanize}"
 
 - if @user_shared_test_step_sets.present?
   div.panel.panel-default
     table.table
       tr
-        th Name
+        th = User.human_attribute_name(:name).human
         th
       - @user_shared_test_step_sets.each do |ut|
         tr
@@ -18,6 +18,6 @@ h1
             = ut.user.name
           td
             - if policy(ut).destroy?
-              = link_to 'Delete', user_shared_test_step_set_path(ut), method: :delete, data: { confirm: 'Are you sure?' }
+              = link_to t('shared.buttons.delete'), user_shared_test_step_set_path(ut), method: :delete, data: { confirm: t('shared.confirm') }
   .center-block.text-center
     = paginate @user_shared_test_step_sets

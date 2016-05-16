@@ -1,9 +1,9 @@
-- content_for :title, "Test #{@test_version.title}"
+- content_for :title, t('.title', test_title: @test_version.title, version: @test_version.position).titleize
 
 - if policy(@test).show?
-  = link_to 'Back to Test', test_path(@test)
+  = link_to t('shared.back_link', target: Test.model_name.human), test_path(@test)
 - else
-  = link_to 'Back to Tests', misc_assigned_tests_path
+  = link_to t('shared.back_link', target: Test.model_name.human(count: 2)), misc_assigned_tests_path
 
 - if policy(@test).show?
   h1.e2e-truncate
@@ -14,11 +14,11 @@
   .pull-right
     .e2e-margined-btn-group
       - if policy(@test).edit?
-        = link_to 'Edit', edit_test_path(@test, base_test_step_set_id: @test_version), class: 'btn btn-default'
+        = link_to t('shared.buttons.edit'), edit_test_path(@test, base_test_step_set_id: @test_version), class: 'btn btn-default'
       - if policy(Test.new).new?
-        = link_to 'Fork', new_test_path(base_test_step_set_id: @test_version), class: 'btn btn-default'
+        = link_to t('shared.buttons.fork'), new_test_path(base_test_step_set_id: @test_version), class: 'btn btn-default'
       - if policy(SharedTestStepSet.new).new?
-        = link_to 'Share', new_test_step_set_path(base_test_step_set_id: @test_version), class: 'btn btn-default'
+        = link_to t('shared.buttons.share'), new_test_step_set_path(base_test_step_set_id: @test_version), class: 'btn btn-default'
   h2.e2e-truncate
     small.glyphicon.glyphicon-tasks
     = " #{@test_version.title}"
@@ -29,12 +29,12 @@
   div.panel.panel-default
     div.panel-heading
       small.glyphicon.glyphicon-film
-      |  Executions
+      = " #{TestExecution.model_name.human(count: 2)}"
     table.table
       tr
-        th State
-        th Executed At
-        th Executed By
+        th = TestExecution.human_attribute_name(:state).humanize
+        th = TestExecution.human_attribute_name(:executed_at).humanize
+        th = TestExecution.human_attribute_name(:executed_by).humanize
       - @test_executions.each do |te|
         tr
           td = bootstrap_status_tag :span, te.state_i18n, te.done?, te.failed?
@@ -45,7 +45,7 @@
             |  
             = te.user.name
   div.panel
-    = link_to 'More executions', test_version_test_executions_path(@test_version)
+    = link_to t('shared.more_records', target: TestExecution.model_name.human(count: 2)), test_version_test_executions_path(@test_version)
 
 .row
   - if @user_test_version.present?
@@ -58,11 +58,11 @@
       .panel.panel-default
         .panel-heading
           small.glyphicon.glyphicon-send
-          |  Invite Tester
+          = " #{t('shared.invite_target', target: UserTestVersion.model_name.human)}"
         .panel-body
           = form_for [@test_version, user_test_version], method: :post, html: {autocomplete: 'off'} do |f|
             .form-group
-              = label_tag :email
+              = label_tag :email, User.human_attribute_name(:email)
               = text_field_tag :email, nil, class: 'form-control', autocomplete: 'off'
 
             .form-group
@@ -72,10 +72,10 @@
         div.panel.panel-default
           div.panel-heading
             small.glyphicon.glyphicon-user
-            |  Assigned Testers
+            = " #{t('.assigned_testers')}"
           table.table
             tr
-              th Name
+              th = User.human_attribute_name(:name).humanize
             - @user_test_versions.each do |ut|
               tr
                 td
@@ -83,5 +83,5 @@
                   |  
                   = ut.user.name
         div.panel
-          = link_to 'More assigned testers', test_version_user_test_versions_path(@test_version)
+          = link_to t('shared.more_records', target: UserTestVersion.model_name.human), test_version_user_test_versions_path(@test_version)
 

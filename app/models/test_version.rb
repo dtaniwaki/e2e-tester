@@ -1,4 +1,5 @@
 class TestVersion < TestStepSet
+  belongs_to :user, inverse_of: :test_versions
   belongs_to :test, inverse_of: :test_versions
   has_many :user_test_versions, inverse_of: :test_version
   has_many :test_executions, inverse_of: :test_version

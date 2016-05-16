@@ -11,6 +11,8 @@ class UserTest < ApplicationRecord
 
   accepts_nested_attributes_for :user_test_variables, allow_destroy: true, reject_if: -> (attributes) { attributes[:name].blank? && attributes[:value].blank? }
 
+  alias_attribute :assigned_at, :created_at
+
   def send_notification!
     UserMailer.assigned_test(user, test).deliver_now!
   end

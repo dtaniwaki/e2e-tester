@@ -1,4 +1,6 @@
 ActiveAdmin.register User do
+  menu label: User.model_name.human.humanize
+
   permit_params :username, :name, :email, :password, :password_confirmation,
                 :confirmation_token, :confirmed_at,
                 :reset_password_token, :reset_password_setn_at,

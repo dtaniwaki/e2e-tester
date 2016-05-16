@@ -1,16 +1,14 @@
-- content_for :title, 'Assigned Tests'
-
 h1
   small.glyphicon.glyphicon-tasks
-  |  Assigned Tests
+  = " #{t('.title')}"
 
 - if @user_test_versions.present?
   .panel.panel-default
     table.table.table-striped
       tr
-        th Title
-        th Assigned At
-        th Assigned By
+        th = Test.human_attribute_name(:title).humanize
+        th = UserTestVersion.human_attribute_name(:assigned_at).humanize
+        th = UserTestVersion.human_attribute_name(:assigned_by).humanize
         th
       - @user_test_versions.each do |utv|
         tr
@@ -22,9 +20,9 @@ h1
             |  
             = utv.assigned_by.name
           td
-            = button_to 'Execute', test_version_test_executions_path(utv.test_version), class: 'btn btn-xs btn-primary', method: :post
+            = button_to t('shared.buttons.execute'), test_version_test_executions_path(utv.test_version), class: 'btn btn-xs btn-primary', method: :post
   .center-block.text-center
     = paginate @user_test_versions
 - else
   .alert.alert-warning
-    | You don't have any assigned test_version.
+    = t('shared.no_records', target: Test.model_name.human)

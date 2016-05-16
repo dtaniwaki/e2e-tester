@@ -1,5 +1,5 @@
 ActiveAdmin.register TestVersion do
-  menu parent: 'Test'
+  menu parent: 'Test', label: TestVersion.model_name.human.humanize
 
   permit_params
 

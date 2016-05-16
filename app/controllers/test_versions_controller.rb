@@ -24,9 +24,11 @@ class TestVersionsController < BaseController
     @test_version = Test.find(params[:test_id]).test_versions.find_by_position(params[:num])
     authorize @test_version
 
-    @test_version.destroy!
-
-    flash[:alert] = 'Succesfully deleted the test_version'
+    if @test_version.destroy
+      flash[:notice] = t('shared.destroy_success', target: TestVersion.model_name.human)
+    else
+      flash[:alert] = t('shared.destroy_failure', target: TestVersion.model_name.human)
+    end
     redirect_to test_test_versions_path(@test_version.test)
   end
 end

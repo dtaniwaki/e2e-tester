@@ -1,0 +1,14 @@
+---
+en:
+  controllers:
+    shared:
+      create_failure: Failed to create new %{target}. %{errors}
+      create_success: Successfully created new %{target}.
+      destroy_failure: Failed to delete the %{target}.
+      destroy_success: Successfully deleted the %{target}.
+      execute_failure: Failed to execute the %{target}. %{errors}
+      execute_success: Successfully executed the %{target}.
+      invite_failure: Failed to invite %{target}. %{errors}
+      invite_success: Successfully invited %{target}.
+      update_failure: Failed to update the %{target}. %{errors}
+      update_success: Successfully updated the %{target}.

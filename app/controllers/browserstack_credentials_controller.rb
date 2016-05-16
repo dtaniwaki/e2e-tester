@@ -4,9 +4,9 @@ class BrowserstackCredentialsController < BaseController
     authorize @credential
 
     if @credential.save
-      flash[:notice] = 'Successfully created the credential'
+      flash[:notice] = t('shared.create_success', target: UserCredential::Browserstack.model_name.human)
     else
-      flash[:alert] = ['Failed to create the credential', *@credential.errors.full_messages].join(', ')
+      flash[:alert] = t('shared.update_failure', target: UserCredential::Browserstack.model_name.human, errors: @credential.errors.full_messages.join(', '))
     end
 
     redirect_to origin || user_credentials_path
@@ -18,9 +18,9 @@ class BrowserstackCredentialsController < BaseController
     authorize @credential
 
     if @credential.save
-      flash[:notice] = 'Successfully updated the credential'
+      flash[:notice] = t('shared.update_success', target: UserCredential::Browserstack.model_name.human)
     else
-      flash[:alert] = ['Failed to update the credential', *@credential.errors.full_messages].join(', ')
+      flash[:alert] = t('shared.update_failure', target: UserCredential::Browserstack.model_name.human, errors: @credential.errors.full_messages.join(', '))
     end
     redirect_to origin || user_credentials_path
   end
@@ -31,7 +31,7 @@ class BrowserstackCredentialsController < BaseController
       authorize @credential
 
       @credential.destroy!
-      flash[:notice] = 'Successfully deleted the credential'
+      flash[:notice] = t('shared.destroy_success', target: UserCredential::Browserstack.model_name.human)
     end
 
     redirect_to origin || user_credentials_path

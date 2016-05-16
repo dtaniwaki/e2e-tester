@@ -10,6 +10,8 @@ class TestExecutionShare < ApplicationRecord
 
   scope :available, -> { where("#{table_name}.expire_at IS NULL OR #{table_name}.expire_at > ?", Time.zone.now) }
 
+  alias_attribute :shared_at, :created_at
+
   def available?
     expire_at.nil? || expire_at > Time.zone.now
   end

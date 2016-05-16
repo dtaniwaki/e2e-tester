@@ -1,11 +1,11 @@
-- content_for :title, "Test Execution #{@test_execution.to_param}"
+- content_for :title, t('.title', execution_id: @test_execution.to_param)
 
 - if policy(@test_version).show?
-  = link_to 'Back to test', test_version_position_path(@test_version)
+  = link_to t('shared.back_link', target: TestVersion.model_name.human), test_version_position_path(@test_version)
 
 .block
   .pull-right
-    = link_to 'Retry', test_version_test_executions_path(@test_execution.test_version), class: 'btn btn-primary', method: :post
+    = link_to t('shared.buttons.retry'), test_version_test_executions_path(@test_execution.test_version), class: 'btn btn-primary', method: :post
   h1.e2e-truncate
     small.glyphicon.glyphicon-tasks
     = " #{@test_version.title}"
@@ -13,8 +13,7 @@
 div data-path-done-test-execution-path=done_test_execution_path(@test_execution)
   h2
     small.glyphicon.glyphicon-film
-    = " Execution ##{@test_execution.to_param}"
-    |  
+    = " #{t('.title', execution_id: @test_execution.to_param)} "
     - %w(done failed).each do |state|
       span class=(@test_execution.public_send("#{state}?") ? nil : 'hidden') data-execution-state=state
         = bootstrap_status_tag :span, TestExecution.states_i18n[state], state == 'done', state == 'failed'
@@ -57,29 +56,29 @@ div data-path-done-test-execution-path=done_test_execution_path(@test_execution)
         .panel.panel-default
           .panel-heading
             small.glyphicon.glyphicon-send
-            |  Share the execution
+            = t('.share_execution')
           .panel-body
               = f.input :name
               div style="position:relative;"
-                  = f.input :expire_at, as: :string, label: 'Expire at (UTC)', placeholder: 'YYYY/MM/DD hh:mm', input_html: { data: { datetimepicker: '' } }
+                  = f.input :expire_at, as: :string, placeholder: 'YYYY/MM/DD hh:mm', input_html: { data: { datetimepicker: '' } }
               = f.button :submit
     .col-lg-8
       - if @test_execution_shares.present?
         .panel.panel-default
           .panel-heading
             small.glyphicon.glyphicon-link
-            |  Available Test Execution Share URL
+            = t('.test_execution_shares')
           table.table
             tr
-              th.col-lg-3.col-md-3.col-sm-3.col-xs-3 Name
-              th.col-lg-4.col-md-4.col-sm-4.col-xs-4 Expire At
-              th.col-lg-5.col-md-5.col-sm-5.col-xs-5 URL
+              th.col-lg-3.col-md-3.col-sm-3.col-xs-3 = TestExecutionShare.human_attribute_name(:name).humanize
+              th.col-lg-4.col-md-4.col-sm-4.col-xs-4 = TestExecutionShare.human_attribute_name(:expire_at).humanize
+              th.col-lg-5.col-md-5.col-sm-5.col-xs-5 = TestExecutionShare.human_attribute_name(:url).humanize
             - @test_execution_shares.each do |share|
               tr
                 td.e2e-middle-valign
                   = simple_form_for share, html: { class: 'form-inline hidden', id: "test_execution_share_name_#{share.to_param}" } do |f|
                     .input-group
-                      = f.input_field :name, placeholder: 'Name', class: 'form-control'
+                      = f.input_field :name, placeholder: TestExecutionShare.human_attribute_name(:name).humanize, class: 'form-control'
                       .input-group-btn
                         button.btn.btn-default
                           span.glyphicon.glyphicon-save
@@ -105,4 +104,4 @@ div data-path-done-test-execution-path=done_test_execution_path(@test_execution)
                         span.glyphicon.glyphicon-copy
 
         .panel
-          = link_to 'More test execution shares', test_execution_test_execution_shares_path(@test_execution)
+          = link_to t('shared.more_records', target: TestExecution.model_name.human(count: 2)), test_execution_test_execution_shares_path(@test_execution)

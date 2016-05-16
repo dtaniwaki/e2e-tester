@@ -3,8 +3,8 @@
 = f.simple_fields_for :updating_test_versions, @base_test_step_set, include_id: false do |ff|
   = hidden_field_tag :base_test_step_set_id, @base_test_step_set.to_param if @base_test_step_set.present?
   = ff.input :title
-  = ff.input :description, hint: "Markdown supported. #{link_to('What is markdown?', doc_url(:markdown), target: '_blank')}".html_safe
+  = ff.input :description, hint: t('shared.markdown_support_hint', link: link_to(t('shared.what_is_markdown'), doc_url(:markdown), target: '_blank')).html_safe
   = render 'shared/test_steps_fields', f: ff
   = render 'shared/browsers_fields', f: ff, browsers: @browsers, browser_sets: @browser_sets
 
-= f.button :submit, 'Save', class: 'btn-success'
+= f.button :submit, class: 'btn-success'

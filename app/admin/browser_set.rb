@@ -1,5 +1,5 @@
 ActiveAdmin.register BrowserSet do
-  menu parent: 'Browser'
+  menu parent: 'Browser', label: BrowserSet.model_name.human.humanize
 
   permit_params :name, browser_ids: []
 

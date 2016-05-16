@@ -1,4 +1,4 @@
 = f.simple_fields_for :data, OpenStruct.new(f.object.data) do |ff|
   .input-group-addon Wait for
-  = ff.input :duration, label: false, placeholder: 'Duration', error: false
+  = ff.input :duration, label: false, placeholder: f.object.class.human_attribute_name(:duration), error: false
   .input-group-addon sec

@@ -1,18 +1,18 @@
-- content_for :title, "Test Step Set #{@test_step_set.title}"
+- content_for :title, t('.title', test_step_set_title: @test_step_set.title).titleize
 
-= link_to 'Back to Test Step Set index', test_step_sets_path
+= link_to t('shared.back_link', target: SharedTestStepSet.model_name.human(count: 2)), test_step_sets_path
 
 .block
   .pull-right
     .e2e-margined-btn-group
       - if policy(Test.new).new?
-        = link_to 'Create Test', new_test_path(base_test_step_set_id: @test_step_set), class: 'btn btn-success'
+        = link_to t('shared.buttons.create_test'), new_test_path(base_test_step_set_id: @test_step_set), class: 'btn btn-success'
       - if policy(SharedTestStepSet.new).new?
-        = link_to 'Fork', new_test_step_set_path(base_test_step_set_id: @test_step_set), class: 'btn btn-default'
+        = link_to t('shared.buttons.fork'), new_test_step_set_path(base_test_step_set_id: @test_step_set), class: 'btn btn-default'
       - if policy(@test_step_set).edit?
-        = link_to 'Edit', edit_test_step_set_path(@test_step_set), class: 'btn btn-default'
+        = link_to t('shared.buttons.edit'), edit_test_step_set_path(@test_step_set), class: 'btn btn-default'
       - if policy(@test_step_set).destroy?
-        = link_to 'Delete', test_step_set_path(@test_step_set), method: :delete, class: 'btn btn-default', data: {confirm: 'Are you sure?'}
+        = link_to t('shared.buttons.delete'), test_step_set_path(@test_step_set), method: :delete, class: 'btn btn-default', data: {confirm: t('shared.confirm')}
   h1.e2e-truncate
     small.glyphicon.glyphicon-share
     = " #{@test_step_set.title}"
@@ -26,11 +26,11 @@
       .panel.panel-default
         .panel-heading
           small.glyphicon.glyphicon-send
-          |  Invite Tester
+          = " #{t('.share_test_step_set')}"
         .panel-body
           = form_tag test_step_set_user_shared_test_step_sets_path(@test_step_set), method: :post, html: {autocomplete: 'off'} do
             .form-group
-              = label_tag :email
+              = label_tag :email, User.human_attribute_name(:email).humanize
               = text_field_tag :email, nil, class: 'form-control', autocomplete: 'off'
 
             .form-group
@@ -41,10 +41,10 @@
       div.panel.panel-default
         div.panel-heading
           small.glyphicon.glyphicon-user
-          |  Assigned Testers
+          = " #{t('.shared_users')}"
         table.table
           tr
-            th Name
+            th = User.human_attribute_name(:name).humanize
           - @user_shared_test_step_sets.each do |ut|
             tr
               td
@@ -52,4 +52,4 @@
                 |  
                 = ut.user.name
       div.panel
-        = link_to 'More assigned testers', test_step_set_user_shared_test_step_sets_path(@test_step_set)
+        = link_to t('shared.more_records', target: UserSharedTestStepSet.model_name.human(count: 2)), test_step_set_user_shared_test_step_sets_path(@test_step_set)

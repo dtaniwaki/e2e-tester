@@ -1,10 +1,10 @@
-- content_for :title, "Edit Test #{@test.title}"
+- content_for :title, t('.title', test_title: @test.title).titleize
 
-= link_to 'Back to the test', test_path(@test)
+= link_to t('shared.back_link', target: Test.model_name.human), test_path(@test)
 
 h1
   small.glyphicon.glyphicon-briefcase
-  |  Edit Test
+  = " #{t('.title', test_title: @test.title)}"
 
 = simple_form_for @test do |f|
   = render 'form', f: f
