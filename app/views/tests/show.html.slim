@@ -21,7 +21,7 @@
   div.panel.panel-default
     div.panel-heading
       small.glyphicon.glyphicon-tasks
-      = " #{TestVersion.model_name.human.humanize}"
+      = " #{TestVersion.model_name.human(count: 2).humanize}"
     table.table
       tr
         th = TestVersion.human_attribute_name(:position).humanize

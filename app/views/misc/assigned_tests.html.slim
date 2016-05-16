@@ -25,4 +25,4 @@ h1
     = paginate @user_test_versions
 - else
   .alert.alert-warning
-    = t('shared.no_records', target: TestVersion.model_name.human)
+    = t('shared.no_records', target: Test.model_name.human)

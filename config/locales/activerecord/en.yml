@@ -339,8 +339,8 @@ en:
         one: step set
         other: step sets
       test_version:
-        one: test
-        other: tests
+        one: test version
+        other: test versions
       user:
         one: user
         other: users
