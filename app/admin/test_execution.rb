@@ -1,5 +1,5 @@
 ActiveAdmin.register TestExecution do
-  menu parent: 'Test'
+  menu parent: 'Test', label: TestExecution.model_name.human.humanize
 
   permit_params
 

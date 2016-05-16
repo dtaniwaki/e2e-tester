@@ -1,5 +1,5 @@
 ActiveAdmin.register AdminUser do
-  menu parent: 'Admin'
+  menu parent: 'Admin', label: AdminUser.model_name.human.humanize
 
   permit_params :name, :email, :password, :password_confirmation
 

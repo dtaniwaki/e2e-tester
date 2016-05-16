@@ -1,5 +1,5 @@
 ActiveAdmin.register Test do
-  menu parent: 'Test'
+  menu parent: 'Test', label: Test.model_name.human.humanize
 
   scope :all, default: true
   scope :with_deleted
