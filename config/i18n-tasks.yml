@@ -95,7 +95,6 @@ ignore_unused:
 - 'validates_timeliness.*'
 - 'views.shared.*'
 - 'controllers.shared.*'
-- 'views.*.title'
 - 'activerecord.*'
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
