@@ -67,7 +67,7 @@ div data-path-done-test-execution-path=done_test_execution_path(@test_execution)
         .panel.panel-default
           .panel-heading
             small.glyphicon.glyphicon-link
-            = t('.test_execution_shares')
+            = " #{t('.test_execution_shares')}"
           table.table
             tr
               th.col-lg-3.col-md-3.col-sm-3.col-xs-3 = TestExecutionShare.human_attribute_name(:name).humanize
