@@ -35,4 +35,5 @@ div
         = image_tag @test_step_execution.screenshot.image.url, width: '100%'
     - elsif @test_step_execution.test_step.page_source? && @test_step_execution.page_source.try(:source).present?
       div
-        = link_to PageSource.model_name.human, @test_step_execution.page_source.source.url, target: '_blank'
+        pre.pre-scrollable
+          = @test_step_execution.page_source.contents
