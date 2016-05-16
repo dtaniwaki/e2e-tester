@@ -77,7 +77,7 @@ en:
       shared_test_step_set:
         <<: *test_step_set
         referred_test_steps: referred test steps
-        user_shared_test_step_sets: user / test step sets
+        user_shared_test_step_sets: involving users
       test:
         accessible_users: accessible users
         current_test_version: :activerecord.models.current_test_version
@@ -201,7 +201,7 @@ en:
         unlock_token: unlock token
         user_credentials: user credentials
         user_integrations: user integrations
-        user_shared_test_step_sets: user / test step sets
+        user_shared_test_step_sets: involving users
         user_test_variables: test variables
         user_test_version_variables: tester variables
         user_test_versions: testers
@@ -347,7 +347,9 @@ en:
       user_integration/slack:
         one: slack integration
         other: slack integrations
-      user_shared_test_step_set: user / shared test step set
+      user_shared_test_step_set:
+        one: involving user
+        other: involving users
       user_test:
         one: collaborator
         other: collaborators
