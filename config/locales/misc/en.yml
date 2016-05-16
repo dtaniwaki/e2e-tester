@@ -2,5 +2,5 @@ en:
   misc:
     integration:
       slack:
-        title: Test Execution \#%{execution_id}
+        title: "Test Execution #%{execution_id}"
         body: "Hi %{name}! The test execution result of <%{url}|%{title}> is ready."
