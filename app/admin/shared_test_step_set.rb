@@ -1,5 +1,5 @@
 ActiveAdmin.register SharedTestStepSet do
-  menu parent: 'Test'
+  menu parent: 'Test', label: SharedTestStepSet.model_name.human.humanize
 
   permit_params
 

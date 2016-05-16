@@ -91,6 +91,9 @@ group :development, :test do
   gem 'byebug', '~> 8.2.2'
   gem 'pry-byebug', '~> 3.3.0'
   gem 'factory_girl_rails', '~> 4.6.0'
+  # i18n generators
+  gem 'i18n-tasks', '~> 0.9.5'
+  gem 'i18n_generators', '~> 2.1.1'
 end
 
 group :development do

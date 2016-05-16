@@ -1,14 +1,14 @@
-- content_for :title, "Test #{@test.title}"
+- content_for :title, t('.title', test_title: @test.title).titleize
 
-= link_to 'Back to Tests', tests_path
+= link_to t('shared.back_link', target: Test.model_name.human), tests_path
 
 .block
   .pull-right
     .e2e-margined-btn-group
       - if policy(@test).edit?
-        = link_to 'Edit', edit_test_path(@test), class: 'btn btn-default'
+        = link_to t('shared.buttons.edit'), edit_test_path(@test), class: 'btn btn-default'
       - if policy(@test).destroy?
-        = link_to 'Delete', test_path(@test), class: 'btn btn-default', method: :delete, data: {confirm: 'Are you sure?'}
+        = link_to t('shared.buttons.delete'), test_path(@test), class: 'btn btn-default', method: :delete, data: { confirm: t('shared.confirm') }
 
   h1.e2e-truncate
     small.glyphicon.glyphicon-briefcase
@@ -21,14 +21,14 @@
   div.panel.panel-default
     div.panel-heading
       small.glyphicon.glyphicon-tasks
-      |  Test Versions
+      = " #{TestVersion.model_name.human(count: 2).humanize}"
     table.table
       tr
-        th Number
-        th Base Test
-        th Title
-        th Created
-        th Created By
+        th = TestVersion.human_attribute_name(:position).humanize
+        th = TestVersion.human_attribute_name(:base_test_step_set).humanize
+        th = TestVersion.human_attribute_name(:title).humanize
+        th = TestVersion.human_attribute_name(:created_at).humanize
+        th = TestVersion.human_attribute_name(:user).humanize
         th
       - @test_versions.each do |tv|
         tr
@@ -42,12 +42,12 @@
             |  
             = tv.user.name
           td
-            = button_to 'Execute', test_version_test_executions_path(tv), class: 'btn btn-xs btn-primary', method: :post, disabled: !tv.executable?
+            = button_to t('shared.buttons.execute'), test_version_test_executions_path(tv), class: 'btn btn-xs btn-primary', method: :post, disabled: !tv.executable?
   div.panel
-    = link_to 'More test versions', test_test_versions_path(@test)
+    = link_to t('shared.more_records', target: TestVersion.model_name.human(count: 2)), test_test_versions_path(@test)
 - else
   .alert.alert-warning
-    | You don't have any test version.
+    = t('shared.no_records', target: TestVersion.model_name.human)
 
 .row
   .col-lg-6
@@ -62,11 +62,11 @@
       .panel.panel-default
         .panel-heading
           small.glyphicon.glyphicon-send
-          |  Invite Collaborator
+          = " #{t('shared.invite_target', target: UserTest.model_name.human)}"
         .panel-body
           = form_for [@test, user_test], method: :post, html: {autocomplete: 'off'} do |f|
             .form-group
-              = label_tag :email
+              = label_tag :email, User.human_attribute_name(:email).humanize
               = text_field_tag :email, nil, class: 'form-control', autocomplete: 'off'
 
             .form-group
@@ -76,10 +76,10 @@
       div.panel.panel-default
         div.panel-heading
           small.glyphicon.glyphicon-user
-          |  Collaborators
+          = " #{UserTest.model_name.human(count: 2).humanize}"
         table.table
           tr
-            th Name
+            th = User.human_attribute_name(:name).humanize
           - @user_tests.each do |up|
             tr
               td
@@ -87,5 +87,5 @@
                 |  
                 = up.user.name
       div.panel
-        = link_to 'More collaborators', test_user_tests_path(@test)
+        = link_to t('shared.more_records', target: UserTest.model_name.human(count: 2)), test_user_tests_path(@test)
 

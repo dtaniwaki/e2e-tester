@@ -32,7 +32,7 @@ class TestsController < BaseController
       t.assign_attributes(user: current_user, base_test_step_set: @base_test_step_set)
     end
     if @test.save
-      flash[:notice] = 'Succesfully created new test'
+      flash[:notice] = t('shared.create_success', target: Test.model_name.human)
       redirect_to test_path(@test)
       return
     end
@@ -57,7 +57,7 @@ class TestsController < BaseController
       t.assign_attributes(user: current_user, base_test_step_set: @base_test_step_set || @test.current_test_version)
     end
     if @test.save
-      flash[:notice] = 'Succesfully created the test'
+      flash[:notice] = t('shared.update_success', target: Test.model_name.human)
       redirect_to test_path(@test)
       return
     end
@@ -71,9 +71,9 @@ class TestsController < BaseController
     authorize @test
 
     if @test.destroy
-      flash[:notice] = 'Succesfully deleted the test'
+      flash[:notice] = t('shared.destroy_success', target: Test.model_name.human)
     else
-      flash[:alert] = 'Failed to delete the test'
+      flash[:alert] = t('shared.destroy_failure', target: Test.model_name.human)
     end
     redirect_to tests_path
   end

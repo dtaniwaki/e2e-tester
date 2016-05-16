@@ -1,7 +1,9 @@
-h1 Credentials
+h1 = t('.title')
 
 h2
-  | Browserstack
+  - klass = UserCredential::Browserstack
+  = image_tag image_path("integrations/#{klass.name.humanize.demodulize}.png"), width: 32, height: 32
+  = " #{klass.model_name.human.humanize} "
   small = link_to '', doc_url(:browserstack), target: '_blank', class: 'glyphicon glyphicon-new-window'
 
 = simple_form_for @browserstack_credential, as: :browserstack, url: @browserstack_credential.new_record? ? browserstack_credentials_path : browserstack_credentials_path, method: @browserstack_credential.new_record? ? :post : :put, html: { class: 'form-inline', autocomplete: 'off' } do |f|
@@ -13,8 +15,7 @@ h2
   .form-group
     = f.button :submit, class: 'btn-success'
   .form-group
-    = link_to 'Delete', browserstack_credentials_path, method: :delete, class: 'btn btn-default', data: { confirm: 'Are you sure?' } if @browserstack_credential.persisted?
+    = link_to t('shared.buttons.delete'), browserstack_credentials_path, method: :delete, class: 'btn btn-default', data: { confirm: t('shared.confirm') } if @browserstack_credential.persisted?
   - if f.object.new_record?
     .help-doc
-      | You can get the credentials from 
-      = link_to 'here', doc_url(:browserstack_credential), target: '_blank'
+      = t('shared.browserstack_credential_link', link: link_to(t('shared.here'), doc_url(:browserstack_credential), target: '_blank')).html_safe

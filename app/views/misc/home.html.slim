@@ -1,33 +1,31 @@
-- content_for :title, 'Home'
-
 h1
   small.glyphicon.glyphicon-briefcase
-  |  Your Tests
+  = " #{t('.your_tests')}"
 
 - if @tests.present?
   .panel.panel-default
     table.table.table-striped
       tr
-        th Title
+        th = Test.human_attribute_name(:title).humanize
       - @tests.each do |t|
         tr
           td = link_to t.title, test_path(t)
-  = link_to 'All your tests', tests_path
+  = link_to t('shared.all_records', target: Test.model_name.human(count: 2)), tests_path
 -else
   .alert.alert-warning
-    | You don't have any test.
+    = t('shared.no_records', target: Test.model_name.human)
 
 h1
   small.glyphicon.glyphicon-tasks
-  |  Assigned Tests
+  = " #{t('.assigned_tests')}"
 
 - if @user_test_versions.present?
   .panel.panel-default
     table.table.table-striped
       tr
-        th Title
-        th Assigned At
-        th Assigned By
+        th = Test.human_attribute_name(:title).humanize
+        th = UserTest.human_attribute_name(:assigned_at).humanize
+        th = UserTest.human_attribute_name(:assigned_by).humanize
       - @user_test_versions.each do |utv|
         tr
           td = link_to utv.test_version.title, test_version_position_path(utv.test_version)
@@ -37,7 +35,7 @@ h1
             = gravatar_image_tag(utv.assigned_by.email, alt: utv.assigned_by.name, gravatar: { size: 20 })
             |  
             = utv.assigned_by.name
-  = link_to 'All assigned tests', misc_assigned_tests_path
+  = link_to t('shared.all_records', target: Test.model_name.human(count: 2)), misc_assigned_tests_path
 -else
   .alert.alert-warning
-    | You don't have any assigned test version.
+    = t('shared.no_records', target: Test.model_name.human)

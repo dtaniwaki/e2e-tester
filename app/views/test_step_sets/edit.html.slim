@@ -1,10 +1,11 @@
-- content_for :title, "Edit Test Step Set #{@test_step_set.title}"
+- content_for :title, t('.title', test_step_set_title: @test_step_set.title).titleize
 
-= link_to 'Back to test step set', test_step_set_path(@test_step_set)
-h1 Edit Test Step Set
+= link_to t('shared.back_link', target: SharedTestStepSet.model_name.human), test_step_set_path(@test_step_set)
+
+h1 = t('.title', test_step_set_title: @test_step_set.title)
 
 = simple_form_for @test_step_set, url: test_step_set_path(@test_step_set), method: :put, as: :test_step_set do |f|
   = f.error_notification
   = f.input :title
-  = f.input :description, hint: "Markdown supported. #{link_to('What is markdown?', doc_url(:markdown), target: '_blank')}".html_safe
+  = f.input :description, hint: t('shared.markdown_support_hint', link: link_to(t('shared.what_is_markdown'), doc_url(:markdown), target: '_blank')).html_safe
   = f.button :submit, class: 'btn-success'

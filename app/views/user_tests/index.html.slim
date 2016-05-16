@@ -1,16 +1,16 @@
-= link_to "Back to the test", test_path(@test)
+= link_to t('shared.back_link', target: Test.model_name.human), test_path(@test)
 
 h1
   small.glyphicon.glyphicon-user
-  |  Collaborators
+  = " #{t('.title')}"
 
 - if @user_tests.present?
   div.panel.panel-default
     table.table
       tr
-        th Name
-        th Assigned At
-        th Assigned By
+        th = User.human_attribute_name(:name).humanize
+        th = UserTest.human_attribute_name(:assigned_at).humanize
+        th = UserTest.human_attribute_name(:assigned_by).humanize
         th
       - @user_tests.each do |ut|
         tr
@@ -28,6 +28,6 @@ h1
               = ut.assigned_by.name
           td
             - if policy(ut).destroy?
-              = link_to 'Delete', user_test_path(ut), method: :delete, data: { confirm: 'Are you sure?' }
+              = link_to t('shared.buttons.delete'), user_test_path(ut), method: :delete, data: { confirm: t('shared.confirm') }
   .center-block.text-center
     = paginate @user_tests

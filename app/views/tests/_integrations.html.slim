@@ -2,7 +2,7 @@
   .panel-heading
     = link_to user_integrations_path(origin: request.url) do
       small.glyphicon.glyphicon-link
-      |  Integrations
+      = " #{UserIntegration::Base.model_name.human(count: 2).humanize}"
   table.table
     - integrations.each do |integration|
      tr

@@ -1,18 +1,16 @@
-- content_for :title, 'Tests'
-
 .block
   .pull-right
-    = link_to 'New Test', new_test_path, class: 'btn btn-success'
+    = link_to t('shared.buttons.new', target: Test.model_name.human), new_test_path, class: 'btn btn-success'
 
   h1
     small.glyphicon.glyphicon-briefcase
-    |  Your Tests
+    = " #{t('.title')}"
 
 - if @tests.present?
   .panel.panel-default
     table.table.table-striped
       tr
-        th Title
+        th = Test.human_attribute_name(:title).humanize
       - @tests.each do |p|
         tr
           td = link_to p.title, test_path(p)
@@ -20,4 +18,4 @@
     = paginate @tests
 - else
   .alert.alert-warning
-    | You don't have any test.
+    = t('shared.no_records', target: Test.model_name.human)

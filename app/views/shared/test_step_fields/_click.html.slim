@@ -1,3 +1,3 @@
 = f.simple_fields_for :data, OpenStruct.new(f.object.data) do |ff|
   .input-group-addon Click
-  = ff.input :selector, label: false, placeholder: 'Selector', error: false
+  = ff.input :selector, label: false, placeholder: f.object.class.human_attribute_name(:selector), error: false

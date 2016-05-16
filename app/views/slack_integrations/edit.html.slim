@@ -1,10 +1,8 @@
-- content_for :title, 'Edit Slack Integration'
-
-= link_to 'Back to integrations', user_integrations_path
+= link_to t('shared.back_link', target: UserIntegration::Base.model_name.human(count: 2)), user_integrations_path
 
 h1
   = image_tag image_path("integrations/slack.png"), width: 32, height: 32
-  |  Edit Slack Integration
+  = " #{t('.title')}"
 
 = simple_form_for @integration, url: slack_integration_path(@integration), as: :integration, method: :put do |f|
   = render 'form', f: f

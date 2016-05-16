@@ -1,14 +1,13 @@
-- content_for :title, "New Test Step Set"
+= link_to t('shared.back_link', target: SharedTestStepSet.model_name.human(count: 2)), test_step_sets_path
 
-= link_to 'Back to test step sets index', test_step_sets_path
 h1
   small.glyphicon.glyphicon-share
-  |  New Test Step Set
+  = " #{t('.title')}"
 
 = simple_form_for @base_test_step_set, url: test_step_sets_path, method: :post, as: :test_step_set do |f|
   = hidden_field_tag :base_test_step_set_id, @base_test_step_set&.to_param if @base_test_step_set.present?
   = f.error_notification
   = f.input :title
-  = f.input :description, hint: "Markdown supported. #{link_to('What is markdown?', doc_url(:markdown), target: '_blank')}".html_safe
+  = f.input :description, hint: t('shared.markdown_support_hint', link: link_to(t('shared.what_is_markdown'), doc_url(:markdown), target: '_blank')).html_safe
   = render 'shared/test_steps_fields', f: f
   = f.button :submit, class: 'btn-success'

@@ -19,9 +19,9 @@ class TestExecutionSharesController < BaseController
     @test_execution_share.assign_attributes(permitted_params)
 
     if @test_execution_share.save
-      flash[:notice] = 'Successfully created new share'
+      flash[:notice] = t('shared.create_success', target: TestExecutionShare.model_name.human)
     else
-      flash[:alert] = 'Failed to create new share'
+      flash[:alert] = t('shared.create_failure', target: TestExecutionShare.model_name.human)
     end
     redirect_to test_execution_path(@test_execution)
   end
@@ -33,9 +33,9 @@ class TestExecutionSharesController < BaseController
     @test_execution_share.assign_attributes(permitted_params)
 
     if @test_execution_share.save
-      flash[:notice] = 'Successfully updated the share'
+      flash[:notice] = t('shared.update_success', target: TestExecutionShare.model_name.human)
     else
-      flash[:alert] = 'Failed to create new share'
+      flash[:alert] = t('shared.update_failure', target: TestExecutionShare.model_name.human)
     end
 
     @test_execution = @test_execution_share.test_execution
@@ -49,7 +49,7 @@ class TestExecutionSharesController < BaseController
     @test_execution = @test_execution_share.test_execution
     @test_execution_share.destroy!
 
-    flash[:notice] = 'Successfully deleted the share'
+    flash[:notice] = t('shared.destroy_success', target: TestExecutionShare.model_name.human)
     redirect_to test_execution_path(@test_execution)
   end
 

@@ -1,5 +1,5 @@
 ActiveAdmin.register Browser::Base, as: 'browser' do
-  menu parent: 'Browser'
+  menu parent: 'Browser', label: Browser::Base.model_name.human.humanize
 
   scope :all, default: true
   scope :active

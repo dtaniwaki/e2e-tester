@@ -30,7 +30,7 @@ class TestStepSetsController < BaseController
     authorize @test_step_set
 
     if @test_step_set.save
-      flash[:notice] = 'Succesfully created new test step set'
+      flash[:notice] = t('shared.create_success', target: SharedTestStepSet.model_name.human)
       return redirect_to test_step_set_path(@test_step_set)
     end
 
@@ -48,7 +48,7 @@ class TestStepSetsController < BaseController
     authorize @test_step_set
 
     if @test_step_set.update_attributes(permitted_update_params)
-      flash[:notice] = 'Successfully updated the test step set'
+      flash[:notice] = t('shared.update_success', target: SharedTestStepSet.model_name.human)
       redirect_to test_step_set_path(@test_step_set)
       return
     end
@@ -62,6 +62,7 @@ class TestStepSetsController < BaseController
 
     @test_step_set.destroy!
 
+    flash[:notice] = t('shared.destroy_success', target: SharedTestStepSet.model_name.human)
     redirect_to test_step_sets_path
   end
 

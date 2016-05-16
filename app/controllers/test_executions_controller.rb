@@ -30,10 +30,10 @@ class TestExecutionsController < BaseController
     authorize @test_execution
     if @test_execution.save
       @test_execution.execute_async!(current_user)
-      flash[:notice] = 'Successfully executed the test_version'
+      flash[:notice] = t('shared.execute_success', target: TestVersion.model_name.human)
       redirect_to test_execution_path(@test_execution)
     else
-      flash[:alert] = @test_execution.errors.full_messages.join
+      flash[:alert] = t('shared.execute_failure', target: TestVersion.model_name.human, errors: @test_execution.errors.full_messages.join(', '))
       redirect_to :back
     end
   end

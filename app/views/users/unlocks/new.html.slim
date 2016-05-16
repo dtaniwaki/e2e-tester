@@ -1,10 +1,8 @@
-= content_for :title, 'Resend unlock instructions'
-
-h2 Resend unlock instructions
+h2 = t('.title')
 
 = simple_form_for resource, as: resource_name, url: unlock_path(resource_name), html: { autocomplete: 'off', method: :post } do |f|
   = f.error_notification
   = f.input :email, input_html: { autocomplete: 'off', autofocus: true }
-  = f.button :submit, 'Resend unlock instructions'
+  = f.button :submit, t('.submit_button')
 
 = render "users/shared/links"

@@ -1,2 +1,2 @@
 .input-group-addon Test step set
-= f.input :shared_test_step_set_id, label: false, as: :select, collection: current_user.accessible_shared_test_step_sets, error: false
+= f.input :shared_test_step_set_id, label: false, as: :select, collection: current_user.accessible_shared_test_step_sets, error: false, prompt: t('shared.select_target', target: SharedTestStepSet.model_name.human)
