@@ -119,21 +119,29 @@ en:
         test_step_set: :activerecord.models.test_step_set
       test_step/click:
         <<: *test_step_base
+        selector: selector
       test_step/eval:
         <<: *test_step_base
+        javascript: JavaScript
       test_step/fill:
         <<: *test_step_base
+        selector: selector
+        value: value
       test_step/maximize_window:
         <<: *test_step_base
       test_step/navigation:
         <<: *test_step_base
+        url: URL
       test_step/none:
         <<: *test_step_base
+        message: message
       test_step/page_source:
         <<: *test_step_base
         page_sources: page sources
       test_step/resize_window:
         <<: *test_step_base
+        width: width
+        height: height
       test_step/screenshot:
         <<: *test_step_base
         screenshots: screenshots
@@ -143,6 +151,7 @@ en:
         test_steps: test steps
       test_step/wait:
         <<: *test_step_base
+        duration: duration
       test_step_execution:
         browser: :activerecord.models.browser
         message: message
