@@ -2,7 +2,7 @@ module I18nHelper
   def translate(key, options = {})
     options = options.dup
     options[:raise] = true
-    if key.to_s !~ /^(devise|simple_form|activerecord|models)/
+    if key.to_s !~ /^(devise|simple_form|activerecord|models|active_admin)/
       options[:scope] = ['views']
     end
     super(key, options)

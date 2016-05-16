@@ -125,7 +125,7 @@ ignore_unused:
 require './lib/patch/i18n_tasks'
 Patch::I18nTasks.replace_key
 
-require './lib/i18n-tasks/page_title_scanner'
+require './lib/i18n_tasks/page_title_scanner'
 I18n::Tasks.add_scanner 'I18nTasks::PageTitleScanner',
   only: %w(*.html.erb *.html.haml *.html.slim)
 %>
