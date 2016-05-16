@@ -6,6 +6,7 @@ module TestStep
     scope :with_test_step_set, -> (test_step_set) { where(shared_test_step_set_id: test_step_set.is_a?(ActiveRecord::Base) ? test_step_set.id : test_step_set) }
 
     validate :validate_accessibility
+    validates :shared_test_step_set, presence: true
 
     def execute!(test_step_execution, driver, variables = {})
       test_execution_browser = test_step_execution.test_execution_browser
@@ -20,7 +21,7 @@ module TestStep
     end
 
     def to_line
-      shared_test_step_set.title
+      shared_test_step_set&.title
     end
 
     def same_step?(other)
