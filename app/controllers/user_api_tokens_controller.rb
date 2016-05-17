@@ -14,7 +14,7 @@ class UserApiTokensController < BaseController
     else
       flash[:alert] = t('shared.create_failure', target: UserApiToken.model_name.human, errors: @user_api_token.errors.full_messages.join(', '))
     end
-    redirect_to user_api_tokens_path(current_user)
+    redirect_to user_api_tokens_path
   end
 
   def update
@@ -29,7 +29,7 @@ class UserApiTokensController < BaseController
       flash[:alert] = t('shared.update_failure', target: UserApiToken.model_name.human, errors: @user_api_token.errors.full_messages.join(', '))
     end
 
-    redirect_to user_api_tokens_path(current_user)
+    redirect_to user_api_tokens_path
   end
 
   def destroy
@@ -39,7 +39,7 @@ class UserApiTokensController < BaseController
     @user_api_token.destroy!
 
     flash[:notice] = t('shared.destroy_success', target: UserApiToken.model_name.human)
-    redirect_to user_api_tokens_path(current_user)
+    redirect_to user_api_tokens_path
   end
 
   private
