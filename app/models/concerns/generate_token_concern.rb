@@ -16,7 +16,7 @@ module GenerateTokenConcern
   def assign_token
     token_columns.each do |column_name|
       10.times do
-        token = SecureRandom.hex(32)
+        token = SecureRandom.urlsafe_base64(32)
         unless TestExecutionShare.where(column_name => token).exists?
           self[column_name] = token
           break
