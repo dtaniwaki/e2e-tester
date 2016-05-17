@@ -1,0 +1,48 @@
+h1.e2e-truncate
+  small.glyphicon.glyphicon-leaf
+  = " #{t('.title')}"
+
+.panel
+  = simple_form_for UserApiToken.new do |f|
+    .row
+      .col-lg-4
+        = f.input_field :name, placeholder: UserApiToken.human_attribute_name(:name).humanize, class: 'form-control'
+      .col-lg-2
+        = f.button :submit, class: 'btn-success'
+
+- if @user_api_tokens.present?
+  .panel.panel-default
+    table.table.table-striped
+      tr
+        th.col-lg-2.col-md-2.col-sm-2.col-xs-2 = UserApiToken.human_attribute_name(:name).humanize
+        th.col-lg-4.col-md-4.col-sm-5.col-xs-5 = UserApiToken.human_attribute_name(:token).humanize
+        th.col-lg-2.col-md-2.hidden-sm.hidden-xs = UserApiToken.human_attribute_name(:created_at).humanize
+        th
+      - @user_api_tokens.each do |api_token|
+        tr
+          td.e2e-middle-valign
+            = simple_form_for api_token, html: { class: 'form-inline hidden', id: "user_api_token_name_#{api_token.to_param}" } do |f|
+              .input-group
+                = f.input_field :name, placeholder: UserApiToken.human_attribute_name(:name).humanize, class: 'form-control'
+                .input-group-btn
+                  button.btn.btn-default
+                    span.glyphicon.glyphicon-save
+            div.e2e-switch-on-click-text data-switch-on-click="#user_api_token_name_#{api_token.to_param}"
+              span = api_token.name.presence || '&nbsp;'.html_safe
+          td.e2e-middle-valign
+            .input-group
+              = text_field_tag nil, api_token.token, readonly: true, class: 'form-control', id: "user_api_token_#{api_token.to_param}"
+              .input-group-btn
+                button.btn.btn-default title="Click to copy" data-zeroclipboard="#user_api_token_#{api_token.to_param}"
+                  span.glyphicon.glyphicon-copy
+          td.e2e-middle-valign
+            time datetime=api_token.created_at.iso8601 data-timeago='' = api_token.created_at.to_s
+          td.e2e-middle-valign
+            = link_to user_api_token_path(api_token), method: :delete, data: { confirm: t('shared.confirm') } do
+              span.glyphicon.glyphicon-remove-circle
+
+  .center-block.text-center
+    = paginate @user_api_tokens
+- else
+  .alert.alert-warning
+    = t('shared.no_records', target: UserApiToken.model_name.human)

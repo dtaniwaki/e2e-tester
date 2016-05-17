@@ -19,6 +19,7 @@ nav.navbar.navbar-default.navbar-fixed-top role='navigation' style='margin-botto
           li = link_to t('layout.navigation.invite_user'), new_user_invitation_path
           li = link_to t('layout.navigation.credentials'), user_credentials_path
           li = link_to t('layout.navigation.integrations'), user_integrations_path
+          li = link_to t('layout.navigation.api_tokens'), user_api_tokens_path
           li.divider role="separator"
           li = link_to t('layout.navigation.sign_out'), destroy_user_session_path, method: :delete
     - else

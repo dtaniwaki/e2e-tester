@@ -57,6 +57,7 @@ Rails.application.routes.draw do
   resources :test_step_sets, shallow: true do
     resources :user_shared_test_step_sets, only: [:index, :create, :destroy]
   end
+  resources :user_api_tokens, path: 'api_tokens', only: [:index, :create, :update, :destroy]
   namespace :misc, path: '' do
     get :assigned_tests
     get :test_executions

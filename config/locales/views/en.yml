@@ -3,6 +3,7 @@ en:
   views:
     layout:
       navigation:
+        api_tokens: API tokens
         assigned_tests: Assigned tests
         credentials: Credentials
         edit_profile: Edit profile
@@ -110,6 +111,9 @@ en:
         title: New test
       show:
         title: Test %{test_title}
+    user_api_tokens:
+      index:
+        title: API tokens
     user_credentials:
       index:
         title: Credentials
