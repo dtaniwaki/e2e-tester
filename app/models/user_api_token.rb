@@ -7,4 +7,5 @@ class UserApiToken < ApplicationRecord
 
   validates :name, length: { maximum: 100 }, presence: true
   validates :token, uniqueness: true, presence: true
+  validates_with SimilarRecordValidator, count: 10, conditions: [:user_id]
 end
