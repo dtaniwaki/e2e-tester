@@ -21,7 +21,7 @@ class TestExecutionSharesController < BaseController
     if @test_execution_share.save
       flash[:notice] = t('shared.create_success', target: TestExecutionShare.model_name.human)
     else
-      flash[:alert] = t('shared.create_failure', target: TestExecutionShare.model_name.human)
+      flash[:alert] = t('shared.create_failure', target: TestExecutionShare.model_name.human, errors: @test_execution_share.errors.full_messages.join(', '))
     end
     redirect_to test_execution_path(@test_execution)
   end
@@ -35,7 +35,7 @@ class TestExecutionSharesController < BaseController
     if @test_execution_share.save
       flash[:notice] = t('shared.update_success', target: TestExecutionShare.model_name.human)
     else
-      flash[:alert] = t('shared.update_failure', target: TestExecutionShare.model_name.human)
+      flash[:alert] = t('shared.update_failure', target: TestExecutionShare.model_name.human, errors: @test_execution_share.errors.full_messages.join(', '))
     end
 
     @test_execution = @test_execution_share.test_execution

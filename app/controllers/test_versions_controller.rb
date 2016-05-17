@@ -27,7 +27,7 @@ class TestVersionsController < BaseController
     if @test_version.destroy
       flash[:notice] = t('shared.destroy_success', target: TestVersion.model_name.human)
     else
-      flash[:alert] = t('shared.destroy_failure', target: TestVersion.model_name.human)
+      flash[:alert] = t('shared.destroy_failure', target: TestVersion.model_name.human, errors: @test_version.errors.full_messages.join(', '))
     end
     redirect_to test_test_versions_path(@test_version.test)
   end
