@@ -26,7 +26,7 @@ class UserTestVersionsController < BaseController
     if @user_test_version.update_attributes(permitted_params)
       flash[:notice] = t('shared.update_success', target: UserTestVersion.model_name.human)
     else
-      flash[:alert] = t('shared.update_failure', target: UserTestVersion.model_name.human)
+      flash[:alert] = t('shared.update_failure', target: UserTestVersion.model_name.human, errors: @user_test_version.errors.full_messages.join(', '))
     end
     redirect_to test_version_position_path(@user_test_version.test_version)
   end

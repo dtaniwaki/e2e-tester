@@ -73,7 +73,7 @@ class TestsController < BaseController
     if @test.destroy
       flash[:notice] = t('shared.destroy_success', target: Test.model_name.human)
     else
-      flash[:alert] = t('shared.destroy_failure', target: Test.model_name.human)
+      flash[:alert] = t('shared.destroy_failure', target: Test.model_name.human, errors: @test.errors.full_messages.join(', '))
     end
     redirect_to tests_path
   end
