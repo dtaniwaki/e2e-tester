@@ -7,7 +7,7 @@ RSpec.describe TestStep::Navigation, type: :model do
       expect(subject).to be_valid
     end
     context 'with only placeholder' do
-      subject(:test_step) { build :navigation_step, url: '{foo}' }
+      subject(:test_step) { build :navigation_step, url: 'http://{foo}//bar' }
       it 'is not valid' do
         expect(subject).to be_valid
       end
