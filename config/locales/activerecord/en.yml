@@ -217,6 +217,10 @@ en:
         user_tests: collaborators
         user_variables: user variables
         username: username
+      user_api_token:
+        name: name
+        token: token
+        user: :activerecord.models.user
       user_credential/base: &user_credential_base
         data: data
         user: :activerecord.models.user
@@ -344,6 +348,9 @@ en:
       user:
         one: user
         other: users
+      user_api_token:
+        one: API token
+        other: API tokens
       user_credential/base:
         one: credential
         other: credentials

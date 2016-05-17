@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160511173105) do
+ActiveRecord::Schema.define(version: 20160517022217) do
 
   create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "namespace"
@@ -219,6 +219,17 @@ ActiveRecord::Schema.define(version: 20160511173105) do
     t.index ["user_id"], name: "index_tests_on_user_id", using: :btree
   end
 
+  create_table "user_api_tokens", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
+    t.string   "name",       null: false
+    t.string   "token",      null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_user_api_tokens_on_name", using: :btree
+    t.index ["token"], name: "index_user_api_tokens_on_token", unique: true, using: :btree
+    t.index ["user_id"], name: "index_user_api_tokens_on_user_id", using: :btree
+  end
+
   create_table "user_credentials", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "type",                     null: false
     t.integer  "user_id",                  null: false
@@ -360,6 +371,7 @@ ActiveRecord::Schema.define(version: 20160511173105) do
   add_foreign_key "test_steps", "test_step_sets", column: "shared_test_step_set_id"
   add_foreign_key "tests", "test_step_sets", column: "current_test_version_id"
   add_foreign_key "tests", "users"
+  add_foreign_key "user_api_tokens", "users"
   add_foreign_key "user_credentials", "users"
   add_foreign_key "user_integrations", "users"
   add_foreign_key "user_shared_test_step_sets", "test_step_sets", column: "shared_test_step_set_id"
