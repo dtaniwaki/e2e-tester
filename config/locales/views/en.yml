@@ -167,3 +167,6 @@ en:
         new:
           submit_button: Send
           title: Resend unlock instructions
+    docs:
+      api:
+        title: E2E Tester API Docs
