@@ -8,9 +8,37 @@ module Api
       end
     end
 
-    rescue_from Exception do |e|
-      logger.error "#{e.message}  #{e.backtrace.join("\n  ")}"
-      render json: { messages: [e.message] }, status: 500
+    rescue_from Exception, with: :internal_server_error
+    [E2eTester::NotAuthenticated].each do |klass|
+      rescue_from klass, with: :forbidden
+    end
+    [Pundit::NotAuthorizedError].each do |klass|
+      rescue_from klass, with: :unauthorized
+    end
+    [E2eTester::NotFound, ActiveRecord::RecordNotFound].each do |klass|
+      rescue_from klass, with: :not_found
+    end
+
+    protected
+
+    def internal_server_error(exception)
+      logger.error "#{exception.message}  #{exception.backtrace.join("\n  ")}"
+      render json: { messages: ['Internal server error'] }, status: 500
+    end
+
+    def unauthorized(exception)
+      logger.error "#{exception.message}  #{exception.backtrace.join("\n  ")}"
+      render json: { messages: ['Unauthorized'] }, status: 401
+    end
+
+    def forbidden(exception)
+      logger.error "#{exception.message}  #{exception.backtrace.join("\n  ")}"
+      render json: { messages: ['Forbidden'] }, status: 403
+    end
+
+    def not_found(exception)
+      logger.error "#{exception.message}  #{exception.backtrace.join("\n  ")}"
+      render json: { messages: ['Not found'] }, status: 404
     end
   end
 end
