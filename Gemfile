@@ -64,6 +64,7 @@ gem 'bower-rails', '~> 0.10.0'
 gem 'acts_as_hashids', '~> 0.1.2'
 gem 'enum_help', '~> 0.0.15'
 gem 'validates_timeliness', '~> 4.0.2'
+gem 'swagger-blocks', '~> 1.3.3'
 gem 'rack-cors', '~> 0.4.0', require: 'rack/cors'
 
 ################################

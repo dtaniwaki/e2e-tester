@@ -72,6 +72,9 @@ Rails.application.routes.draw do
   end
 
   namespace :api, constraints: { format: 'json' }, defaults: { format: 'json' } do
+    namespace :v1 do
+      get :docs, to: 'docs#index'
+    end
     match '*path' => 'misc#not_found', via: :all
   end
 
