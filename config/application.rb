@@ -86,5 +86,10 @@ module E2eTester
 
     config.assets.paths << Rails.root.join('vendor', 'assets', 'bower_components')
     config.assets.precompile << File.join('zeroclipboard', '**', '*.swf')
+    config.assets.precompile += [
+      Rails.root.join('app', 'assets', 'javascripts', 'swagger.js').to_s,
+      Rails.root.join('app', 'assets', 'stylesheets', 'swagger.scss').to_s,
+      Rails.root.join('app', 'assets', 'stylesheets', 'swagger-print.scss').to_s
+    ]
   end
 end

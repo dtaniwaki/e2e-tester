@@ -67,6 +67,9 @@ Rails.application.routes.draw do
     get :assigned_tests
     get :test_executions
   end
+  namespace :docs, path: '' do
+    get :api
+  end
 
   root to: 'misc#home'
 end
