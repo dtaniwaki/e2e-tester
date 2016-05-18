@@ -71,5 +71,9 @@ Rails.application.routes.draw do
     get :api
   end
 
+  namespace :api, constraints: { format: 'json' }, defaults: { format: 'json' } do
+    match '*path' => 'misc#not_found', via: :all
+  end
+
   root to: 'misc#home'
 end
