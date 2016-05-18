@@ -22,7 +22,7 @@ module GenerateTokenConcern
           break
         end
       end
-      raise "Can not assign a token #{column_name}" if self[column_name].nil?
+      raise E2eTester::GenerateTokenFailure, "Can not assign a token on #{column_name}" if self[column_name].nil?
     end
   end
 end

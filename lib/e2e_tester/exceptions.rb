@@ -3,9 +3,11 @@ module E2eTester
   end
 
   class NotAuthenticated < Exception
-    def initialize(message = 'Not authenticated')
-      @message = 'Not authenticated'
-      super
-    end
+  end
+
+  class NotFound < Exception
+  end
+
+  class GenerateTokenFailure < Exception
   end
 end

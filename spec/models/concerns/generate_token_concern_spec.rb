@@ -11,17 +11,17 @@ RSpec.describe GenerateTokenConcern, type: :model do
     context 'no available token' do
       let!(:other_test_execution_share) { create :test_execution_share, token: 'abc' }
       before do
-        allow(SecureRandom).to receive(:hex).and_return other_test_execution_share.token
+        allow(SecureRandom).to receive(:urlsafe_base64).and_return other_test_execution_share.token
       end
       it 'raises an exception' do
         expect do
           subject.valid?
-        end.to raise_error(RuntimeError, 'Can not assign a token')
+        end.to raise_error(E2eTester::GenerateTokenFailure, 'Can not assign a token on token')
       end
     end
     context 'update case' do
+      subject(:test_execution_share) { create :test_execution_share }
       it 'doesn not assign a token' do
-        subject(:test_execution_share) { create :test_execution_share }
         token = subject.token
         subject.valid?
         expect(subject.token).to eq token
