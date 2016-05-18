@@ -9,6 +9,19 @@ RSpec.describe TestExecutionsController, type: :controller do
     let!(:test_executions) { create_list :test_execution, 2, test_version: test_version }
     context 'with signed in user' do
       include_context 'with signed in user'
+      let!(:my_test_executions) { create_list :test_execution, 1, test_version: test_version, user: current_user }
+      context 'with accessible test' do
+        before do
+          create :user_test, user: current_user, test: test
+        end
+        it 'renders successfully' do
+          get :index, params: { test_id: test, num: test_version.position }
+
+          expect(response.status).to be 200
+          expect(response).to render_template('test_executions/index')
+          expect(assigns(:test_executions)).to match_array(test_executions + my_test_executions)
+        end
+      end
       context 'with accessible test_version' do
         before do
           create :user_test_version, user: current_user, test_version: test_version
@@ -18,6 +31,7 @@ RSpec.describe TestExecutionsController, type: :controller do
 
           expect(response.status).to be 200
           expect(response).to render_template('test_executions/index')
+          expect(assigns(:test_executions)).to match_array(my_test_executions)
         end
       end
       context 'with inaccessible test_version' do
