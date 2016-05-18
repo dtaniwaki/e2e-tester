@@ -28,13 +28,6 @@ Rails.application.routes.draw do
   resources :tests, shallow: true do
     resources :user_tests, only: [:create, :update, :index, :destroy]
     resources :test_versions, only: [] do
-      resources :test_executions, only: [:create, :index, :show] do
-        member do
-          get :done
-        end
-        resources :test_step_executions, only: [:show]
-        resources :test_execution_shares, only: [:index, :create, :update, :destroy]
-      end
       resources :user_test_versions, only: [:create, :update, :index, :destroy]
     end
   end
@@ -48,7 +41,19 @@ Rails.application.routes.draw do
     get 'versions' => 'test_versions#index', as: :test_versions
     get ':num' => 'test_versions#show', as: :test_version
     delete ':num' => 'test_versions#destroy'
+    nested do
+      scope ':num', as: :version do
+        resources :test_executions, only: [:index, :create]
+      end
+    end
   end
+  resources :test_executions, shallow: true, only: [:show] do
+    member do
+      get :done
+    end
+    resources :test_execution_shares, only: [:index, :create, :update, :destroy]
+  end
+  resources :test_step_executions, only: [:show]
   resources :user_credentials, only: [:index] do
     collection do
       resource :browserstack_credentials, only: [:create, :update, :destroy], path: :browserstack

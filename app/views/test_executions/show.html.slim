@@ -5,7 +5,7 @@
 
 .block
   .pull-right
-    = link_to t('shared.buttons.retry'), test_version_test_executions_path(@test_execution.test_version), class: 'btn btn-primary', method: :post
+    = link_to t('shared.buttons.retry'), test_version_position_test_executions_path(@test_version), class: 'btn btn-primary', method: :post
   h1.e2e-truncate
     small.glyphicon.glyphicon-tasks
     = " #{@test_version.title}"

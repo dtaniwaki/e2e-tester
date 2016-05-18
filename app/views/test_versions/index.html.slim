@@ -33,7 +33,7 @@
             |  
             = tv.user.name
           td
-            = button_to t('shared.buttons.execute'), test_version_test_executions_path(tv.test_version), class: 'btn btn-xs btn-primary', method: :post, disabled: !tv.executable?
+            = button_to t('shared.buttons.execute'), test_version_position_test_executions_path(tv), class: 'btn btn-xs btn-primary', method: :post, disabled: !tv.executable?
   .center-block.text-center
     = paginate @test_versions
 - else

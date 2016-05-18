@@ -3,7 +3,8 @@ require 'rails_helper'
 RSpec.describe TestExecutionsController, type: :controller do
   render_views
 
-  let!(:test_version) { create :test_version }
+  let(:test) { create :test }
+  let!(:test_version) { create :test_version, test: test }
   describe 'GET index' do
     let!(:test_executions) { create_list :test_execution, 2, test_version: test_version }
     context 'with signed in user' do
@@ -13,7 +14,7 @@ RSpec.describe TestExecutionsController, type: :controller do
           create :user_test_version, user: current_user, test_version: test_version
         end
         it 'renders successfully' do
-          get :index, params: { test_version_id: test_version }
+          get :index, params: { test_id: test, num: test_version.position }
 
           expect(response.status).to be 200
           expect(response).to render_template('test_executions/index')
@@ -22,7 +23,7 @@ RSpec.describe TestExecutionsController, type: :controller do
       context 'with inaccessible test_version' do
         it 'renders successfully' do
           expect do
-            get :index, params: { test_version_id: test_version }
+            get :index, params: { test_id: test, num: test_version.position }
           end.to raise_error(Pundit::NotAuthorizedError)
         end
       end
@@ -30,7 +31,7 @@ RSpec.describe TestExecutionsController, type: :controller do
     context 'without signed in user' do
       include_context 'without signed in user'
       it 'renders successfully' do
-        get :index, params: { test_version_id: test_version }
+        get :index, params: { test_id: test, num: test_version.position }
 
         expect(response.status).to be 302
         expect(response).to redirect_to(new_user_session_path)
@@ -94,7 +95,7 @@ RSpec.describe TestExecutionsController, type: :controller do
           create :user_test_version, user: current_user, test_version: test_version
         end
         it 'renders successfully' do
-          post :create, params: { test_version_id: test_version }
+          post :create, params: { test_id: test, num: test_version.position }
 
           expect(response.status).to be 302
           expect(response).to redirect_to(test_execution_path(test_version.test_executions.last))
@@ -103,7 +104,7 @@ RSpec.describe TestExecutionsController, type: :controller do
       context 'with inaccessible test_execution' do
         it 'renders successfully' do
           expect do
-            post :create, params: { test_version_id: test_version }
+            post :create, params: { test_id: test, num: test_version.position }
           end.to raise_error(Pundit::NotAuthorizedError)
         end
       end
@@ -111,7 +112,7 @@ RSpec.describe TestExecutionsController, type: :controller do
     context 'without signed in user' do
       include_context 'without signed in user'
       it 'renders successfully' do
-        post :create, params: { test_version_id: test_version }
+        post :create, params: { test_id: test, num: test_version.position }
 
         expect(response.status).to be 302
         expect(response).to redirect_to(new_user_session_path)
