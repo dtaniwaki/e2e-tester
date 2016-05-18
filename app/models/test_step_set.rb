@@ -11,8 +11,6 @@ class TestStepSet < ApplicationRecord
   validates :description, length: { maximum: 65_535 }, allow_blank: true
   validates :test_steps, length: { minimum: 1, maximum: 50 }, allow_blank: true
 
-  scope :latest, -> { order(created_at: :desc) }
-
   acts_as_paranoid
 
   accepts_nested_attributes_for :test_steps, allow_destroy: true

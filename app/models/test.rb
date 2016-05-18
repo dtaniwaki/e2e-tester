@@ -10,7 +10,6 @@ class Test < ApplicationRecord
 
   after_create :assign_owner!
 
-  scope :latest, -> { order(created_at: :desc) }
   scope :with_user, ->(user) { joins(:user_tests).merge(UserTest.where(user_id: user.is_a?(ActiveRecord::Base) ? user.id : user)) }
 
   delegate :title, :description, to: :current_test_version, allow_nil: true
