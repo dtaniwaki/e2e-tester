@@ -51,8 +51,4 @@ class User < ApplicationRecord
     variables.merge! Hash[*user_test_version_variables.with_test_version(test_version).map { |v| [v.name, v.value] }.flatten]
     variables.with_indifferent_access
   end
-
-  def name_or_email
-    name.presence || email
-  end
 end
