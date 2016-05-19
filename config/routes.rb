@@ -39,10 +39,10 @@ Rails.application.routes.draw do
   get 'user_integrations/:type/:id', to: -> { root_path }, as: :polymorphic_user_integration # Fake route for polymorphic routes
   resources :tests, only: [] do
     get 'versions' => 'test_versions#index', as: :test_versions
-    get ':num' => 'test_versions#show', as: :test_version
-    delete ':num' => 'test_versions#destroy'
+    get ':number' => 'test_versions#show', as: :test_version
+    delete ':number' => 'test_versions#destroy'
     nested do
-      scope ':num', as: :version do
+      scope ':number', as: :version do
         resources :test_executions, only: [:index, :create]
       end
     end

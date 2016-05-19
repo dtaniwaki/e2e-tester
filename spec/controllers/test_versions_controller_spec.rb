@@ -43,7 +43,7 @@ RSpec.describe TestVersionsController, type: :controller do
       context 'with accessible test_version' do
         let!(:user_test_version) { create :user_test_version, user: current_user, test_version: test_version }
         it 'renders successfully' do
-          get :show, params: { test_id: test, num: test_version.position }
+          get :show, params: { test_id: test, number: test_version.position }
 
           expect(response.status).to be 200
           expect(response).to render_template('test_versions/show')
@@ -52,7 +52,7 @@ RSpec.describe TestVersionsController, type: :controller do
       context 'with inaccessible test_version' do
         it 'renders successfully' do
           expect do
-            get :show, params: { test_id: test, num: test_version.position }
+            get :show, params: { test_id: test, number: test_version.position }
           end.to raise_error(Pundit::NotAuthorizedError)
         end
       end
@@ -60,7 +60,7 @@ RSpec.describe TestVersionsController, type: :controller do
     context 'without signed in user' do
       include_context 'without signed in user'
       it 'renders successfully' do
-        get :show, params: { test_id: test, num: test_version.position }
+        get :show, params: { test_id: test, number: test_version.position }
 
         expect(response.status).to be 302
         expect(response).to redirect_to(new_user_session_path)
@@ -75,7 +75,7 @@ RSpec.describe TestVersionsController, type: :controller do
       context 'with accessible test_version' do
         let!(:user_test) { create :user_test, user: current_user, test: test }
         it 'renders successfully' do
-          delete :destroy, params: { test_id: test, num: test_version.position }
+          delete :destroy, params: { test_id: test, number: test_version.position }
 
           expect(response.status).to be 302
           expect(response).to redirect_to(test_test_versions_path(test))
@@ -84,7 +84,7 @@ RSpec.describe TestVersionsController, type: :controller do
       context 'with inaccessible test_version' do
         it 'renders successfully' do
           expect do
-            delete :destroy, params: { test_id: test, num: test_version.position }
+            delete :destroy, params: { test_id: test, number: test_version.position }
           end.to raise_error(Pundit::NotAuthorizedError)
         end
       end
@@ -92,7 +92,7 @@ RSpec.describe TestVersionsController, type: :controller do
     context 'without signed in user' do
       include_context 'without signed in user'
       it 'renders successfully' do
-        delete :destroy, params: { test_id: test, num: test_version.position }
+        delete :destroy, params: { test_id: test, number: test_version.position }
 
         expect(response.status).to be 302
         expect(response).to redirect_to(new_user_session_path)

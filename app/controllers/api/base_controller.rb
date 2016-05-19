@@ -23,22 +23,30 @@ module Api
 
     def internal_server_error(exception)
       logger.error "#{exception.message}  #{exception.backtrace.join("\n  ")}"
-      render json: { messages: ['Internal server error'] }, status: 500
+      render json: error_json(exception, 'Internal server error'), status: 500
     end
 
     def unauthorized(exception)
-      logger.error "#{exception.message}  #{exception.backtrace.join("\n  ")}"
-      render json: { messages: ['Unauthorized'] }, status: 401
+      logger.warn "#{exception.message}  #{exception.backtrace.join("\n  ")}"
+      render json: error_json(exception, 'Unauthorized'), status: 401
     end
 
     def forbidden(exception)
-      logger.error "#{exception.message}  #{exception.backtrace.join("\n  ")}"
-      render json: { messages: ['Forbidden'] }, status: 403
+      logger.warn "#{exception.message}  #{exception.backtrace.join("\n  ")}"
+      render json: error_json(exception, 'Forbidden'), status: 403
     end
 
     def not_found(exception)
-      logger.error "#{exception.message}  #{exception.backtrace.join("\n  ")}"
-      render json: { messages: ['Not found'] }, status: 404
+      logger.warn "#{exception.message}  #{exception.backtrace.join("\n  ")}"
+      render json: error_json(exception, 'Not found'), status: 404
+    end
+
+    def error_json(exception, default_message)
+      if Rails.application.config.consider_all_requests_local
+        { messages: [exception.message], stacktrace: exception.backtrace }
+      else
+        { messages: [default_message] }
+      end
     end
   end
 end
