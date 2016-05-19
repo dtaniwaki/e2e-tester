@@ -1,7 +1,8 @@
 application:
-  url_options:
-    host: 'example.com'
-    protocol: 'http'
+  web:
+    url_options:
+      host: 'example.com'
+      protocol: 'http'
 redis:
   sidekiq_client:
     url: redis://localhost:6379/2

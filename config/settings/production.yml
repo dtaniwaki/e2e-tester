@@ -1,7 +1,8 @@
 application:
-  url_options:
-    host: <%= ENV['SERVICE_HOST'] || 'TBA' %>
-    protocol: <%= ENV['SERVICE_PROTOCOL'] || 'http' %>
+  web:
+    url_options:
+      host: <%= ENV['SERVICE_HOST'] || 'TBA' %>
+      protocol: <%= ENV['SERVICE_PROTOCOL'] || 'http' %>
 omniauth:
   google:
     app_id: <%= ENV['OMNIAUTH_GOOGLE_APP_ID'] || 'TBA' %>

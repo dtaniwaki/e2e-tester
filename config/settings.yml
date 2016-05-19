@@ -1,9 +1,13 @@
 application:
-  site_name: 'E2E Tester'
-  api_name: 'E2E Tester API'
-  url_options:
-    host: <%= ENV['SERVICE_HOST'] || 'TBA' %>
-    protocol: 'http'
+  web: &application_web
+    name: 'E2E Tester'
+    url_options:
+      host: <%= ENV['SERVICE_HOST'] || 'TBA' %>
+      protocol: 'http'
+  api:
+    <<: *application_web
+    name: 'E2E Tester API'
+    desc: ''
   misc:
     use_global_browserstack_credential: false
     hashids_secret: <%= ENV['HASHIDS_SECRET'] || 'TBD' %>

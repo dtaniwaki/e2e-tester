@@ -18,7 +18,7 @@ module UserIntegration
               when 'failed'
                 'danger'
       end
-      faraday.post(webhook_url, username: Settings.application.site_name,
+      faraday.post(webhook_url, username: Settings.application.web.name,
                                 text: text,
                                 attachments: [
                                   author_name: test_execution.user.name,

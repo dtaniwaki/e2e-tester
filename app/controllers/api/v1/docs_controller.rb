@@ -5,8 +5,8 @@ module Api
         key :swagger, '2.0'
         info do
           key :version, '1.0.0'
-          key :title, Settings.application.api_name
-          key :description, Settings.application.api_desc
+          key :title, Settings.application.api.name
+          key :description, Settings.application.api.desc
           contact do
             key :name, 'dtaniwaki'
           end
@@ -14,7 +14,7 @@ module Api
             key :name, 'MIT'
           end
         end
-        key :host, Settings.application.url_options.host
+        key :host, Settings.application.api.url_options.host
         key :basePath, '/api/v1'
         key :consumes, ['application/json']
         key :produces, ['application/json']

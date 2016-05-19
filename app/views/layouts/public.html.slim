@@ -1,7 +1,7 @@
 doctype html
 html
   head
-    title = [yield(:title).presence || t("#{controller_name}.#{action_name}.title", default: nil), Settings.application.site_name].compact.join(' | ')
+    title = [yield(:title).presence || t("#{controller_name}.#{action_name}.title", default: nil), Settings.application.web.name].compact.join(' | ')
     = csrf_meta_tags
     = action_cable_meta_tag
 
