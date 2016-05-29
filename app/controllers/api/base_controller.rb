@@ -3,6 +3,7 @@ module Api
     include Rails.application.routes.url_helpers
     include ActionController::ImplicitRender
     include ActionView::Layouts
+    include ActionController::Helpers
 
     def self.inherited(base)
       base.class_eval do
@@ -46,7 +47,7 @@ module Api
       else
         { messages: [default_message] }
       end
-      render text: json.to_json, status: status
+      render body: json.to_json, status: status
     end
   end
 end

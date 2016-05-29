@@ -4,7 +4,7 @@ module Api
       swagger_root do
         key :swagger, '2.0'
         info do
-          key :version, '1.0.0'
+          key :version, '1.0.0.beta1'
           key :title, Settings.application.api.name
           key :description, Settings.application.api.desc
           contact do
@@ -41,10 +41,10 @@ module Api
                    rescue
                      Time.zone.now.to_s
                    end
-        json = Rails.cache.fetch("swagger-json-#{revision}") do
+        json = Rails.cache.fetch("swagger-api-v1-docs-#{revision}") do
           Swagger::Blocks.build_root_json(SWAGGERED_CLASSES)
         end
-        render json: json
+        render body: json.to_json
       end
     end
   end
