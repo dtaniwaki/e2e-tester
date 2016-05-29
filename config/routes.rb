@@ -73,6 +73,17 @@ Rails.application.routes.draw do
 
   namespace :api, constraints: { format: 'json' }, defaults: { format: 'json' } do
     namespace :v1 do
+      resources :tests, only: [] do
+        get 'versions' => 'test_versions#index', as: :test_versions
+        get ':number' => 'test_versions#show', as: :test_version
+        delete ':number' => 'test_versions#destroy'
+        nested do
+          scope ':number', as: :version do
+            resources :test_executions, only: [:index, :create]
+          end
+        end
+      end
+      resources :test_executions, only: [:show]
       get :docs, to: 'docs#index'
     end
     match '*path' => 'misc#not_found', via: :all

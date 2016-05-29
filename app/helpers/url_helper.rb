@@ -2,6 +2,7 @@ module UrlHelper
   def self.included(base)
     base.instance_eval do
       include Rails.application.routes.url_helpers
+      self.default_url_options = Settings.application.web.url_options.to_h
     end
   end
 
@@ -21,6 +22,14 @@ module UrlHelper
 
   def test_version_position_url(test_version, options = {})
     test_test_version_url(test_version.test, test_version.position, options)
+  end
+
+  def api_v1_test_version_position_path(test_version, options = {})
+    api_v1_test_test_version_path(test_version.test, test_version.position, options)
+  end
+
+  def api_v1_test_version_position_url(test_version, options = {})
+    api_v1_test_test_version_url(test_version.test, test_version.position, options)
   end
 
   def test_version_position_test_executions_path(test_version, options = {})

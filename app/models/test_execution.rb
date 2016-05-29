@@ -19,6 +19,7 @@ class TestExecution < ApplicationRecord
 
   attr_accessor :token
   alias_attribute :executed_at, :created_at
+  alias_attribute :executed_by, :user
 
   def execute!(user, async: false)
     running!

@@ -76,16 +76,17 @@ RSpec.describe TestExecution, type: :model do
           expect(call_count).to eq 3
         end
       end
-      context 'with integrations', :vcr do
+      context 'with integrations' do
         let!(:slack_integration1) { create :slack_integration, user: user_test1.user, webhook_url: 'http://www.example.com/' }
         it 'sends email and integration notifications to the stakehorlders' do
+          stub = stub_request(:post, 'www.example.com')
           call_count = 0
           allow(UserMailer).to receive_message_chain(:test_execution_result, :deliver_now) do
             call_count += 1
             nil
           end
           subject.send_notification!
-          expect(a_request(:post, 'www.example.com')).to have_been_made.once
+          expect(stub).to have_been_made.once
           expect(call_count).to eq 4
         end
       end
