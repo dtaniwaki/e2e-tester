@@ -10,7 +10,7 @@ FactoryGirl.define do
       test_execution.test_execution_browsers = if !evaluator.test_execution_browsers.nil?
         evaluator.test_execution_browsers
       else
-        create_list(:test_execution_browser, evaluator.test_execution_browser_count, test_execution: test_execution)
+        build_list(:test_execution_browser, evaluator.test_execution_browser_count, test_execution: test_execution)
       end
     end
   end

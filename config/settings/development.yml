@@ -1,7 +1,8 @@
 application:
-  url_options:
-    host: 'localhost:3000'
-    protocol: 'http'
+  web:
+    url_options:
+      host: 'localhost:3000'
+      protocol: 'http'
 logger:
   color: true
   format: 'simple'

@@ -6,6 +6,7 @@ module UserIntegration
     serialized_attribute :webhook_url
 
     validates :webhook_url, url: true, presence: true
+    validates_with SimilarRecordValidator, count: 10, conditions: [:user_id]
 
     def test_execution_result(test_execution)
       title = I18n.t('misc.integration.slack.title', execution_id: test_execution.to_param)
@@ -17,7 +18,7 @@ module UserIntegration
               when 'failed'
                 'danger'
       end
-      faraday.post(webhook_url, username: Settings.application.site_name,
+      faraday.post(webhook_url, username: Settings.application.web.name,
                                 text: text,
                                 attachments: [
                                   author_name: test_execution.user.name,

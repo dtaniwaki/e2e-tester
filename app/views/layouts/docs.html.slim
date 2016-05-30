@@ -1,0 +1,16 @@
+doctype html
+html
+  head
+    title = [yield(:title).presence || t("#{controller_name}.#{action_name}.title", default: nil)&.titleize, Settings.application.web.name].compact.join(' | ')
+    = csrf_meta_tags
+    = action_cable_meta_tag
+
+    meta charset='utf-8'
+    meta name='viewport' content='width=device-width, initial-scale=1'
+
+    = yield :head
+
+    = render 'shared/google_analytics', tracking_id: Settings.google.analytics.tracking_id, event: 'ready'
+
+  body.body id="#{controller_name}_#{action_name}" class=yield(:body_class)
+    = yield

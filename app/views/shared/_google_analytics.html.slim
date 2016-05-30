@@ -1,3 +1,4 @@
+- event ||= 'turbolinks:load'
 javascript:
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -7,7 +8,7 @@ javascript:
   ga('create', '#{tracking_id}', 'auto');
   //ga('send', 'pageview');
   // For turbolinks
-  $(document).on('turbolinks:load', function() {
+  $(document).on('#{event}', function() {
     ga('set',  'location', location.href.split('#')[0])
     ga('send', 'pageview', { "title": document.title })
   });

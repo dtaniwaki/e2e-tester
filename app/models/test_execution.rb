@@ -7,7 +7,6 @@ class TestExecution < ApplicationRecord
   has_one :test, through: :test_version
   has_many :test_execution_shares, inverse_of: :test_execution
 
-  scope :latest, -> { order(created_at: :desc) }
   scope :with_user, ->(user) { where(user_id: user.is_a?(ActiveRecord::Base) ? user.id : user) }
   scope :with_test_version, ->(test_version) { where(test_version_id: test_version.is_a?(ActiveRecord::Base) ? test_version.id : test_version) }
 
@@ -20,6 +19,7 @@ class TestExecution < ApplicationRecord
 
   attr_accessor :token
   alias_attribute :executed_at, :created_at
+  alias_attribute :executed_by, :user
 
   def execute!(user, async: false)
     running!

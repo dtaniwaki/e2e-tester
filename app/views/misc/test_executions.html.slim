@@ -17,7 +17,7 @@ h1
           td = link_to test_execution_path(te) do
             time datetime=te.created_at.iso8601 data-timeago='' = te.created_at.to_s
           td
-            = link_to t('shared.buttons.retry'), test_version_test_executions_path(te.test_version), class: 'btn btn-xs btn-primary', method: :post
+            = link_to t('shared.buttons.retry'), test_version_position_test_executions_path(te.test_version), class: 'btn btn-xs btn-primary', method: :post
 
   .center-block.text-center
     = paginate @test_executions

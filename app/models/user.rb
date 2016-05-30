@@ -23,6 +23,7 @@ class User < ApplicationRecord
   has_one :browserstack_credential, class_name: 'UserCredential::Browserstack', inverse_of: :user
   has_many :user_integrations, class_name: 'UserIntegration::Base', inverse_of: :user
   has_many :test_execution_shares, inverse_of: :user
+  has_many :user_api_tokens, inverse_of: :user
 
   acts_as_paranoid
 
@@ -49,9 +50,5 @@ class User < ApplicationRecord
     variables.merge! Hash[*user_test_variables.with_test(test_version.test).map { |v| [v.name, v.value] }.flatten]
     variables.merge! Hash[*user_test_version_variables.with_test_version(test_version).map { |v| [v.name, v.value] }.flatten]
     variables.with_indifferent_access
-  end
-
-  def name_or_email
-    name.presence || email
   end
 end

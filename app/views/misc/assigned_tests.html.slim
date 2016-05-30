@@ -20,7 +20,7 @@ h1
             |  
             = utv.assigned_by.name
           td
-            = button_to t('shared.buttons.execute'), test_version_test_executions_path(utv.test_version), class: 'btn btn-xs btn-primary', method: :post
+            = button_to t('shared.buttons.execute'), test_version_position_test_executions_path(utv.test_version), class: 'btn btn-xs btn-primary', method: :post
   .center-block.text-center
     = paginate @user_test_versions
 - else

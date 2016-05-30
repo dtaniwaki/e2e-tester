@@ -37,6 +37,10 @@ module Browser
       true
     end
 
+    def browser_type
+      type&.demodulize&.underscore
+    end
+
     def full_name
       name
     end

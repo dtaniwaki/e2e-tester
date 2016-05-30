@@ -45,7 +45,7 @@
             |  
             = te.user.name
   div.panel
-    = link_to t('shared.more_records', target: TestExecution.model_name.human(count: 2)), test_version_test_executions_path(@test_version)
+    = link_to t('shared.more_records', target: TestExecution.model_name.human(count: 2)), test_version_position_test_executions_path(@test_version)
 
 .row
   - if @user_test_version.present?

@@ -21,7 +21,8 @@ gem 'jquery-ui-rails', '~> 5.0.5'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5.x'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.0'
+# gem 'jbuilder', '~> 2.0'
+gem 'jbuilder', github: 'rails/jbuilder', branch: :master # To use with rails-api
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
@@ -64,6 +65,8 @@ gem 'bower-rails', '~> 0.10.0'
 gem 'acts_as_hashids', '~> 0.1.2'
 gem 'enum_help', '~> 0.0.15'
 gem 'validates_timeliness', '~> 4.0.2'
+gem 'swagger-blocks', '~> 1.3.3'
+gem 'rack-cors', '~> 0.4.0', require: 'rack/cors'
 
 ################################
 # redis-rails Rails 5 support

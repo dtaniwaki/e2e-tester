@@ -18,4 +18,4 @@
       .alert.alert-error
         = t('.no_browser')
   .block
-    = button_to t('shared.buttons.execute'), test_version_test_executions_path(test_version), class: 'btn btn-primary', method: :post, disabled: !test_version.executable?
+    = button_to t('shared.buttons.execute'), test_version_position_test_executions_path(test_version), class: 'btn btn-primary', method: :post, disabled: !test_version.executable?
