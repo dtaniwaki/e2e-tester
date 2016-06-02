@@ -6,7 +6,8 @@ class UserTestVersionVariable < ApplicationRecord
     joins(:user_test_version).merge(UserTestVersion.where(test_version_id: test_version.is_a?(ActiveRecord::Base) ? test_version.id : test_version))
   }
 
-  validates :name, :value, length: { minimum: 0, maximum: 255 }, allow_nil: true
+  validates :name, length: { minimum: 0, maximum: 20 }, allow_nil: true
+  validates :value, length: { minimum: 0, maximum: 255 }, allow_nil: true
   validates :name, uniqueness: { scope: [:user_test_version_id] }, presence: true
   validates_with SimilarRecordValidator, count: 10, conditions: [:user_test_version_id]
 end
