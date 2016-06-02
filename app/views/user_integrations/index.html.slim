@@ -28,6 +28,8 @@ h1
               = link_to t('shared.buttons.edit'), edit_slack_integration_path(r)
               |  
               = link_to t('shared.buttons.delete'), slack_integration_path(r), method: :delete, data: { confirm: t('shared.confirm') }
+              |  
+              = link_to t('shared.buttons.settings'), user_integration_user_notification_settings_path(r)
   - else
     .alert.alert-warning
       = t('shared.no_records', target: UserIntegration::Base.model_name.human)

@@ -1,0 +1,7 @@
+.form-group
+  = f.label :notify_test_execution_result, class: 'col-sm-3'
+  .col-sm-9
+    / The workaround to prevent String#capitalize from changing `I` lowercase
+    = f.input_field :notify_test_execution_result, include_blank: t('shared.include_blank.default'), label_method: ->(v) { v[0][0].upcase + v[0][1..-1] }
+.text-right
+  = f.submit t('shared.buttons.update'), class: 'btn btn-success'

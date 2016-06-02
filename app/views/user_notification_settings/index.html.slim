@@ -1,0 +1,24 @@
+- if @test
+  - content_for :title, t('.title_for', for: @test.title)
+  = link_to t('shared.back_link', target: Test.model_name.human), test_path(@test)
+  .block
+    h1
+      small.glyphicon.glyphicon-cog
+      = " #{t('.title_for', for: @test.title)}"
+  = render 'test_settings', settings: @user_notification_settings, new_setting: @new_setting, user_integrations: @user_integrations, test: @test
+- elsif @user_integration
+  - content_for :title, t('.title_for', for: @user_integration.name)
+  = link_to t('shared.back_link', target: UserIntegration::Base.model_name.human), user_integrations_path
+  .block
+    h1
+      small.glyphicon.glyphicon-cog
+      = image_tag image_path("integrations/#{@user_integration.class.name.humanize.demodulize}.png"), width: 32, height: 32
+      = " #{t('.title_for', for: @user_integration.name)}"
+  = render 'integration_settings', settings: @user_notification_settings, new_setting: @new_setting, user_integration: @user_integration, tests: @tests
+- else
+  - content_for :title, t('.title')
+  .block
+    h1
+      small.glyphicon.glyphicon-cog
+      = " #{t('.title')}"
+  = render 'global_settings', settings: @user_notification_settings, new_setting: @new_setting, user_integrations: @user_integrations, tests: @tests
