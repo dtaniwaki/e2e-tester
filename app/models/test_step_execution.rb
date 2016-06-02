@@ -33,6 +33,8 @@ class TestStepExecution < ApplicationRecord
                   {}
                 end
         self.message = error['errorMessage'] || e.message
+      elsif e.is_a? E2eTester::JavaScriptError
+        self.message = "JavaScriptError: #{e.message}"
       else
         self.message = e.message
       end

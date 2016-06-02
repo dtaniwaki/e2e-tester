@@ -97,7 +97,7 @@ class TestsController < BaseController
       updating_test_versions_attributes: [
         :title, :description,
         test_steps_attributes:
-          [:test_step_type, :_destroy, :shared_test_step_set_id, data: [:message, :selector, :javascript, :value, :url, :width, :height, :duration]],
+          [:test_step_type, :_destroy, :shared_test_step_set_id, data: [:message, :selector, :javascript, :variable, :value, :url, :width, :height, :duration]],
         browser_ids: []
       ]
     )
