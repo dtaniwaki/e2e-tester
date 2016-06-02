@@ -21,7 +21,7 @@ module TestStep
       res = driver.execute_script(code)
       if res.to_s =~ /^#{prefix}/
         res.sub!(/^#{prefix}/, '')
-        raise "JavaScript Error: #{res}"
+        raise E2eTester::JavaScriptError, res
       end
 
       nil

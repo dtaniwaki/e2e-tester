@@ -17,7 +17,7 @@ RSpec.describe TestStep::Eval, type: :model do
       it 'raises an exception' do
         expect do
           subject.execute!(nil, driver)
-        end.to raise_error(RuntimeError, 'JavaScript Error: bar')
+        end.to raise_error(E2eTester::JavaScriptError, 'bar')
       end
     end
     context 'with placeholder' do

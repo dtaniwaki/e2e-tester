@@ -10,4 +10,7 @@ module E2eTester
 
   class GenerateTokenFailure < Exception
   end
+
+  class JavaScriptError < Exception
+  end
 end
