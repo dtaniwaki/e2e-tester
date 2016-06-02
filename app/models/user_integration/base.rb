@@ -5,6 +5,7 @@ module UserIntegration
     self.table_name = 'user_integrations'
 
     belongs_to :user, inverse_of: :user_integrations
+    has_many :user_notification_settings, inverse_of: :user_integration, foreign_key: 'user_integration_id'
 
     validates :name, length: { maximum: 100 }, presence: true
 

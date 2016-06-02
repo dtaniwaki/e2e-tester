@@ -24,6 +24,7 @@ class User < ApplicationRecord
   has_many :user_integrations, class_name: 'UserIntegration::Base', inverse_of: :user
   has_many :test_execution_shares, inverse_of: :user
   has_many :user_api_tokens, inverse_of: :user
+  has_many :user_notification_settings, inverse_of: :user
 
   acts_as_paranoid
 
