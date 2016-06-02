@@ -42,52 +42,57 @@ RSpec.describe TestExecution, type: :model do
     let(:test) { create :test }
     let(:test_version) { create :test_version, test: test }
     let(:executer) { create :user }
+    let(:owner) { test.user }
     subject!(:test_execution) { create :test_execution, test_version: test_version, user: executer }
-    it 'sends email to the owner' do
-      call_count = 0
-      allow(UserMailer).to receive_message_chain(:test_execution_result, :deliver_now) do
-        call_count += 1
-        nil
+    let(:sent_users) { [] }
+    before :example do
+      allow(UserMailer).to receive(:test_execution_result) do |user, _test_execution|
+        sent_users << user
+        double deliver_now: nil
       end
+    end
+    it 'sends email to the owner' do
       subject.send_notification!
-      expect(call_count).to eq 2
+      expect(sent_users).to match_array [owner, executer]
     end
     context 'with test users' do
       let!(:user_test1) { create :user_test, test: test }
       let!(:user_test2) { create :user_test, test: test }
+      let(:user1) { user_test1.user }
+      let(:user2) { user_test2.user }
       it 'sends email notifications to the owner and the stakehorlders' do
-        call_count = 0
-        allow(UserMailer).to receive_message_chain(:test_execution_result, :deliver_now) do
-          call_count += 1
-          nil
-        end
         subject.send_notification!
-        expect(call_count).to eq 4
+        expect(sent_users).to match_array [owner, executer, user1, user2]
       end
       context 'test users includes executer' do
         let(:executer) { user_test1.user }
         it 'sends email notifications to the stakehorlders' do
-          call_count = 0
-          allow(UserMailer).to receive_message_chain(:test_execution_result, :deliver_now) do
-            call_count += 1
-            nil
-          end
           subject.send_notification!
-          expect(call_count).to eq 3
+          expect(sent_users).to match_array [owner, executer, user2]
         end
       end
       context 'with integrations' do
         let!(:slack_integration1) { create :slack_integration, user: user_test1.user, webhook_url: 'http://www.example.com/' }
         it 'sends email and integration notifications to the stakehorlders' do
           stub = stub_request(:post, 'www.example.com')
-          call_count = 0
-          allow(UserMailer).to receive_message_chain(:test_execution_result, :deliver_now) do
-            call_count += 1
-            nil
-          end
           subject.send_notification!
           expect(stub).to have_been_made.once
-          expect(call_count).to eq 4
+          expect(sent_users).to match_array [owner, executer, user1, user2]
+        end
+      end
+      context 'test_execution_result is never' do
+        let!(:executer_setting) { create :user_notification_setting, user: executer, test: nil, user_integration: nil, notify_test_execution_result: 'never' }
+        it 'doesn\'t send email notifications' do
+          subject.send_notification!
+          expect(sent_users).to match_array [owner, user1, user2]
+        end
+      end
+      context 'test_execution_result is only_self' do
+        let!(:executer_setting) { create :user_notification_setting, user: executer, test: nil, user_integration: nil, notify_test_execution_result: 'only_self' }
+        let!(:test_setting) { create :user_notification_setting, user: user1, test: nil, user_integration: nil, notify_test_execution_result: 'only_self' }
+        it 'doesn\'t send email notifications' do
+          subject.send_notification!
+          expect(sent_users).to match_array [owner, executer, user2]
         end
       end
     end

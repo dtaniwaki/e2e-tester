@@ -1,6 +1,7 @@
 module UserIntegration
   class Base < ApplicationRecord
     include SerializedAttribute
+    include NotifiableConcern
 
     self.table_name = 'user_integrations'
 
@@ -23,6 +24,13 @@ module UserIntegration
       logger.warn "#{e.message}\n  #{e.backtrace.join("\n  ")}"
       self.last_error = e.message
       save!
+    end
+
+    def notify?(name, test = nil)
+      name = "notify_#{name}"
+      user_notification_settings.detect { |us| us.test == test }&.public_send(name) ||
+        user_notification_settings.detect { |us| us.test.nil? }&.public_send(name) ||
+        user_notification_settings.defaults[name]
     end
 
     def test_execution_result(_test_execution)

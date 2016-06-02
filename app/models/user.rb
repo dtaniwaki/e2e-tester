@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  include NotifiableConcern
+
   devise :database_authenticatable, :registerable, :confirmable, :recoverable, :rememberable, :validatable, :invitable, :lockable
 
   has_many :tests, inverse_of: :user
@@ -25,6 +27,7 @@ class User < ApplicationRecord
   has_many :test_execution_shares, inverse_of: :user
   has_many :user_api_tokens, inverse_of: :user
   has_many :user_notification_settings, inverse_of: :user
+  has_many :global_notification_settings, -> { where(user_integration: nil) }, inverse_of: :user, class_name: 'UserNotificationSetting'
 
   acts_as_paranoid
 
@@ -51,5 +54,16 @@ class User < ApplicationRecord
     variables.merge! Hash[*user_test_variables.with_test(test_version.test).map { |v| [v.name, v.value] }.flatten]
     variables.merge! Hash[*user_test_version_variables.with_test_version(test_version).map { |v| [v.name, v.value] }.flatten]
     variables.with_indifferent_access
+  end
+
+  def notify!(name, *args)
+    UserMailer.public_send(name, [self, *args]).deliver_now
+  end
+
+  def notify?(name, test = nil)
+    name = "notify_#{name}"
+    global_notification_settings.detect { |us| us.test == test }&.public_send(name) ||
+      global_notification_settings.detect { |us| us.test.nil? }&.public_send(name) ||
+      global_notification_settings.defaults[name]
   end
 end

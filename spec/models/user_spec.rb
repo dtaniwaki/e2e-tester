@@ -32,4 +32,29 @@ RSpec.describe User, type: :model do
       end
     end
   end
+  describe '#notify?' do
+    let(:test) { user_test.test }
+    context 'with global setting' do
+      let!(:global_setting) { create :user_notification_setting, user: subject, test: nil, user_integration: nil, notify_test_execution_result: 'only_self' }
+      it 'returns the value for the test setting' do
+        expect(subject.notify?(:test_execution_result, test)).to eq 'only_self'
+      end
+      context 'with per-test setting' do
+        let!(:test_setting) { create :user_notification_setting, user: subject, test: test, user_integration: nil, notify_test_execution_result: 'never' }
+        it 'returns the value for the test setting' do
+          expect(subject.notify?(:test_execution_result, test)).to eq 'never'
+        end
+        context 'for global setting' do
+          it 'returns the value for the global setting' do
+            expect(subject.notify?(:test_execution_result, nil)).to eq 'only_self'
+          end
+        end
+      end
+    end
+    context 'without any setting' do
+      it 'returns the default value' do
+        expect(subject.notify?(:test_execution_result, test)).to eq 'all_tests'
+      end
+    end
+  end
 end

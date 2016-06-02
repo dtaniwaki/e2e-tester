@@ -49,19 +49,19 @@ class TestExecution < ApplicationRecord
   end
 
   def send_notification!
-    sent_to_owner = false
-    test.accessible_users.preload(:user_integrations).find_each do |u|
-      sent_to_owner = true if u == user
-      UserMailer.test_execution_result(u, self).deliver_now
-      u.user_integrations.each do |ui|
-        ui.notify!(:test_execution_result, self)
+    executer_test = nil
+    test.user_tests.preload(user: :user_integrations).find_each do |ut|
+      if ut.user == user
+        executer_test = ut
+        next
+      end
+      [ut.user, *ut.user.user_integrations].each do |ui|
+        ui.notify!(:test_execution_result, self) if %w(all_tests).any? { |value| ui.notify?(:test_execution_result, ut) == value }
       end
     end
-    unless sent_to_owner
-      UserMailer.test_execution_result(user, self).deliver_now
-      user.user_integrations.each do |ui|
-        ui.notify!(:test_execution_result, self)
-      end
+    u = executer_test&.user || user
+    [u, *u.user_integrations].each do |ui|
+      ui.notify!(:test_execution_result, self) if %w(all_tests only_self).any? { |value| ui.notify?(:test_execution_result, executer_test) == value }
     end
   end
 
