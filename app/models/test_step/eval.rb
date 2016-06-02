@@ -8,7 +8,7 @@ module TestStep
 
     def execute!(_test_step_execution, driver, variables = {})
       prefix = "e2e-#{SecureRandom.hex(10)}-"
-      js = javascript
+      js = javascript.replace_variables(variables)
       code = <<-EOS
         (function() {
           try {
