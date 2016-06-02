@@ -123,6 +123,7 @@ en:
       test_step/eval:
         <<: *test_step_base
         javascript: JavaScript
+        variable: variable
       test_step/fill:
         <<: *test_step_base
         selector: selector

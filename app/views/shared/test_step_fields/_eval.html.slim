@@ -1,3 +1,8 @@
 = f.simple_fields_for :data, OpenStruct.new(f.object.data) do |ff|
   .input-group-addon Eval
+  = ff.input :variable, as: :string, label: false, placeholder: f.object.class.human_attribute_name(:variable), error: false
+  .input-group-addon
+    | = (function() {
   = ff.input :javascript, as: :text, label: false, placeholder: f.object.class.human_attribute_name(:javascript), error: false
+  .input-group-addon
+    | })();
