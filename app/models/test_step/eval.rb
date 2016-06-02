@@ -6,17 +6,25 @@ module TestStep
 
     serialized_attribute :javascript
 
-    def execute!(_test_step_execution, driver, _variables = {})
+    def execute!(_test_step_execution, driver, variables = {})
+      prefix = "e2e-#{SecureRandom.hex(10)}-"
+      js = javascript
       code = <<-EOS
-        try {
-          #{javascript}
-          return null;
-        } catch(e) {
-          return e.message;
-        }
+        (function() {
+          try {
+            #{js};
+          } catch(e) {
+            return '#{prefix}' + e.message;
+          }
+        })()
       EOS
       res = driver.execute_script(code)
-      raise "JavaScript Error: #{res}" unless res.nil?
+      if res.to_s =~ /^#{prefix}/
+        res.sub!(/^#{prefix}/, '')
+        raise "JavaScript Error: #{res}"
+      end
+
+      nil
     end
 
     def to_line

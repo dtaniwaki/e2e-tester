@@ -9,6 +9,9 @@ FactoryGirl.define do
     factory :screenshot_step, class: TestStep::Screenshot do
       test_step_type 'screenshot'
     end
+    factory :eval_step, class: TestStep::Eval do
+      javascript 'script'
+    end
     factory :wait_step, class: TestStep::Wait do
       test_step_type 'wait_step'
       duration 0.5
