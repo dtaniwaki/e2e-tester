@@ -1,0 +1,7 @@
+en:
+  enums:
+    user_notification_setting:
+      notify_test_execution_result:
+        all_tests: all tests
+        only_self: test I execute
+        never: none

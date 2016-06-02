@@ -30,11 +30,13 @@ Rails.application.routes.draw do
     resources :test_versions, only: [] do
       resources :user_test_versions, only: [:create, :update, :index, :destroy]
     end
+    resources :user_notification_settings, only: [:index], path: :notification_settings
   end
   resources :user_integrations, only: [:index] do
     collection do
       resources :slack_integrations, path: 'slack'
     end
+    resources :user_notification_settings, only: [:index], path: :notification_settings
   end
   get 'user_integrations/:type/:id', to: -> { root_path }, as: :polymorphic_user_integration # Fake route for polymorphic routes
   resources :tests, only: [] do
@@ -67,6 +69,7 @@ Rails.application.routes.draw do
     get :assigned_tests
     get :test_executions
   end
+  resources :user_notification_settings, only: [:index, :create, :update], path: :notification_settings
   namespace :docs, path: '' do
     get :api
   end

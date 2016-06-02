@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160517022217) do
+ActiveRecord::Schema.define(version: 20160530045048) do
 
   create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "namespace"
@@ -252,6 +252,19 @@ ActiveRecord::Schema.define(version: 20160517022217) do
     t.index ["user_id"], name: "index_user_integrations_on_user_id", using: :btree
   end
 
+  create_table "user_notification_settings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id",                      null: false
+    t.integer  "test_id"
+    t.integer  "user_integration_id"
+    t.integer  "notify_test_execution_result"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.index ["test_id"], name: "index_user_notification_settings_on_test_id", using: :btree
+    t.index ["user_id", "test_id", "user_integration_id"], name: "index_user_notification_settings", unique: true, using: :btree
+    t.index ["user_id"], name: "index_user_notification_settings_on_user_id", using: :btree
+    t.index ["user_integration_id"], name: "index_user_notification_settings_on_user_integration_id", using: :btree
+  end
+
   create_table "user_shared_test_step_sets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id",                 null: false
     t.integer  "shared_test_step_set_id", null: false
@@ -374,6 +387,9 @@ ActiveRecord::Schema.define(version: 20160517022217) do
   add_foreign_key "user_api_tokens", "users"
   add_foreign_key "user_credentials", "users"
   add_foreign_key "user_integrations", "users"
+  add_foreign_key "user_notification_settings", "tests"
+  add_foreign_key "user_notification_settings", "user_integrations"
+  add_foreign_key "user_notification_settings", "users"
   add_foreign_key "user_shared_test_step_sets", "test_step_sets", column: "shared_test_step_set_id"
   add_foreign_key "user_shared_test_step_sets", "users"
   add_foreign_key "user_test_variables", "user_tests"

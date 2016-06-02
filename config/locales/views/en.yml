@@ -10,6 +10,7 @@ en:
         integrations: Integrations
         invite_user: Invite user
         recent_executions: Recent test executions
+        settings: Notification settings
         sign_in: Sign in
         sign_out: Sign out
         test_step_sets: Test step sets
@@ -41,6 +42,7 @@ en:
         share: Share
         unset_all: Unset all
         update: Update
+        settings: Settings
       confirm: Are you sure?
       here: here
       invite_target: Invite %{target}
@@ -65,6 +67,8 @@ en:
       username_hint: Username can contain only letters, digits, '_', '-' and '.'. Cannot start or end with '-' and '.'.
       warning_on_leave: You are leaving the page and will lose the current change.
       what_is_markdown: What is markdown?
+      include_blank:
+        default: Default
     slack_integrations:
       edit:
         title: Edit slack integration
@@ -120,6 +124,19 @@ en:
     user_integrations:
       index:
         title: Integrations
+    user_notification_settings:
+      index:
+        title: Notification settings
+        title_for: Notification settings for %{for}
+      global_settings:
+        email_settings: Global email settings
+        integration_settings: Global integration settings for %{for}
+      integration_settings:
+        global_settings: Global settings
+        test_settings: Test settings for %{for}
+      test_settings:
+        email_settings: Email settings
+        integration_settings: Integration settings for %{for}
     user_shared_test_step_sets:
       index:
         title: Involving users

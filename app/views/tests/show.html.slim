@@ -56,6 +56,9 @@
 
     = render 'integrations', integrations: @integrations
 
+    div.panel
+      = link_to t('shared.buttons.settings'), test_user_notification_settings_path(@test)
+
   .col-lg-6
     - user_test = @test.user_tests.build
     - if policy(user_test).new?

@@ -11,6 +11,7 @@ h1
         = link_to t('shared.buttons.edit'), edit_slack_integration_path(@integration), class: 'btn btn-default'
       - if policy(@integration).destroy?
         = link_to t('shared.buttons.delete'), slack_integration_path(@integration), method: :delete, data: { confirm: t('shared.confirm') }, class: 'btn btn-default'
+      = link_to t('shared.buttons.settings'), user_integration_user_notification_settings_path(@integration), class: 'btn btn-default'
   h2.e2e-truncate
     = @integration.name
 

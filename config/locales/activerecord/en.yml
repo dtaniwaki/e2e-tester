@@ -236,6 +236,8 @@ en:
       user_integration/slack:
         <<: *user_integration_base
         webhook_url: webhook URL
+      user_notification_setting:
+        notify_test_execution_result: notify test execution result
       user_shared_test_step_set:
         shared_test_step_set: :activerecord.models.shared_test_step_set
         user: :activerecord.models.user
@@ -363,6 +365,9 @@ en:
       user_integration/slack:
         one: slack integration
         other: slack integrations
+      user_notification_setting:
+        one: user setting
+        other: user settings
       user_shared_test_step_set:
         one: involving user
         other: involving users
