@@ -20,6 +20,13 @@ RSpec.describe TestStep::Eval, type: :model do
         end.to raise_error(E2eTester::JavaScriptError, 'bar')
       end
     end
+    context 'with variable' do
+      subject(:test_step) { create :eval_step, javascript: 'return "foo"', variable: 'bar' }
+      it 'executes javascript' do
+        expect(driver).to receive(:execute_script).with(/^        \(function\(\) \{\n          try \{\n            return \"foo\";\n          \} catch\(e\) \{\n            return 'e2e-[0-9a-f]+-' \+ e.message;\n          \}\n        \}\)\(\)\n$/) # rubocop:disable Metrics/LineLength
+        expect(subject.execute!(nil, driver)).to eq('bar' => 'foo')
+      end
+    end
     context 'with placeholder' do
       subject(:test_step) { create :eval_step, javascript: '"{foo}"' }
       it 'executes javascript' do
