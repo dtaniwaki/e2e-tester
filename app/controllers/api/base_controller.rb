@@ -11,42 +11,41 @@ module Api
       end
     end
 
-    rescue_from Exception, with: :internal_server_error
+    rescue_from Exception, with: :handle_internal_server_error
     [E2eTester::NotAuthenticated].each do |klass|
-      rescue_from klass, with: :forbidden
+      rescue_from klass, with: :handle_forbidden
     end
     [Pundit::NotAuthorizedError].each do |klass|
-      rescue_from klass, with: :unauthorized
+      rescue_from klass, with: :handle_unauthorized
     end
     [E2eTester::NotFound, ActiveRecord::RecordNotFound].each do |klass|
-      rescue_from klass, with: :not_found
+      rescue_from klass, with: :handle_not_found
     end
 
     protected
 
-    def internal_server_error(exception)
+    def handle_internal_server_error(exception)
       Bugsnag.auto_notify(exception)
       render_error exception, 'Internal server error', 500
     end
 
-    def unauthorized(exception)
+    def handle_unauthorized(exception)
       render_error exception, 'Unauthorized', 401
     end
 
-    def forbidden(exception)
+    def handle_forbidden(exception)
       render_error exception, 'Forbidden', 403
     end
 
-    def not_found(exception)
+    def handle_not_found(exception)
       render_error exception, 'Not found', 404
     end
 
     def render_error(exception, default_message, status)
       logger.error "#{exception.message}  #{exception.backtrace.join("\n  ")}"
-      json = if Rails.application.config.consider_all_requests_local
-        { messages: [exception.message], stacktrace: exception.backtrace }
-      else
-        { messages: [default_message] }
+      json = { messages: [default_message] }
+      if Rails.application.config.consider_all_requests_local
+        json[:exception] = { class: exception.class.to_s, message: exception.message, stacktrace: exception.backtrace }
       end
       render body: json.to_json, status: status
     end
