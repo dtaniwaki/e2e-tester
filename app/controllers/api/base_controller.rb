@@ -25,6 +25,7 @@ module Api
     protected
 
     def internal_server_error(exception)
+      Bugsnag.auto_notify(exception)
       render_error exception, 'Internal server error', 500
     end
 
