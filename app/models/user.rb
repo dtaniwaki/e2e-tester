@@ -57,7 +57,7 @@ class User < ApplicationRecord
   end
 
   def notify!(name, *args)
-    UserMailer.public_send(name, [self, *args]).deliver_now
+    UserMailer.public_send(name, self, *args).deliver_now
   end
 
   def notify?(name, test = nil)
