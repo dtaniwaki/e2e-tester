@@ -14,6 +14,7 @@ class TestsController < BaseController
     @user_test = @test.user_tests.with_user(current_user).includes(:user_test_variables).first
     @user_tests = @test.user_tests.eager_load(:user).limit(10)
     @integrations = current_user.user_integrations.limit(10)
+    @test_executions = @test.test_executions.with_user(current_user).eager_load(:test_version).latest.limit(10)
   end
 
   def new

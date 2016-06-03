@@ -49,6 +49,36 @@
   .alert.alert-warning
     = t('shared.no_records', target: TestVersion.model_name.human)
 
+- if @test_executions.present?
+  div.panel.panel-default
+    div.panel-heading
+      small.glyphicon.glyphicon-tasks
+      = " #{TestExecution.model_name.human(count: 2).humanize}"
+    table.table
+      tr
+        th = TestVersion.human_attribute_name(:position).humanize
+        th = TestVersion.human_attribute_name(:title).humanize
+        th = TestExecution.human_attribute_name(:id).humanize
+        th = TestExecution.human_attribute_name(:executed_at).humanize
+        th = TestExecution.human_attribute_name(:user).humanize
+        th
+      - @test_executions.each do |te|
+        tr
+          td = link_to te.test_version.position, test_version_position_path(te.test_version)
+          td = link_to te.test_version.title, test_version_position_path(te.test_version)
+          td = link_to te.to_param, test_execution_path(te)
+          td = link_to test_execution_path(te) do
+            time datetime=te.executed_at.iso8601 data-timeago='' = te.executed_at.to_s
+          td
+            = gravatar_image_tag(te.user.email, alt: te.user.name, gravatar: { size: 20 })
+            |  
+            = te.user.name
+          td
+            = button_to t('shared.buttons.retry'), test_version_position_test_executions_path(te.test_version), class: 'btn btn-xs btn-primary', method: :post, disabled: !te.test_version.executable?
+- else
+  .alert.alert-warning
+    = t('shared.no_records', target: TestExecution.model_name.human)
+
 .row
   .col-lg-6
     - if @user_test.present?
