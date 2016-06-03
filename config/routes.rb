@@ -70,7 +70,7 @@ Rails.application.routes.draw do
     get :test_executions
   end
   resources :user_notification_settings, only: [:index, :create, :update], path: :notification_settings
-  namespace :docs, path: '' do
+  namespace :docs do
     get :api
   end
 
