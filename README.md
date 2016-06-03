@@ -37,6 +37,10 @@ open http://localhost:3000/
 
 The followings are optional, but make you happier with this application.
 
+### Public API
+
+E2E Tester provides [public API](http://e2e-tester.herokuapp.com/docs/api) to automate your e2e test.
+
 ### Browserstack
 
 You can use the browsers of [Browserstack](https://www.browserstack.com/) through WebDriver.
