@@ -8,6 +8,7 @@ class TestVersion < TestStepSet
 
   scope :with_user, ->(user) { joins(:user_test_versions).merge(UserTestVersion.where(user_id: user.is_a?(ActiveRecord::Base) ? user.id : user)) }
   scope :with_test, ->(test) { where(test_id: test.is_a?(ActiveRecord::Base) ? test.id : test) }
+  scope :without_deleted, -> { joins(:test).merge(Test.without_deleted) }
 
   after_create :assign_current_test_version!
 

@@ -4,8 +4,10 @@ class TestVersionPolicy < ApplicationPolicy
   end
 
   def show?
-    @record.user_test_versions.with_user(@user).exists? ||
+    @record.test.present? && (
+      @record.user_test_versions.with_user(@user).exists? ||
       (@record.test && @record.test.user_tests.with_user(@user).exists?)
+    )
   end
 
   def create?
@@ -17,6 +19,7 @@ class TestVersionPolicy < ApplicationPolicy
   end
 
   def destroy?
-    (@record.test && @record.test.user_tests.with_user(@user).exists?)
+    @record.test.present? &&
+      (@record.test && @record.test.user_tests.with_user(@user).exists?)
   end
 end
