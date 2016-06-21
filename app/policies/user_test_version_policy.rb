@@ -4,15 +4,21 @@ class UserTestVersionPolicy < ApplicationPolicy
   end
 
   def create?
-    @record.test.user_tests.with_user(@user).exists?
+    @record.test.present? &&
+      @record.test_version.present? &&
+      @record.test.user_tests.with_user(@user).exists?
   end
 
   def update?
-    @record.user == @user
+    @record.test.present? &&
+      @record.test_version.present? &&
+      @record.user == @user
   end
 
   def destroy?
-    @record.test.user_tests.with_user(@user).exists? &&
+    @record.test.present? &&
+      @record.test_version.present? &&
+      @record.test.user_tests.with_user(@user).exists? &&
       @record.user != @user
   end
 end

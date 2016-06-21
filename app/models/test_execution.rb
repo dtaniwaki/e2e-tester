@@ -9,6 +9,7 @@ class TestExecution < ApplicationRecord
 
   scope :with_user, ->(user) { where(user_id: user.is_a?(ActiveRecord::Base) ? user.id : user) }
   scope :with_test_version, ->(test_version) { where(test_version_id: test_version.is_a?(ActiveRecord::Base) ? test_version.id : test_version) }
+  scope :without_deleted, -> { joins(:test).merge(Test.without_deleted) }
 
   enum state: { initial: 0, running: 1, done: 2, failed: 3 }
 
