@@ -50,11 +50,13 @@ module Browser
       driver = Selenium::WebDriver.for :remote, url: url, desired_capabilities: caps
 
       at_exit do
-        begin
-          driver.quit
-        rescue
-          nil
-        end if driver
+        if driver
+          begin
+            driver.quit
+          rescue
+            nil
+          end
+        end
       end
 
       driver

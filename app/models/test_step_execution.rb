@@ -7,8 +7,8 @@ class TestStepExecution < ApplicationRecord
   has_one :browser, through: :test_execution_browser
   has_one :test_execution, through: :test_execution_browser
 
-  scope :with_user, -> (user) { joins(:test_execution).merge(TestExecution.where(user_id: user.is_a?(ActiveRecord::Base) ? user.id : user)) }
-  scope :with_test_execution, -> (te) { joins(:test_execution_browser).merge(TestExecutionBrowser.where(test_execution_id: te.is_a?(ActiveRecord::Base) ? te.id : te)) }
+  scope :with_user, ->(user) { joins(:test_execution).merge(TestExecution.where(user_id: user.is_a?(ActiveRecord::Base) ? user.id : user)) }
+  scope :with_test_execution, ->(te) { joins(:test_execution_browser).merge(TestExecutionBrowser.where(test_execution_id: te.is_a?(ActiveRecord::Base) ? te.id : te)) }
   scope :with_test_step, ->(test_step) { where(test_step_id: test_step.is_a?(ActiveRecord::Base) ? test_step.id : test_step) }
   scope :with_browser, ->(browser) { joins(:test_browser).merge(TestBrowser.where(browser_id: browser.is_a?(ActiveRecord::Base) ? browser.id : browser)) }
 

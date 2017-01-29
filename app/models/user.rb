@@ -33,7 +33,7 @@ class User < ApplicationRecord
 
   validates :email, :confirmation_token, :reset_password_token, :unlock_token, uniqueness: true, allow_blank: true
   validates :email, :encrypted_password, presence: true
-  validates :name, :username, presence: true, if: -> (u) { u.accepted_or_not_invited? || u.accepting_invitation? }
+  validates :name, :username, presence: true, if: ->(u) { u.accepted_or_not_invited? || u.accepting_invitation? }
   validates :name, length: { minimum: 1, maximum: 100 }, allow_blank: true
   validates :username,
             format: { with: /\A([a-zA-Z0-9_][a-zA-Z0-9_\-\.]*[a-zA-Z0-9_]|[a-zA-Z0-9_])\Z/ },
@@ -41,7 +41,7 @@ class User < ApplicationRecord
             uniqueness: { case_sensitive: false },
             allow_blank: true
 
-  accepts_nested_attributes_for :user_variables, allow_destroy: true, reject_if: -> (attributes) { attributes[:name].blank? && attributes[:value].blank? }
+  accepts_nested_attributes_for :user_variables, allow_destroy: true, reject_if: ->(attributes) { attributes[:name].blank? && attributes[:value].blank? }
 
   def self.find_or_invite_by(params, user)
     user = User.find_by(params)

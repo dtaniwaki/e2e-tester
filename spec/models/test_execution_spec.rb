@@ -45,7 +45,7 @@ RSpec.describe TestExecution, type: :model do
     let(:owner) { test.user }
     subject!(:test_execution) { create :test_execution, test_version: test_version, user: executer }
     let(:sent_users) { [] }
-    before :example do
+    before do
       allow(UserMailer).to receive(:test_execution_result) do |user, _test_execution|
         sent_users << user
         double deliver_now: nil

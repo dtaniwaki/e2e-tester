@@ -2,15 +2,15 @@ module E2eTester
   class Exception < ::StandardError
   end
 
-  class NotAuthenticated < Exception
+  class NotAuthenticated < RuntimeError
   end
 
-  class NotFound < Exception
+  class NotFound < RuntimeError
   end
 
-  class GenerateTokenFailure < Exception
+  class GenerateTokenFailure < RuntimeError
   end
 
-  class JavaScriptError < Exception
+  class JavaScriptError < RuntimeError
   end
 end

@@ -9,7 +9,7 @@ class UserTest < ApplicationRecord
 
   after_commit :send_notification!, on: :create, if: ->(up) { up.assigned_by.present? }
 
-  accepts_nested_attributes_for :user_test_variables, allow_destroy: true, reject_if: -> (attributes) { attributes[:name].blank? && attributes[:value].blank? }
+  accepts_nested_attributes_for :user_test_variables, allow_destroy: true, reject_if: ->(attributes) { attributes[:name].blank? && attributes[:value].blank? }
 
   alias_attribute :assigned_at, :created_at
 
