@@ -8,7 +8,7 @@ RSpec.describe TestExecutionBrowser, type: :model do
   subject(:test_execution_browser) { create :test_execution_browser, test_execution: test_execution }
   describe '#execute!' do
     let!(:user_variable) { create :user_variable, user: user, name: 'foo', value: 'bar' }
-    before :example do
+    before do
       subject.initialize_test_step_executions!
       allow(subject.browser).to receive(:driver).and_return(driver)
     end

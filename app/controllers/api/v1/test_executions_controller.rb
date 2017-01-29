@@ -49,7 +49,7 @@ module Api
       end
 
       def index
-        @test_version = Test.find(params[:test_id]).test_versions.find_by_position!(params[:number])
+        @test_version = Test.find(params[:test_id]).test_versions.find_by!(position: params[:number])
         authorize @test_version, :show?
 
         @test_executions = policy_scope(@test_version.test_executions, @test_version)
@@ -59,7 +59,7 @@ module Api
       end
 
       def create
-        @test_version = Test.find(params[:test_id]).test_versions.find_by_position!(params[:number])
+        @test_version = Test.find(params[:test_id]).test_versions.find_by!(position: params[:number])
         authorize @test_version, :show?
         @test_execution = @test_version.test_executions.with_user(current_user).build
         authorize @test_execution

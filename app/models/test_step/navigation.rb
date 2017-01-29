@@ -3,7 +3,7 @@ module TestStep
     using Refinements::ReplaceVariables
 
     validates :url, length: { minimum: 1, maximum: 2_048 }, presence: true
-    validates :url, url: true, unless: -> (ts) { ts.url =~ /{[^}]+}/ }
+    validates :url, url: true, unless: ->(ts) { ts.url =~ /{[^}]+}/ }
 
     serialized_attribute :url
 

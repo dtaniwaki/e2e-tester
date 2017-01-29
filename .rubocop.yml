@@ -1,3 +1,4 @@
+inherit_from: .rubocop_todo.yml
 require: rubocop-rspec
 Rails:
   Enabled: true
@@ -39,7 +40,7 @@ Style/IndentArray:
 Style/DoubleNegation:
   Enabled: false
 Lint/EndAlignment:
-  AlignWith: variable
+  EnforcedStyleAlignWith: variable
 Style/FrozenStringLiteralComment:
   Enabled: false
 RSpec/AnyInstance:

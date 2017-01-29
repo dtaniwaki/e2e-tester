@@ -3,7 +3,7 @@ class TestExecutionsController < BaseController
   skip_before_action :authenticate_user!, only: [:show]
 
   def index
-    @test_version = Test.find(params[:test_id]).test_versions.find_by_position!(params[:number])
+    @test_version = Test.find(params[:test_id]).test_versions.find_by!(position: params[:number])
     authorize @test_version, :show?
 
     @test_executions = policy_scope(@test_version.test_executions, @test_version).eager_load(:user).latest.page(params[:page]).per(20)
@@ -24,7 +24,7 @@ class TestExecutionsController < BaseController
   end
 
   def create
-    @test_version = Test.find(params[:test_id]).test_versions.find_by_position!(params[:number])
+    @test_version = Test.find(params[:test_id]).test_versions.find_by!(position: params[:number])
     authorize @test_version, :show?
     @test_execution = @test_version.test_executions.with_user(current_user).build
     authorize @test_execution

@@ -24,7 +24,7 @@ module Api
 
       def current_user
         return unless request.headers['Authorization'] =~ /\ABearer\s+(.*)\Z/
-        token = UserApiToken.eager_load(:user).find_by_token(Regexp.last_match(1))
+        token = UserApiToken.eager_load(:user).find_by(token: Regexp.last_match(1))
         token&.user
       end
 

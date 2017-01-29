@@ -3,24 +3,22 @@ require 'rails_helper'
 RSpec.describe AsyncConcern, type: :model do
   subject do
     Class.new(ActiveRecord::Base) do
-      include AsyncConcern # rubocop:disable RSpec/DescribedClass
+      include AsyncConcern
 
       def id
         1
       end
 
-      def foo
-      end
+      def foo; end
 
-      def foo!
-      end
+      def foo!; end
 
       def self.name
         'Foo'
       end
     end
   end
-  before :example do
+  before do
     allow(subject).to receive_message_chain(:connection, :schema_cache, :columns_hash).and_return({})
     AsyncRecordJob.jobs.clear
   end

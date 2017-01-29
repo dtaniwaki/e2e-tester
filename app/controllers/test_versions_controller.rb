@@ -9,7 +9,7 @@ class TestVersionsController < BaseController
   end
 
   def show
-    @test_version = Test.find(params[:test_id]).test_versions.includes(:test, test_browsers: :browser).find_by_position!(params[:number])
+    @test_version = Test.find(params[:test_id]).test_versions.includes(:test, test_browsers: :browser).find_by!(position: params[:number])
     authorize @test_version
     @test = @test_version.test
 
@@ -21,7 +21,7 @@ class TestVersionsController < BaseController
   end
 
   def destroy
-    @test_version = Test.find(params[:test_id]).test_versions.find_by_position!(params[:number])
+    @test_version = Test.find(params[:test_id]).test_versions.find_by!(position: params[:number])
     authorize @test_version
 
     if @test_version.destroy

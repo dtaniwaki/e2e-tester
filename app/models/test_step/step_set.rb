@@ -3,7 +3,7 @@ module TestStep
     belongs_to :shared_test_step_set, inverse_of: :test_step_sets
     has_many :test_steps, through: :shared_test_step_set
 
-    scope :with_test_step_set, -> (test_step_set) { where(shared_test_step_set_id: test_step_set.is_a?(ActiveRecord::Base) ? test_step_set.id : test_step_set) }
+    scope :with_test_step_set, ->(test_step_set) { where(shared_test_step_set_id: test_step_set.is_a?(ActiveRecord::Base) ? test_step_set.id : test_step_set) }
 
     validate :validate_accessibility
     validates :shared_test_step_set, presence: true

@@ -30,8 +30,8 @@ module WebDriverExt
         end
         image = MiniMagick::Image.new(tempfile.path)
         (image_width, image_height) = image.dimensions
-        @logger.info "n: #{n}, screen: (#{screen_width}, #{screen_height}), total (#{total_width}, #{total_height}), inner (#{inner_width}, #{inner_height}),\
-        image (#{image_width}, #{image_height}), scroll (#{scroll_top}, 0)" if @logger
+        @logger&.info "n: #{n}, screen: (#{screen_width}, #{screen_height}), total (#{total_width}, #{total_height}), inner (#{inner_width}, #{inner_height}),\
+          image (#{image_width}, #{image_height}), scroll (#{scroll_top}, 0)"
         # Resize to actual pixel size
         if total_height <= image_height
           append_file_paths << image.path

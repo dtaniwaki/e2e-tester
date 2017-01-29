@@ -5,12 +5,12 @@ end
 RSpec.shared_context 'with signed in user' do
   let(:current_user) { create :user }
 
-  before :example do
+  before do
     sign_in :user, current_user
     expect(controller.current_user).not_to be_nil
   end
 
-  after :example do
+  after do
     sign_out :user
   end
 end
@@ -18,7 +18,7 @@ end
 RSpec.shared_context 'without signed in user' do
   let(:current_user) { create :user }
 
-  before :example do
+  before do
     sign_out :user
     expect(controller.current_user).to be_nil
   end
@@ -27,12 +27,12 @@ end
 RSpec.shared_context 'with signed in admin user' do
   let(:current_admin_user) { create :admin_user }
 
-  before :example do
+  before do
     sign_in :admin_user, current_admin_user
     expect(controller.current_admin_user).not_to be_nil
   end
 
-  after :example do
+  after do
     sign_out :admin_user
   end
 end
@@ -40,7 +40,7 @@ end
 RSpec.shared_context 'without signed in admin user' do
   let(:current_admin_user) { create :admin_user }
 
-  before :example do
+  before do
     sign_out :admin_user
     expect(controller.current_admin_user).to be_nil
   end
