@@ -94,8 +94,8 @@ group :development do
   gem 'spring', '~> 1.6.4'
   gem 'spring-watcher-listen', '~> 2.0.0'
   # Code regulation
-  gem 'rubocop', '~> 0.37.2', require: false
-  gem 'rubocop-rspec', '~> 1.4.0', require: false
+  gem 'rubocop', '~> 0.47.1', require: false
+  gem 'rubocop-rspec', '~> 1.10.0', require: false
   # Vulnerability scan
   gem 'brakeman', '~> 3.2.1', require: false
   # Debug Email
