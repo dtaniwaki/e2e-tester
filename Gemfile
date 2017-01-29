@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 ruby '2.3.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '>= 5.0.0.rc1', '< 5.1'
+gem 'rails', '~> 5.0.1'
 # Use mysql2 as the database for Active Record
 gem 'mysql2', '~> 0.4.4'
 # Use Puma as the app server
@@ -39,20 +39,20 @@ gem 'mini_magick', '~> 4.5.1'
 gem 'pry-rails', '~> 0.3.4'
 gem 'config', '~> 1.1.0'
 gem 'bootstrap-sass', '~> 3.3.6'
-gem 'devise', '~> 4.0.0.rc1'
+gem 'devise', '~> 4.2.0'
 gem 'devise_invitable', '~> 1.6.0'
 gem 'sidekiq', '~> 4.1.0'
 gem 'sidekiq-unique-jobs', '~> 4.0.13'
 gem 'sidekiq-failures', '~> 0.4.5'
 gem 'yajl-ruby', '~> 1.2.1'
-gem 'sinatra', github: 'sinatra/sinatra', require: nil
+gem 'sinatra', '~> 1.0', require: nil
 gem 'redis-namespace', '~> 1.5.2'
-gem 'omniauth', '~> 1.3.1'
-gem 'omniauth-google-oauth2', '~> 0.3.1'
-gem 'sprockets-es6', '~> 0.9.0'
+gem 'omniauth', '~> 1.3.2'
+gem 'omniauth-google-oauth2', '~> 0.4.1'
+gem 'sprockets-es6', '~> 0.9.2'
 gem 'acts_as_list', '~> 0.7.2'
 gem 'paranoia', github: 'rubysherpas/paranoia', branch: 'core'
-gem 'slim-rails', '~> 3.0.1'
+gem 'slim-rails', '~> 3.1.1'
 gem 'pundit', '~> 1.1.0'
 gem 'bugsnag', '~> 4.0.0'
 gem 'redcarpet', '~> 3.2.3'
@@ -67,27 +67,14 @@ gem 'enum_help', '~> 0.0.15'
 gem 'validates_timeliness', '~> 4.0.2'
 gem 'swagger-blocks', '~> 1.3.3'
 gem 'rack-cors', '~> 0.4.0', require: 'rack/cors'
+gem 'activeadmin', '~> 1.0.0.pre4'
+gem 'redis-rails', '~> 5.0.1'
 
 ################################
-# redis-rails Rails 5 support
-# gem 'redis-rack', github: "schuylr/redis-rack", ref: "a01bfe5a8ee1df4af6c3a886e005896fe711aab7"
-gem 'redis-rack', github: 'redis-store/redis-rack', ref: '83a7b7b895bb528c1ae88329e4bca09a97d9fbbf'
-gem 'redis-activesupport', github: 'claudiob/redis-activesupport', ref: 'd83917b3a852a98cd0bee8709ab52e5437f7ca11'
-# gem 'redis-actionpack', github: "schuylr/redis-actionpack", ref: "b4b37571e3db63cf10713995e7d1ef85e3183b42"
-gem 'redis-actionpack', github: 'marcroberts/redis-actionpack', ref: '4e23b49c814ee49ed216bbcaa7811f55c84b5cd2'
-gem 'redis-rails', github: 'redis-store/redis-rails', branch: :master
+# activeadmin Rails 5 support
+gem 'inherited_resources', git: 'https://github.com/activeadmin/inherited_resources'
 ################################
 
-################################
-# ActiveAdmin Rails 5 support
-gem 'activeadmin', github: 'activeadmin/activeadmin', branch: 'master'
-gem 'ransack',    github: 'activerecord-hackery/ransack'
-gem 'kaminari',   github: 'amatsuda/kaminari', branch: '0-17-stable'
-gem 'formtastic', github: 'justinfrench/formtastic'
-gem 'draper',     github: 'audionerd/draper', branch: 'rails5', ref: 'e816e0e587'
-# To fix a Draper deprecation error
-gem 'activemodel-serializers-xml', github: 'rails/activemodel-serializers-xml'
-################################
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
