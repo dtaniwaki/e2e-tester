@@ -28,7 +28,7 @@ gem 'jbuilder', github: 'rails/jbuilder', branch: :master # To use with rails-ap
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-gem 'paperclip', '~> 5.0.0.beta1'
+gem 'paperclip', '~> 5.1.0'
 gem 'fog-aws', '~> 0.9.0'
 gem 'fog-local', '~> 0.3.0'
 # gem 'poltergeist'
