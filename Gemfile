@@ -89,7 +89,7 @@ end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'listen', '~> 3.0.5'
+  gem 'listen', '~> 2.10.1'
   gem 'web-console', '~> 3.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring', '~> 1.6.4'
@@ -101,6 +101,8 @@ group :development do
   gem 'brakeman', '~> 3.2.1', require: false
   # Debug Email
   gem 'letter_opener_web', '~> 1.3.0'
+  # API Docs
+  gem 'apiaryio', github: 'infinum/apiary-client', branch: 'master'
 end
 
 group :test do
