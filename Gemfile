@@ -69,6 +69,8 @@ gem 'swagger-blocks', '~> 1.3.3'
 gem 'rack-cors', '~> 0.4.0', require: 'rack/cors'
 gem 'activeadmin', '~> 1.0.0.pre4'
 gem 'redis-rails', '~> 5.0.1'
+gem 'draper', github: 'audionerd/draper', branch: 'rails5', ref: 'e816e0e5876b76c648c0928f1c3f2aa2c7a3d1f2'
+gem 'activemodel-serializers-xml', github: 'rails/activemodel-serializers-xml', ref: 'dd9c0acf26aab111ebc647cd8deb99ebc6946531'
 
 ################################
 # activeadmin Rails 5 support
