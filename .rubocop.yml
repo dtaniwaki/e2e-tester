@@ -39,7 +39,7 @@ Style/IndentArray:
 Style/DoubleNegation:
   Enabled: false
 Lint/EndAlignment:
-  AlignWith: variable
+  EnforcedStyleAlignWith: variable
 Style/FrozenStringLiteralComment:
   Enabled: false
 RSpec/AnyInstance:
