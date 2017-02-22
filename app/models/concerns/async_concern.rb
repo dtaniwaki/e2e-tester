@@ -1,5 +1,5 @@
 module AsyncConcern
-  def method_missing(method_name, *args, &block) # rubocop:disable Style/MethodMissing
+  def method_missing(method_name, *args, &block)
     if define_sync_method(method_name, *args, &block)
       public_send(method_name)
     else

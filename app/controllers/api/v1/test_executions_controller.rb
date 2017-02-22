@@ -1,7 +1,7 @@
 module Api
   module V1
     class TestExecutionsController < Api::V1::BaseController
-      swagger_path '/tests/{test_id}/{number}/test_executions' do # rubocop:disable Metrics/BlockLength
+      swagger_path '/tests/{test_id}/{number}/test_executions' do
         parameter name: :test_id, in: :path,
                   description: 'ID of test version to execute',
                   required: true,
