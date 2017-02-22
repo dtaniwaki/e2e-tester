@@ -35,9 +35,9 @@ module E2eTester
     }.each do |name, target|
       settings = Settings.logger[name]
       prefix = name == :default ? '' : "#{name}."
-      file = if settings && settings.io_type.casecmp('stdout') == 0
+      file = if settings && settings.io_type.casecmp('stdout').zero?
         STDOUT
-      elsif settings && settings.io_type.casecmp('stderr') == 0
+      elsif settings && settings.io_type.casecmp('stderr').zero?
         STDERR
       else
         Rails.root.join('log', "#{prefix}#{Rails.env}.log")

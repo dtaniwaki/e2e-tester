@@ -8,8 +8,6 @@
 
 End-to-end test across the browsers.
 
-Here's [the working example](http://e2e-tester.herokuapp.com/).
-
 ## Requirement
 
 - [NodeJS](https://nodejs.org/en/) >= v5.0
@@ -39,7 +37,7 @@ The followings are optional, but make you happier with this application.
 
 ### Public API
 
-E2E Tester provides [public API](http://e2e-tester.herokuapp.com/docs/api) to automate your e2e test.
+E2E Tester provides [public API](http://localhost:3000/docs/api) to automate your e2e test.
 
 ### Browserstack
 

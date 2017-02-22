@@ -12,7 +12,7 @@ module WebDriverExt
       total_width = driver.execute_script('return document.documentElement.scrollWidth').to_i
       total_height = driver.execute_script('return document.documentElement.scrollHeight').to_i
 
-      slices = 0 < inner_height ? (total_height.to_f / inner_height).ceil : 1
+      slices = inner_height.positive? ? (total_height.to_f / inner_height).ceil : 1
 
       slices.times do |n|
         tempfiles << (tempfile = Tempfile.new(['screenshot', '.png']))

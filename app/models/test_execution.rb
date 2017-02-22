@@ -75,10 +75,9 @@ class TestExecution < ApplicationRecord
   def validate_execution_limit
     limit_time = EXECUTION_SPAN.minutes.ago
     last_execution = user.test_executions.last
-    if last_execution && last_execution != self && new_record? && last_execution.created_at > limit_time
-      diff = ((user.test_executions.last.created_at - limit_time) / 60).ceil
-      errors.add :base, "You can execute only one test every #{EXECUTION_SPAN} minutes (#{diff} minutes)"
-    end
+    return unless last_execution && last_execution != self && new_record? && last_execution.created_at > limit_time
+    diff = ((user.test_executions.last.created_at - limit_time) / 60).ceil
+    errors.add :base, "You can execute only one test every #{EXECUTION_SPAN} minutes (#{diff} minutes)"
   end
 
   def validate_executable

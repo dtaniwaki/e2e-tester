@@ -6,7 +6,7 @@ RSpec.shared_context 'with signed in user' do
   let(:current_user) { create :user }
 
   before do
-    sign_in :user, current_user
+    sign_in current_user, scope: :user
     expect(controller.current_user).not_to be_nil
   end
 
@@ -28,7 +28,7 @@ RSpec.shared_context 'with signed in admin user' do
   let(:current_admin_user) { create :admin_user }
 
   before do
-    sign_in :admin_user, current_admin_user
+    sign_in current_admin_user, scope: :admin_user
     expect(controller.current_admin_user).not_to be_nil
   end
 
