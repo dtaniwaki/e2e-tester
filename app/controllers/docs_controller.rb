@@ -1,6 +1,5 @@
 class DocsController < ApplicationController
   layout 'docs'
 
-  def api
-  end
+  def api; end
 end

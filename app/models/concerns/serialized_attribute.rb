@@ -12,7 +12,7 @@ module SerializedAttribute
 
     def serialized_attribute(*names)
       options = names.extract_options!
-      names.each do |name|
+      names.each do |name| # rubocop:disable Metrics/BlockLength
         name = name.to_s
         serialized_attribute_keys << name
         define_method name do

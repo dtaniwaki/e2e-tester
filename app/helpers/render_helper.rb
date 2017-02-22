@@ -19,6 +19,6 @@ module RenderHelper
     renderer = Redcarpet::Render::HTML.new(options)
     markdown = Redcarpet::Markdown.new(renderer, extensions)
 
-    markdown.render(text).html_safe
+    markdown.render(text).html_safe # rubocop:disable Rails/OutputSafety
   end
 end

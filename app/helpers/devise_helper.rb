@@ -10,6 +10,6 @@ module DeviseHelper
     </div>
     HTML
 
-    html.html_safe
+    html.html_safe # rubocop:disable Rails/OutputSafety
   end
 end

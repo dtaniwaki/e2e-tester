@@ -27,7 +27,7 @@ require 'fakeredis/rspec'
 require 'sidekiq/testing'
 require 'webmock/rspec'
 
-Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
+Dir[Rails.root.join('spec', 'support', '**', '*.rb')].each { |f| require f }
 
 ActiveRecord::Migration.maintain_test_schema!
 

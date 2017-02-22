@@ -66,11 +66,13 @@ module Browser
       end
 
       at_exit do
-        begin
-          driver.quit
-        rescue
-          nil
-        end if driver
+        if driver
+          begin
+            driver.quit
+          rescue
+            nil
+          end
+        end
       end
 
       driver

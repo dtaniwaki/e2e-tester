@@ -1,5 +1,5 @@
 module AsyncConcern
-  def method_missing(method_name, *args, &block)
+  def method_missing(method_name, *args, &block) # rubocop:disable Style/MethodMissing
     if define_sync_method(method_name, *args, &block)
       public_send(method_name)
     else
@@ -24,13 +24,12 @@ module AsyncConcern
     return if method_name.to_s !~ /_async!?$/
 
     real_method_name = method_name.to_s.sub(/_async(!)?$/, '\1')
-    if respond_to?(real_method_name)
-      self.class.class_eval do
-        define_method method_name do
-          AsyncRecordJob.perform_async(self.class.name, id, real_method_name.to_sym)
-        end
+    return unless respond_to?(real_method_name)
+    self.class.class_eval do
+      define_method method_name do
+        AsyncRecordJob.perform_async(self.class.name, id, real_method_name.to_sym)
       end
-      true
     end
+    true
   end
 end

@@ -12,7 +12,7 @@ module WebDriverExt
       total_width = driver.execute_script('return document.documentElement.scrollWidth').to_i
       total_height = driver.execute_script('return document.documentElement.scrollHeight').to_i
 
-      slices = 0 < inner_height ? (total_height.to_f / inner_height).ceil : 1
+      slices = inner_height.positive? ? (total_height.to_f / inner_height).ceil : 1
 
       slices.times do |n|
         tempfiles << (tempfile = Tempfile.new(['screenshot', '.png']))
@@ -30,8 +30,8 @@ module WebDriverExt
         end
         image = MiniMagick::Image.new(tempfile.path)
         (image_width, image_height) = image.dimensions
-        @logger.info "n: #{n}, screen: (#{screen_width}, #{screen_height}), total (#{total_width}, #{total_height}), inner (#{inner_width}, #{inner_height}),\
-        image (#{image_width}, #{image_height}), scroll (#{scroll_top}, 0)" if @logger
+        @logger&.info "n: #{n}, screen: (#{screen_width}, #{screen_height}), total (#{total_width}, #{total_height}), inner (#{inner_width}, #{inner_height}),\
+          image (#{image_width}, #{image_height}), scroll (#{scroll_top}, 0)"
         # Resize to actual pixel size
         if total_height <= image_height
           append_file_paths << image.path

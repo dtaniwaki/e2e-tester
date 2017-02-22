@@ -27,20 +27,20 @@ ActiveAdmin.register Browser::Base, as: 'browser' do
   end
 
   action_item :view, only: [:show] do
-    s = ''.html_safe
+    s = ''.html_safe # rubocop:disable Rails/OutputSafety
     s += link_to 'Enable', enable_admin_browser_path(browser), method: :post if browser.disabled?
     s += link_to 'Disable', disable_admin_browser_path(browser), method: :post unless browser.disabled?
     s
   end
 
   batch_action :enable do |ids|
-    Browser::Base.where(id: ids).update_all disabled: false
+    Browser::Base.where(id: ids).update_all disabled: false # rubocop:disable Rails/SkipsModelValidations
     flash[:notice] = "Successfully enabled Browser#{ids.map { |id| "##{id}" }.join(', ')}"
     redirect_to :back
   end
 
   batch_action :disable do |ids|
-    Browser::Base.where(id: ids).update_all disabled: true
+    Browser::Base.where(id: ids).update_all disabled: true # rubocop:disable Rails/SkipsModelValidations
     flash[:notice] = "Successfully disabled Browser#{ids.map { |id| "##{id}" }.join(', ')}"
     redirect_to :back
   end

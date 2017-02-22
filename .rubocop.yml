@@ -25,6 +25,11 @@ Metrics/PerceivedComplexity:
   Max: 10
 Metrics/MethodLength:
   Max: 60
+Metrics/BlockLength:
+  Exclude:
+    - 'app/admin/**/*.rb'
+    - 'spec/**/*.rb'
+    - 'config/**/*.rb'
 Documentation:
   Enabled: false
 Style/SignalException:
@@ -43,4 +48,24 @@ Lint/EndAlignment:
 Style/FrozenStringLiteralComment:
   Enabled: false
 RSpec/AnyInstance:
+  Enabled: false
+RSpec/NamedSubject:
+  Enabled: false
+RSpec/MessageSpies:
+  Enabled: false
+RSpec/MessageChain:
+  Enabled: false
+RSpec/LetSetup:
+  Enabled: false
+RSpec/NestedGroups:
+  Max: 5
+RSpec/SubjectStub:
+  Enabled: false
+RSpec/LeadingSubject:
+  Enabled: false
+RSpec/MultipleExpectations:
+  Enabled: false
+RSpec/ExampleLength:
+  Max: 20
+RSpec/VerifiedDoubles:
   Enabled: false

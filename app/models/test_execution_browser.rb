@@ -25,7 +25,7 @@ class TestExecutionBrowser < ApplicationRecord
     failed!
   ensure
     test_execution.check_completion!
-    driver.quit if driver
+    driver&.quit
   end
 
   def execute_async!(user)
