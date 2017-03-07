@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.3.0'
+ruby '2.4.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.1'
@@ -70,7 +70,7 @@ gem 'slim-rails', '~> 3.1.1'
 gem 'sprockets-es6', '~> 0.9.2'
 gem 'swagger-blocks', '~> 1.3.3'
 gem 'validates_timeliness', '~> 4.0.2'
-gem 'yajl-ruby', '~> 1.2.1'
+gem 'yajl-ruby', '~> 1.3.0'
 
 ################################
 # activeadmin Rails 5 support
