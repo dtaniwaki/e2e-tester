@@ -1,0 +1,89 @@
+FORMAT: 1A
+HOST: http://localhost:3000/
+
+# E2E Tester
+
+
+# Data Structures
+
+## TestExecution (object)
++ id: 42 (number, required)
++ test_version (TestVersion, required)
++ state: running (string, required)
++ executed_at: `2015-05-05T12:30:00` (optional, string) - The date/time (ISO8601 format) on execution
++ created_at: `2015-05-05T12:30:00` (optional, string) - The date/time (ISO8601 format) on create
++ updated_at: `2015-05-05T12:30:00` (optional, string) - The date/time (ISO8601 format) on update
++ executed_by (User, required)
++ url: `http://example.com/` (string, required)
++ html_url: `http://example.com/` (string, required)
++ browsers (array[Browser], required)
+
+## TestVersion (object)
++ id: 32 (number, required)
++ number: 3 (number, required)
++ url: `http://example.com/` (string, required)
++ html_url: `http://example.com/` (string, required)
+
+## User (object)
++ username: `dtaniwaki` (string, required) - Username of a user
++ name: `Daisuke Taniwaki` (string, required) - Full name of a user
+
+## Browser (object)
++ id: 32 (number, required)
++ type: firefox (string, required)
++ full_name: Firefox 3.2 (string, required)
++ name: Firefox 3.2 (string, required)
++ os: (string, required)
++ os_version: (string, required)
++ browser: (string, required)
++ browser_version: (string, required)
++ device: (string, required)
+
+## TestStep (object)
++ id: 123 (number, required)
++ type: `screenshot` (string, required)
++ to_line: (string, required)
+
+## TestStepExecution (object)
++ id: 234 (number, required)
++ screenshot_url: `http://example.com/` (string, optional)
++ page_source_url: `http://example.com/` (string, optional)
++ html_url: `http://example.com/` (string, required)
+
+
+# Group TestExecution
+
+## TestExecution Collection [/tests/{test_id}/{number}/test_executions]
+
+The model of executed test.
+
++ Parameters
+  + test_id: 1 (required, number) - ID of the Test in form of an integer
+  + number: 1 (required, number) - Number of the Test
+
+### List TestExecutions [GET]
+
++ Parameters
+  + page: 1 (optional, number) - The page number
+
++ Response 200 (application/json)
+  + Attributes (array[TestExecution])
+
+### Create a TestExecution [POST]
+
++ Request (application/json)
+  + Attributes (TestExecution)
+
++ Response 201
+
+## TestExecution [/test_executions/{test_execution_id}]
+
++ Parameters
+  + test_id: 1 (required, number) - ID of the Test in form of an integer
+  + number: 1 (required, number) - Number of the Test
+
+### Retrieve a TestExecution [GET]
+
++ Response 200 (application/json)
+  + Attributes (TestExecution)
+
