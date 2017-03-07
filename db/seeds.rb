@@ -10,9 +10,15 @@ end
 
 if user = User.first
   test = user.tests.first_or_create!
-  test_version = test.test_versions.find_or_initialize_by(title: 'Sample Test')
+  test_version = test.test_versions.find_or_initialize_by(title: 'Sample Test v1')
   if test_version.new_record?
-    test_version.update_attributes!(user: user, browsers: Browser::Local.all, test_steps: [TestStep::None.new])
+    test_version.update_attributes!(user: user, browsers: [Browser::Local.find_by_browser('phantomjs')], test_steps: [TestStep::None.new])
+    test_execution = test_version.test_executions.with_user(user).first_or_create!.execute!(user)
+  end
+  test_version = test.test_versions.find_or_initialize_by(title: 'Sample Test v2')
+  if test_version.new_record?
+    test_version.update_attributes!(user: user, browsers: [Browser::Local.find_by_browser('phantomjs')], test_steps: [TestStep::None.new])
+    test_execution = test_version.test_executions.with_user(user).first_or_create!.execute!(user)
   end
   test_step_set = SharedTestStepSet.find_or_initialize_by(title: 'Sample Test Step Set')
   if test_step_set.new_record?
