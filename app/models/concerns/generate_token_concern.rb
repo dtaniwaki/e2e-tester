@@ -18,7 +18,7 @@ module GenerateTokenConcern
       10.times do
         token = SecureRandom.urlsafe_base64(32)
         unless TestExecutionShare.where(column_name => token).exists?
-          self[column_name] = token
+          self[column_name] ||= token
           break
         end
       end

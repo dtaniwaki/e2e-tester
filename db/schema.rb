@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -81,7 +80,7 @@ ActiveRecord::Schema.define(version: 20160530045048) do
     t.boolean  "deprecated",      default: false, null: false
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
-    t.index ["device", "os", "os_version", "browser", "browser_version"], name: "index_browser_types", length: {"device"=>32, "os"=>32, "os_version"=>32, "browser"=>32, "browser_version"=>32}, using: :btree
+    t.index ["device", "os", "os_version", "browser", "browser_version"], name: "index_browser_types", length: { device: 32, os: 32, os_version: 32, browser: 32, browser_version: 32 }, using: :btree
     t.index ["disabled", "deprecated"], name: "index_browsers_on_disabled_and_deprecated", using: :btree
     t.index ["type"], name: "index_browsers_on_type", using: :btree
   end

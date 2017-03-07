@@ -14,6 +14,12 @@ module E2eTester
 
     config.eager_load_paths << Rails.root.join('lib')
     config.autoload_paths << Rails.root.join('lib', 'validators')
+    config.autoload_paths << Rails.root.join('app', 'graph')
+    config.autoload_paths << Rails.root.join('lib', 'graph', 'utils')
+    config.autoload_paths << Rails.root.join('app', 'graph', 'utils')
+    config.autoload_paths << Rails.root.join('app', 'graph', 'resolvers')
+    config.autoload_paths << Rails.root.join('app', 'graph', 'types')
+    config.autoload_paths << Rails.root.join('app', 'graph', 'operations')
     config.generators do |g|
       g.test_framework :rspec
       g.javascript_engine :js

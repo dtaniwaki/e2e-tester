@@ -89,6 +89,10 @@ Rails.application.routes.draw do
       resources :test_executions, only: [:show]
       get :docs, to: 'docs#index'
     end
+    namespace :graphql do
+      resource :query, only: [:create, :show]
+      resource :schema, only: [:show]
+    end
     match '*path' => 'misc#not_found', via: :all
   end
 

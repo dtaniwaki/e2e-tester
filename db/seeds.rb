@@ -1,5 +1,6 @@
 unless User.first
-  User.create!(username: 'foo', name: 'Foo', email: 'foo@example.com', password: '11111111', password_confirmation: '11111111', confirmed_at: DateTime.now)
+  user = User.create!(username: 'foo', name: 'Foo', email: 'foo@example.com', password: '11111111', password_confirmation: '11111111', confirmed_at: DateTime.now)
+  user.user_api_tokens.create!(name: 'abcd', token: 'abcd')
 end
 
 Browser::Local.update_all!
