@@ -71,6 +71,7 @@ gem 'sprockets-es6', '~> 0.9.2'
 gem 'swagger-blocks', '~> 1.3.3'
 gem 'validates_timeliness', '~> 4.0.2'
 gem 'yajl-ruby', '~> 1.3.0'
+gem 'graphql', '~> 1.4.4'
 
 ################################
 # activeadmin Rails 5 support
