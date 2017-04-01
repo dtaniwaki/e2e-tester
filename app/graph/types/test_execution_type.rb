@@ -16,12 +16,9 @@ module TestExecutionType
     end
   end
 
-  Connection = GraphQL::ObjectType.define do
+  Connection = CommonType::ConnectionType.define entity_type: Entity do
     name "TestExecutionConnection"
     description "Test executions"
-
-    field :pageInfo, !CommonType::PageInfoType, property: :itself
-    field :nodes, !types[Entity], property: :itself
   end
 
   StateEnum = GraphQL::EnumType.define do

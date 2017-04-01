@@ -1,6 +1,8 @@
 module CommonType
   module HashidType
-    def self.define(hashids:, &block)
+    module_function
+    
+    def define(hashids:, &block)
       GraphQL::ScalarType.define do
         instance_exec(&block)
         coerce_input ->(s) { hashids.decode(s)[0] }

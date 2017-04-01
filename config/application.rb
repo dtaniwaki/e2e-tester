@@ -12,14 +12,19 @@ module E2eTester
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 
+    graphql_paths = [
+      Rails.root.join('app', 'graph'),
+      Rails.root.join('lib', 'graph', 'utils'),
+      Rails.root.join('app', 'graph', 'utils'),
+      Rails.root.join('app', 'graph', 'resolvers'),
+      Rails.root.join('app', 'graph', 'types'),
+      Rails.root.join('app', 'graph', 'operations'),
+    ]
     config.eager_load_paths << Rails.root.join('lib')
+    config.eager_load_paths += graphql_paths
     config.autoload_paths << Rails.root.join('lib', 'validators')
-    config.autoload_paths << Rails.root.join('app', 'graph')
-    config.autoload_paths << Rails.root.join('lib', 'graph', 'utils')
-    config.autoload_paths << Rails.root.join('app', 'graph', 'utils')
-    config.autoload_paths << Rails.root.join('app', 'graph', 'resolvers')
-    config.autoload_paths << Rails.root.join('app', 'graph', 'types')
-    config.autoload_paths << Rails.root.join('app', 'graph', 'operations')
+    config.autoload_paths += graphql_paths
+
     config.generators do |g|
       g.test_framework :rspec
       g.javascript_engine :js

@@ -6,6 +6,8 @@ class IndexOperationResolver
   def call(obj, args, ctx)
     arel = @scope_block.call(obj, args, ctx)
     arel = arel.where(id: args[:ids]) unless args[:ids].nil?
-    arel.page(args[:page]).per(args[:limit])
+    records = arel.page(args[:page]).per(args[:limit]).all
+    LazyResolveActiveRecord.set_records(ctx, records)
+    records
   end
 end

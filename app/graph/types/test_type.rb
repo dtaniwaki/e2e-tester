@@ -12,11 +12,13 @@ module TestType
     field :currentTestVersion, -> { !TestVersionType::Entity } do
       resolve ->(obj, _args, ctx) { TestVersion.lazy_find(ctx, obj.current_test_version_id) }
     end
-    field :testVersions, !types[TestVersionType::Entity] do
-      argument :limit, types.Int
-      resolve ->(obj, args, ctx) {
-        TestVersion.lazy_find(ctx, obj.test_version_ids.slice(0, args[:limit]))
-      }
-    end
+    field :testVersions, AssociationField.define(
+      TestVersionType::Connection,
+      ->(obj, _args, _ctx) { obj.test_versions })
+  end
+
+  Connection = CommonType::ConnectionType.define entity_type: Entity do
+    name "TestConnection"
+    description "Tests"
   end
 end

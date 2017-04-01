@@ -45,6 +45,7 @@ module Api
         request.headers['Authorization'] =~ /\ABearer\s+(.*)\Z/
         token = Regexp.last_match(1)
         token ||= query_variables[:token]
+        token ||= params[:token]
         return if token.nil?
         token = UserApiToken.eager_load(:user).find_by(token: token)
         token&.user

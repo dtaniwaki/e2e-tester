@@ -18,4 +18,9 @@ module TestStepSetType
 
     interfaces [CommonType::EntityInterface, CommonType::CrudInterface, Interface]
   end
+
+  Connection = CommonType::ConnectionType.define entity_type: Entity do
+    name "TestStepSetConnection"
+    description "TestStepSets"
+  end
 end

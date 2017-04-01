@@ -36,7 +36,8 @@ class LazyResolveActiveRecord
     loaded_record
   end
 
-  def self.set_records(ctx, records)
+  def self.set_records(ctx, records)  
+    ctx[:loaded_ids] ||= {}
     records.each do |r|
       ctx[:loaded_ids][r.id] = r
     end

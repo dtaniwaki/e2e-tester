@@ -4,7 +4,7 @@ module AuthenticateInstrumentation
   def before_query(query)
     operation = query.selected_operation
     context = query.context
-    return if operation.name == 'IntrospectionQuery'
+    return if operation&.name == 'IntrospectionQuery'
     return if context[:current_user].present?
     raise E2eTester::NotAuthenticated
   end

@@ -15,7 +15,7 @@ module TestExecutionOperation
 
     argument :ids, types[HashidType]
     argument :page, types.Int
-    argument :limit, !types.Int
+    argument :limit, types.Int
     resolve IndexOperationResolver.new(->(_obj, _args, ctx) {
       ctx[:current_user].test_executions
     })
